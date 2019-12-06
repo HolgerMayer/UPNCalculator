@@ -27,7 +27,8 @@ class ViewControllerTests: XCTestCase {
     }
 
     func testButtonsAreAvailable() {
-        
+        XCTAssertNotNil(testObject.inputLabel)
+
         // Numbers
         XCTAssertNotNil(testObject.digit0Button)
         XCTAssertNotNil(testObject.digit1Button)
@@ -54,5 +55,144 @@ class ViewControllerTests: XCTestCase {
 
     }
 
+
+    func testInitialState(){
+        XCTAssertTrue(testObject.inputLabel.text == "")
+        XCTAssertTrue(testObject.isPushed)
+        XCTAssertNotNil(testObject.calculatorEngine)
+        XCTAssertNil(testObject.calculatorEngine.top)
+    }
+    
+   func testInputFirstDigit0(){
+         testObject.digitTapped(testObject.digit0Button)
+         XCTAssertTrue(testObject.inputLabel.text! == "0")
+         XCTAssertNil(testObject.calculatorEngine.top)
+         XCTAssertFalse(testObject.isPushed)
+}
+    
+    func testInputDigits(){
+            testObject.digitTapped(testObject.digit1Button)
+            testObject.digitTapped(testObject.digit2Button)
+            testObject.digitTapped(testObject.digit3Button)
+            testObject.digitTapped(testObject.digit4Button)
+            testObject.digitTapped(testObject.digit5Button)
+            testObject.digitTapped(testObject.digit6Button)
+            testObject.digitTapped(testObject.digit7Button)
+            testObject.digitTapped(testObject.digit8Button)
+            testObject.digitTapped(testObject.digit9Button)
+            testObject.digitTapped(testObject.digit0Button)
+            XCTAssertTrue(testObject.inputLabel.text! == "1234567890")
+            XCTAssertNil(testObject.calculatorEngine.top)
+}
+    
+    func testInputDot(){
+             testObject.digitTapped(testObject.digit1Button)
+             testObject.digitTapped(testObject.digit2Button)
+             testObject.digitTapped(testObject.digit3Button)
+             testObject.digitTapped(testObject.dotButton)
+             testObject.digitTapped(testObject.digit4Button)
+             testObject.digitTapped(testObject.digit5Button)
+             testObject.digitTapped(testObject.digit6Button)
+             testObject.digitTapped(testObject.digit7Button)
+             testObject.digitTapped(testObject.digit8Button)
+             testObject.digitTapped(testObject.digit9Button)
+             testObject.digitTapped(testObject.digit0Button)
+             XCTAssertTrue(testObject.inputLabel.text! == "123.4567890")
+             XCTAssertNil(testObject.calculatorEngine.top)
+     }
+    
+    func testInputEnter(){
+              testObject.digitTapped(testObject.digit1Button)
+              XCTAssertFalse(testObject.isPushed)
+              testObject.digitTapped(testObject.digit2Button)
+              testObject.digitTapped(testObject.digit3Button)
+              testObject.digitTapped(testObject.dotButton)
+              testObject.digitTapped(testObject.digit4Button)
+              testObject.digitTapped(testObject.digit5Button)
+              testObject.digitTapped(testObject.digit6Button)
+              testObject.digitTapped(testObject.digit7Button)
+              testObject.digitTapped(testObject.digit8Button)
+              testObject.digitTapped(testObject.digit9Button)
+              testObject.digitTapped(testObject.digit0Button)
+              testObject.enterTapped(testObject.enterButton)
+              
+              XCTAssertTrue(testObject.isPushed)
+
+              XCTAssertTrue(testObject.inputLabel.text! == "123.4567890")
+              XCTAssertTrue(testObject.calculatorEngine.top! == 123.456789)
+      }
+    
+    func testInputClear(){
+                testObject.digitTapped(testObject.digit1Button)
+                testObject.digitTapped(testObject.digit2Button)
+                testObject.digitTapped(testObject.digit3Button)
+                testObject.digitTapped(testObject.dotButton)
+                testObject.digitTapped(testObject.digit4Button)
+                testObject.digitTapped(testObject.digit5Button)
+                testObject.digitTapped(testObject.digit6Button)
+                testObject.digitTapped(testObject.digit7Button)
+                testObject.digitTapped(testObject.digit8Button)
+                testObject.digitTapped(testObject.digit9Button)
+                testObject.digitTapped(testObject.digit0Button)
+                testObject.enterTapped(testObject.enterButton)
+                testObject.clearTapped(testObject.clearButton)
+
+                XCTAssertTrue(testObject.inputLabel.text! == "")
+                XCTAssertNil(testObject.calculatorEngine.top)
+                XCTAssertFalse(testObject.isPushed)
+    }
+    
+    
+    func testAddButton(){
+        testObject.digitTapped(testObject.digit1Button)
+        testObject.enterTapped(testObject.enterButton)
+        testObject.digitTapped(testObject.digit2Button)
+        testObject.addTapped(testObject.addButton)
+        
+        let result = testObject.calculatorEngine.top!
+        
+        XCTAssertTrue(result == 3)
+        XCTAssertTrue(testObject.inputLabel.text! == "3.0")
+        XCTAssertTrue(testObject.isPushed)
+    }
+    
+    func testSubtractButton(){
+          testObject.digitTapped(testObject.digit1Button)
+          testObject.enterTapped(testObject.enterButton)
+          testObject.digitTapped(testObject.digit2Button)
+          testObject.subtractTapped(testObject.subtractButton)
+          
+          let result = testObject.calculatorEngine.top!
+          
+          XCTAssertTrue(result == -1)
+          XCTAssertTrue(testObject.inputLabel.text! == "-1.0")
+          XCTAssertTrue(testObject.isPushed)
+      }
+    
+    func testMultiplyButton(){
+          testObject.digitTapped(testObject.digit2Button)
+          testObject.enterTapped(testObject.enterButton)
+          testObject.digitTapped(testObject.digit3Button)
+          testObject.multiplyTapped(testObject.multiplyButton)
+          
+          let result = testObject.calculatorEngine.top!
+          
+          XCTAssertTrue(result == 6)
+          XCTAssertTrue(testObject.inputLabel.text! == "6.0")
+          XCTAssertTrue(testObject.isPushed)
+      }
+    
+    func testDivideButton(){
+          testObject.digitTapped(testObject.digit6Button)
+          testObject.enterTapped(testObject.enterButton)
+          testObject.digitTapped(testObject.digit2Button)
+          testObject.divideTapped(testObject.divideButton)
+          
+          let result = testObject.calculatorEngine.top!
+          
+          XCTAssertTrue(result == 3)
+          XCTAssertTrue(testObject.inputLabel.text! == "3.0")
+          XCTAssertTrue(testObject.isPushed)
+      }
 
 }

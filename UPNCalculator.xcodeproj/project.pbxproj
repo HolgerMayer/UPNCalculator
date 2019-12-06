@@ -49,6 +49,7 @@
 		54757B04239A58220048A732 /* UPNCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPNCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54757B08239A58220048A732 /* UPNCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNCalculatorUITests.swift; sourceTree = "<group>"; };
 		54757B0A239A58220048A732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54757B16239A58460048A732 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		54757ADA239A58200048A732 = {
 			isa = PBXGroup;
 			children = (
+				54757B16239A58460048A732 /* TODO.md */,
 				54757AE5239A58200048A732 /* UPNCalculator */,
 				54757AFC239A58220048A732 /* UPNCalculatorTests */,
 				54757B07239A58220048A732 /* UPNCalculatorUITests */,
@@ -99,6 +101,8 @@
 		54757AE5239A58200048A732 /* UPNCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				54757B18239A59030048A732 /* Controller */,
+				54757B17239A58FE0048A732 /* Model */,
 				54757AE6239A58200048A732 /* AppDelegate.swift */,
 				54757AE8239A58200048A732 /* SceneDelegate.swift */,
 				54757AEA239A58200048A732 /* ViewController.swift */,
@@ -113,6 +117,8 @@
 		54757AFC239A58220048A732 /* UPNCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				54757B1A239A59100048A732 /* Controller */,
+				54757B19239A590B0048A732 /* Model */,
 				54757AFD239A58220048A732 /* UPNCalculatorTests.swift */,
 				54757AFF239A58220048A732 /* Info.plist */,
 			);
@@ -126,6 +132,34 @@
 				54757B0A239A58220048A732 /* Info.plist */,
 			);
 			path = UPNCalculatorUITests;
+			sourceTree = "<group>";
+		};
+		54757B17239A58FE0048A732 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54757B18239A59030048A732 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		54757B19239A590B0048A732 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54757B1A239A59100048A732 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

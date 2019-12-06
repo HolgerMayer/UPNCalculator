@@ -13,8 +13,11 @@
 		54757AEE239A58200048A732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54757AEC239A58200048A732 /* Main.storyboard */; };
 		54757AF0239A58210048A732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54757AEF239A58210048A732 /* Assets.xcassets */; };
 		54757AF3239A58210048A732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54757AF1239A58210048A732 /* LaunchScreen.storyboard */; };
-		54757AFE239A58220048A732 /* UPNCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757AFD239A58220048A732 /* UPNCalculatorTests.swift */; };
 		54757B09239A58220048A732 /* UPNCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B08239A58220048A732 /* UPNCalculatorUITests.swift */; };
+		54757B1C239A5C6E0048A732 /* UPNEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B1B239A5C6E0048A732 /* UPNEngineTests.swift */; };
+		54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B1D239A5CBD0048A732 /* UPNEngine.swift */; };
+		54757B20239A5E660048A732 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B1F239A5E660048A732 /* StackTests.swift */; };
+		54757B22239A5EB10048A732 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B21239A5EB10048A732 /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +47,15 @@
 		54757AF2239A58210048A732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54757AF4239A58210048A732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54757AF9239A58220048A732 /* UPNCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPNCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		54757AFD239A58220048A732 /* UPNCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNCalculatorTests.swift; sourceTree = "<group>"; };
 		54757AFF239A58220048A732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54757B04239A58220048A732 /* UPNCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPNCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54757B08239A58220048A732 /* UPNCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNCalculatorUITests.swift; sourceTree = "<group>"; };
 		54757B0A239A58220048A732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54757B16239A58460048A732 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		54757B1B239A5C6E0048A732 /* UPNEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNEngineTests.swift; sourceTree = "<group>"; };
+		54757B1D239A5CBD0048A732 /* UPNEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNEngine.swift; sourceTree = "<group>"; };
+		54757B1F239A5E660048A732 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		54757B21239A5EB10048A732 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +125,6 @@
 			children = (
 				54757B1A239A59100048A732 /* Controller */,
 				54757B19239A590B0048A732 /* Model */,
-				54757AFD239A58220048A732 /* UPNCalculatorTests.swift */,
 				54757AFF239A58220048A732 /* Info.plist */,
 			);
 			path = UPNCalculatorTests;
@@ -137,6 +142,8 @@
 		54757B17239A58FE0048A732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54757B1D239A5CBD0048A732 /* UPNEngine.swift */,
+				54757B21239A5EB10048A732 /* Stack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +158,8 @@
 		54757B19239A590B0048A732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54757B1B239A5C6E0048A732 /* UPNEngineTests.swift */,
+				54757B1F239A5E660048A732 /* StackTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,8 +303,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54757AEB239A58200048A732 /* ViewController.swift in Sources */,
+				54757B22239A5EB10048A732 /* Stack.swift in Sources */,
 				54757AE7239A58200048A732 /* AppDelegate.swift in Sources */,
 				54757AE9239A58200048A732 /* SceneDelegate.swift in Sources */,
+				54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +314,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54757AFE239A58220048A732 /* UPNCalculatorTests.swift in Sources */,
+				54757B1C239A5C6E0048A732 /* UPNEngineTests.swift in Sources */,
+				54757B20239A5E660048A732 /* StackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

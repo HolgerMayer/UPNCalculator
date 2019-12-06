@@ -1,8 +1,8 @@
 #  Calculator TODO-List
 [06.12.19] [06.12.19] Create Project
 *[06.12.19] [06.12.19] Create File Structure (Model/Controller()
-[06.12.19] Create UPN Engine unit tests
-[06.12.19] Create UPN Engine
+[06.12.19] [06.12.19] Create UPN Engine unit tests
+*[06.12.19] [06.12.19] Create UPN Engine
 *[06.12.19] Create Calculator UI Existence unit tests
 [06.12.19] Create Calculator UI
 [*06.12.19] Create Calculator UI Calculation tests

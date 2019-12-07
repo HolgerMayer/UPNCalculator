@@ -31,6 +31,12 @@ class UPNEngineTests: XCTestCase {
         XCTAssertTrue(testObject.top! == 1.0)
     }
 
+    func testRemoveTop(){
+        testObject.enterNumber(1.0)
+        testObject.removeTop()
+        XCTAssertNil(testObject.top)
+    }
+    
     func testClear() {
         testObject.enterNumber(1.0)
         testObject.clear()
@@ -201,5 +207,18 @@ class UPNEngineTests: XCTestCase {
          
     }
     
-    
+    func testSqrt(){
+           testObject.enterNumber(0.0)
+           testObject.sqrt()
+           XCTAssertTrue(testObject.top! == 0.0)
+
+           testObject.enterNumber(4.0)
+           testObject.sqrt()
+           XCTAssertTrue(abs(2.0 - testObject.top!) < 0.0001)
+           
+             testObject.enterNumber(9.0)
+             testObject.sqrt()
+             XCTAssertTrue(abs(3.0 - testObject.top!) < 0.0001)
+
+      }
 }

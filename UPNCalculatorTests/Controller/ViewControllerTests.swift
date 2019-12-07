@@ -285,6 +285,47 @@ class ViewControllerTests: XCTestCase {
     }
 
     
+    func testSqrtButton(){
+        testObject.digitTapped(testObject.digit0Button)
+        testObject.squarerootTapped(testObject.sqrtButton)
+          
+        let result1 = Double(testObject.outputLabel.text! )
+        XCTAssertTrue(abs(result1!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed())
+ 
+        testObject.digitTapped(testObject.digit4Button)
+        testObject.squarerootTapped(testObject.sqrtButton)
+            
+        let result2 = Double(testObject.outputLabel.text! )
+        XCTAssertTrue(abs(2 - result2!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed())
+
+        testObject.digitTapped(testObject.digit9Button)
+        testObject.squarerootTapped(testObject.sqrtButton)
+               
+        let result3 = Double(testObject.outputLabel.text! )
+        XCTAssertTrue(abs(3 - result3!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed())
+    }
+    
+    func testDivideOneByXButton(){
+        testObject.digitTapped(testObject.digit1Button)
+        testObject.digitTapped(testObject.digit0Button)
+        testObject.divideOneByXTapped(testObject.onedivxButton)
+           
+        let result1 = Double(testObject.outputLabel.text! )
+        XCTAssertTrue(abs(0.1 - result1!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed())
+
+        testObject.digitTapped(testObject.digit2Button)
+        testObject.divideOneByXTapped(testObject.onedivxButton)
+           
+        let result2 = Double(testObject.outputLabel.text! )
+        XCTAssertTrue(abs(0.5 - result2!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed())
+
+    }
+    
     func enterPi(){
         testObject.digitTapped(testObject.digit3Button)
         testObject.digitTapped(testObject.dotButton)

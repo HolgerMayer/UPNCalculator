@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNY-yX-2k2">
-                                <rect key="frame" x="590" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="590" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit7"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="hxi-Y5-bqf"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxP-Z3-D7c">
-                                <rect key="frame" x="660" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="660" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="mwl-kW-R0i"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIS-9d-763">
-                                <rect key="frame" x="730" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="730" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit9"/>
                                 <state key="normal" title="9" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBU-kx-kL4">
-                                <rect key="frame" x="800" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="800" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="add"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="l1M-ai-ifQ"/>
@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbK-Yf-E6C">
-                                <rect key="frame" x="590" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="590" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="kNd-pu-X9E"/>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-S3-PuG">
-                                <rect key="frame" x="660" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="660" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit5"/>
                                 <state key="normal" title="5" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX8-CE-C6p">
-                                <rect key="frame" x="730" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="730" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="digit6"/>
                                 <state key="normal" title="6" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-gF-yRZ">
-                                <rect key="frame" x="800" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="800" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="subtract"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Vq9-uo-JQI"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-Pm-2JG">
-                                <rect key="frame" x="590" y="221" width="75" height="72.5"/>
+                                <rect key="frame" x="590" y="221.66666666666663" width="75" height="72.000000000000028"/>
                                 <accessibility key="accessibilityConfiguration" label="digit1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="bcn-ad-ZEY"/>
@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw4-Cn-1Gn">
-                                <rect key="frame" x="660" y="221" width="75" height="72.5"/>
+                                <rect key="frame" x="660" y="221.66666666666663" width="75" height="72.000000000000028"/>
                                 <accessibility key="accessibilityConfiguration" label="digit2"/>
                                 <state key="normal" title="2" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-ms-sHz">
-                                <rect key="frame" x="730" y="221" width="75" height="72.5"/>
+                                <rect key="frame" x="730" y="221.66666666666663" width="75" height="72.000000000000028"/>
                                 <accessibility key="accessibilityConfiguration" label="digit3"/>
                                 <state key="normal" title="3" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -146,7 +146,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5O-ux-cta">
-                                <rect key="frame" x="800" y="221" width="75" height="72.5"/>
+                                <rect key="frame" x="800" y="221.66666666666663" width="75" height="72.000000000000028"/>
                                 <accessibility key="accessibilityConfiguration" label="multiply"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="7oA-wq-dI3"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96r-Xb-Uue">
-                                <rect key="frame" x="590" y="301" width="75" height="72.5"/>
+                                <rect key="frame" x="590" y="301.66666666666669" width="75" height="71.999999999999972"/>
                                 <accessibility key="accessibilityConfiguration" label="digit0"/>
                                 <state key="normal" title="0" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa1-nX-ZOa">
-                                <rect key="frame" x="660" y="301" width="75" height="72.5"/>
+                                <rect key="frame" x="660" y="301.66666666666669" width="75" height="71.999999999999972"/>
                                 <accessibility key="accessibilityConfiguration" label="dot"/>
                                 <state key="normal" title="." backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KC6-tj-9LY">
-                                <rect key="frame" x="800" y="301" width="75" height="72.5"/>
+                                <rect key="frame" x="800" y="301.66666666666669" width="75" height="71.999999999999972"/>
                                 <accessibility key="accessibilityConfiguration" label="divide"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="78Q-pw-GB5"/>
@@ -194,7 +194,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-uP-HFG">
-                                <rect key="frame" x="520" y="221" width="75" height="147.5"/>
+                                <rect key="frame" x="520" y="221.66666666666663" width="75" height="147.00000000000003"/>
                                 <accessibility key="accessibilityConfiguration" label="enter"/>
                                 <state key="normal" title="Enter" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -215,7 +215,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-mK-zqq">
-                                <rect key="frame" x="520" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="520" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="clear"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="VIR-bw-aFD"/>
@@ -228,7 +228,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqY-rP-vZs">
-                                <rect key="frame" x="520" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="520" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="chs"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="AnJ-yt-Zf5"/>
@@ -243,7 +243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-S9-ktK">
-                                <rect key="frame" x="170" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="170" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="sqrt"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="KBr-6X-bsA"/>
@@ -253,9 +253,12 @@
                                 <state key="normal" title="sqrt" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="squarerootTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q2P-Nq-0h4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMN-QW-eF2">
-                                <rect key="frame" x="240" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="240" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="xovere"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Bel-Ua-W1k"/>
@@ -267,7 +270,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4q-bu-qTe">
-                                <rect key="frame" x="310" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="310" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="xoverten"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="8Oo-js-Rjx"/>
@@ -279,7 +282,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUl-Kw-qXr">
-                                <rect key="frame" x="380" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="380" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="xovery"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Lhn-MJ-FWp"/>
@@ -291,7 +294,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-fU-kDb">
-                                <rect key="frame" x="450" y="61" width="75" height="72.5"/>
+                                <rect key="frame" x="450" y="61.666666666666657" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="divide1ByX"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="MYK-gk-f36"/>
@@ -301,9 +304,12 @@
                                 <state key="normal" title="1/x" backgroundImage="square" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="divideOneByXTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gis-FC-c4Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vro-rO-c1F">
-                                <rect key="frame" x="310" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="310" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="sin"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Khn-pp-nFF"/>
@@ -318,7 +324,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-N5-6kr">
-                                <rect key="frame" x="380" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="380" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="cos"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Sc6-CA-G1I"/>
@@ -333,7 +339,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7b-qS-jWM">
-                                <rect key="frame" x="450" y="141" width="75" height="72.5"/>
+                                <rect key="frame" x="450" y="141.66666666666666" width="75" height="72"/>
                                 <accessibility key="accessibilityConfiguration" label="tan"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="22m-zs-wPe"/>

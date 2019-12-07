@@ -28,6 +28,11 @@ class UPNEngine {
         stack.clear()
     }
     
+    
+    func removeTop() {
+        stack.pop()
+    }
+    
     func add() {
         let a = getNextNumber()
         let b = getNextNumber()
@@ -77,6 +82,12 @@ class UPNEngine {
         let a = getNextNumber()
     
         stack.push(Darwin.tan(a))
+    }
+    
+    func sqrt()  {
+        let a = getNextNumber()
+    
+        stack.push(Darwin.sqrt(a))
     }
 
     private func getNextNumber() -> Double {

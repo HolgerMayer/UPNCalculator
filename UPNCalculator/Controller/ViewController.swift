@@ -126,7 +126,16 @@ class ViewController: UIViewController {
     }
 
   
-    
+    @IBAction func squarerootTapped(_ sender : UIButton) {
+          let command = SquareRootCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+          command.execute()
+      }
+
+    @IBAction func divideOneByXTapped(_ sender : UIButton) {
+           let command = DivideOneByXCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+           command.execute()
+       }
+
 
 }
 

@@ -27,7 +27,7 @@ class ViewControllerTests: XCTestCase {
     }
 
     func testButtonsAreAvailable() {
-        XCTAssertNotNil(testObject.inputLabel)
+        XCTAssertNotNil(testObject.outputLabel)
 
         // Numbers
         XCTAssertNotNil(testObject.digit0Button)
@@ -69,17 +69,17 @@ class ViewControllerTests: XCTestCase {
 
 
     func testInitialState(){
-        XCTAssertTrue(testObject.inputLabel.text == "")
-        XCTAssertTrue(testObject.isPushed)
+        XCTAssertTrue(testObject.outputLabel.text == "")
+        XCTAssertFalse(testObject.isPushed())
         XCTAssertNotNil(testObject.calculatorEngine)
         XCTAssertNil(testObject.calculatorEngine.top)
     }
     
    func testInputFirstDigit0(){
          testObject.digitTapped(testObject.digit0Button)
-         XCTAssertTrue(testObject.inputLabel.text! == "0")
+         XCTAssertTrue(testObject.outputLabel.text! == "0")
          XCTAssertNil(testObject.calculatorEngine.top)
-         XCTAssertFalse(testObject.isPushed)
+         XCTAssertFalse(testObject.isPushed())
 }
     
     func testInputDigits(){
@@ -93,7 +93,7 @@ class ViewControllerTests: XCTestCase {
             testObject.digitTapped(testObject.digit8Button)
             testObject.digitTapped(testObject.digit9Button)
             testObject.digitTapped(testObject.digit0Button)
-            XCTAssertTrue(testObject.inputLabel.text! == "1234567890")
+            XCTAssertTrue(testObject.outputLabel.text! == "1234567890")
             XCTAssertNil(testObject.calculatorEngine.top)
 }
     
@@ -109,13 +109,13 @@ class ViewControllerTests: XCTestCase {
              testObject.digitTapped(testObject.digit8Button)
              testObject.digitTapped(testObject.digit9Button)
              testObject.digitTapped(testObject.digit0Button)
-             XCTAssertTrue(testObject.inputLabel.text! == "123.4567890")
+             XCTAssertTrue(testObject.outputLabel.text! == "123.4567890")
              XCTAssertNil(testObject.calculatorEngine.top)
      }
     
     func testInputEnter(){
               testObject.digitTapped(testObject.digit1Button)
-              XCTAssertFalse(testObject.isPushed)
+              XCTAssertFalse(testObject.isPushed())
               testObject.digitTapped(testObject.digit2Button)
               testObject.digitTapped(testObject.digit3Button)
               testObject.digitTapped(testObject.dotButton)
@@ -128,9 +128,9 @@ class ViewControllerTests: XCTestCase {
               testObject.digitTapped(testObject.digit0Button)
               testObject.enterTapped(testObject.enterButton)
               
-              XCTAssertTrue(testObject.isPushed)
+              XCTAssertTrue(testObject.isPushed())
 
-              XCTAssertTrue(testObject.inputLabel.text! == "123.4567890")
+              XCTAssertTrue(testObject.outputLabel.text! == "123.4567890")
               XCTAssertTrue(testObject.calculatorEngine.top! == 123.456789)
       }
     
@@ -149,9 +149,9 @@ class ViewControllerTests: XCTestCase {
                 testObject.enterTapped(testObject.enterButton)
                 testObject.clearTapped(testObject.clearButton)
 
-                XCTAssertTrue(testObject.inputLabel.text! == "")
+                XCTAssertTrue(testObject.outputLabel.text! == "")
                 XCTAssertNil(testObject.calculatorEngine.top)
-                XCTAssertFalse(testObject.isPushed)
+                XCTAssertFalse(testObject.isPushed())
     }
     
     
@@ -164,8 +164,8 @@ class ViewControllerTests: XCTestCase {
         let result = testObject.calculatorEngine.top!
         
         XCTAssertTrue(result == 3)
-        XCTAssertTrue(testObject.inputLabel.text! == "3.0")
-        XCTAssertTrue(testObject.isPushed)
+        XCTAssertTrue(testObject.outputLabel.text! == "3.0")
+        XCTAssertTrue(testObject.isPushed())
     }
     
     func testSubtractButton(){
@@ -177,8 +177,8 @@ class ViewControllerTests: XCTestCase {
           let result = testObject.calculatorEngine.top!
           
           XCTAssertTrue(result == -1)
-          XCTAssertTrue(testObject.inputLabel.text! == "-1.0")
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.outputLabel.text! == "-1.0")
+          XCTAssertTrue(testObject.isPushed())
       }
     
     func testMultiplyButton(){
@@ -190,8 +190,8 @@ class ViewControllerTests: XCTestCase {
           let result = testObject.calculatorEngine.top!
           
           XCTAssertTrue(result == 6)
-          XCTAssertTrue(testObject.inputLabel.text! == "6.0")
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.outputLabel.text! == "6.0")
+          XCTAssertTrue(testObject.isPushed())
       }
     
     func testDivideButton(){
@@ -203,8 +203,8 @@ class ViewControllerTests: XCTestCase {
           let result = testObject.calculatorEngine.top!
           
           XCTAssertTrue(result == 3)
-          XCTAssertTrue(testObject.inputLabel.text! == "3.0")
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.outputLabel.text! == "3.0")
+          XCTAssertTrue(testObject.isPushed())
       }
     
     func testChsButton(){
@@ -212,12 +212,12 @@ class ViewControllerTests: XCTestCase {
         
         testObject.chsTapped(testObject.chsButton)
         
-        XCTAssertTrue(testObject.inputLabel.text! == "-6.0")
-        XCTAssertFalse(testObject.isPushed)
+        XCTAssertTrue(testObject.outputLabel.text! == "-6.0")
+        XCTAssertFalse(testObject.isPushed())
         
         testObject.chsTapped(testObject.chsButton)
-        XCTAssertTrue(testObject.inputLabel.text! == "6.0")
-        XCTAssertFalse(testObject.isPushed)
+        XCTAssertTrue(testObject.outputLabel.text! == "6.0")
+        XCTAssertFalse(testObject.isPushed())
     }
     
     
@@ -226,43 +226,43 @@ class ViewControllerTests: XCTestCase {
         
          testObject.sinTapped(testObject.sinButton)
         
-         let result1 = Double(testObject.inputLabel.text! )
+         let result1 = Double(testObject.outputLabel.text! )
          XCTAssertTrue(abs(1.0 - result1!) < 0.0001)
-         XCTAssertTrue(testObject.isPushed)
+         XCTAssertTrue(testObject.isPushed())
        
          enterPi()
           
          testObject.sinTapped(testObject.sinButton)
           
-         let result2 = Double(testObject.inputLabel.text! )
+         let result2 = Double(testObject.outputLabel.text! )
          XCTAssertTrue(abs(result2!) < 0.0001)
-         XCTAssertTrue(testObject.isPushed)
+         XCTAssertTrue(testObject.isPushed())
       }
     
     func testCosButton(){
           testObject.digitTapped(testObject.digit0Button)
           testObject.cosTapped(testObject.cosButton)
         
-          let result1 = Double(testObject.inputLabel.text! )
+          let result1 = Double(testObject.outputLabel.text! )
           XCTAssertTrue(abs(1.0 - result1!) < 0.0001)
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.isPushed())
         
         
           enterHalfPi()
          
           testObject.cosTapped(testObject.cosButton)
          
-          let result2 = Double(testObject.inputLabel.text! )
+          let result2 = Double(testObject.outputLabel.text! )
           XCTAssertTrue(abs(result2!) < 0.0001)
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.isPushed())
         
           enterPi()
            
           testObject.cosTapped(testObject.cosButton)
            
-          let result3 = Double(testObject.inputLabel.text! )
+          let result3 = Double(testObject.outputLabel.text! )
           XCTAssertTrue(abs(1 + result3!) < 0.0001)
-          XCTAssertTrue(testObject.isPushed)
+          XCTAssertTrue(testObject.isPushed())
 
        }
     
@@ -270,17 +270,17 @@ class ViewControllerTests: XCTestCase {
         testObject.digitTapped(testObject.digit0Button)
         testObject.tanTapped(testObject.tanButton)
    
-        let result1 = Double(testObject.inputLabel.text! )
+        let result1 = Double(testObject.outputLabel.text! )
         XCTAssertTrue(abs(result1!) < 0.0001)
-        XCTAssertTrue(testObject.isPushed)
+        XCTAssertTrue(testObject.isPushed())
    
         enterPi()
       
         testObject.tanTapped(testObject.tanButton)
       
-        let result3 = Double(testObject.inputLabel.text! )
+        let result3 = Double(testObject.outputLabel.text! )
         XCTAssertTrue(abs(result3!) < 0.0001)
-        XCTAssertTrue(testObject.isPushed)
+        XCTAssertTrue(testObject.isPushed())
 
     }
 

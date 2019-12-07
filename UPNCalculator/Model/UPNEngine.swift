@@ -12,7 +12,7 @@ enum CalculationError : Error {
     case divisionByZero
 }
 
-struct UPNEngine {
+class UPNEngine {
     
     fileprivate var stack = Stack<Double>()
     
@@ -20,36 +20,36 @@ struct UPNEngine {
         return stack.top
     }
     
-    mutating func enterNumber(_ number : Double) {
+    func enterNumber(_ number : Double) {
         stack.push(number)
     }
     
-    mutating func clear() {
+    func clear() {
         stack.clear()
     }
     
-    mutating func add() {
+    func add() {
         let a = getNextNumber()
         let b = getNextNumber()
 
         stack.push(b + a)
     }
     
-    mutating func subtract() {
+    func subtract() {
           let a = getNextNumber()
           let b = getNextNumber()
 
           stack.push(b - a)
       }
     
-    mutating func multiply() {
+    func multiply() {
           let a = getNextNumber()
           let b = getNextNumber()
 
           stack.push(b * a)
       }
     
-    mutating func divide() throws {
+    func divide() throws {
         let a = getNextNumber()
         let b = getNextNumber()
 
@@ -61,25 +61,25 @@ struct UPNEngine {
     }
     
     
-    mutating func sin()  {
+    func sin()  {
         let a = getNextNumber()
  
         stack.push(Darwin.sin(a))
     }
   
-    mutating func cos()  {
+    func cos()  {
         let a = getNextNumber()
     
         stack.push(Darwin.cos(a))
     }
 
-    mutating func tan()  {
+    func tan()  {
         let a = getNextNumber()
     
         stack.push(Darwin.tan(a))
     }
 
-    private mutating func getNextNumber() -> Double {
+    private func getNextNumber() -> Double {
         guard let a = stack.pop() else {
             return 0.0
         }

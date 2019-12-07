@@ -244,7 +244,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-S9-ktK">
                                 <rect key="frame" x="170" y="61" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="sqrt"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="KBr-6X-bsA"/>
                                     <constraint firstAttribute="width" constant="75" id="Qad-BN-Ii6"/>
@@ -256,7 +256,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMN-QW-eF2">
                                 <rect key="frame" x="240" y="61" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="xovere"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Bel-Ua-W1k"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="F6o-ia-GYT"/>
@@ -268,7 +268,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4q-bu-qTe">
                                 <rect key="frame" x="310" y="61" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="xoverten"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="8Oo-js-Rjx"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="RaD-nA-Se9"/>
@@ -280,7 +280,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUl-Kw-qXr">
                                 <rect key="frame" x="380" y="61" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="xovery"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Lhn-MJ-FWp"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="ODR-QH-udd"/>
@@ -292,7 +292,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-fU-kDb">
                                 <rect key="frame" x="450" y="61" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="divide1ByX"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="MYK-gk-f36"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="bSg-mq-AnX"/>
@@ -304,7 +304,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vro-rO-c1F">
                                 <rect key="frame" x="310" y="141" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="sin"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Khn-pp-nFF"/>
                                     <constraint firstAttribute="height" constant="75" id="Lu4-wK-21T"/>
@@ -319,7 +319,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-N5-6kr">
                                 <rect key="frame" x="380" y="141" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="cos"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Sc6-CA-G1I"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="Tfj-TC-QQp"/>
@@ -334,7 +334,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7b-qS-jWM">
                                 <rect key="frame" x="450" y="141" width="75" height="72.5"/>
-                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <accessibility key="accessibilityConfiguration" label="tan"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="22m-zs-wPe"/>
                                     <constraint firstAttribute="height" constant="75" id="6Hp-SC-KpE"/>
@@ -462,9 +462,9 @@
                         <outlet property="divideButton" destination="KC6-tj-9LY" id="Sf3-Zk-EQb"/>
                         <outlet property="dotButton" destination="Fa1-nX-ZOa" id="FuM-YL-j69"/>
                         <outlet property="enterButton" destination="NeC-uP-HFG" id="sb0-7W-pjJ"/>
-                        <outlet property="inputLabel" destination="oOz-ov-NQX" id="kw8-CT-cA4"/>
                         <outlet property="multiplyButton" destination="W5O-ux-cta" id="MfJ-Te-pkB"/>
                         <outlet property="onedivxButton" destination="8kQ-fU-kDb" id="OZQ-f7-LOE"/>
+                        <outlet property="outputLabel" destination="oOz-ov-NQX" id="kw8-CT-cA4"/>
                         <outlet property="sinButton" destination="Vro-rO-c1F" id="YuV-M3-Pp3"/>
                         <outlet property="sqrtButton" destination="D4f-S9-ktK" id="afc-cg-uc2"/>
                         <outlet property="subtractButton" destination="cLh-gF-yRZ" id="naa-41-X0h"/>

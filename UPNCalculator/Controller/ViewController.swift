@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var inputLabel : UILabel!
+    @IBOutlet var outputLabel : UILabel!
     
     @IBOutlet var digit0Button : UIButton!
     @IBOutlet var digit1Button : UIButton!
@@ -44,194 +44,88 @@ class ViewController: UIViewController {
     @IBOutlet var clearButton : UIButton!
     @IBOutlet var chsButton : UIButton!
 
-    var isPushed = true
-    var calculatorEngine = UPNEngine()
+    
+    var calculatorEngine : UPNEngine! = UPNEngine()
+    var outputDisplay : CalculatorOutputDisplay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        inputLabel.text = ""
+        
+        outputDisplay = CalculatorOutputDisplay(displayLabel: outputLabel!)
     }
 
+    func isPushed() -> Bool {
+        return outputDisplay.isPushed
+    }
+    
     @IBAction func digitTapped(_ sender: UIButton) {
-        digitOrDotButtonClicked(sender)
+        let command = DigitDotCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.button(sender.titleLabel!.text!)
+        command.execute()
     }
     
     
     @IBAction func addTapped(_ sender : UIButton) {
-        if !isPushed {
-            enterNumberFromInput()
-        }
-        
-        calculatorEngine.add()
-        guard let result = calculatorEngine.top else {
-            inputLabel.text! = "Error during addition"
-            return
-        }
-
-        inputLabel.text! = "\(result)"
+        let command = AddCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.execute()
     }
     
     @IBAction func subtractTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-             calculatorEngine.subtract()
-             guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during subtraction"
-                 return
-             }
+         let command = SubtractCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+         command.execute()
 
-             inputLabel.text! = "\(result)"
-        }
+    }
     
     @IBAction func multiplyTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-             calculatorEngine.multiply()
-             guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during multiply"
-                 return
-             }
-
-             inputLabel.text! = "\(result)"
-        }
+        let command = MultiplyCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.execute()
+    }
     
     @IBAction func divideTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-        do {
-            try  calculatorEngine.divide()
-        } catch {
-        inputLabel.text! = "Error during division calculation"
-           return
-
-        }
-        
-        guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during division"
-                 return
-        }
-
-        inputLabel.text! = "\(result)"
+         let command = DivideCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+          command.execute()
     }
     
     @IBAction func dotTapped(_ sender : UIButton) {
-            digitOrDotButtonClicked(sender)
-
+        let command = DigitDotCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        
+        command.button(sender.titleLabel!.text!)
+        command.execute()
     }
     
     @IBAction func enterTapped(_ sender : UIButton) {
         
-        enterNumberFromInput()
+        let command = EnterCommand(calculatorEngine:calculatorEngine, display: outputDisplay)
+        command.execute()
     }
     
     @IBAction func clearTapped(_ sender : UIButton) {
         calculatorEngine.clear()
-        inputLabel.text! = ""
-        isPushed = false
+        outputDisplay.clear()
     }
     
     @IBAction func chsTapped(_ sender : UIButton) {
-      guard let value = Double(inputLabel.text!) else {
-                  inputLabel.text! = "Error wrong number format"
-                  return
-              }
-
-        inputLabel.text! = "\(-1 * value)"
+        outputDisplay.changeSign()
     }
     
     
     @IBAction func sinTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-        do {
-            try  calculatorEngine.sin()
-        } catch {
-        inputLabel.text! = "Error during sinus calculation"
-           return
-
-        }
-        
-        guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during sinus"
-                 return
-        }
-
-        inputLabel.text! = "\(result)"
+         let command = SinusCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.execute()
     }
     
     @IBAction func cosTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-        do {
-            try  calculatorEngine.cos()
-        } catch {
-        inputLabel.text! = "Error during cosinus calculation"
-           return
-
-        }
-        
-        guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during cosinus"
-                 return
-        }
-
-        inputLabel.text! = "\(result)"
+        let command = CosinusCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.execute()
     }
     
     @IBAction func tanTapped(_ sender : UIButton) {
-            if !isPushed {
-                 enterNumberFromInput()
-             }
-             
-        do {
-            try  calculatorEngine.tan()
-        } catch {
-        inputLabel.text! = "Error during tan calculation"
-           return
-
-        }
-        
-        guard let result = calculatorEngine.top else {
-                 inputLabel.text! = "Error during tan"
-                 return
-        }
-
-        inputLabel.text! = "\(result)"
+        let command = TangentCommand(calculatorEngine: calculatorEngine, display: outputDisplay)
+        command.execute()
     }
 
-    private func enterNumberFromInput(){
-        guard let value = Double(inputLabel.text!) else {
-               inputLabel.text! = "Error wrong number format"
-               return
-           }
-           
-           calculatorEngine.enterNumber(value)
-           isPushed = true
-    }
-    
-    private func digitOrDotButtonClicked(_ button: UIButton){
-        let digitString = button.titleLabel?.text
-        
-        if isPushed {
-            inputLabel.text! = digitString!
-            isPushed = false
-        } else {
-            inputLabel.text! += digitString!
-        }
-        print(inputLabel.text!)
-    }
-    
+  
     
 
 }

@@ -51,6 +51,7 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(testObject.dotButton)
         XCTAssertNotNil(testObject.enterButton)
         XCTAssertNotNil(testObject.clearButton)
+        XCTAssertNotNil(testObject.chsButton)
 
 
     }
@@ -194,5 +195,18 @@ class ViewControllerTests: XCTestCase {
           XCTAssertTrue(testObject.inputLabel.text! == "3.0")
           XCTAssertTrue(testObject.isPushed)
       }
+    
+    func testChsButton(){
+        testObject.digitTapped(testObject.digit6Button)
+        
+        testObject.chsTapped(testObject.chsButton)
+        
+        XCTAssertTrue(testObject.inputLabel.text! == "-6.0")
+        XCTAssertFalse(testObject.isPushed)
+        
+        testObject.chsTapped(testObject.chsButton)
+        XCTAssertTrue(testObject.inputLabel.text! == "6.0")
+        XCTAssertFalse(testObject.isPushed)
+    }
 
 }

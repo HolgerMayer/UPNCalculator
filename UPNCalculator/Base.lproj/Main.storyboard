@@ -227,12 +227,28 @@
                                     <action selector="clearTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JBQ-JA-Stn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqY-rP-vZs">
+                                <rect key="frame" x="520" y="141" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="AnJ-yt-Zf5"/>
+                                    <constraint firstAttribute="height" constant="75" id="rTg-ju-BhZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="ye0-78-D1U"/>
+                                </constraints>
+                                <state key="normal" title="chs" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="chsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vQ3-j9-Nah"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ygC-S3-PuG" firstAttribute="baseline" secondItem="uX8-CE-C6p" secondAttribute="baseline" id="1P4-iF-u65"/>
                             <constraint firstItem="NeC-uP-HFG" firstAttribute="top" secondItem="Eku-Pm-2JG" secondAttribute="top" id="1Qc-83-YHc"/>
                             <constraint firstItem="oOz-ov-NQX" firstAttribute="trailing" secondItem="KC6-tj-9LY" secondAttribute="trailing" id="1gI-3j-qSr"/>
+                            <constraint firstItem="DqY-rP-vZs" firstAttribute="baseline" secondItem="mbK-Yf-E6C" secondAttribute="baseline" id="2fi-cG-feY"/>
                             <constraint firstItem="LBU-kx-kL4" firstAttribute="leading" secondItem="pxP-Z3-D7c" secondAttribute="trailing" constant="65" id="3Us-Mq-1M4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oOz-ov-NQX" secondAttribute="trailing" constant="-39" id="3cw-X9-Kqh"/>
                             <constraint firstItem="mbK-Yf-E6C" firstAttribute="leading" secondItem="Eku-Pm-2JG" secondAttribute="leading" id="4XB-qI-rtK"/>
@@ -279,6 +295,7 @@
                             <constraint firstItem="uX8-CE-C6p" firstAttribute="trailing" secondItem="tv1-ms-sHz" secondAttribute="trailing" id="cPJ-vE-4Ze"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zIS-9d-763" secondAttribute="trailing" constant="47" id="crP-fb-wCH"/>
                             <constraint firstItem="pxP-Z3-D7c" firstAttribute="leading" secondItem="ygC-S3-PuG" secondAttribute="leading" id="dGd-9L-wyC"/>
+                            <constraint firstItem="DqY-rP-vZs" firstAttribute="leading" secondItem="RDp-mK-zqq" secondAttribute="leading" id="eSx-iL-1rq"/>
                             <constraint firstItem="iw4-Cn-1Gn" firstAttribute="top" secondItem="tv1-ms-sHz" secondAttribute="top" id="gME-l7-wAq"/>
                             <constraint firstItem="nNY-yX-2k2" firstAttribute="top" secondItem="oOz-ov-NQX" secondAttribute="bottom" constant="10" id="hO2-5F-ytf"/>
                             <constraint firstItem="iw4-Cn-1Gn" firstAttribute="leading" secondItem="Fa1-nX-ZOa" secondAttribute="leading" id="hSB-hc-eNv"/>
@@ -308,6 +325,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="LBU-kx-kL4" id="ler-EK-WYx"/>
+                        <outlet property="chsButton" destination="DqY-rP-vZs" id="YEn-aO-aE6"/>
                         <outlet property="clearButton" destination="RDp-mK-zqq" id="7U0-xh-Zo9"/>
                         <outlet property="digit0Button" destination="96r-Xb-Uue" id="D4M-f7-v32"/>
                         <outlet property="digit1Button" destination="Eku-Pm-2JG" id="JOx-W1-qsR"/>

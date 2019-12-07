@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet var dotButton : UIButton!
     @IBOutlet var enterButton : UIButton!
     @IBOutlet var clearButton : UIButton!
+    @IBOutlet var chsButton : UIButton!
 
     var isPushed = true
     var calculatorEngine = UPNEngine()
@@ -122,7 +123,15 @@ class ViewController: UIViewController {
         isPushed = false
     }
     
-    
+    @IBAction func chsTapped(_ sender : UIButton) {
+      guard let value = Double(inputLabel.text!) else {
+                  inputLabel.text! = "Error wrong number format"
+                  return
+              }
+
+        inputLabel.text! = "\(-1 * value)"
+    }
+
     private func enterNumberFromInput(){
         guard let value = Double(inputLabel.text!) else {
                inputLabel.text! = "Error wrong number format"

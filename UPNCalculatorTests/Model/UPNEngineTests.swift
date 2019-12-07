@@ -144,4 +144,62 @@ class UPNEngineTests: XCTestCase {
         XCTFail("Division by Zero did not throw exception")
     }
    
+    
+    func testSin(){
+        testObject.enterNumber(0.0)
+        testObject.sin()
+        XCTAssertTrue(testObject.top! == 0.0)
+
+        testObject.enterNumber(Double.pi / 2)
+        testObject.sin()
+        XCTAssertTrue(testObject.top! == 1.0)
+        
+        
+        testObject.enterNumber(Double.pi)
+        testObject.sin()
+
+        XCTAssertTrue(abs(testObject.top!) < 0.0001)
+        
+        testObject.enterNumber(Double.pi / 2 * 3)
+        testObject.sin()
+        XCTAssertTrue(testObject.top! == -1.0)
+    }
+    
+    
+    func testCos(){
+        testObject.enterNumber(0.0)
+        testObject.cos()
+        XCTAssertTrue(testObject.top! == 1.0)
+
+        testObject.enterNumber(Double.pi / 2)
+        testObject.cos()
+        XCTAssertTrue(abs(testObject.top!) < 0.0001)
+        
+        
+        testObject.enterNumber(Double.pi)
+        testObject.cos()
+        XCTAssertTrue(testObject.top! == -1.0)
+        
+        testObject.enterNumber(Double.pi / 2 * 3)
+        testObject.cos()
+        XCTAssertTrue(abs(testObject.top!) < 0.0001)
+
+    }
+    
+    func testTan(){
+         testObject.enterNumber(0.0)
+         testObject.tan()
+         XCTAssertTrue(testObject.top! == 0.0)
+
+         testObject.enterNumber(Double.pi)
+         testObject.tan()
+         XCTAssertTrue(abs(testObject.top!) < 0.0001)
+         
+         testObject.enterNumber(-Double.pi)
+         testObject.tan()
+         XCTAssertTrue(abs(testObject.top!) < 0.0001)
+         
+    }
+    
+    
 }

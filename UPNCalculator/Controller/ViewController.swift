@@ -25,6 +25,20 @@ class ViewController: UIViewController {
     @IBOutlet var subtractButton : UIButton!
     @IBOutlet var multiplyButton : UIButton!
     @IBOutlet var divideButton : UIButton!
+    @IBOutlet var sqrtButton : UIButton!
+    @IBOutlet var xovereButton : UIButton!
+    @IBOutlet var xover10Button : UIButton!
+    @IBOutlet var xoveryButton : UIButton!
+    @IBOutlet var onedivxButton : UIButton!
+
+    @IBOutlet var sinButton : UIButton!
+    @IBOutlet var cosButton : UIButton!
+    @IBOutlet var tanButton : UIButton!
+
+    
+
+    
+    
     @IBOutlet var dotButton : UIButton!
     @IBOutlet var enterButton : UIButton!
     @IBOutlet var clearButton : UIButton!
@@ -131,6 +145,70 @@ class ViewController: UIViewController {
 
         inputLabel.text! = "\(-1 * value)"
     }
+    
+    
+    @IBAction func sinTapped(_ sender : UIButton) {
+            if !isPushed {
+                 enterNumberFromInput()
+             }
+             
+        do {
+            try  calculatorEngine.sin()
+        } catch {
+        inputLabel.text! = "Error during sinus calculation"
+           return
+
+        }
+        
+        guard let result = calculatorEngine.top else {
+                 inputLabel.text! = "Error during sinus"
+                 return
+        }
+
+        inputLabel.text! = "\(result)"
+    }
+    
+    @IBAction func cosTapped(_ sender : UIButton) {
+            if !isPushed {
+                 enterNumberFromInput()
+             }
+             
+        do {
+            try  calculatorEngine.cos()
+        } catch {
+        inputLabel.text! = "Error during cosinus calculation"
+           return
+
+        }
+        
+        guard let result = calculatorEngine.top else {
+                 inputLabel.text! = "Error during cosinus"
+                 return
+        }
+
+        inputLabel.text! = "\(result)"
+    }
+    
+    @IBAction func tanTapped(_ sender : UIButton) {
+            if !isPushed {
+                 enterNumberFromInput()
+             }
+             
+        do {
+            try  calculatorEngine.tan()
+        } catch {
+        inputLabel.text! = "Error during tan calculation"
+           return
+
+        }
+        
+        guard let result = calculatorEngine.top else {
+                 inputLabel.text! = "Error during tan"
+                 return
+        }
+
+        inputLabel.text! = "\(result)"
+    }
 
     private func enterNumberFromInput(){
         guard let value = Double(inputLabel.text!) else {
@@ -153,6 +231,8 @@ class ViewController: UIViewController {
         }
         print(inputLabel.text!)
     }
+    
+    
 
 }
 

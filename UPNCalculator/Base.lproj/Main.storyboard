@@ -242,6 +242,111 @@
                                     <action selector="chsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vQ3-j9-Nah"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-S9-ktK">
+                                <rect key="frame" x="170" y="61" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="KBr-6X-bsA"/>
+                                    <constraint firstAttribute="width" constant="75" id="Qad-BN-Ii6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="nrb-OZ-I10"/>
+                                </constraints>
+                                <state key="normal" title="sqrt" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMN-QW-eF2">
+                                <rect key="frame" x="240" y="61" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Bel-Ua-W1k"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="F6o-ia-GYT"/>
+                                    <constraint firstAttribute="width" constant="75" id="Zo3-ZG-Sgd"/>
+                                </constraints>
+                                <state key="normal" title="eX" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4q-bu-qTe">
+                                <rect key="frame" x="310" y="61" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="8Oo-js-Rjx"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="RaD-nA-Se9"/>
+                                    <constraint firstAttribute="height" constant="75" id="x7E-yd-yd2"/>
+                                </constraints>
+                                <state key="normal" title="10X" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUl-Kw-qXr">
+                                <rect key="frame" x="380" y="61" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Lhn-MJ-FWp"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="ODR-QH-udd"/>
+                                    <constraint firstAttribute="width" constant="75" id="c1n-MX-2H8"/>
+                                </constraints>
+                                <state key="normal" title="y X" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-fU-kDb">
+                                <rect key="frame" x="450" y="61" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="MYK-gk-f36"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="bSg-mq-AnX"/>
+                                    <constraint firstAttribute="height" constant="75" id="iAF-1N-aZP"/>
+                                </constraints>
+                                <state key="normal" title="1/x" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vro-rO-c1F">
+                                <rect key="frame" x="310" y="141" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Khn-pp-nFF"/>
+                                    <constraint firstAttribute="height" constant="75" id="Lu4-wK-21T"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="X1z-D1-NRf"/>
+                                </constraints>
+                                <state key="normal" title="SIN" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="sinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vjD-06-RBM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-N5-6kr">
+                                <rect key="frame" x="380" y="141" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Sc6-CA-G1I"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="Tfj-TC-QQp"/>
+                                    <constraint firstAttribute="height" constant="75" id="eJR-gU-QZf"/>
+                                </constraints>
+                                <state key="normal" title="COS" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cosTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yLX-2Z-5g6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7b-qS-jWM">
+                                <rect key="frame" x="450" y="141" width="75" height="72.5"/>
+                                <accessibility key="accessibilityConfiguration" label="chs"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="22m-zs-wPe"/>
+                                    <constraint firstAttribute="height" constant="75" id="6Hp-SC-KpE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="Tva-TK-pIJ"/>
+                                </constraints>
+                                <state key="normal" title="TAN" backgroundImage="square" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tanTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bl-MS-qb3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -327,6 +432,7 @@
                         <outlet property="addButton" destination="LBU-kx-kL4" id="ler-EK-WYx"/>
                         <outlet property="chsButton" destination="DqY-rP-vZs" id="YEn-aO-aE6"/>
                         <outlet property="clearButton" destination="RDp-mK-zqq" id="7U0-xh-Zo9"/>
+                        <outlet property="cosButton" destination="Ic1-N5-6kr" id="nKd-6s-Fef"/>
                         <outlet property="digit0Button" destination="96r-Xb-Uue" id="D4M-f7-v32"/>
                         <outlet property="digit1Button" destination="Eku-Pm-2JG" id="JOx-W1-qsR"/>
                         <outlet property="digit2Button" destination="iw4-Cn-1Gn" id="JZV-yw-Ghz"/>
@@ -342,7 +448,14 @@
                         <outlet property="enterButton" destination="NeC-uP-HFG" id="sb0-7W-pjJ"/>
                         <outlet property="inputLabel" destination="oOz-ov-NQX" id="kw8-CT-cA4"/>
                         <outlet property="multiplyButton" destination="W5O-ux-cta" id="MfJ-Te-pkB"/>
+                        <outlet property="onedivxButton" destination="8kQ-fU-kDb" id="OZQ-f7-LOE"/>
+                        <outlet property="sinButton" destination="Vro-rO-c1F" id="YuV-M3-Pp3"/>
+                        <outlet property="sqrtButton" destination="D4f-S9-ktK" id="afc-cg-uc2"/>
                         <outlet property="subtractButton" destination="cLh-gF-yRZ" id="naa-41-X0h"/>
+                        <outlet property="tanButton" destination="x7b-qS-jWM" id="fTu-d4-8hL"/>
+                        <outlet property="xover10Button" destination="f4q-bu-qTe" id="CcQ-BT-GoV"/>
+                        <outlet property="xovereButton" destination="CMN-QW-eF2" id="x3H-YL-NsP"/>
+                        <outlet property="xoveryButton" destination="EUl-Kw-qXr" id="M5o-ii-SvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

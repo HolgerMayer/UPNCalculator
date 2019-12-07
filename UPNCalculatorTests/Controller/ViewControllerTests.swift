@@ -47,6 +47,17 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(testObject.multiplyButton)
         XCTAssertNotNil(testObject.divideButton)
 
+        XCTAssertNotNil(testObject.sqrtButton)
+        XCTAssertNotNil(testObject.xovereButton)
+        XCTAssertNotNil(testObject.xover10Button)
+        XCTAssertNotNil(testObject.xoveryButton)
+        XCTAssertNotNil(testObject.onedivxButton)
+
+        XCTAssertNotNil(testObject.sinButton)
+        XCTAssertNotNil(testObject.cosButton)
+        XCTAssertNotNil(testObject.tanButton)
+
+        
         // Else
         XCTAssertNotNil(testObject.dotButton)
         XCTAssertNotNil(testObject.enterButton)
@@ -208,5 +219,93 @@ class ViewControllerTests: XCTestCase {
         XCTAssertTrue(testObject.inputLabel.text! == "6.0")
         XCTAssertFalse(testObject.isPushed)
     }
+    
+    
+    func testSinButton(){
+         enterHalfPi()
+        
+         testObject.sinTapped(testObject.sinButton)
+        
+         let result1 = Double(testObject.inputLabel.text! )
+         XCTAssertTrue(abs(1.0 - result1!) < 0.0001)
+         XCTAssertTrue(testObject.isPushed)
+       
+         enterPi()
+          
+         testObject.sinTapped(testObject.sinButton)
+          
+         let result2 = Double(testObject.inputLabel.text! )
+         XCTAssertTrue(abs(result2!) < 0.0001)
+         XCTAssertTrue(testObject.isPushed)
+      }
+    
+    func testCosButton(){
+          testObject.digitTapped(testObject.digit0Button)
+          testObject.cosTapped(testObject.cosButton)
+        
+          let result1 = Double(testObject.inputLabel.text! )
+          XCTAssertTrue(abs(1.0 - result1!) < 0.0001)
+          XCTAssertTrue(testObject.isPushed)
+        
+        
+          enterHalfPi()
+         
+          testObject.cosTapped(testObject.cosButton)
+         
+          let result2 = Double(testObject.inputLabel.text! )
+          XCTAssertTrue(abs(result2!) < 0.0001)
+          XCTAssertTrue(testObject.isPushed)
+        
+          enterPi()
+           
+          testObject.cosTapped(testObject.cosButton)
+           
+          let result3 = Double(testObject.inputLabel.text! )
+          XCTAssertTrue(abs(1 + result3!) < 0.0001)
+          XCTAssertTrue(testObject.isPushed)
 
+       }
+    
+    func testTanButton(){
+        testObject.digitTapped(testObject.digit0Button)
+        testObject.tanTapped(testObject.tanButton)
+   
+        let result1 = Double(testObject.inputLabel.text! )
+        XCTAssertTrue(abs(result1!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed)
+   
+        enterPi()
+      
+        testObject.tanTapped(testObject.tanButton)
+      
+        let result3 = Double(testObject.inputLabel.text! )
+        XCTAssertTrue(abs(result3!) < 0.0001)
+        XCTAssertTrue(testObject.isPushed)
+
+    }
+
+    
+    func enterPi(){
+        testObject.digitTapped(testObject.digit3Button)
+        testObject.digitTapped(testObject.dotButton)
+        testObject.digitTapped(testObject.digit1Button)
+        testObject.digitTapped(testObject.digit4Button)
+        testObject.digitTapped(testObject.digit1Button)
+        testObject.digitTapped(testObject.digit5Button)
+        testObject.digitTapped(testObject.digit9Button)
+        testObject.enterTapped(testObject.enterButton)
+    }
+    
+    func enterHalfPi(){
+        testObject.digitTapped(testObject.digit1Button)
+        testObject.digitTapped(testObject.dotButton)
+        testObject.digitTapped(testObject.digit5Button)
+        testObject.digitTapped(testObject.digit7Button)
+        testObject.digitTapped(testObject.digit0Button)
+        testObject.digitTapped(testObject.digit7Button)
+        testObject.digitTapped(testObject.digit9Button)
+        testObject.digitTapped(testObject.digit6Button)
+        testObject.enterTapped(testObject.enterButton)
+
+    }
 }

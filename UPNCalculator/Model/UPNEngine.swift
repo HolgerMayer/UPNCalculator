@@ -60,6 +60,25 @@ struct UPNEngine {
         stack.push(b / a)
     }
     
+    
+    mutating func sin()  {
+        let a = getNextNumber()
+ 
+        stack.push(Darwin.sin(a))
+    }
+  
+    mutating func cos()  {
+        let a = getNextNumber()
+    
+        stack.push(Darwin.cos(a))
+    }
+
+    mutating func tan()  {
+        let a = getNextNumber()
+    
+        stack.push(Darwin.tan(a))
+    }
+
     private mutating func getNextNumber() -> Double {
         guard let a = stack.pop() else {
             return 0.0

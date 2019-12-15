@@ -1,8 +1,8 @@
 This Sprint
 
-[15.12.19] UPNEngine -> Handle missing numbers on stack with nil and per calculation function
-[15.12.19] Remove Errors from Unit-Tests
 
 Later Sprints
+[15.12.19] Create UI Tests from Handbook
+[15.12.19] Use LCD Font in display
 [14.12.19] Create and implement ee
 [14.12.19] Create and implememnt Fix

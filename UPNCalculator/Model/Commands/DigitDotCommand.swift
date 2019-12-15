@@ -12,17 +12,13 @@ import Foundation
 class DigitDotCommand : Command {
     
     private var calculatorEngine : UPNEngine
-    private var display : OutputDisplay
+    private var display : Display
     private var digitString : String
      
-    init(calculatorEngine: UPNEngine, display : OutputDisplay){
+    init(calculatorEngine: UPNEngine, display : Display, token : String){
          self.calculatorEngine = calculatorEngine
          self.display = display
-         self.digitString = ""
-    }
-    
-    func button(_ digitString: String){
-        self.digitString = digitString
+         self.digitString = token
     }
     
     
@@ -37,3 +33,5 @@ class DigitDotCommand : Command {
     
     
 }
+
+

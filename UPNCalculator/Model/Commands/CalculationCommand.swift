@@ -12,9 +12,9 @@ import Foundation
 class CalculationCommand : Command {
     
     internal var calculatorEngine : UPNEngine
-    internal var display : OutputDisplay
+    internal var display : Display
     
-    init(calculatorEngine: UPNEngine, display : OutputDisplay){
+    init(calculatorEngine: UPNEngine, display : Display){
         self.calculatorEngine = calculatorEngine
         self.display = display
     }

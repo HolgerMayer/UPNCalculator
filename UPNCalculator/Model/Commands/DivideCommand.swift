@@ -12,7 +12,7 @@ import Foundation
 
 class DivideCommand : CalculationCommand {
     
-    override init(calculatorEngine: UPNEngine, display: OutputDisplay) {
+    override init(calculatorEngine: UPNEngine, display: Display) {
         super.init(calculatorEngine: calculatorEngine, display: display)
     }
     

@@ -221,4 +221,112 @@ class UPNEngineTests: XCTestCase {
              XCTAssertTrue(abs(3.0 - testObject.top!) < 0.0001)
 
       }
+    
+    func testPow() {
+        testObject.enterNumber(2.0)
+        testObject.enterNumber(5.0)
+        
+        testObject.pow()
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(testObject.top! == 32.0)
+        
+
+    }
+    
+    func testAsin0() {
+    
+          testObject.enterNumber(0.0)
+          
+          testObject.asin()
+          
+          XCTAssertNotNil(testObject.top)
+          XCTAssertTrue(abs(testObject.top!) < 0.0001)
+
+          
+      }
+    
+    func testAsin1() {
+  
+        testObject.enterNumber(1.0)
+        
+        testObject.asin()
+        
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(1.5708 - testObject.top!) < 0.0001)
+
+        
+    }
+    
+    func testAcos0() {
+      
+            testObject.enterNumber(0.0)
+            
+            testObject.acos()
+            
+            XCTAssertNotNil(testObject.top)
+            XCTAssertTrue(abs(1.5708 - testObject.top!) < 0.0001)
+
+            
+        }
+      
+      func testAcos1() {
+    
+          testObject.enterNumber(1.0)
+          
+          testObject.acos()
+          
+          XCTAssertNotNil(testObject.top)
+          XCTAssertTrue(abs(testObject.top!) < 0.0001)
+      }
+    
+    func testAtan0() {
+        
+        testObject.enterNumber(0.0)
+              
+        testObject.atan()
+              
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(testObject.top!) < 0.0001)
+
+              
+    }
+        
+    func testAtan1() {
+      
+        testObject.enterNumber(1.0)
+            
+        testObject.atan()
+            
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(testObject.top!-0.7854) < 0.0001)
+    }
+    
+    func testExp() {
+        testObject.enterNumber(1.0)
+             
+        testObject.exp()
+             
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(testObject.top!-2.7183) < 0.0001)
+    }
+    
+    func testLog() {
+        testObject.enterNumber(2.7183)
+                
+        testObject.log()
+                
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(testObject.top!-1) < 0.0001)
+    }
+    
+    func testlog10(){
+        testObject.enterNumber(100)
+                
+        testObject.log10()
+                
+        XCTAssertNotNil(testObject.top)
+        XCTAssertTrue(abs(testObject.top!-2) < 0.0001)
+    }
+    
+    
 }

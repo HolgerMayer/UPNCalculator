@@ -1,5 +1,5 @@
 //
-//  AddCommand.swift
+//  SinusCommand.swift
 //  UPNCalculator
 //
 //  Created by holgermayer on 07.12.19.
@@ -9,13 +9,13 @@
 import Foundation
 
 
-class AddCommand : CalculationCommand {
+class SineCommand : CalculationCommand {
     
     override init(calculatorEngine: UPNEngine, display: Display) {
         super.init(calculatorEngine: calculatorEngine, display: display)
     }
     
     override  func callEngineCalculation() throws {
-        super.calculatorEngine.add()
+            super.calculatorEngine.sin()
     }
 }

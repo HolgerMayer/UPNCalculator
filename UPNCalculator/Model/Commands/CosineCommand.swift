@@ -10,9 +10,9 @@ import Foundation
 
 
 
-class CosinusCommand : CalculationCommand {
+class CosineCommand : CalculationCommand {
     
-    override init(calculatorEngine: UPNEngine, display: OutputDisplay) {
+    override init(calculatorEngine: UPNEngine, display: Display) {
         super.init(calculatorEngine: calculatorEngine, display: display)
     }
     

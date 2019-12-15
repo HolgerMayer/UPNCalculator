@@ -1,15 +1,16 @@
 //
-//  DigitCommand.swift
+//  ChangeSignCommand.swift
 //  UPNCalculator
 //
-//  Created by holgermayer on 07.12.19.
+//  Created by holgermayer on 11.12.19.
 //  Copyright © 2019 holgermayer. All rights reserved.
 //
 
 import Foundation
 
 
-class EnterCommand : Command {
+
+class ChangeSignCommand : Command {
     
     private var calculatorEngine : UPNEngine
     private var display : Display
@@ -20,14 +21,7 @@ class EnterCommand : Command {
     }
     
     func execute() {
-        guard let value = display.value() else {
-        
-            display.setError( "Error wrong number format")
-            return
-        }
-        
-        calculatorEngine.enterNumber(value)
-        display.isPushed = true
+        display.changeSign()
     }
     
     

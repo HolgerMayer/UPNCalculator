@@ -6,6 +6,10 @@
 //  Copyright © 2019 holgermayer. All rights reserved.
 //
 
+// Important:
+// TODO: getNextNumber needs to return nil if stack is empty
+//       the calculationfunctions need to handle nil individually
+
 import Foundation
 
 enum CalculationError : Error {
@@ -84,10 +88,55 @@ class UPNEngine {
         stack.push(Darwin.tan(a))
     }
     
+    func asin()  {
+        let a = getNextNumber()
+        
+        stack.push(Darwin.asin(a))
+    }
+     
+    func acos()  {
+        let a = getNextNumber()
+       
+        stack.push(Darwin.acos(a))
+    }
+
+    func atan()  {
+        let a = getNextNumber()
+       
+        stack.push(Darwin.atan(a))
+    }
+    
+    func pow() {
+        let exponent = getNextNumber()
+        let base = getNextNumber()
+        
+        stack.push(Darwin.pow(base,exponent))
+    }
+    
     func sqrt()  {
         let a = getNextNumber()
     
         stack.push(Darwin.sqrt(a))
+    }
+    
+    
+    func exp() {
+        let a = getNextNumber()
+        
+        stack.push(Darwin.exp(a))
+    }
+    
+    
+    func log() {
+        let a = getNextNumber()
+        
+        stack.push(Darwin.log(a))
+    }
+
+    func log10() {
+        let a = getNextNumber()
+        
+        stack.push(Darwin.log10(a))
     }
 
     private func getNextNumber() -> Double {

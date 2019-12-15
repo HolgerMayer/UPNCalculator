@@ -30,7 +30,7 @@ class XOverTenCommandTests: XCTestCase {
     }
     
     
-    // Should result in Error!!!
+
     func testXOverTenOfEmptyStack() {
 
         testObject.execute()

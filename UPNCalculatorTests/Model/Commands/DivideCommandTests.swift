@@ -83,7 +83,7 @@ class DivideCommandTests: XCTestCase {
          let result = engine.top
          
          XCTAssertNil(result)
-         XCTAssertTrue(delegate_param1 == "Error during division calculation")
+         XCTAssertTrue(delegate_param1 == "Error : division by zero")
      }
 
 }

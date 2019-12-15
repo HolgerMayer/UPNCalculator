@@ -312,20 +312,29 @@ class UPNEngineTests: XCTestCase {
     
     func testLog() {
         testObject.enterNumber(2.7183)
+        
+        do {
+            try testObject.log()
                 
-        testObject.log()
-                
-        XCTAssertNotNil(testObject.top)
-        XCTAssertTrue(abs(testObject.top!-1) < 0.0001)
+            XCTAssertNotNil(testObject.top)
+            XCTAssertTrue(abs(testObject.top!-1) < 0.0001)
+        } catch {
+            XCTFail("Log from 2.7183 did  throw exception")
+        }
     }
     
     func testlog10(){
         testObject.enterNumber(100)
                 
-        testObject.log10()
-                
-        XCTAssertNotNil(testObject.top)
-        XCTAssertTrue(abs(testObject.top!-2) < 0.0001)
+    
+        do {
+            try testObject.log10()
+            XCTAssertNotNil(testObject.top)
+            XCTAssertTrue(abs(testObject.top!-2) < 0.0001)
+        } catch {
+            XCTFail("Log10 from 100 did  throw exception")
+        }
+        
     }
     
     

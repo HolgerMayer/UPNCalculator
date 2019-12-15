@@ -16,13 +16,13 @@ class XOverTenCommand : CalculationCommand {
     }
     
     override  func callEngineCalculation() throws {
-       guard let a =  super.calculatorEngine.top else {
-                display.setError("Please enter x value")
-                return
+            var  a =  super.calculatorEngine.top
+            if a == nil {
+                a = 0
             }
             super.calculatorEngine.removeTop()
             super.calculatorEngine.enterNumber(10.0)
-            super.calculatorEngine.enterNumber(a)
+            super.calculatorEngine.enterNumber(a!)
             
             super.calculatorEngine.pow()
     }

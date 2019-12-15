@@ -17,11 +17,19 @@ class Log10CommandTests: XCTestCase {
     var display : CalculatorDisplay!
     var testObject : Log10Command!
     
+    var delegate_didCall_didChangeBase  : Bool = false
+    var delegate_didCall_didChangeExponent : Bool = false
+    var delegate_didCall_didChangeState : Bool = false
+    var delegate_param1 : String = ""
+    var delegate_resultValue : String = ""
+
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
+        display.delegate = self
         testObject = Log10Command(calculatorEngine: engine, display: display)
     }
 
@@ -35,11 +43,12 @@ class Log10CommandTests: XCTestCase {
 
         testObject.execute()
         
-        guard let result = engine.top else {
-             return
-        }
+        let result = engine.top
+
+        XCTAssertNil(result)
+        XCTAssertTrue(delegate_param1 == "Error : log10 from zero")
         
-        XCTFail()
+        
     }
 
     func testLog100onStack() {
@@ -55,4 +64,23 @@ class Log10CommandTests: XCTestCase {
         XCTAssertTrue(abs(2 - result) < 0.0001)
     }
 
+}
+
+extension Log10CommandTests : DisplayDelegate {
+    func didChangeBase(value: String) {
+        delegate_didCall_didChangeBase = true
+        delegate_param1 = value
+    }
+    
+    func didChangeExponent(value: String) {
+        delegate_didCall_didChangeExponent = true
+        delegate_param1 = value
+    }
+    
+    func didChangeState(_ state: KeyboardState) {
+      delegate_didCall_didChangeState = true
+    }
+
+    
+    
 }

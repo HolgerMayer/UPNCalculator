@@ -16,6 +16,6 @@ class Log10Command : CalculationCommand {
     }
     
     override  func callEngineCalculation() throws {
-        super.calculatorEngine.log10()
+        try super.calculatorEngine.log10()
     }
 }

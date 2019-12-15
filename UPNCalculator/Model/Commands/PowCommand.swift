@@ -16,6 +16,13 @@ class PowCommand : CalculationCommand {
     }
     
     override  func callEngineCalculation() throws {
+        var  a =  super.calculatorEngine.top
+        if a == nil {
+              a = 1.0
+              super.calculatorEngine.enterNumber(a!)
+              return
+          }
+        
         super.calculatorEngine.pow()
     }
 }

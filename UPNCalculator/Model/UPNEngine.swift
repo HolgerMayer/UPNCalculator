@@ -14,6 +14,8 @@ import Foundation
 
 enum CalculationError : Error {
     case divisionByZero
+    case logTenFromZero
+    case logFromZero
 }
 
 class UPNEngine {
@@ -34,7 +36,7 @@ class UPNEngine {
     
     
     func removeTop() {
-        stack.pop()
+        let _ = stack.pop()
     }
     
     func add() {
@@ -108,9 +110,12 @@ class UPNEngine {
     
     func pow() {
         let exponent = getNextNumber()
-        let base = getNextNumber()
+        var base = getNextNumberOrNil()
+        if base == nil {
+            base = exponent
+        }
         
-        stack.push(Darwin.pow(base,exponent))
+        stack.push(Darwin.pow(base!,exponent))
     }
     
     func sqrt()  {
@@ -127,21 +132,36 @@ class UPNEngine {
     }
     
     
-    func log() {
+    func log() throws {
         let a = getNextNumber()
         
+        if a == 0.0 {
+               throw CalculationError.logFromZero
+        }
+
         stack.push(Darwin.log(a))
     }
 
-    func log10() {
+    func log10() throws {
         let a = getNextNumber()
         
+        if a == 0.0 {
+              throw CalculationError.logTenFromZero
+          }
         stack.push(Darwin.log10(a))
     }
 
     private func getNextNumber() -> Double {
         guard let a = stack.pop() else {
             return 0.0
+        }
+
+        return a
+    }
+    
+    private func getNextNumberOrNil() -> Double? {
+        guard let a = stack.pop() else {
+            return nil
         }
 
         return a

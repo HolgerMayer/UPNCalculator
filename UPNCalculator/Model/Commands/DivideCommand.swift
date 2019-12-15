@@ -17,11 +17,8 @@ class DivideCommand : CalculationCommand {
     }
     
     override  func callEngineCalculation() throws {
-        do {
-            try super.calculatorEngine.divide()
-        } catch {
-            super.display.setError("Error during division calculation")
-        }
-
+             
+        try super.calculatorEngine.divide()
+ 
     }
 }

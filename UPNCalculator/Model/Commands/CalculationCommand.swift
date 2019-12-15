@@ -26,6 +26,15 @@ class CalculationCommand : Command {
              
         do {
             try  callEngineCalculation()
+        } catch CalculationError.divisionByZero {
+            display.setError("Error : division by zero")
+            return
+        } catch CalculationError.logTenFromZero {
+            display.setError("Error : log10 from zero")
+            return
+        } catch CalculationError.logFromZero {
+            display.setError("Error : ln from zero")
+            return
         } catch {
             display.setError("Error during calculation")
            return

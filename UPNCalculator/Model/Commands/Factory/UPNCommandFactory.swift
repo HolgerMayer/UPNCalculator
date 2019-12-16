@@ -105,6 +105,8 @@ class UPNCommandFactory  {
         gStateCommandDictionary[CommandKey.sinKey.rawValue] = ASineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.cosKey.rawValue] = ACosineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.tanKey.rawValue] = ATangentCommand(calculatorEngine: calculatorEngine, display: display)
+        
+        gStateCommandDictionary[CommandKey.clearKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
 
     }
     

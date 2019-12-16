@@ -70,6 +70,8 @@
 		54E769F323A5BE4600165EDC /* XOverTenCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769F223A5BE4600165EDC /* XOverTenCommandTests.swift */; };
 		54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769F623A5C03D00165EDC /* SquareXCommandTests.swift */; };
 		54E769FA23A5C32500165EDC /* SquareXCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769F923A5C32500165EDC /* SquareXCommand.swift */; };
+		54E8146523A7EBCB002E583D /* PICommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E8146423A7EBCB002E583D /* PICommand.swift */; };
+		54E8146723A7EFE1002E583D /* PICommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E8146623A7EFE1002E583D /* PICommandTests.swift */; };
 		54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E909E4239DC60700885AE2 /* UPNCommandFactory.swift */; };
 		54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F491C623A0E39E001D0E45 /* CommandFactory.swift */; };
 		54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F491C823A0E3B5001D0E45 /* CommandKey.swift */; };
@@ -162,6 +164,8 @@
 		54E769F223A5BE4600165EDC /* XOverTenCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOverTenCommandTests.swift; sourceTree = "<group>"; };
 		54E769F623A5C03D00165EDC /* SquareXCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareXCommandTests.swift; sourceTree = "<group>"; };
 		54E769F923A5C32500165EDC /* SquareXCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareXCommand.swift; sourceTree = "<group>"; };
+		54E8146423A7EBCB002E583D /* PICommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PICommand.swift; sourceTree = "<group>"; };
+		54E8146623A7EFE1002E583D /* PICommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PICommandTests.swift; sourceTree = "<group>"; };
 		54E909E4239DC60700885AE2 /* UPNCommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNCommandFactory.swift; sourceTree = "<group>"; };
 		54F491C623A0E39E001D0E45 /* CommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
 		54F491C823A0E3B5001D0E45 /* CommandKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandKey.swift; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 				54E769EA23A5BC5400165EDC /* Log10Command.swift */,
 				54E769F023A5BDF300165EDC /* XOverTenCommand.swift */,
 				54E769F923A5C32500165EDC /* SquareXCommand.swift */,
+				54E8146423A7EBCB002E583D /* PICommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				54E769EE23A5BC9100165EDC /* Log10CommandTests.swift */,
 				54E769F223A5BE4600165EDC /* XOverTenCommandTests.swift */,
 				54E769F623A5C03D00165EDC /* SquareXCommandTests.swift */,
+				54E8146623A7EFE1002E583D /* PICommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 			files = (
 				54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */,
 				54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */,
+				54E8146523A7EBCB002E583D /* PICommand.swift in Sources */,
 				54757AEB239A58200048A732 /* ViewController.swift in Sources */,
 				5497C94D23A0E9A300FF7696 /* ClearCommand.swift in Sources */,
 				54D17F79239C46C4008F5020 /* EnterCommand.swift in Sources */,
@@ -560,6 +567,7 @@
 				54E769E123A5885700165EDC /* ATangentCommandTests.swift in Sources */,
 				54B656E923A4E1E1004E6E7D /* ClearCommandTests.swift in Sources */,
 				54B656E523A4E0AD004E6E7D /* SquareRootCommandTests.swift in Sources */,
+				54E8146723A7EFE1002E583D /* PICommandTests.swift in Sources */,
 				544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */,
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,

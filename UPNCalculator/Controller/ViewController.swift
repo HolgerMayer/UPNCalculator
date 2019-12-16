@@ -181,7 +181,7 @@ class ViewController: UIViewController {
         onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"", accessoryLabel: "divide1byx")
         view.addSubview(onedivxButton)
 
-        clearButton = createButton(title1:"",title2: "clr",  title3:"", accessoryLabel: "clear")
+        clearButton = createButton(title1:"",title2: "clr",  title3:"π", accessoryLabel: "clear")
         view.addSubview(clearButton)
 
         digit7Button = createButton(title1:"",title2: "7",  title3:"", accessoryLabel: "digit7")

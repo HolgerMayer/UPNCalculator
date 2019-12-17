@@ -51,7 +51,7 @@ class ViewController: UIViewController {
       var noop4Button : UIButton!
       var noop5Button : UIButton!
       var xExYButton : UIButton!
-      var noop7Button : UIButton!
+      var backArrowButton : UIButton!
       var noop8Button : UIButton!
       var noop9Button : UIButton!
       var noop10Button : UIButton!
@@ -245,8 +245,8 @@ class ViewController: UIViewController {
         xExYButton = createButton(title1:"",title2: "X<>Y",  title3:"", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
-        noop7Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop7")
-        view.addSubview(noop7Button)
+        backArrowButton = createButton(title1:"",title2: "<-",  title3:"", accessoryLabel: "backarrow")
+        view.addSubview(backArrowButton)
 
         enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
         view.addSubview(enterButton)
@@ -459,8 +459,8 @@ class ViewController: UIViewController {
          constraintOtherButtonsInRow(noop4Button!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(noop5Button!, previousButton: noop4Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(xExYButton!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop7Button!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
-         constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: noop7Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(backArrowButton!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
+         constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: backArrowButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit1Button!, previousButton: enterButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit2Button!, previousButton: digit1Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit3Button!, previousButton: digit2Button!, firstButtoninRow: noop3Button!)

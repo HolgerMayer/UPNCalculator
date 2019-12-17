@@ -95,12 +95,15 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.divide1ByXKey.rawValue] = DivideOneByXCommand(calculatorEngine: calculatorEngine, display: display)
 
         
-        
+        // Row 1
          gStateCommandDictionary[CommandKey.sqrtKey.rawValue] = SquareXCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverEKey.rawValue] = LogCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverTenKey.rawValue] = Log10Command(calculatorEngine: calculatorEngine, display: display)
 
+        gStateCommandDictionary[CommandKey.chsKey.rawValue] = AbsCommand(calculatorEngine: calculatorEngine, display: display)
+
         
+        // Row 2
         
         gStateCommandDictionary[CommandKey.sinKey.rawValue] = ASineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.cosKey.rawValue] = ACosineCommand(calculatorEngine: calculatorEngine, display: display)

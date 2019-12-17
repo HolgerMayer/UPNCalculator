@@ -151,6 +151,23 @@ class UPNEngineTests: XCTestCase {
     }
    
     
+    func testAbsPositive() {
+        testObject.enterNumber(2.0)
+        
+        testObject.abs()
+        
+        XCTAssertTrue(testObject.top! == 2.0)
+    }
+    
+    func testAbsNegative() {
+         
+        testObject.enterNumber(-2.0)
+          
+        testObject.abs()
+          
+        XCTAssertTrue(testObject.top! == 2.0)
+    }
+    
     func testSin(){
         testObject.enterNumber(0.0)
         testObject.sin()

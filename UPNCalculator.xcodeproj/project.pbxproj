@@ -36,6 +36,8 @@
 		54B656E923A4E1E1004E6E7D /* ClearCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B656E823A4E1E1004E6E7D /* ClearCommandTests.swift */; };
 		54B656EB23A4E2DD004E6E7D /* ChangeSignCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B656EA23A4E2DD004E6E7D /* ChangeSignCommandTests.swift */; };
 		54B656ED23A4E3CA004E6E7D /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 54B656EC23A4E3CA004E6E7D /* TODO */; };
+		54B76C2523A8CEFA00600BDC /* AbsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76C2423A8CEFA00600BDC /* AbsCommand.swift */; };
+		54B76C2723A8CF1D00600BDC /* AbsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B76C2623A8CF1D00600BDC /* AbsTests.swift */; };
 		54D17F77239C4660008F5020 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F76239C4660008F5020 /* Command.swift */; };
 		54D17F79239C46C4008F5020 /* EnterCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F78239C46C4008F5020 /* EnterCommand.swift */; };
 		54D17F80239C52E3008F5020 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F7F239C52E2008F5020 /* Display.swift */; };
@@ -130,6 +132,8 @@
 		54B656E823A4E1E1004E6E7D /* ClearCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCommandTests.swift; sourceTree = "<group>"; };
 		54B656EA23A4E2DD004E6E7D /* ChangeSignCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSignCommandTests.swift; sourceTree = "<group>"; };
 		54B656EC23A4E3CA004E6E7D /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		54B76C2423A8CEFA00600BDC /* AbsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsCommand.swift; sourceTree = "<group>"; };
+		54B76C2623A8CF1D00600BDC /* AbsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsTests.swift; sourceTree = "<group>"; };
 		54D17F76239C4660008F5020 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		54D17F78239C46C4008F5020 /* EnterCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCommand.swift; sourceTree = "<group>"; };
 		54D17F7F239C52E2008F5020 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				54E769F023A5BDF300165EDC /* XOverTenCommand.swift */,
 				54E769F923A5C32500165EDC /* SquareXCommand.swift */,
 				54E8146423A7EBCB002E583D /* PICommand.swift */,
+				54B76C2423A8CEFA00600BDC /* AbsCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				54E769F223A5BE4600165EDC /* XOverTenCommandTests.swift */,
 				54E769F623A5C03D00165EDC /* SquareXCommandTests.swift */,
 				54E8146623A7EFE1002E583D /* PICommandTests.swift */,
+				54B76C2623A8CF1D00600BDC /* AbsTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				5497C95123A0EDBF00FF7696 /* KeyboardState.swift in Sources */,
 				54D17F96239C693B008F5020 /* SquareRootCommand.swift in Sources */,
 				54D17F98239C6A74008F5020 /* DivideOneByXCommand.swift in Sources */,
+				54B76C2523A8CEFA00600BDC /* AbsCommand.swift in Sources */,
 				54D17F92239C658F008F5020 /* CosineCommand.swift in Sources */,
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
 				54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */,
@@ -557,6 +564,7 @@
 				545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */,
 				54B656E723A4E14C004E6E7D /* DivideOneByXCommandTests.swift in Sources */,
 				54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */,
+				54B76C2723A8CF1D00600BDC /* AbsTests.swift in Sources */,
 				54B656E323A4DFF4004E6E7D /* TangentCommandTests.swift in Sources */,
 				54699F8D23A24FEE00373D98 /* DigitDotCommandTests.swift in Sources */,
 				54E769DF23A587FA00165EDC /* ACosineCommandTests.swift in Sources */,

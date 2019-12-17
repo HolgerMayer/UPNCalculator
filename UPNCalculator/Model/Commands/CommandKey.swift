@@ -37,4 +37,5 @@ enum CommandKey : String {
     case xOverYKey  = "xovery"
     case divide1ByXKey  = "divide1byx"
     case eexKey = "eex"
+    case exchangeXYKey = "exchangexy"
 }

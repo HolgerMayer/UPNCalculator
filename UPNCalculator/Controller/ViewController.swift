@@ -50,7 +50,7 @@ class ViewController: UIViewController {
       var noop3Button : UIButton!
       var noop4Button : UIButton!
       var noop5Button : UIButton!
-      var noop6Button : UIButton!
+      var xExYButton : UIButton!
       var noop7Button : UIButton!
       var noop8Button : UIButton!
       var noop9Button : UIButton!
@@ -242,8 +242,8 @@ class ViewController: UIViewController {
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
 
-        noop6Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop6")
-        view.addSubview(noop6Button)
+        xExYButton = createButton(title1:"",title2: "X<>Y",  title3:"", accessoryLabel: "exchangexy")
+        view.addSubview(xExYButton)
 
         noop7Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop7")
         view.addSubview(noop7Button)
@@ -458,8 +458,8 @@ class ViewController: UIViewController {
 
          constraintOtherButtonsInRow(noop4Button!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(noop5Button!, previousButton: noop4Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop6Button!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop7Button!, previousButton: noop6Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(xExYButton!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(noop7Button!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
          constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: noop7Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit1Button!, previousButton: enterButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit2Button!, previousButton: digit1Button!, firstButtoninRow: noop3Button!)

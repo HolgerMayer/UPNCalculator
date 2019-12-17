@@ -93,6 +93,7 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.xOverTenKey.rawValue] = XOverTenCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.xOverYKey.rawValue] = PowCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.divide1ByXKey.rawValue] = DivideOneByXCommand(calculatorEngine: calculatorEngine, display: display)
+        defaultCommandDictionary[CommandKey.exchangeXYKey.rawValue] = ExchangeXYCommand(calculatorEngine: calculatorEngine, display: display)
 
         
         // Row 1

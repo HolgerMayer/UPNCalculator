@@ -10,6 +10,8 @@
 		544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F8AF623A3A56100C58A42 /* EnterCommandTests.swift */; };
 		545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C93D623A1148000CD3156 /* CalculatorDisplayTests.swift */; };
 		545C93D923A13A6400CD3156 /* AddCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C93D823A13A6400CD3156 /* AddCommandTests.swift */; };
+		545F3E8D23A93B5500D0BC5A /* ExchangeXYCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */; };
+		545F3E8F23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F3E8E23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift */; };
 		54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54699F8623A248F700373D98 /* SubtractCommandTests.swift */; };
 		54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54699F8823A2497C00373D98 /* MultiplyCommandTests.swift */; };
 		54699F8B23A249EA00373D98 /* DivideCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54699F8A23A249EA00373D98 /* DivideCommandTests.swift */; };
@@ -102,6 +104,8 @@
 		544F8AF623A3A56100C58A42 /* EnterCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCommandTests.swift; sourceTree = "<group>"; };
 		545C93D623A1148000CD3156 /* CalculatorDisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDisplayTests.swift; sourceTree = "<group>"; };
 		545C93D823A13A6400CD3156 /* AddCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommandTests.swift; sourceTree = "<group>"; };
+		545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeXYCommand.swift; sourceTree = "<group>"; };
+		545F3E8E23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeXYCommandTests.swift; sourceTree = "<group>"; };
 		54699F8623A248F700373D98 /* SubtractCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractCommandTests.swift; sourceTree = "<group>"; };
 		54699F8823A2497C00373D98 /* MultiplyCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyCommandTests.swift; sourceTree = "<group>"; };
 		54699F8A23A249EA00373D98 /* DivideCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideCommandTests.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 				54E8146423A7EBCB002E583D /* PICommand.swift */,
 				54B76C2423A8CEFA00600BDC /* AbsCommand.swift */,
 				54B76C2823A8D1C500600BDC /* LastXCommand.swift */,
+				545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				54E8146623A7EFE1002E583D /* PICommandTests.swift */,
 				54B76C2A23A8D25700600BDC /* LastXCommandTests.swift */,
 				54B76C2C23A8D26300600BDC /* AbsCommandTests.swift */,
+				545F3E8E23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				54B76C2923A8D1C600600BDC /* LastXCommand.swift in Sources */,
 				54D17F8A239C5F5B008F5020 /* SubtractCommand.swift in Sources */,
 				54757AE7239A58200048A732 /* AppDelegate.swift in Sources */,
+				545F3E8D23A93B5500D0BC5A /* ExchangeXYCommand.swift in Sources */,
 				54D17F8E239C5FA6008F5020 /* DivideCommand.swift in Sources */,
 				54E769E923A5BC2900165EDC /* LogCommand.swift in Sources */,
 				54757AE9239A58200048A732 /* SceneDelegate.swift in Sources */,
@@ -588,6 +595,7 @@
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,
 				54B656DF23A4DC85004E6E7D /* SineCommandTests.swift in Sources */,
+				545F3E8F23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift in Sources */,
 				54B656EB23A4E2DD004E6E7D /* ChangeSignCommandTests.swift in Sources */,
 				54E769E323A588BD00165EDC /* PowCommandTests.swift in Sources */,
 			);

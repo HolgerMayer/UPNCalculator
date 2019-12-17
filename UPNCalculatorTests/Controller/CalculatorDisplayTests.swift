@@ -139,6 +139,20 @@ class CalculatorDisplayTests: XCTestCase {
         XCTAssertTrue(result == 123.0)
     }
     
+    func testLastValue() {
+        testObject.setDisplay(baseValue: "123", exponent: "")
+        
+        let result1 = testObject.lastValue()
+        
+        XCTAssertNil(result1)
+        
+        testObject.isPushed = true
+
+        let result2 = testObject.lastValue()
+
+        XCTAssertNotNil(result2)
+        XCTAssertTrue(result2 == 123)
+    }
     
 }
 

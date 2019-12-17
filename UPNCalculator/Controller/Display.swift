@@ -25,6 +25,8 @@ public protocol Display {
     var state : KeyboardState {get set}
     
     func value() -> Double?
+    func lastValue() -> Double?
+    func updateLastValue()
     
     func clear()
     func addBaseDigit(digit : String)

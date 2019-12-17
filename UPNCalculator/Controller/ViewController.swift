@@ -248,7 +248,7 @@ class ViewController: UIViewController {
         noop7Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop7")
         view.addSubview(noop7Button)
 
-        enterButton  = createButton(title1:"",title2: "Enter",  title3:"", accessoryLabel: "enter")
+        enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
         view.addSubview(enterButton)
 
         digit1Button = createButton(title1:"",title2: "1",  title3:"", accessoryLabel: "digit1")

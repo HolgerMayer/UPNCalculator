@@ -1,5 +1,5 @@
 //
-//  AbsTests.swift
+//  AbsCommandTests.swift
 //  UPNCalculatorTests
 //
 //  Created by holgermayer on 17.12.19.

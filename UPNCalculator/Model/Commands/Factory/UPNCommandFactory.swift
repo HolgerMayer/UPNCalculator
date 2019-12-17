@@ -111,6 +111,9 @@ class UPNCommandFactory  {
         
         gStateCommandDictionary[CommandKey.clearKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
 
-    }
+        
+        // Row 3
+        gStateCommandDictionary[CommandKey.enterKey.rawValue] = LastXCommand(calculatorEngine: calculatorEngine, display: display)
+}
     
 }

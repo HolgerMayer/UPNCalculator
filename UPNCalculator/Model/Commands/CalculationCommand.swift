@@ -22,8 +22,10 @@ class CalculationCommand : Command {
     func execute() {
         if !display.isPushed {
                  enterNumberFromInput()
-             }
-             
+        }
+        
+        display.updateLastValue()
+        
         do {
             try  callEngineCalculation()
         } catch CalculationError.divisionByZero {

@@ -12,9 +12,12 @@ import UIKit
 class CalculatorDisplay : Display {
     
     private var displayText : String
+    private var lastDisplayText : String
     
     weak var delegate : DisplayDelegate?
     var isPushed: Bool
+    
+    
     var state: KeyboardState {
         didSet {
             if delegate != nil {
@@ -28,7 +31,8 @@ class CalculatorDisplay : Display {
     init() {
          isPushed = false
          state = .Default
-        displayText = ""
+         displayText = ""
+        lastDisplayText = ""
     }
     
     func clear() {
@@ -47,6 +51,19 @@ class CalculatorDisplay : Display {
            }
         
         return value
+    }
+    
+    func updateLastValue() {
+        lastDisplayText = displayText
+    }
+    
+    func lastValue() -> Double? {
+        
+          guard let value = Double(lastDisplayText) else {
+                  return nil
+              }
+           
+           return value
     }
     
     func addBaseDigit(digit: String) {

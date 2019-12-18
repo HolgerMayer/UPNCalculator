@@ -356,7 +356,7 @@ class ViewController: UIViewController {
               button.titleLabel?.font = .systemFont(ofSize: 25.0)
               button.translatesAutoresizingMaskIntoConstraints = false
               button.addTarget(self, action: #selector(fButtonTapped), for: .touchUpInside)
-              button.accessibilityLabel = "Fkey"
+              button.accessibilityLabel = "fkey"
               return button
         }
     
@@ -380,7 +380,7 @@ class ViewController: UIViewController {
                 button.titleLabel?.font = .systemFont(ofSize: 25.0)
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.addTarget(self, action: #selector(gButtonTapped), for: .touchUpInside)
-                button.accessibilityLabel = "Fkey"
+                button.accessibilityLabel = "gkey"
                 return button
           }
     

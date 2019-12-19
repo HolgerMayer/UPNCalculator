@@ -25,6 +25,8 @@ class IntCommand : Command {
             return
         }
         
+        display.updateLastValue()
+        
         value.round(.towardZero)
         
         if display.isPushed == false {

@@ -41,4 +41,46 @@ class Section2Tests: XCTestCase {
         
     }
 
+    func testPage25(){
+        let app = XCUIApplication()
+        app.launch()
+        let testTool = TestTool(app: app)
+        
+        app.buttons["digit1"].tap()
+        app.buttons["digit2"].tap()
+        app.buttons["digit3"].tap()
+        app.buttons["dot"].tap()
+        app.buttons["digit4"].tap()
+        app.buttons["digit5"].tap()
+        app.buttons["digit6"].tap()
+        app.buttons["digit7"].tap()
+
+        app.buttons["gkey"].tap()
+        app.buttons["sto"].tap() // INT
+        
+        var result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! - 123 <= 0.0001)
+
+        app.buttons["gkey"].tap()
+        app.buttons["enter"].tap() // LstX
+        app.buttons["chs"].tap()
+        app.buttons["gkey"].tap()
+        app.buttons["sto"].tap() // INT
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! + 123 <= 0.0001)
+
+        app.buttons["gkey"].tap()
+        app.buttons["enter"].tap() // LstX
+        app.buttons["fkey"].tap()
+        app.buttons["sto"].tap() // INT
+        
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! + 0.4567 <= 0.0001," Result should be 0.4567 is \(result)")
+
+        
+    }
 }

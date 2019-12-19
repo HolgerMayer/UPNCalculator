@@ -21,8 +21,9 @@ class ChangeSignCommand : Command {
     }
     
     func execute() {
-        display.changeSign()
+          display.changeSign()
     }
     
     
 }
+

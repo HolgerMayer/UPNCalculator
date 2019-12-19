@@ -12,6 +12,7 @@
 		5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552C23AC170A00120CA9 /* IntCommandTests.swift */; };
 		5433552F23AC195500120CA9 /* FracCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552E23AC195500120CA9 /* FracCommand.swift */; };
 		5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433553023AC19A100120CA9 /* FracCommandTests.swift */; };
+		5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433553323AC270A00120CA9 /* Handbook2Page5LstXTests.swift */; };
 		5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */; };
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
@@ -123,6 +124,7 @@
 		5433552C23AC170A00120CA9 /* IntCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommandTests.swift; sourceTree = "<group>"; };
 		5433552E23AC195500120CA9 /* FracCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommand.swift; sourceTree = "<group>"; };
 		5433553023AC19A100120CA9 /* FracCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommandTests.swift; sourceTree = "<group>"; };
+		5433553323AC270A00120CA9 /* Handbook2Page5LstXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handbook2Page5LstXTests.swift; sourceTree = "<group>"; };
 		5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionTests.swift; sourceTree = "<group>"; };
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
@@ -242,6 +244,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5433553223AC26DE00120CA9 /* Problems */ = {
+			isa = PBXGroup;
+			children = (
+				5433553323AC270A00120CA9 /* Handbook2Page5LstXTests.swift */,
+			);
+			path = Problems;
+			sourceTree = "<group>";
+		};
 		5443E35E23AA5F4D005B41E9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 		54757AFC239A58220048A732 /* UPNCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				5433553223AC26DE00120CA9 /* Problems */,
 				54757B1A239A59100048A732 /* Controller */,
 				54757B19239A590B0048A732 /* Model */,
 				54757AFF239A58220048A732 /* Info.plist */,
@@ -390,7 +401,6 @@
 				54D17F95239C693B008F5020 /* SquareRootCommand.swift */,
 				54D17F97239C6A74008F5020 /* DivideOneByXCommand.swift */,
 				5497C94C23A0E9A300FF7696 /* ClearCommand.swift */,
-				5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */,
 				54E769D423A586C400165EDC /* ASineCommand.swift */,
 				54E769D623A586EC00165EDC /* ACosineCommand.swift */,
 				54E769D823A5871D00165EDC /* ATangentCommand.swift */,
@@ -407,6 +417,7 @@
 				545F3E9023A9554800D0BC5A /* BackArrowCommand.swift */,
 				5433552A23AC162200120CA9 /* IntCommand.swift */,
 				5433552E23AC195500120CA9 /* FracCommand.swift */,
+				5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -650,6 +661,7 @@
 				54699F8B23A249EA00373D98 /* DivideCommandTests.swift in Sources */,
 				545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */,
 				54B656E723A4E14C004E6E7D /* DivideOneByXCommandTests.swift in Sources */,
+				5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */,
 				54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */,
 				54B76C2B23A8D25700600BDC /* LastXCommandTests.swift in Sources */,
 				54B656E323A4DFF4004E6E7D /* TangentCommandTests.swift in Sources */,

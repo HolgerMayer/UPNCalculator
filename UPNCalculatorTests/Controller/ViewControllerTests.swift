@@ -61,7 +61,8 @@ class ViewControllerTests: XCTestCase {
         // Else
         XCTAssertNotNil(testObject.dotButton)
         XCTAssertNotNil(testObject.enterButton)
-        XCTAssertNotNil(testObject.clearButton)
+        XCTAssertNotNil(testObject.eexButton)
+        XCTAssertNotNil(testObject.gsbButton)
         XCTAssertNotNil(testObject.chsButton)
 
 

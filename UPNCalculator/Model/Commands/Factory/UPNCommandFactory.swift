@@ -76,7 +76,6 @@ class UPNCommandFactory  {
 
         //
         defaultCommandDictionary[CommandKey.enterKey.rawValue] = EnterCommand(calculatorEngine: calculatorEngine, display: display)
-        defaultCommandDictionary[CommandKey.clearKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.chsKey.rawValue] = ChangeSignCommand(calculatorEngine: calculatorEngine, display: display)
 
         //
@@ -97,13 +96,18 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.exchangeXYKey.rawValue] = ExchangeXYCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.backArrowKey.rawValue] = BackArrowCommand(calculatorEngine: calculatorEngine, display: display)
 
+        //###################### FKey
         
+        fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
+
+        //###################### GKey
         // Row 1
          gStateCommandDictionary[CommandKey.sqrtKey.rawValue] = SquareXCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverEKey.rawValue] = LogCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverTenKey.rawValue] = Log10Command(calculatorEngine: calculatorEngine, display: display)
 
         gStateCommandDictionary[CommandKey.chsKey.rawValue] = AbsCommand(calculatorEngine: calculatorEngine, display: display)
+        gStateCommandDictionary[CommandKey.eexKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
 
         
         // Row 2
@@ -112,11 +116,14 @@ class UPNCommandFactory  {
         gStateCommandDictionary[CommandKey.cosKey.rawValue] = ACosineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.tanKey.rawValue] = ATangentCommand(calculatorEngine: calculatorEngine, display: display)
         
-        gStateCommandDictionary[CommandKey.clearKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
+  
 
         
         // Row 3
         gStateCommandDictionary[CommandKey.enterKey.rawValue] = LastXCommand(calculatorEngine: calculatorEngine, display: display)
-}
-    
+        
+        
+        // Row 4
+        gStateCommandDictionary[CommandKey.stoKey.rawValue] = IntCommand(calculatorEngine: calculatorEngine, display: display)
+    }
 }

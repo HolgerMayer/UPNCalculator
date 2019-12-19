@@ -41,19 +41,19 @@ class ViewController: UIViewController {
     
       var dotButton : UIButton!
       var enterButton : UIButton!
-      var clearButton : UIButton!
+      var eexButton : UIButton!
+      var gsbButton : UIButton!
       var chsButton : UIButton!
 
     
       var noop1Button : UIButton!
       var noop2Button : UIButton!
       var noop3Button : UIButton!
-      var noop4Button : UIButton!
       var noop5Button : UIButton!
       var xExYButton : UIButton!
       var backArrowButton : UIButton!
-      var noop8Button : UIButton!
-      var noop9Button : UIButton!
+      var stoButton : UIButton!
+      var rclButton : UIButton!
       var noop10Button : UIButton!
 
       var onButton : UIButton!
@@ -215,8 +215,8 @@ class ViewController: UIViewController {
         view.addSubview(tanButton)
 
             
-        clearButton = createButton(title1:"",title2: "clr",  title3:"π", accessoryLabel: "clear")
-         view.addSubview(clearButton)
+        eexButton = createButton(title1:"",title2: "EEX",  title3:"π", accessoryLabel: "eex")
+         view.addSubview(eexButton)
 
         digit4Button = createButton(title1:"",title2: "4",  title3:"", accessoryLabel: "digit4")
         view.addSubview(digit4Button)
@@ -236,8 +236,8 @@ class ViewController: UIViewController {
         noop3Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop3")
         view.addSubview(noop3Button)
 
-        noop4Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop4")
-        view.addSubview(noop4Button)
+        gsbButton = createButton(title1:"Clear ∑",title2: "GSB",  title3:"", accessoryLabel: "gsb")
+        view.addSubview(gsbButton)
 
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
@@ -276,13 +276,12 @@ class ViewController: UIViewController {
         gButton = createGButton()
         view.addSubview(gButton)
 
-        noop8Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop8")
-        view.addSubview(noop8Button)
+        stoButton = createButton(title1:"",title2: "STO",  title3:"INT", accessoryLabel: "sto")
+        view.addSubview(stoButton)
 
-        noop9Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop9")
-        view.addSubview(noop9Button)
-
-
+        rclButton = createButton(title1:"",title2: "RCL",  title3:"", accessoryLabel: "rcl")
+        view.addSubview(rclButton)
+            
         digit0Button = createButton(title1:"",title2: "0",  title3:"", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
@@ -447,8 +446,8 @@ class ViewController: UIViewController {
         constraintOtherButtonsInRow(sinButton!, previousButton: noop2Button!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(cosButton!, previousButton: sinButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(tanButton!, previousButton: cosButton!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(clearButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(digit4Button!, previousButton: clearButton!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(eexButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(digit4Button!, previousButton: eexButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(digit5Button!, previousButton: digit4Button!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(digit6Button!, previousButton: digit5Button!, firstButtoninRow: noop1Button!)
         constraintLastButtonsInRow(subtractButton!, previousButton: digit6Button!, firstButtoninRow: noop1Button!)
@@ -456,8 +455,8 @@ class ViewController: UIViewController {
         // Third Row
          constraintFirstButtonInRow(noop3Button!, viewOfPreviousRow: noop1Button, firstRow: false)
 
-         constraintOtherButtonsInRow(noop4Button!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop5Button!, previousButton: noop4Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(gsbButton!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(noop5Button!, previousButton: gsbButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(xExYButton!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(backArrowButton!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
          constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: backArrowButton!, firstButtoninRow: noop3Button!)
@@ -471,8 +470,8 @@ class ViewController: UIViewController {
 
         constraintOtherButtonsInRow(fButton!,  previousButton: onButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(gButton!, previousButton: fButton!, firstButtoninRow: onButton!)
-        constraintOtherButtonsInRow(noop8Button!, previousButton: gButton!, firstButtoninRow: onButton!)
-        constraintOtherButtonsInRow(noop9Button!, previousButton: noop8Button!, firstButtoninRow: onButton!)
+        constraintOtherButtonsInRow(stoButton!, previousButton: gButton!, firstButtoninRow: onButton!)
+        constraintOtherButtonsInRow(rclButton!, previousButton: stoButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(digit0Button!, previousButton: enterButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(dotButton!, previousButton: digit0Button!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(noop10Button!, previousButton: dotButton!, firstButtoninRow: onButton!)
@@ -549,10 +548,10 @@ class ViewController: UIViewController {
          constraint = NSLayoutConstraint(item: gButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
-         constraint = NSLayoutConstraint(item: noop8Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+         constraint = NSLayoutConstraint(item: stoButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
-         constraint = NSLayoutConstraint(item: noop9Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+         constraint = NSLayoutConstraint(item: rclButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
          constraint = NSLayoutConstraint(item: digit0Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)

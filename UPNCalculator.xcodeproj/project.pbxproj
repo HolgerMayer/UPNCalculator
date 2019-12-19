@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552823ABDF1000120CA9 /* Section2Tests.swift */; };
+		5433552B23AC162200120CA9 /* IntCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552A23AC162200120CA9 /* IntCommand.swift */; };
+		5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552C23AC170A00120CA9 /* IntCommandTests.swift */; };
 		5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */; };
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
@@ -113,6 +116,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5433552823ABDF1000120CA9 /* Section2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2Tests.swift; sourceTree = "<group>"; };
+		5433552A23AC162200120CA9 /* IntCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommand.swift; sourceTree = "<group>"; };
+		5433552C23AC170A00120CA9 /* IntCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommandTests.swift; sourceTree = "<group>"; };
 		5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionTests.swift; sourceTree = "<group>"; };
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 				54B76C2823A8D1C500600BDC /* LastXCommand.swift */,
 				545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */,
 				545F3E9023A9554800D0BC5A /* BackArrowCommand.swift */,
+				5433552A23AC162200120CA9 /* IntCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -429,6 +436,7 @@
 				54B76C2C23A8D26300600BDC /* AbsCommandTests.swift */,
 				545F3E8E23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift */,
 				545F3E9223A9564E00D0BC5A /* BackArrowCommandTests.swift */,
+				5433552C23AC170A00120CA9 /* IntCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -438,6 +446,7 @@
 			children = (
 				5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */,
 				5443E35B23AA5F14005B41E9 /* Section1Tests.swift */,
+				5433552823ABDF1000120CA9 /* Section2Tests.swift */,
 			);
 			path = HandbookTests;
 			sourceTree = "<group>";
@@ -613,6 +622,7 @@
 				54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */,
 				54E769FA23A5C32500165EDC /* SquareXCommand.swift in Sources */,
 				54D17F86239C5C0E008F5020 /* CalculationCommand.swift in Sources */,
+				5433552B23AC162200120CA9 /* IntCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,6 +660,7 @@
 				545F3E9723A98F6100D0BC5A /* UPNEngineCoreTests.swift in Sources */,
 				544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */,
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
+				5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */,
 				545F3EA523A9922D00D0BC5A /* UPNEngineExpLogTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,
 				545F3EA723A992A300D0BC5A /* UPNEngineOtherFunctionTests.swift in Sources */,
@@ -670,6 +681,7 @@
 				5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */,
 				5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */,
 				5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */,
+				5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

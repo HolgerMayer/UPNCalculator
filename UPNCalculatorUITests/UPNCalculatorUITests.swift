@@ -115,7 +115,8 @@ class UPNCalculatorUITests: XCTestCase {
              app.buttons["digit6"].tap()
              app.buttons["enter"].tap()
              app.buttons["digit3"].tap()
-             app.buttons["clear"].tap()
+             app.buttons["fkey"].tap()
+             app.buttons["gsb"].tap()
 
              let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
              XCTAssertEqual(labelText, "")

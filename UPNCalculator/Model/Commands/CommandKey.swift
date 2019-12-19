@@ -26,7 +26,6 @@ enum CommandKey : String {
     case multiplyKey  = "multiply"
     case divideKey  = "divide"
     case enterKey  = "enter"
-    case clearKey  = "clear"
     case chsKey  = "chs"
     case sinKey  = "sin"
     case cosKey  = "cos"
@@ -39,4 +38,7 @@ enum CommandKey : String {
     case eexKey = "eex"
     case exchangeXYKey = "exchangexy"
     case backArrowKey = "backarrow"
+    case gsbKey = "gsb"
+    case stoKey = "sto"
+    case rclKey = "rcl"
 }

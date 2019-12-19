@@ -99,7 +99,8 @@ class Section1Tests: XCTestCase {
         XCTAssertNotNil(result)
         XCTAssertTrue(result! - 5.5 <= 0.0001)
 
-        app.buttons["clear"].tap()
+        app.buttons["fkey"].tap()
+        app.buttons["gsb"].tap()
         app.buttons["digit6"].tap()
         app.buttons["enter"].tap()
         app.buttons["digit7"].tap()

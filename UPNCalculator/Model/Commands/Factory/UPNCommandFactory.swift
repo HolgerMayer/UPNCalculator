@@ -96,11 +96,20 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.exchangeXYKey.rawValue] = ExchangeXYCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.backArrowKey.rawValue] = BackArrowCommand(calculatorEngine: calculatorEngine, display: display)
 
+        //###########################
         //###################### FKey
-        
+        //###########################
+
         fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
 
+        // Row 4
+        fStateCommandDictionary[CommandKey.stoKey.rawValue] = FracCommand(calculatorEngine: calculatorEngine, display: display)
+
+        
+        //###########################
         //###################### GKey
+        //###########################
+        
         // Row 1
          gStateCommandDictionary[CommandKey.sqrtKey.rawValue] = SquareXCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverEKey.rawValue] = LogCommand(calculatorEngine: calculatorEngine, display: display)

@@ -10,6 +10,8 @@
 		5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552823ABDF1000120CA9 /* Section2Tests.swift */; };
 		5433552B23AC162200120CA9 /* IntCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552A23AC162200120CA9 /* IntCommand.swift */; };
 		5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552C23AC170A00120CA9 /* IntCommandTests.swift */; };
+		5433552F23AC195500120CA9 /* FracCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552E23AC195500120CA9 /* FracCommand.swift */; };
+		5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433553023AC19A100120CA9 /* FracCommandTests.swift */; };
 		5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */; };
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
@@ -119,6 +121,8 @@
 		5433552823ABDF1000120CA9 /* Section2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2Tests.swift; sourceTree = "<group>"; };
 		5433552A23AC162200120CA9 /* IntCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommand.swift; sourceTree = "<group>"; };
 		5433552C23AC170A00120CA9 /* IntCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommandTests.swift; sourceTree = "<group>"; };
+		5433552E23AC195500120CA9 /* FracCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommand.swift; sourceTree = "<group>"; };
+		5433553023AC19A100120CA9 /* FracCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommandTests.swift; sourceTree = "<group>"; };
 		5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionTests.swift; sourceTree = "<group>"; };
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */,
 				545F3E9023A9554800D0BC5A /* BackArrowCommand.swift */,
 				5433552A23AC162200120CA9 /* IntCommand.swift */,
+				5433552E23AC195500120CA9 /* FracCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				545F3E8E23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift */,
 				545F3E9223A9564E00D0BC5A /* BackArrowCommandTests.swift */,
 				5433552C23AC170A00120CA9 /* IntCommandTests.swift */,
+				5433553023AC19A100120CA9 /* FracCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				54D17F98239C6A74008F5020 /* DivideOneByXCommand.swift in Sources */,
 				54B76C2523A8CEFA00600BDC /* AbsCommand.swift in Sources */,
 				54D17F92239C658F008F5020 /* CosineCommand.swift in Sources */,
+				5433552F23AC195500120CA9 /* FracCommand.swift in Sources */,
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
 				54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */,
 				54E769FA23A5C32500165EDC /* SquareXCommand.swift in Sources */,
@@ -638,6 +645,7 @@
 				54E769ED23A5BC8400165EDC /* LogCommandTests.swift in Sources */,
 				54B76C2D23A8D26300600BDC /* AbsCommandTests.swift in Sources */,
 				54E769DD23A5877400165EDC /* ASineCommandTests.swift in Sources */,
+				5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */,
 				54E769F323A5BE4600165EDC /* XOverTenCommandTests.swift in Sources */,
 				54699F8B23A249EA00373D98 /* DivideCommandTests.swift in Sources */,
 				545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */,

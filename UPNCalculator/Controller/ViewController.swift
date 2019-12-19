@@ -276,7 +276,7 @@ class ViewController: UIViewController {
         gButton = createGButton()
         view.addSubview(gButton)
 
-        stoButton = createButton(title1:"",title2: "STO",  title3:"INT", accessoryLabel: "sto")
+        stoButton = createButton(title1:"FRAC",title2: "STO",  title3:"INT", accessoryLabel: "sto")
         view.addSubview(stoButton)
 
         rclButton = createButton(title1:"",title2: "RCL",  title3:"", accessoryLabel: "rcl")

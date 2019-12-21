@@ -42,7 +42,7 @@ class PiCommandTests: XCTestCase {
         }
         XCTAssertTrue(abs(result - Double.pi) < 0.0001)
         
-        guard let value = display.value() else {
+        guard let value = display.value else {
             XCTFail()
             return
         }

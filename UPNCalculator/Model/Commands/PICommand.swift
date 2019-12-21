@@ -23,7 +23,7 @@ class PiCommand : Command {
         
         calculatorEngine.enterNumber(Double.pi)
         
-        display.setDisplay(baseValue: "\(Double.pi)", exponent: "")
+        display.value = Double.pi
         display.isPushed = true
     }
     

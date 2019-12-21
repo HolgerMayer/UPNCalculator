@@ -47,7 +47,7 @@ class FracCommandTests: XCTestCase {
 
         testObject.execute()
           
-        guard let result = display.value() else {
+        guard let result = display.value else {
                  XCTFail()
                  return
         }
@@ -76,7 +76,7 @@ class FracCommandTests: XCTestCase {
         
         testObject.execute()
              
-        guard let result1 = display.value() else {
+        guard let result1 = display.value else {
                 XCTFail()
                 return
         }

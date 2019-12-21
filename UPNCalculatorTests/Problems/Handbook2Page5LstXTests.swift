@@ -46,7 +46,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         let intCommand = IntCommand(calculatorEngine: engine, display: display)
         intCommand.execute()
 
-        guard let value1 = display.value() else {
+        guard let value1 = display.value else {
             XCTFail()
             return
         }
@@ -55,7 +55,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         let lastXCommand = LastXCommand(calculatorEngine: engine, display: display)
         lastXCommand.execute()
         
-        guard let value2 = display.value() else {
+        guard let value2 = display.value else {
             XCTFail()
             return
         }
@@ -66,7 +66,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         
         intCommand.execute()
         
-        guard let value3 = display.value() else {
+        guard let value3 = display.value else {
             XCTFail()
             return
         }
@@ -74,7 +74,7 @@ class Handbook2Page5LstXTests: XCTestCase {
           
         lastXCommand.execute()
         
-        guard let value4 = display.value() else {
+        guard let value4 = display.value else {
             XCTFail()
             return
         }
@@ -83,7 +83,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         let fracCommand = FracCommand(calculatorEngine: engine, display: display)
         fracCommand.execute()
   
-        guard let value5 = display.value() else {
+        guard let value5 = display.value else {
             XCTFail()
             return
         }

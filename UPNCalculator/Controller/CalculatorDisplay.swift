@@ -14,6 +14,8 @@ class CalculatorDisplay : Display {
     private var displayText : String
     private var lastDisplayText : String
     
+    private var currentValue : Double?
+    
     weak var delegate : DisplayDelegate?
     var isPushed: Bool
     
@@ -26,33 +28,44 @@ class CalculatorDisplay : Display {
         }
     }
     
+    var value : Double? {
+        get {
+            return currentValue
+        }
+        
+        set (newValue) {
+            currentValue = newValue
+            if currentValue == nil {
+                displayText = ""
+            } else {
+                displayText = "\(currentValue!)"
+            }
+            
+            if delegate != nil {
+                delegate?.didChangeBase(value: displayText)
+            }
+        }
+    }
     
     
     init() {
-         isPushed = false
-         state = .Default
-         displayText = ""
+        isPushed = false
+        state = .Default
+        displayText = ""
         lastDisplayText = ""
+        currentValue = nil
     }
     
     func clear() {
         isPushed = false
         state = .Default
         displayText = ""
+        currentValue = nil
         delegate?.didChangeBase(value: "")
     }
 
     
-    func value() -> Double? {
-        
-        
-        guard let value = Double(displayText) else {
-               return nil
-           }
-        
-        return value
-    }
-    
+
     func updateLastValue() {
         lastDisplayText = displayText
     }
@@ -70,6 +83,7 @@ class CalculatorDisplay : Display {
  
         let newText = displayText + digit
         displayText = newText
+        currentValue = Double(displayText)
         delegate?.didChangeBase(value: newText)
     }
     
@@ -78,16 +92,16 @@ class CalculatorDisplay : Display {
         if displayText.count > 0 {
             displayText.removeLast()
         }
+        currentValue = Double(displayText)
         delegate?.didChangeBase(value:displayText)
     }
     
     func changeSign() {
-        guard let currentValue = value() else {
-                      return
+        guard let valueToChange = value else {
+            return
         }
-
-        displayText = "\(-1 * currentValue)"
-        delegate?.didChangeBase(value:displayText)
+        
+      value = -1 * valueToChange
     }
     
     func addExponentDigit(digit: String) {
@@ -97,14 +111,7 @@ class CalculatorDisplay : Display {
     func removeExponentDigit(digit: String) {
         // TODO:
     }
-    
-    func setDisplay(baseValue: String, exponent: String?) {
-        
-        displayText = baseValue
-        delegate?.didChangeBase(value:baseValue)        
-        // TODO : set exponent
-    }
-    
+      
     func setError(_ errorMessage: String) {
         displayText = errorMessage
         delegate?.didChangeBase(value:errorMessage)

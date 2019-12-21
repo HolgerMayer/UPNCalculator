@@ -20,7 +20,7 @@ class EnterCommand : Command {
     }
     
     func execute() {
-        guard let value = display.value() else {
+        guard let value = display.value else {
         
             display.setError( "Error wrong number format")
             return

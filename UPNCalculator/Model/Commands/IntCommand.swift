@@ -21,7 +21,7 @@ class IntCommand : Command {
     
     func execute() {
         
-        guard var value = display.value() else {
+        guard var value = display.value else {
             return
         }
         
@@ -30,12 +30,12 @@ class IntCommand : Command {
         value.round(.towardZero)
         
         if display.isPushed == false {
-            display.setDisplay(baseValue: "\(value)", exponent: "")
+            display.value = value
         } else {
             
             calculatorEngine.removeTop()
             calculatorEngine.enterNumber(value)
-            display.setDisplay(baseValue: "\(value)", exponent: "")
+            display.value = value
        }
         
          

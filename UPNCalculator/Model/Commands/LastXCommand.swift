@@ -24,7 +24,7 @@ class LastXCommand : Command {
         }
         
         calculatorEngine.enterNumber(value)
-        display.setDisplay(baseValue: "\(value)", exponent: "")
+        display.value = value
     }
     
     

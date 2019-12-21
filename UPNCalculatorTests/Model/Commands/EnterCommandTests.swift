@@ -37,7 +37,7 @@ class EnterCommandTests: XCTestCase {
 
     func testEnterNumberToStack() {
          
-        display.setDisplay(baseValue: "123.12", exponent: "")
+        display.value = 123.12
         XCTAssertFalse(display.isPushed)
         XCTAssertNil(engine.top)
         

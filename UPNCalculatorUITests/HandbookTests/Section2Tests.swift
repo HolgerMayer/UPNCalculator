@@ -79,7 +79,7 @@ class Section2Tests: XCTestCase {
         
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! + 0.4567 <= 0.0001," Result should be 0.4567 is \(result)")
+        XCTAssertTrue(result! + 0.4567 <= 0.0001," Result should be 0.4567 is \(result!)")
 
         
     }

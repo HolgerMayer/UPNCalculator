@@ -28,18 +28,18 @@ class ChangeSignCommandTests: XCTestCase {
     }
 
     func testChangeSign(){
-         display.setDisplay(baseValue: "20", exponent: "")
+        display.value = 20
         
         testObject.execute()
         
         XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value() == -20)
+        XCTAssertTrue(display.value == -20)
         XCTAssertFalse(display.isPushed)
  
         testObject.execute()
          
         XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value() == 20)
+        XCTAssertTrue(display.value == 20)
         XCTAssertFalse(display.isPushed)
     }
 

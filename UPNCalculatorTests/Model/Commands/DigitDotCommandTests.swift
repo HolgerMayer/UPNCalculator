@@ -36,13 +36,15 @@ class DigitDotCommandTests: XCTestCase {
     
     
     func testEnterDigit() {
-        display.setDisplay(baseValue: "12", exponent: "")
+         display.clear()
+         display.addBaseDigit(digit: "1")
+         display.addBaseDigit(digit: "2")
 
-        testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "3")
+         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "3")
         
         testObject.execute()
         
-        guard let result = display.value() else {
+        guard let result = display.value else {
             XCTFail()
             return
         }
@@ -52,8 +54,11 @@ class DigitDotCommandTests: XCTestCase {
     
     
     func testEnterDot() {
-        display.setDisplay(baseValue: "123", exponent: "")
-        
+        display.clear()
+        display.addBaseDigit(digit: "1")
+        display.addBaseDigit(digit: "2")
+        display.addBaseDigit(digit: "3")
+
         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : ".")
 
         let fourCommand = DigitDotCommand(calculatorEngine: engine, display: display,token : "4")
@@ -62,7 +67,7 @@ class DigitDotCommandTests: XCTestCase {
         testObject.execute()
         fourCommand.execute()
         
-        guard let result = display.value() else {
+        guard let result = display.value else {
             XCTFail()
             return
         }

@@ -20,7 +20,7 @@ class ExchangeXYCommand : Command {
     }
     
     func execute() {
-        guard let valueX = display.value() else {
+        guard let valueX = display.value else {
                     return
         }
         
@@ -30,7 +30,7 @@ class ExchangeXYCommand : Command {
         
         calculatorEngine.removeTop()
         calculatorEngine.enterNumber(valueX)
-        display.setDisplay(baseValue: "\(valueY)", exponent: "")
+        display.value = valueY
         
     }
     

@@ -24,7 +24,8 @@ class DigitDotCommand : Command {
     
     func execute() {
         if display.isPushed {
-            display.setDisplay(baseValue: digitString, exponent: "")
+            display.clear()
+            display.addBaseDigit(digit: digitString)
             display.isPushed = false
         } else {
             display.addBaseDigit(digit:digitString)

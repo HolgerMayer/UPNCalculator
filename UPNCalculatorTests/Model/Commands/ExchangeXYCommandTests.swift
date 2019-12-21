@@ -49,7 +49,7 @@ class ExchangeXYCommandTests: XCTestCase {
     
         testObject.execute()
           
-        guard let result1 = display.value() else {
+        guard let result1 = display.value else {
                  XCTFail()
                  return
         }

@@ -42,7 +42,7 @@ class BackArrowCommandTests: XCTestCase {
 
         testObject.execute()
           
-        guard let result1 = display.value() else {
+        guard let result1 = display.value else {
                  XCTFail()
                  return
         }
@@ -52,7 +52,7 @@ class BackArrowCommandTests: XCTestCase {
     
         testObject.execute()
                 
-        guard let result2 = display.value() else {
+        guard let result2 = display.value else {
                 XCTFail()
                 return
         }
@@ -76,7 +76,7 @@ class BackArrowCommandTests: XCTestCase {
         
         testObject.execute()
              
-        guard let result1 = display.value() else {
+        guard let result1 = display.value else {
                 XCTFail()
                 return
         }

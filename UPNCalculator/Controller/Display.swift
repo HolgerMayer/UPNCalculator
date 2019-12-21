@@ -23,8 +23,8 @@ public protocol Display {
     
     var isPushed : Bool {get set}
     var state : KeyboardState {get set}
+    var value : Double? {get set}
     
-    func value() -> Double?
     func lastValue() -> Double?
     func updateLastValue()
     
@@ -34,7 +34,6 @@ public protocol Display {
     func changeSign()
     func addExponentDigit(digit : String)
     func removeExponentDigit(digit : String)
-    func setDisplay(baseValue : String, exponent:String?)
     func setError(_ errorMessage : String)
     
 }

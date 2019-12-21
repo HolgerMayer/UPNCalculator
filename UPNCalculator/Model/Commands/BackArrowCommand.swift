@@ -24,7 +24,7 @@ class BackArrowCommand : Command {
         if display.isPushed == false {
             display.removeBaseDigit()
         } else {
-            display.setDisplay(baseValue: "0.0000", exponent: "")
+            display.value = 0.0
             display.isPushed = false
         }
         

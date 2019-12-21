@@ -21,7 +21,7 @@ class FracCommand : Command {
     
     func execute() {
         
-        guard var value = display.value() else {
+        guard var value = display.value else {
             return
         }
         
@@ -30,12 +30,12 @@ class FracCommand : Command {
         let fraction = temp - value
         
         if display.isPushed == false {
-            display.setDisplay(baseValue: "\(fraction)", exponent: "")
+            display.value = fraction
         } else {
             
             calculatorEngine.removeTop()
             calculatorEngine.enterNumber(fraction)
-            display.setDisplay(baseValue: "\(fraction)", exponent: "")
+            display.value = fraction
        }
         
          

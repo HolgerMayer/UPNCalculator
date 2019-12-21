@@ -48,7 +48,7 @@ class CalculationCommand : Command {
                  return
         }
 
-        display.setDisplay(baseValue: "\(result)", exponent: "")
+        display.value = result
     }
     
     func callEngineCalculation() throws {
@@ -56,7 +56,7 @@ class CalculationCommand : Command {
     }
     
     private func enterNumberFromInput(){
-        guard let currentValue = display.value() else {
+        guard let currentValue = display.value else {
             display.setError("Error wrong number format")
                  return
         }

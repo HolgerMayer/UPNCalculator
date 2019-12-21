@@ -30,13 +30,13 @@ class ClearCommandTests: XCTestCase {
     func testClear(){
         engine.enterNumber(10)
         engine.enterNumber(20)
-        display.setDisplay(baseValue: "20", exponent: "")
+        display.value = 20.0
         display.isPushed = true
         
         testObject.execute()
         
         XCTAssertNil(engine.top)
-        XCTAssertNil(display.value())
+        XCTAssertNil(display.value)
         XCTAssertFalse(display.isPushed)
     }
 

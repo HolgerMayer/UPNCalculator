@@ -40,7 +40,7 @@ class UPNCalculatorUITests: XCTestCase {
         app.buttons["add"].tap()
 
         let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-        XCTAssertEqual(labelText, "3.4")
+        XCTAssertEqual(labelText, "3.4000")
         
     }
     
@@ -60,7 +60,7 @@ class UPNCalculatorUITests: XCTestCase {
         app.buttons["subtract"].tap()
 
         let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-        XCTAssertEqual(labelText, "-1.0")
+        XCTAssertEqual(labelText, "-1.0000")
         
     }
     
@@ -80,7 +80,7 @@ class UPNCalculatorUITests: XCTestCase {
            app.buttons["multiply"].tap()
 
            let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-           XCTAssertEqual(labelText, "6.0")
+           XCTAssertEqual(labelText, "6.0000")
            
        }
 
@@ -99,7 +99,7 @@ class UPNCalculatorUITests: XCTestCase {
              app.buttons["divide"].tap()
 
              let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-             XCTAssertEqual(labelText, "2.0")
+             XCTAssertEqual(labelText, "2.0000")
              
          }
     
@@ -136,7 +136,7 @@ class UPNCalculatorUITests: XCTestCase {
               app.buttons["chs"].tap()
 
               let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-              XCTAssertEqual(labelText, "-6.0")
+              XCTAssertEqual(labelText, "-6.0000")
               
           }
    

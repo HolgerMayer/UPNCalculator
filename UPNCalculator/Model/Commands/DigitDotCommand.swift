@@ -23,15 +23,21 @@ class DigitDotCommand : Command {
     
     
     func execute() {
-        if display.isPushed {
-            display.clear()
-            display.addBaseDigit(digit: digitString)
-            display.isPushed = false
+        if display.inputMode == .standard {
+  
+            if display.isPushed {
+                display.clear()
+                display.addBaseDigit(digit: digitString)
+                display.isPushed = false
+            } else {
+                display.addBaseDigit(digit:digitString)
+            }
         } else {
             display.addBaseDigit(digit:digitString)
+            display.inputMode = .standard
         }
-    }
-    
+   }
+   
     
 }
 

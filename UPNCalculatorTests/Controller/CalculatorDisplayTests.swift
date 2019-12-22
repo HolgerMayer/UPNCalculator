@@ -72,7 +72,7 @@ class CalculatorDisplayTests: XCTestCase {
         
         testObject.value = 1.23
         XCTAssertTrue(delegate_didCall_didChangeBase)
-        XCTAssertTrue(delegate_param1 == "1.23")
+        XCTAssertTrue(delegate_param1 == "1.2300", "delegate_param1 should be 1.2300 is \(delegate_param1)")
     }
     
     func testAddBaseDigit(){
@@ -160,6 +160,45 @@ class CalculatorDisplayTests: XCTestCase {
          
          XCTAssertTrue(result == 123.0)
     }
+    
+    
+    // TODO: Test mode switch 
+    func testStandardInputMode(){
+        testObject.value = 123
+         
+        XCTAssertTrue(delegate_param1 == "123.0000")
+    }
+    
+    
+    
+    func testFixInputMode(){
+        testObject.value = 123
+        testObject.inputMode = .fix
+                
+        testObject.addBaseDigit(digit: "7")
+                
+        XCTAssertTrue(delegate_param1 == "123.0000000")
+  
+        testObject.inputMode = .fix
+                
+        testObject.addBaseDigit(digit: "2")
+        XCTAssertTrue(delegate_param1 == "123.00")
+
+     }
+    
+    func testScientificInputMode(){
+           testObject.value = 125
+           testObject.inputMode = .scientific
+                   
+           testObject.addBaseDigit(digit: "7")
+                   
+           XCTAssertTrue(delegate_param1 == "1.250000E2","delegate_param1 should be 1.250000E2 is \(delegate_param1)")
+     
+           testObject.inputMode = .scientific
+                   
+           testObject.addBaseDigit(digit: "2")
+            XCTAssertTrue(delegate_param1 == "1.3E2","delegate_param1 should be 1.3E2 is \(delegate_param1)")
+        }
     
 }
 

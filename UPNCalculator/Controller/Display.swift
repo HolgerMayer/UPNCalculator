@@ -17,6 +17,13 @@ public protocol DisplayDelegate : AnyObject {
 }
 
 
+public enum InputMode {
+    case standard
+    case fix
+    case scientific
+
+}
+
 public protocol Display {
     
     var delegate : DisplayDelegate?  {get set}
@@ -24,6 +31,7 @@ public protocol Display {
     var isPushed : Bool {get set}
     var state : KeyboardState {get set}
     var value : Double? {get set}
+    var inputMode : InputMode {get set}
     
     func lastValue() -> Double?
     func updateLastValue()
@@ -35,5 +43,4 @@ public protocol Display {
     func addExponentDigit(digit : String)
     func removeExponentDigit(digit : String)
     func setError(_ errorMessage : String)
-    
 }

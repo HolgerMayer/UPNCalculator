@@ -184,10 +184,10 @@ class ViewController: UIViewController {
         chsButton = createButton(title1:"",title2: "chs",  title3:"Abs", accessoryLabel: "chs")
         view.addSubview(chsButton)
         
-        digit7Button = createButton(title1:"",title2: "7",  title3:"", accessoryLabel: "digit7")
+        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"", accessoryLabel: "digit7")
         view.addSubview(digit7Button)
 
-        digit8Button = createButton(title1:"",title2: "8",  title3:"", accessoryLabel: "digit8")
+        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"", accessoryLabel: "digit8")
         view.addSubview(digit8Button)
 
         digit9Button = createButton(title1:"",title2: "9",  title3:"", accessoryLabel: "digit9")
@@ -573,7 +573,7 @@ class ViewController: UIViewController {
 extension ViewController : DisplayDelegate {
  
     func didChangeBase(value: String) {
-        outputLabel.text! = value;
+        outputLabel.text! = value
      }
      
      func didChangeExponent(value: String) {

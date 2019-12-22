@@ -22,6 +22,7 @@ class DigitDotCommandTests: XCTestCase {
     var delegate_resultValue : String = ""
 
     
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
@@ -72,10 +73,45 @@ class DigitDotCommandTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(result == 123.4)
+        XCTAssertTrue(result == 123.4,"result should be 123.4 is \(result)")
 
         
     }
+    
+    func testFixInputModeReturnToStandardMode() {
+         display.clear()
+         display.addBaseDigit(digit: "1")
+         display.addBaseDigit(digit: "2")
+         display.addBaseDigit(digit: "3")
+
+         display.inputMode = .fix
+        
+         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
+
+         testObject.execute()
+         
+        XCTAssertTrue(display.inputMode == .standard)
+
+         
+     }
+    
+      func testScientificInputModeReturnToStandardMode() {
+              display.clear()
+              display.addBaseDigit(digit: "1")
+              display.addBaseDigit(digit: "2")
+              display.addBaseDigit(digit: "3")
+
+              display.inputMode = .scientific
+             
+              testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
+
+              testObject.execute()
+              
+             XCTAssertTrue(display.inputMode == .standard)
+
+              
+          }
+    
 }
 
 

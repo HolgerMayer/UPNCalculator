@@ -69,5 +69,26 @@ class AddCommandTests: XCTestCase {
     }
 
    
+    func testCancelFixInput() {
+          engine.enterNumber(1)
+          engine.enterNumber(2)
 
+          display.inputMode = .fix
+          testObject.execute()
+          
+           
+        XCTAssertTrue(display.inputMode == .standard)
+      }
+    
+    func testCancelScientificInput() {
+           engine.enterNumber(1)
+           engine.enterNumber(2)
+
+           display.inputMode = .scientific
+        
+           testObject.execute()
+           
+            
+         XCTAssertTrue(display.inputMode == .standard)
+       }
 }

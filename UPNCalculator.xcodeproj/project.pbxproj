@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542485E023AED8750021992F /* FixCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485DF23AED8750021992F /* FixCommand.swift */; };
+		542485E223AEDA350021992F /* FixCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E123AEDA350021992F /* FixCommandTests.swift */; };
+		542485E423AEE3710021992F /* SciCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E323AEE3710021992F /* SciCommand.swift */; };
+		542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E523AEE52F0021992F /* SciCommandTests.swift */; };
 		5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552823ABDF1000120CA9 /* Section2Tests.swift */; };
 		5433552B23AC162200120CA9 /* IntCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552A23AC162200120CA9 /* IntCommand.swift */; };
 		5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552C23AC170A00120CA9 /* IntCommandTests.swift */; };
@@ -119,6 +123,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		542485DF23AED8750021992F /* FixCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixCommand.swift; sourceTree = "<group>"; };
+		542485E123AEDA350021992F /* FixCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixCommandTests.swift; sourceTree = "<group>"; };
+		542485E323AEE3710021992F /* SciCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciCommand.swift; sourceTree = "<group>"; };
+		542485E523AEE52F0021992F /* SciCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciCommandTests.swift; sourceTree = "<group>"; };
 		5433552823ABDF1000120CA9 /* Section2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2Tests.swift; sourceTree = "<group>"; };
 		5433552A23AC162200120CA9 /* IntCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommand.swift; sourceTree = "<group>"; };
 		5433552C23AC170A00120CA9 /* IntCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommandTests.swift; sourceTree = "<group>"; };
@@ -418,6 +426,8 @@
 				5433552A23AC162200120CA9 /* IntCommand.swift */,
 				5433552E23AC195500120CA9 /* FracCommand.swift */,
 				5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */,
+				542485DF23AED8750021992F /* FixCommand.swift */,
+				542485E323AEE3710021992F /* SciCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -454,6 +464,8 @@
 				545F3E9223A9564E00D0BC5A /* BackArrowCommandTests.swift */,
 				5433552C23AC170A00120CA9 /* IntCommandTests.swift */,
 				5433553023AC19A100120CA9 /* FracCommandTests.swift */,
+				542485E123AEDA350021992F /* FixCommandTests.swift */,
+				542485E523AEE52F0021992F /* SciCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -601,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */,
+				542485E423AEE3710021992F /* SciCommand.swift in Sources */,
 				54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */,
 				54E8146523A7EBCB002E583D /* PICommand.swift in Sources */,
 				54757AEB239A58200048A732 /* ViewController.swift in Sources */,
@@ -641,6 +654,7 @@
 				54E769FA23A5C32500165EDC /* SquareXCommand.swift in Sources */,
 				54D17F86239C5C0E008F5020 /* CalculationCommand.swift in Sources */,
 				5433552B23AC162200120CA9 /* IntCommand.swift in Sources */,
+				542485E023AED8750021992F /* FixCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +678,7 @@
 				5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */,
 				54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */,
 				54B76C2B23A8D25700600BDC /* LastXCommandTests.swift in Sources */,
+				542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */,
 				54B656E323A4DFF4004E6E7D /* TangentCommandTests.swift in Sources */,
 				545F3E9F23A990B400D0BC5A /* UPNEngineDivideTests.swift in Sources */,
 				54699F8D23A24FEE00373D98 /* DigitDotCommandTests.swift in Sources */,
@@ -682,6 +697,7 @@
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
 				5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */,
 				545F3EA523A9922D00D0BC5A /* UPNEngineExpLogTests.swift in Sources */,
+				542485E223AEDA350021992F /* FixCommandTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,
 				545F3EA723A992A300D0BC5A /* UPNEngineOtherFunctionTests.swift in Sources */,
 				545F3E9D23A9905400D0BC5A /* UPNEngineMultiplyTests.swift in Sources */,

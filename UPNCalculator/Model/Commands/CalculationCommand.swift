@@ -20,6 +20,9 @@ class CalculationCommand : Command {
     }
     
     func execute() {
+        
+        display.inputMode = .standard
+
         if !display.isPushed {
                  enterNumberFromInput()
         }

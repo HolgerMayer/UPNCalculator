@@ -11,14 +11,39 @@ import UIKit
 
 class CalculatorDisplay : Display {
     
+    private var numberFormatter : NumberFormatter
     private var displayText : String
     private var lastDisplayText : String
     
     private var currentValue : Double?
     
     weak var delegate : DisplayDelegate?
-    var isPushed: Bool
     
+    var isPushed: Bool {
+        didSet{
+            if isPushed == true  && oldValue == false {
+                guard let numberValue = currentValue else {
+                    return
+                }
+                guard let newDisplayString = numberFormatter.string(for: numberValue) else {
+                    displayText = "???"
+                    if delegate != nil {
+                        delegate?.didChangeBase(value: displayText)
+                    }
+                    return
+                }
+                    
+                displayText = newDisplayString
+            }
+                
+            if delegate != nil {
+                   delegate?.didChangeBase(value: displayText)
+            }
+        }
+        
+    }
+    
+    var noOfDecimalPlacesDisplayed : Int
     
     var state: KeyboardState {
         didSet {
@@ -35,26 +60,37 @@ class CalculatorDisplay : Display {
         
         set (newValue) {
             currentValue = newValue
-            if currentValue == nil {
-                displayText = ""
-            } else {
-                displayText = "\(currentValue!)"
-            }
-            
-            if delegate != nil {
-                delegate?.didChangeBase(value: displayText)
-            }
+            updateDisplay()
         }
     }
     
+    var inputMode : InputMode {
+        didSet {
+            switch inputMode {
+            case .fix :
+                numberFormatter.numberStyle = NumberFormatter.Style.none
+                break
+            case .scientific :
+                numberFormatter.numberStyle = NumberFormatter.Style.scientific
+                break
+            default:
+                break
+            }
+        }
+    }
+
     
     init() {
         isPushed = false
         state = .Default
         displayText = ""
         lastDisplayText = ""
+        noOfDecimalPlacesDisplayed = 4
         currentValue = nil
-    }
+        numberFormatter = NumberFormatter()
+        inputMode = .standard
+        setupNumberFormatter()
+}
     
     func clear() {
         isPushed = false
@@ -62,8 +98,9 @@ class CalculatorDisplay : Display {
         displayText = ""
         currentValue = nil
         delegate?.didChangeBase(value: "")
+        inputMode = .standard
+        
     }
-
     
 
     func updateLastValue() {
@@ -81,10 +118,30 @@ class CalculatorDisplay : Display {
     
     func addBaseDigit(digit: String) {
  
-        let newText = displayText + digit
-        displayText = newText
-        currentValue = Double(displayText)
-        delegate?.didChangeBase(value: newText)
+        switch inputMode {
+        case .fix, .scientific:
+             if digit != "." {
+                guard let newDecimalPlaces = Int(digit) else {
+                    return
+                }
+                noOfDecimalPlacesDisplayed = newDecimalPlaces
+                setupNumberFormatter()
+                updateDisplay()
+            }
+            return
+        default:
+            var appendChar = digit
+            let locale = NSLocale()
+            if appendChar == locale.decimalSeparator{
+                
+                appendChar = ","
+            }
+            
+            let newText = displayText + appendChar
+            displayText = newText
+            currentValue = Double(displayText)
+            delegate?.didChangeBase(value: newText)
+        }
     }
     
     func removeBaseDigit() {
@@ -117,5 +174,28 @@ class CalculatorDisplay : Display {
         delegate?.didChangeBase(value:errorMessage)
     }
     
-    
+    private func setupNumberFormatter(){
+        numberFormatter.minimumFractionDigits = noOfDecimalPlacesDisplayed
+        numberFormatter.maximumFractionDigits = noOfDecimalPlacesDisplayed
+    }
+   
+    private func updateDisplay(){
+        if currentValue == nil {
+             displayText = ""
+         } else {
+             guard let newDisplayString = numberFormatter.string(for: currentValue!) else {
+                 displayText = "???"
+                 if delegate != nil {
+                     delegate?.didChangeBase(value: displayText)
+                 }
+                 return
+             }
+             
+             displayText = newDisplayString
+         }
+         
+         if delegate != nil {
+             delegate?.didChangeBase(value: displayText)
+         }
+    }
 }

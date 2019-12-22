@@ -100,6 +100,9 @@ class UPNCommandFactory  {
         //###################### FKey
         //###########################
 
+        fStateCommandDictionary[CommandKey.digit7Key.rawValue] = FixCommand(calculatorEngine: calculatorEngine, display: display)
+        fStateCommandDictionary[CommandKey.digit8Key.rawValue] = SciCommand(calculatorEngine: calculatorEngine, display: display)
+
         fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
 
         // Row 4

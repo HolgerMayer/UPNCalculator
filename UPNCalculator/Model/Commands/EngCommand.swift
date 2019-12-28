@@ -1,14 +1,15 @@
 //
-//  LastXCommand.swift
+//  EngCommand.swift
 //  UPNCalculator
 //
-//  Created by holgermayer on 17.12.19.
+//  Created by holgermayer on 23.12.19.
 //  Copyright © 2019 holgermayer. All rights reserved.
 //
 
 import Foundation
 
-class LastXCommand : Command {
+
+class EngCommand : Command {
     
     private var calculatorEngine : UPNEngine
     private var display : Display
@@ -19,11 +20,10 @@ class LastXCommand : Command {
     }
     
     func execute() {
-              
-        display.restoreLastValue()
-        if display.value != nil {
-            calculatorEngine.enterNumber(display.value!)
-        }
+        
+        display.inputMode = .engineering
+        
+         
     }
     
     

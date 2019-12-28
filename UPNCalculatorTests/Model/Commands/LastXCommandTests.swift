@@ -50,14 +50,7 @@ class LastXCommandTests: XCTestCase {
         
         addCommand.execute()
         
-        guard let lastValue1 = display.lastValue() else {
-            XCTFail()
-            return
-        }
-        
-        
-        XCTAssertTrue(lastValue1 == 232 , "Should be 232 is \(lastValue1)")
-
+ 
         testObject.execute()
                
         guard let result = engine.top else {

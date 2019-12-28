@@ -10,8 +10,7 @@ import Foundation
 
 
 public protocol DisplayDelegate : AnyObject {
-    func didChangeBase(value : String)
-    func didChangeExponent(value : String)
+    func didChangeDisplay(value : String)
     func didChangeState(_ state : KeyboardState)
   
 }
@@ -21,6 +20,7 @@ public enum InputMode {
     case standard
     case fix
     case scientific
+    case engineering
 
 }
 
@@ -33,7 +33,7 @@ public protocol Display {
     var value : Double? {get set}
     var inputMode : InputMode {get set}
     
-    func lastValue() -> Double?
+    func restoreLastValue() 
     func updateLastValue()
     
     func clear()

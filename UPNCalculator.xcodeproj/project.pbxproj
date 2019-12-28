@@ -11,6 +11,11 @@
 		542485E223AEDA350021992F /* FixCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E123AEDA350021992F /* FixCommandTests.swift */; };
 		542485E423AEE3710021992F /* SciCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E323AEE3710021992F /* SciCommand.swift */; };
 		542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E523AEE52F0021992F /* SciCommandTests.swift */; };
+		542485E923AF7D440021992F /* FixFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E823AF7D440021992F /* FixFormatter.swift */; };
+		542485EB23AF7D560021992F /* DisplayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485EA23AF7D560021992F /* DisplayFormatter.swift */; };
+		542485ED23AF7D640021992F /* ScientificFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485EC23AF7D640021992F /* ScientificFormatter.swift */; };
+		542485F023AF7E7E0021992F /* FixFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485EF23AF7E7E0021992F /* FixFormatterTests.swift */; };
+		542485F223AF7E8C0021992F /* ScientificFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485F123AF7E8C0021992F /* ScientificFormatterTests.swift */; };
 		5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552823ABDF1000120CA9 /* Section2Tests.swift */; };
 		5433552B23AC162200120CA9 /* IntCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552A23AC162200120CA9 /* IntCommand.swift */; };
 		5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552C23AC170A00120CA9 /* IntCommandTests.swift */; };
@@ -21,6 +26,10 @@
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
 		544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544F8AF623A3A56100C58A42 /* EnterCommandTests.swift */; };
+		545C741C23B0278A006E6FF3 /* EngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C741B23B0278A006E6FF3 /* EngFormatter.swift */; };
+		545C741E23B027CE006E6FF3 /* EngFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C741D23B027CE006E6FF3 /* EngFormatterTests.swift */; };
+		545C742223B0B0A0006E6FF3 /* EngCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C742123B0B0A0006E6FF3 /* EngCommand.swift */; };
+		545C742623B0B17C006E6FF3 /* EngCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C742523B0B17C006E6FF3 /* EngCommandTests.swift */; };
 		545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C93D623A1148000CD3156 /* CalculatorDisplayTests.swift */; };
 		545C93D923A13A6400CD3156 /* AddCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C93D823A13A6400CD3156 /* AddCommandTests.swift */; };
 		545F3E8D23A93B5500D0BC5A /* ExchangeXYCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */; };
@@ -127,6 +136,11 @@
 		542485E123AEDA350021992F /* FixCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixCommandTests.swift; sourceTree = "<group>"; };
 		542485E323AEE3710021992F /* SciCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciCommand.swift; sourceTree = "<group>"; };
 		542485E523AEE52F0021992F /* SciCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciCommandTests.swift; sourceTree = "<group>"; };
+		542485E823AF7D440021992F /* FixFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixFormatter.swift; sourceTree = "<group>"; };
+		542485EA23AF7D560021992F /* DisplayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFormatter.swift; sourceTree = "<group>"; };
+		542485EC23AF7D640021992F /* ScientificFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScientificFormatter.swift; sourceTree = "<group>"; };
+		542485EF23AF7E7E0021992F /* FixFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixFormatterTests.swift; sourceTree = "<group>"; };
+		542485F123AF7E8C0021992F /* ScientificFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScientificFormatterTests.swift; sourceTree = "<group>"; };
 		5433552823ABDF1000120CA9 /* Section2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2Tests.swift; sourceTree = "<group>"; };
 		5433552A23AC162200120CA9 /* IntCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommand.swift; sourceTree = "<group>"; };
 		5433552C23AC170A00120CA9 /* IntCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommandTests.swift; sourceTree = "<group>"; };
@@ -137,6 +151,10 @@
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
 		544F8AF623A3A56100C58A42 /* EnterCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCommandTests.swift; sourceTree = "<group>"; };
+		545C741B23B0278A006E6FF3 /* EngFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngFormatter.swift; sourceTree = "<group>"; };
+		545C741D23B027CE006E6FF3 /* EngFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngFormatterTests.swift; sourceTree = "<group>"; };
+		545C742123B0B0A0006E6FF3 /* EngCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngCommand.swift; sourceTree = "<group>"; };
+		545C742523B0B17C006E6FF3 /* EngCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngCommandTests.swift; sourceTree = "<group>"; };
 		545C93D623A1148000CD3156 /* CalculatorDisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDisplayTests.swift; sourceTree = "<group>"; };
 		545C93D823A13A6400CD3156 /* AddCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommandTests.swift; sourceTree = "<group>"; };
 		545F3E8C23A93B5500D0BC5A /* ExchangeXYCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeXYCommand.swift; sourceTree = "<group>"; };
@@ -252,6 +270,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		542485E723AF7D2F0021992F /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				542485EA23AF7D560021992F /* DisplayFormatter.swift */,
+				542485E823AF7D440021992F /* FixFormatter.swift */,
+				542485EC23AF7D640021992F /* ScientificFormatter.swift */,
+				545C741B23B0278A006E6FF3 /* EngFormatter.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
+		542485EE23AF7E6A0021992F /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				542485EF23AF7E7E0021992F /* FixFormatterTests.swift */,
+				542485F123AF7E8C0021992F /* ScientificFormatterTests.swift */,
+				545C741D23B027CE006E6FF3 /* EngFormatterTests.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
 		5433553223AC26DE00120CA9 /* Problems */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +402,7 @@
 		54757B18239A59030048A732 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				542485E723AF7D2F0021992F /* Formatter */,
 				54757AEA239A58200048A732 /* ViewController.swift */,
 				54D17F7F239C52E2008F5020 /* Display.swift */,
 				54D17F81239C5752008F5020 /* CalculatorDisplay.swift */,
@@ -383,6 +423,7 @@
 		54757B1A239A59100048A732 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				542485EE23AF7E6A0021992F /* Formatter */,
 				54E03794239A7FF200B30EFB /* ViewControllerTests.swift */,
 				545C93D623A1148000CD3156 /* CalculatorDisplayTests.swift */,
 			);
@@ -428,6 +469,7 @@
 				5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */,
 				542485DF23AED8750021992F /* FixCommand.swift */,
 				542485E323AEE3710021992F /* SciCommand.swift */,
+				545C742123B0B0A0006E6FF3 /* EngCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -466,6 +508,7 @@
 				5433553023AC19A100120CA9 /* FracCommandTests.swift */,
 				542485E123AEDA350021992F /* FixCommandTests.swift */,
 				542485E523AEE52F0021992F /* SciCommandTests.swift */,
+				545C742523B0B17C006E6FF3 /* EngCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -612,8 +655,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542485ED23AF7D640021992F /* ScientificFormatter.swift in Sources */,
 				54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */,
 				542485E423AEE3710021992F /* SciCommand.swift in Sources */,
+				545C742223B0B0A0006E6FF3 /* EngCommand.swift in Sources */,
 				54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */,
 				54E8146523A7EBCB002E583D /* PICommand.swift in Sources */,
 				54757AEB239A58200048A732 /* ViewController.swift in Sources */,
@@ -625,6 +670,7 @@
 				54D17F88239C5DDB008F5020 /* AddCommand.swift in Sources */,
 				54B76C2923A8D1C600600BDC /* LastXCommand.swift in Sources */,
 				54D17F8A239C5F5B008F5020 /* SubtractCommand.swift in Sources */,
+				542485E923AF7D440021992F /* FixFormatter.swift in Sources */,
 				54757AE7239A58200048A732 /* AppDelegate.swift in Sources */,
 				545F3E8D23A93B5500D0BC5A /* ExchangeXYCommand.swift in Sources */,
 				54D17F8E239C5FA6008F5020 /* DivideCommand.swift in Sources */,
@@ -634,6 +680,7 @@
 				54D17F80239C52E3008F5020 /* Display.swift in Sources */,
 				54E769F123A5BDF300165EDC /* XOverTenCommand.swift in Sources */,
 				545F3E9123A9554800D0BC5A /* BackArrowCommand.swift in Sources */,
+				542485EB23AF7D560021992F /* DisplayFormatter.swift in Sources */,
 				54E769DB23A5875100165EDC /* PowCommand.swift in Sources */,
 				54E769D923A5871D00165EDC /* ATangentCommand.swift in Sources */,
 				54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */,
@@ -652,6 +699,7 @@
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
 				54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */,
 				54E769FA23A5C32500165EDC /* SquareXCommand.swift in Sources */,
+				545C741C23B0278A006E6FF3 /* EngFormatter.swift in Sources */,
 				54D17F86239C5C0E008F5020 /* CalculationCommand.swift in Sources */,
 				5433552B23AC162200120CA9 /* IntCommand.swift in Sources */,
 				542485E023AED8750021992F /* FixCommand.swift in Sources */,
@@ -675,19 +723,23 @@
 				54699F8B23A249EA00373D98 /* DivideCommandTests.swift in Sources */,
 				545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */,
 				54B656E723A4E14C004E6E7D /* DivideOneByXCommandTests.swift in Sources */,
+				545C742623B0B17C006E6FF3 /* EngCommandTests.swift in Sources */,
 				5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */,
 				54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */,
 				54B76C2B23A8D25700600BDC /* LastXCommandTests.swift in Sources */,
+				542485F223AF7E8C0021992F /* ScientificFormatterTests.swift in Sources */,
 				542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */,
 				54B656E323A4DFF4004E6E7D /* TangentCommandTests.swift in Sources */,
 				545F3E9F23A990B400D0BC5A /* UPNEngineDivideTests.swift in Sources */,
 				54699F8D23A24FEE00373D98 /* DigitDotCommandTests.swift in Sources */,
 				54E769DF23A587FA00165EDC /* ACosineCommandTests.swift in Sources */,
+				542485F023AF7E7E0021992F /* FixFormatterTests.swift in Sources */,
 				54B656E123A4DE4F004E6E7D /* CosineCommandTests.swift in Sources */,
 				54757B20239A5E660048A732 /* StackTests.swift in Sources */,
 				545C93D923A13A6400CD3156 /* AddCommandTests.swift in Sources */,
 				54E769EF23A5BC9100165EDC /* Log10CommandTests.swift in Sources */,
 				54E769E123A5885700165EDC /* ATangentCommandTests.swift in Sources */,
+				545C741E23B027CE006E6FF3 /* EngFormatterTests.swift in Sources */,
 				545F3E9323A9564E00D0BC5A /* BackArrowCommandTests.swift in Sources */,
 				54B656E923A4E1E1004E6E7D /* ClearCommandTests.swift in Sources */,
 				54B656E523A4E0AD004E6E7D /* SquareRootCommandTests.swift in Sources */,

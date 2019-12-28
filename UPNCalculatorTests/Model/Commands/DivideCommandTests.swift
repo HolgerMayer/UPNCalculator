@@ -16,8 +16,7 @@ class DivideCommandTests: XCTestCase {
     var testObject : DivideCommand!
     
     
-    var delegate_didCall_didChangeBase  : Bool = false
-    var delegate_didCall_didChangeExponent : Bool = false
+    var delegate_didCall_didChangeDisplay: Bool = false
     var delegate_didCall_didChangeState : Bool = false
     var delegate_param1 : String = ""
     var delegate_resultValue : String = ""
@@ -91,16 +90,11 @@ class DivideCommandTests: XCTestCase {
 
 
 extension DivideCommandTests : DisplayDelegate {
-    func didChangeBase(value: String) {
-        delegate_didCall_didChangeBase = true
+    func didChangeDisplay(value: String) {
+        delegate_didCall_didChangeDisplay = true
         delegate_param1 = value
     }
-    
-    func didChangeExponent(value: String) {
-        delegate_didCall_didChangeExponent = true
-        delegate_param1 = value
-    }
-    
+        
     func didChangeState(_ state: KeyboardState) {
       delegate_didCall_didChangeState = true
     }

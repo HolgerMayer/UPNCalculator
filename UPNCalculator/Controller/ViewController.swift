@@ -299,6 +299,9 @@ class ViewController: UIViewController {
 
     private func createButton( title1 : String, title2 : String, title3: String, accessoryLabel : String) -> UIButton  {
         
+        
+            
+        
             let paragraphStyle = NSMutableParagraphStyle()
 
             // *** set LineSpacing property in points ***
@@ -315,7 +318,7 @@ class ViewController: UIViewController {
             attributedTitle2.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle2.length))
         
             let attributedTitle3 = NSMutableAttributedString(string:title3)
-            attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: NSMakeRange(0, attributedTitle3.length))
+            attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.cyan, range: NSMakeRange(0, attributedTitle3.length))
             attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
 
             let attributedTitle  = NSMutableAttributedString()

@@ -23,7 +23,7 @@ class FixFormatter : DisplayFormatter {
     
     func convertToString(_ value: Double)  -> String? {
  
-        let log10Value = Darwin.log10(value)
+        let log10Value = Darwin.log10(abs(value))
         if  abs(log10Value) <= 6 {
             
             numberFormatter.minimumFractionDigits = precision

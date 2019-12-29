@@ -43,4 +43,21 @@ class ChangeSignCommandTests: XCTestCase {
         XCTAssertFalse(display.isPushed)
     }
 
+    func testChangeSignOfNumberLessThanOne(){
+        display.value = 0.1
+               
+        testObject.execute()
+               
+        XCTAssertNil(engine.top)
+        XCTAssertTrue(display.value == -0.1)
+        XCTAssertFalse(display.isPushed)
+        
+        testObject.execute()
+                
+        XCTAssertNil(engine.top)
+        XCTAssertTrue(display.value == 0.1)
+        XCTAssertFalse(display.isPushed)
+
+    }
+    
 }

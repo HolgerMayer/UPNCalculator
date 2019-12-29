@@ -35,6 +35,16 @@ class FixFormatterTests: XCTestCase {
         XCTAssertTrue(result! == "123        ", "result should be 123........ is \(result!)")
     }
     
+    func testFormatToStringNegativNumberBetweenZeroAndMinusOne(){
+         let testInput = -0.1
+         testObject.precision = 4
+         
+         let result = testObject.convertToString(testInput)
+         
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! == "-0.1000    ", "result should be -0.1000..... is \(result!)")
+
+    }
     
     func testFormatToStringSmallValuePrecisionFour() {
         

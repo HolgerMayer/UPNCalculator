@@ -181,7 +181,7 @@ class ViewController: UIViewController {
         onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"∆%", accessoryLabel: "divide1byx")
         view.addSubview(onedivxButton)
 
-        chsButton = createButton(title1:"",title2: "chs",  title3:"Abs", accessoryLabel: "chs")
+        chsButton = createButton(title1:"",title2: "CHS",  title3:"ABS", accessoryLabel: "chs")
         view.addSubview(chsButton)
         
         digit7Button = createButton(title1:"FIX",title2: "7",  title3:"", accessoryLabel: "digit7")
@@ -193,7 +193,7 @@ class ViewController: UIViewController {
         digit9Button = createButton(title1:"ENG",title2: "9",  title3:"", accessoryLabel: "digit9")
         view.addSubview(digit9Button)
 
-        addButton = createButton(title1:"",title2: "+",  title3:"", accessoryLabel: "add")
+        addButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
         view.addSubview(addButton)
 
 
@@ -205,13 +205,13 @@ class ViewController: UIViewController {
         noop2Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop2")
         view.addSubview(noop2Button)
 
-        sinButton  = createButton(title1:"",title2: "sin",  title3:"sin-1", accessoryLabel: "sin")
+        sinButton  = createButton(title1:"",title2: "SIN",  title3:"SIN-1", accessoryLabel: "sin")
         view.addSubview(sinButton)
 
-        cosButton  = createButton(title1:"",title2: "cos",  title3:"cos-1", accessoryLabel: "cos")
+        cosButton  = createButton(title1:"",title2: "COS",  title3:"COS-1", accessoryLabel: "cos")
         view.addSubview(cosButton)
 
-        tanButton  = createButton(title1:"",title2: "tan",  title3:"tan-1", accessoryLabel: "tan")
+        tanButton  = createButton(title1:"",title2: "TAN",  title3:"TAN-1", accessoryLabel: "tan")
         view.addSubview(tanButton)
 
             
@@ -227,7 +227,7 @@ class ViewController: UIViewController {
         digit6Button = createButton(title1:"",title2: "6",  title3:"", accessoryLabel: "digit6")
         view.addSubview(digit6Button)
 
-        subtractButton = createButton(title1:"",title2: "-", title3:"",  accessoryLabel: "subtract")
+        subtractButton = createButton(title1:"",title2: "*", title3:"",  accessoryLabel: "multiply")
         view.addSubview(subtractButton)
 
 
@@ -260,13 +260,13 @@ class ViewController: UIViewController {
         digit3Button = createButton(title1:"",title2: "3",  title3:"", accessoryLabel: "digit3")
         view.addSubview(digit3Button)
 
-        multiplyButton = createButton(title1:"",title2: "*",  title3:"", accessoryLabel: "multiply")
+        multiplyButton = createButton(title1:"",title2: "-",  title3:"", accessoryLabel: "subtract")
         view.addSubview(multiplyButton)
 
 
         // Fourth Row
 
-        onButton = createButton(title1:"",title2: "on",  title3:"", accessoryLabel: "noop3")
+        onButton = createButton(title1:"",title2: "ON",  title3:"", accessoryLabel: "noop3")
         onButton.backgroundColor = UIColor.lightGray
         view.addSubview(onButton)
 
@@ -291,7 +291,7 @@ class ViewController: UIViewController {
         noop10Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop10")
         view.addSubview(noop10Button)
 
-        divideButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
+        divideButton = createButton(title1:"",title2: "+",  title3:"", accessoryLabel: "add")
         view.addSubview(divideButton)
 
 }

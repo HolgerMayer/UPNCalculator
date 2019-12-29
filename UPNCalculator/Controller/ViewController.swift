@@ -166,7 +166,7 @@ class ViewController: UIViewController {
     private func createViewControllerButtons() {
         // First row
         
-        sqrtButton = createButton(title1:"A",title2: "sqrt", title3:"X2", accessoryLabel: "sqrt")
+        sqrtButton = createButton(title1:"A",title2: "√", title3:"x²", accessoryLabel: "sqrt")
         view.addSubview(sqrtButton)
 
         xovereButton = createButton(title1:"B",title2: "eX", title3:"LN", accessoryLabel: "xovere")
@@ -175,10 +175,10 @@ class ViewController: UIViewController {
         xover10Button  = createButton(title1:"C",title2: "10X",title3:"LOG", accessoryLabel: "xoverten")
         view.addSubview(xover10Button)
 
-        xoveryButton  = createButton(title1:"D",title2: "yX", title3:"", accessoryLabel: "xovery")
+        xoveryButton  = createButton(title1:"D",title2: "yX", title3:"%", accessoryLabel: "xovery")
         view.addSubview(xoveryButton)
 
-        onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"", accessoryLabel: "divide1byx")
+        onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"∆%", accessoryLabel: "divide1byx")
         view.addSubview(onedivxButton)
 
         chsButton = createButton(title1:"",title2: "chs",  title3:"Abs", accessoryLabel: "chs")
@@ -242,10 +242,10 @@ class ViewController: UIViewController {
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
 
-        xExYButton = createButton(title1:"",title2: "X<>Y",  title3:"", accessoryLabel: "exchangexy")
+        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
-        backArrowButton = createButton(title1:"",title2: "<-",  title3:"", accessoryLabel: "backarrow")
+        backArrowButton = createButton(title1:"",title2: "←",  title3:"", accessoryLabel: "backarrow")
         view.addSubview(backArrowButton)
 
         enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
@@ -316,7 +316,7 @@ class ViewController: UIViewController {
         
             let attributedTitle3 = NSMutableAttributedString(string:title3)
             attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: NSMakeRange(0, attributedTitle3.length))
-            attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.systemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
+            attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
 
             let attributedTitle  = NSMutableAttributedString()
             attributedTitle.append(attributedTitle1)

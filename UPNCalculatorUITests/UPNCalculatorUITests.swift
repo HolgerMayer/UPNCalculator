@@ -27,6 +27,7 @@ class UPNCalculatorUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let testTool = TestTool(app: app)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -39,8 +40,11 @@ class UPNCalculatorUITests: XCTestCase {
         app.buttons["digit2"].tap()
         app.buttons["add"].tap()
 
-        let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-        XCTAssertEqual(labelText, "3.4000")
+        
+        let result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! - 3.4 <= 0.0001)
+
         
     }
     
@@ -49,6 +53,7 @@ class UPNCalculatorUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let testTool = TestTool(app: app)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -59,48 +64,45 @@ class UPNCalculatorUITests: XCTestCase {
         app.buttons["digit2"].tap()
         app.buttons["subtract"].tap()
 
-        let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-        XCTAssertEqual(labelText, "-1.0000")
+  
+        let result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! == -1.0)
         
     }
     
     
     func testMultiply2by3equals6() {
-           // UI tests must launch the application that they test.
-           let app = XCUIApplication()
-           app.launch()
-
-           // Use recording to get started writing UI tests.
-           // Use XCTAssert and related functions to verify your tests produce the correct results.
-           
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        let testTool = TestTool(app: app)
             
-           app.buttons["digit2"].tap()
-           app.buttons["enter"].tap()
-           app.buttons["digit3"].tap()
-           app.buttons["multiply"].tap()
+        app.buttons["digit2"].tap()
+        app.buttons["enter"].tap()
+        app.buttons["digit3"].tap()
+        app.buttons["multiply"].tap()
 
-           let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-           XCTAssertEqual(labelText, "6.0000")
-           
+        let result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! == 6.0)
+
        }
 
     func testDivide6by3equals2() {
-             // UI tests must launch the application that they test.
-             let app = XCUIApplication()
-             app.launch()
+            // UI tests must launch the application that they test.
+            let app = XCUIApplication()
+            app.launch()
+            let testTool = TestTool(app: app)
 
-             // Use recording to get started writing UI tests.
-             // Use XCTAssert and related functions to verify your tests produce the correct results.
-             
-              
-             app.buttons["digit6"].tap()
-             app.buttons["enter"].tap()
-             app.buttons["digit3"].tap()
-             app.buttons["divide"].tap()
+            app.buttons["digit6"].tap()
+            app.buttons["enter"].tap()
+            app.buttons["digit3"].tap()
+            app.buttons["divide"].tap()
 
-             let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-             XCTAssertEqual(labelText, "2.0000")
-             
+            let result = testTool.getValueFromDisplay()
+            XCTAssertNotNil(result)
+            XCTAssertTrue(result! == 2.0)
          }
     
     func testClear() {
@@ -121,33 +123,20 @@ class UPNCalculatorUITests: XCTestCase {
              let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
              XCTAssertEqual(labelText, "")
              
-         }
+    }
     
     func testChs() {
-              // UI tests must launch the application that they test.
-              let app = XCUIApplication()
-              app.launch()
+         // UI tests must launch the application that they test.
+         let app = XCUIApplication()
+         app.launch()
+         let testTool = TestTool(app: app)
 
-              // Use recording to get started writing UI tests.
-              // Use XCTAssert and related functions to verify your tests produce the correct results.
-              
-               
-              app.buttons["digit6"].tap()
-              app.buttons["chs"].tap()
+         app.buttons["digit6"].tap()
+         app.buttons["chs"].tap()
 
-              let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
-              XCTAssertEqual(labelText, "-6.0000")
-              
+         let result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! == -6.0)
           }
    
-    /*
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
- */
 }

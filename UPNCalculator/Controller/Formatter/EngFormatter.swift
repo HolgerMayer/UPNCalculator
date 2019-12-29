@@ -21,7 +21,15 @@ class EngFormatter : DisplayFormatter {
       }
       
       func convertToString(_ value: Double)  -> String? {
+        
+        if value.isNaN == true {
+            return "Error : Not a number"
+        }
  
+        if value.isInfinite == true {
+            return " Error : result is infinite"
+        }
+
         return convertWithExponent(value, exponentModulo: 3)
     }
       

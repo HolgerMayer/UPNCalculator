@@ -18,8 +18,16 @@ class ScientificFormatter : DisplayFormatter {
       }
       
       func convertToString(_ value: Double)  -> String? {
+        
+        if value.isNaN == true {
+            return "Error : Not a number"
+        }
  
-      return convertWithExponent(value, exponentModulo: 1)
+        if value.isInfinite == true {
+            return " Error : result is infinite"
+        }
+        
+        return convertWithExponent(value, exponentModulo: 1)
         
     }
       

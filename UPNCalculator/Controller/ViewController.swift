@@ -144,7 +144,7 @@ class ViewController: UIViewController {
         
         outputLabel.textAlignment = .right
         outputLabel.backgroundColor = .lightGray
-        outputLabel.font = .systemFont(ofSize: 25.0)
+        outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
         outputLabel.text = ""
         outputLabel.translatesAutoresizingMaskIntoConstraints = false
         outputLabel.accessibilityIdentifier = "display"

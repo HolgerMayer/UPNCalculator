@@ -134,7 +134,7 @@ class ViewController: UIViewController {
     }
 
     private func createDisplay(){
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         displayPanel.backgroundColor = .lightGray
         displayPanel.layer.cornerRadius = 20.0
@@ -299,13 +299,19 @@ class ViewController: UIViewController {
 
     private func createButton( title1 : String, title2 : String, title3: String, accessoryLabel : String) -> UIButton  {
         
-        
+            let paragraphStyle = NSMutableParagraphStyle()
+
+            // *** set LineSpacing property in points ***
+            paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+            paragraphStyle.alignment = .center
+       
             let attributedTitle1 = NSMutableAttributedString(string:title1 + "\n")
             attributedTitle1.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.orange, range: NSMakeRange(0, attributedTitle1.length))
             attributedTitle1.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle1.length))
+            attributedTitle1.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedTitle1.length))
 
             let attributedTitle2 = NSMutableAttributedString(string:title2 + "\n")
-            attributedTitle2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSMakeRange(0, attributedTitle2.length))
+            attributedTitle2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle2.length))
             attributedTitle2.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle2.length))
         
             let attributedTitle3 = NSMutableAttributedString(string:title3)
@@ -322,10 +328,11 @@ class ViewController: UIViewController {
             button.titleLabel?.textAlignment = .center
             button.titleLabel?.numberOfLines = 0
             button.layer.borderWidth = 0.5
-            button.layer.borderColor = UIColor.blue.cgColor
-            button.layer.cornerRadius = 15.0
-            button.backgroundColor = .white
-            
+   //         button.layer.borderColor = UIColor.blue.cgColor
+   //         button.layer.cornerRadius = 15.0
+   //          button.backgroundColor = .white
+            button.setBackgroundImage(UIImage(named: "Button1"), for: .normal)
+                
             button.setAttributedTitle(attributedTitle, for: .normal)
             button.setTitleColor(.black, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 25.0)
@@ -345,10 +352,7 @@ class ViewController: UIViewController {
               button.titleLabel?.lineBreakMode = .byWordWrapping
               button.titleLabel?.textAlignment = .center
               button.titleLabel?.numberOfLines = 0
-              button.layer.borderWidth = 0.5
-              button.layer.borderColor = UIColor.blue.cgColor
-              button.layer.cornerRadius = 15.0
-              button.backgroundColor = UIColor.orange
+              button.setBackgroundImage(UIImage(named: "OrangeButton"), for: .normal)
               
               button.setAttributedTitle(attributedTitle, for: .normal)
               button.setTitleColor(.black, for: .normal)
@@ -369,10 +373,7 @@ class ViewController: UIViewController {
                 button.titleLabel?.lineBreakMode = .byWordWrapping
                 button.titleLabel?.textAlignment = .center
                 button.titleLabel?.numberOfLines = 0
-                button.layer.borderWidth = 0.5
-                button.layer.borderColor = UIColor.black.cgColor
-                button.layer.cornerRadius = 15.0
-                button.backgroundColor = UIColor.blue
+                button.setBackgroundImage(UIImage(named: "BlueButton"), for: .normal)
                 
                 button.setAttributedTitle(attributedTitle, for: .normal)
                 button.setTitleColor(.black, for: .normal)

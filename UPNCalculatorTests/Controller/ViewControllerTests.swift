@@ -17,7 +17,7 @@ class ViewControllerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
            let storyboard = UIStoryboard(name: "Main",
                                          bundle: Bundle.main)
-         testObject = storyboard.instantiateInitialViewController() as! ViewController
+         testObject = storyboard.instantiateInitialViewController() as? ViewController
 
         testObject.loadViewIfNeeded()
     }
@@ -74,7 +74,6 @@ class ViewControllerTests: XCTestCase {
         XCTAssertFalse(testObject.isPushed())
         XCTAssertNotNil(testObject.calculatorEngine)
         XCTAssertNotNil(testObject.display)
-        XCTAssertNotNil(testObject.commandFactory)
         XCTAssertNil(testObject.calculatorEngine.top)
     }
     

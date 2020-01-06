@@ -36,18 +36,18 @@ class ExchangeXYCommandTests: XCTestCase {
         let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
         let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
         
-        digit1Command.execute()
-        digit2Command.execute()
-        digit1Command.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit1Command.execute()
         
-        enterCommand.execute()
+        let _ = enterCommand.execute()
         
-        digit2Command.execute()
-        digit3Command.execute()
-        digit2Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = digit2Command.execute()
         
     
-        testObject.execute()
+        let _ = testObject.execute()
           
         guard let result1 = display.value else {
                  XCTFail()

@@ -30,7 +30,7 @@ class SubtractCommandTests: XCTestCase {
     
     func testSubtractEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -43,7 +43,7 @@ class SubtractCommandTests: XCTestCase {
     func testSubtractOnly1OnStack() {
         engine.enterNumber(1)
 
-           testObject.execute()
+           let _ = testObject.execute()
            
            guard let result = engine.top else {
                XCTFail()
@@ -58,7 +58,7 @@ class SubtractCommandTests: XCTestCase {
         engine.enterNumber(1)
         engine.enterNumber(2)
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

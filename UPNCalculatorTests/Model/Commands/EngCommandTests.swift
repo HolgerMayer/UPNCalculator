@@ -16,17 +16,15 @@ class EngCommandTests: XCTestCase {
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : EngCommand!
-    
-    var delegate_didCall_didChangeDisplay : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 = ""
-    
+    var mockDelegate : DisplayMockDelegate = DisplayMockDelegate()
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        mockDelegate.resetDelegate()
+        display.delegate = mockDelegate
         testObject = EngCommand(calculatorEngine: engine, display: display)
     }
 
@@ -35,9 +33,7 @@ class EngCommandTests: XCTestCase {
     }
     
     func resetDelegateMonitor(){
-            delegate_didCall_didChangeDisplay = false
-            delegate_didCall_didChangeState  = false
-            delegate_param1 = ""
+        mockDelegate.resetDelegate()
         }
   
     func testChangeDecimalDigits() {
@@ -55,55 +51,43 @@ class EngCommandTests: XCTestCase {
             let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
             let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
 
-            digit1Command.execute()
-            digit2Command.execute()
-            digit3Command.execute()
-            digit4Command.execute()
-            digit5Command.execute()
-            digit6Command.execute()
-            digit7Command.execute()
-            digit8Command.execute()
-            digit9Command.execute()
-            digit0Command.execute()
-            digit1Command.execute()
-            digit2Command.execute()
-            dotCommand.execute()
-            digit0Command.execute()
+            let numFormat0Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "0")
+            let numFormat4Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "4")
+
+            let _ = digit1Command.execute()
+            let _ = digit2Command.execute()
+            let _ = digit3Command.execute()
+            let _ = digit4Command.execute()
+            let _ = digit5Command.execute()
+            let _ = digit6Command.execute()
+            let _ = digit7Command.execute()
+            let _ = digit8Command.execute()
+            let _ = digit9Command.execute()
+            let _ = digit0Command.execute()
+            let _ = digit1Command.execute()
+            let _ = digit2Command.execute()
+            let _ = dotCommand.execute()
+            let _ = digit0Command.execute()
  
-            enterCommand.execute()
+            let _ = enterCommand.execute()
                 
             
             
-            testObject.execute()
-            digit0Command.execute()
+            let _ = testObject.execute()
+            let _ = numFormat0Command.execute()
         
-            XCTAssertTrue(delegate_didCall_didChangeDisplay)
-            XCTAssertTrue(delegate_param1 == "100      09", "delegate_param_digits should be 100 is \(delegate_param1)")
+            XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+            XCTAssertTrue(mockDelegate.delegate_param1 == "100      09", "delegate_param_digits should be 100 is \(mockDelegate.delegate_param1)")
  
             resetDelegateMonitor()
             
-            testObject.execute()
-            digit4Command.execute()
+            let _ = testObject.execute()
+            let _ = numFormat4Command.execute()
         
-            XCTAssertTrue(delegate_didCall_didChangeDisplay)
-            XCTAssertTrue(delegate_param1 == "123.46   09", "delegate_param_digits should be 123.46   09 is \(delegate_param1)")
+            XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+            XCTAssertTrue(mockDelegate.delegate_param1 == "123.46   09", "delegate_param_digits should be 123.46   09 is \(mockDelegate.delegate_param1)")
            
  
     }
     
-}
-
-extension EngCommandTests : DisplayDelegate
-{
-
-    func didChangeDisplay(value: String) {
-        delegate_didCall_didChangeDisplay = true
-        delegate_param1 = value
-    }
-   
-    
-   func didChangeState(_ state: KeyboardState) {
-    delegate_didCall_didChangeState = true
-   }
-
 }

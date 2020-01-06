@@ -22,9 +22,8 @@ class DigitDotCommand : Command {
     }
     
     
-    func execute() {
+    func execute() -> KeyboardState {
         if display.inputMode == .standard {
-  
             if display.isPushed {
                 display.clear()
                 display.addBaseDigit(digit: digitString)
@@ -32,10 +31,9 @@ class DigitDotCommand : Command {
             } else {
                 display.addBaseDigit(digit:digitString)
             }
-        } else {
-            display.addBaseDigit(digit:digitString)
-            display.inputMode = .standard
         }
+        
+        return .Default
    }
    
     

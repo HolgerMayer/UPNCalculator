@@ -13,11 +13,12 @@ class CalculatorDisplayTests: XCTestCase {
 
     var testObject : CalculatorDisplay!
     
-    var delegate_didCall_didChangeDisplay  : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
-    
+     var delegate_didCall_didChangeDisplay  : Bool = false
+     var delegate_didCall_didChangeDisplayToError : Bool = false
+     var delegate_didCall_didClearError : Bool = false
+     var delegate_didCall_didChangeState : Bool = false
+     var delegate_param1 : String = ""
+
     override func setUp() {
 
         testObject = CalculatorDisplay()
@@ -33,7 +34,6 @@ class CalculatorDisplayTests: XCTestCase {
         delegate_didCall_didChangeDisplay  = false
         delegate_didCall_didChangeState = false
         delegate_param1  = ""
-        delegate_resultValue  = ""
     }
 
     func testIsPushed() {
@@ -129,7 +129,7 @@ class CalculatorDisplayTests: XCTestCase {
 
     func testErrorMessage(){
         testObject.setError("Error : Division by zero")
-        XCTAssertTrue(delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(delegate_didCall_didChangeDisplayToError)
         XCTAssertTrue(delegate_param1 == "Error : Division by zero")
 
     }
@@ -201,6 +201,17 @@ class CalculatorDisplayTests: XCTestCase {
 
 extension CalculatorDisplayTests : DisplayDelegate {
      
+       func didChangeDisplayToError(value: String) {
+              delegate_didCall_didChangeDisplayToError = true
+              delegate_param1 = value
+       }
+          
+       
+       func didClearError() {
+              delegate_didCall_didClearError = true
+       }
+          
+
     func didChangeDisplay(value: String) {
         delegate_didCall_didChangeDisplay = true
         delegate_param1 = value

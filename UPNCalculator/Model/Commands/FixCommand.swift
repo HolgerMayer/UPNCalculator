@@ -18,11 +18,10 @@ class FixCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() ->KeyboardState {
         
         display.inputMode = .fix
-        
-         
+        return .Fix
     }
     
     

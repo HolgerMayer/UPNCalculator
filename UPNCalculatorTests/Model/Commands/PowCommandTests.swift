@@ -33,7 +33,7 @@ class PowCommandTests: XCTestCase {
     
     func testPowOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -46,7 +46,7 @@ class PowCommandTests: XCTestCase {
     func testPow3onStack() {
         engine.enterNumber(3.0)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -61,7 +61,7 @@ class PowCommandTests: XCTestCase {
          engine.enterNumber(3.0)
         engine.enterNumber(2.0)
 
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()

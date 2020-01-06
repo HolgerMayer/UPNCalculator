@@ -18,12 +18,13 @@ class LastXCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
               
         display.restoreLastValue()
         if display.value != nil {
             calculatorEngine.enterNumber(display.value!)
         }
+        return  .Default
     }
     
     

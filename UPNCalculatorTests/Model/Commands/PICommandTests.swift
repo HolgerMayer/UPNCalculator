@@ -34,7 +34,7 @@ class PiCommandTests: XCTestCase {
 
     func testPi() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

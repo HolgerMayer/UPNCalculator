@@ -19,11 +19,10 @@ class SciCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         display.inputMode = .scientific
-        
-         
+        return .Scientific
     }
     
     

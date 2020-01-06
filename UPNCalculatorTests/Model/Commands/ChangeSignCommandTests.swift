@@ -30,13 +30,13 @@ class ChangeSignCommandTests: XCTestCase {
     func testChangeSign(){
         display.value = 20
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         XCTAssertNil(engine.top)
         XCTAssertTrue(display.value == -20)
         XCTAssertFalse(display.isPushed)
  
-        testObject.execute()
+        let _ = testObject.execute()
          
         XCTAssertNil(engine.top)
         XCTAssertTrue(display.value == 20)
@@ -46,13 +46,13 @@ class ChangeSignCommandTests: XCTestCase {
     func testChangeSignOfNumberLessThanOne(){
         display.value = 0.1
                
-        testObject.execute()
+        let _ = testObject.execute()
                
         XCTAssertNil(engine.top)
         XCTAssertTrue(display.value == -0.1)
         XCTAssertFalse(display.isPushed)
         
-        testObject.execute()
+        let _ = testObject.execute()
                 
         XCTAssertNil(engine.top)
         XCTAssertTrue(display.value == 0.1)

@@ -19,12 +19,14 @@ class PiCommand : Command {
      }
     
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         calculatorEngine.enterNumber(Double.pi)
         
         display.value = Double.pi
         display.isPushed = true
+        
+        return .Default
     }
     
     

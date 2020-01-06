@@ -62,7 +62,8 @@ class ViewController: UIViewController {
     
     var calculatorEngine : UPNEngine! = UPNEngine()
     var display : CalculatorDisplay!
-    var commandFactory : UPNCommandFactory!
+
+    var commandController : CommandController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +79,7 @@ class ViewController: UIViewController {
         display.delegate = self
         display.clear()
          
-        commandFactory = UPNCommandFactory(calculatorEngine: calculatorEngine, display: display)
-         
-        
+        commandController = CommandController(calculatorEngine: calculatorEngine, display: display)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,41 +96,36 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender : UIButton){
         
+         
         guard let keyString = sender.accessibilityLabel else {
             display.state = .Default
             return
         }
         
-        guard let commandKey = CommandKey(rawValue:keyString) else {
-            display.state = .Default
-            return
-        }
         
-        guard let command = commandFactory.createCommand(commandKey, display.state) else {
-            display.state = .Default
-            return
-        }
-        
-        command.execute()
-        
-        display.state = .Default
+        commandController.executeCommand(keyString: keyString)
     }
     
-    @IBAction func fButtonTapped(_ sender : UIButton){
-        if display.state != .FState {
-            display.state = .FState
+  
+    
+    @IBAction func onButtonTapped(_ sender : UIButton){
+        if commandController.commandLogginEnabled == false {
+            commandController.beginLogging()
+                        
+            let attributedTitle = NSMutableAttributedString(string:"LOG")
+            attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(0, attributedTitle.length))
+            attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+            sender.setAttributedTitle(attributedTitle, for: .normal)
         } else {
-            display.state = .Default
+            let attributedTitle = NSMutableAttributedString(string:"ON")
+             attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle.length))
+             attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+             sender.setAttributedTitle(attributedTitle, for: .normal)
+            
+            commandController.endLogging()
         }
-    }
-
-    @IBAction func gButtonTapped(_ sender : UIButton){
-        if display.state != .GState {
-            display.state = .GState
-        } else {
-            display.state = .Default
-        }
-    }
+        
+     }
 
     private func createDisplay(){
         view.backgroundColor = .black
@@ -266,8 +260,7 @@ class ViewController: UIViewController {
 
         // Fourth Row
 
-        onButton = createButton(title1:"",title2: "ON",  title3:"", accessoryLabel: "noop3")
-        onButton.backgroundColor = UIColor.lightGray
+        onButton = createOnButton()
         view.addSubview(onButton)
 
         fButton = createFButton()
@@ -361,7 +354,7 @@ class ViewController: UIViewController {
               button.setTitleColor(.black, for: .normal)
               button.titleLabel?.font = .systemFont(ofSize: 25.0)
               button.translatesAutoresizingMaskIntoConstraints = false
-              button.addTarget(self, action: #selector(fButtonTapped), for: .touchUpInside)
+              button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
               button.accessibilityLabel = "fkey"
               return button
         }
@@ -382,10 +375,32 @@ class ViewController: UIViewController {
                 button.setTitleColor(.black, for: .normal)
                 button.titleLabel?.font = .systemFont(ofSize: 25.0)
                 button.translatesAutoresizingMaskIntoConstraints = false
-                button.addTarget(self, action: #selector(gButtonTapped), for: .touchUpInside)
+                button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 button.accessibilityLabel = "gkey"
                 return button
-          }
+    }
+    
+    private func createOnButton() -> UIButton  {
+              
+                  let attributedTitle = NSMutableAttributedString(string:"ON")
+                  attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle.length))
+                  attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+ 
+        
+                  let button = UIButton()
+                  button.titleLabel?.lineBreakMode = .byWordWrapping
+                  button.titleLabel?.textAlignment = .center
+                  button.titleLabel?.numberOfLines = 0
+                  button.setBackgroundImage(UIImage(named: "Button1"), for: .normal)
+                  
+                  button.setAttributedTitle(attributedTitle, for: .normal)
+                  button.setTitleColor(.black, for: .normal)
+                  button.titleLabel?.font = .systemFont(ofSize: 25.0)
+                  button.translatesAutoresizingMaskIntoConstraints = false
+                  button.addTarget(self, action: #selector(onButtonTapped), for: .touchUpInside)
+                  button.accessibilityLabel = "on"
+                  return button
+    }
     
     
     private func createAutolayoutConstraints(){
@@ -575,6 +590,21 @@ class ViewController: UIViewController {
 
     
 extension ViewController : DisplayDelegate {
+    
+    func didChangeDisplayToError(value: String) {
+        outputLabel.textAlignment = .right
+        outputLabel.font =  .systemFont(ofSize: 60.0) //.systemFont(ofSize: 25.0)
+        outputLabel.textColor = .red
+        outputLabel.text! = value
+    }
+    
+    func didClearError() {
+        outputLabel.textAlignment = .right
+        outputLabel.backgroundColor = .lightGray
+        outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
+        outputLabel.text! = ""
+    }
+    
  
     func didChangeDisplay(value: String) {
         outputLabel.text! = value
@@ -583,14 +613,14 @@ extension ViewController : DisplayDelegate {
     
     func didChangeState(_ state : KeyboardState) {
         switch state {
-        case .Default:
-            stateLabel.text! = ""
-            break
         case .FState:
             stateLabel.text! = "f"
             break
         case .GState:
             stateLabel.text! = "g"
+            break
+        default:
+            stateLabel.text! = ""
             break
         }
     

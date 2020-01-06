@@ -33,7 +33,7 @@ class FixFormatter : DisplayFormatter {
         
         
         let log10Value = Darwin.log10(abs(value))
-        if  abs(log10Value) <= 6 {
+        if  value == 0.0 || abs(log10Value) <= 6 {
             
             numberFormatter.minimumFractionDigits = precision
             numberFormatter.maximumFractionDigits = precision
@@ -46,8 +46,9 @@ class FixFormatter : DisplayFormatter {
             if spaceCount > 0 {
                  spaces = String(repeating: " ", count: spaceCount)
             }
-            
-            let result = convertedDouble + spaces
+ 
+            let result = convertedDouble  + spaces
+ 
             return result
         } else {
             

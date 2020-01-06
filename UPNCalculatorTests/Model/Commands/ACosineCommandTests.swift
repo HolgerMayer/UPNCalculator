@@ -32,7 +32,7 @@ class ACosineCommandTests: XCTestCase {
     
     func testACosineOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -47,7 +47,7 @@ class ACosineCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -63,7 +63,7 @@ class ACosineCommandTests: XCTestCase {
         
         engine.enterNumber(1.0)
           
-          testObject.execute()
+          let _ = testObject.execute()
           
           guard let result = engine.top else {
               XCTFail()

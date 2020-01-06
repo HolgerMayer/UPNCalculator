@@ -11,6 +11,8 @@ import Foundation
 
 public protocol DisplayDelegate : AnyObject {
     func didChangeDisplay(value : String)
+    func didChangeDisplayToError(value : String)
+    func didClearError()
     func didChangeState(_ state : KeyboardState)
   
 }
@@ -21,7 +23,6 @@ public enum InputMode {
     case fix
     case scientific
     case engineering
-
 }
 
 public protocol Display {
@@ -29,18 +30,21 @@ public protocol Display {
     var delegate : DisplayDelegate?  {get set}
     
     var isPushed : Bool {get set}
-    var state : KeyboardState {get set}
+
     var value : Double? {get set}
     var inputMode : InputMode {get set}
+    var state: KeyboardState {get set}
     
     func restoreLastValue() 
     func updateLastValue()
     
     func clear()
+    func initializeExponentEntry()
     func addBaseDigit(digit : String)
+    func addExponentDigit(digit : String)
+    func removeExponentDigit()
     func removeBaseDigit()
     func changeSign()
-    func addExponentDigit(digit : String)
-    func removeExponentDigit(digit : String)
+    func changeExponentSign()
     func setError(_ errorMessage : String)
 }

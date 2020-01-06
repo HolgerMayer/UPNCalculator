@@ -32,7 +32,7 @@ class TangentCommandTests: XCTestCase {
     
     func testTangentOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -47,7 +47,7 @@ class TangentCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -64,7 +64,7 @@ class TangentCommandTests: XCTestCase {
         
         engine.enterNumber(Double.pi)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -79,7 +79,7 @@ class TangentCommandTests: XCTestCase {
          
          engine.enterNumber(-Double.pi)
          
-         testObject.execute()
+         let _ = testObject.execute()
          
          guard let result = engine.top else {
              XCTFail()

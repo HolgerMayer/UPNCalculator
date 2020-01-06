@@ -16,11 +16,7 @@ class Log10CommandTests: XCTestCase {
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : Log10Command!
-    
-    var delegate_didCall_didChangeDisplay  : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
+    var mockDelegate : DisplayMockDelegate = DisplayMockDelegate()
 
     
     override func setUp() {
@@ -28,7 +24,7 @@ class Log10CommandTests: XCTestCase {
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        display.delegate = mockDelegate
         testObject = Log10Command(calculatorEngine: engine, display: display)
     }
 
@@ -40,12 +36,12 @@ class Log10CommandTests: XCTestCase {
     // Should result in Error!!!
     func testLog10OfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         let result = engine.top
 
         XCTAssertNil(result)
-        XCTAssertTrue(delegate_param1 == "Error : log10 from zero")
+        XCTAssertTrue(mockDelegate.delegate_param1 == "Error : log10 from zero")
         
         
     }
@@ -53,7 +49,7 @@ class Log10CommandTests: XCTestCase {
     func testLog100onStack() {
         engine.enterNumber(100)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -65,17 +61,3 @@ class Log10CommandTests: XCTestCase {
 
 }
 
-extension Log10CommandTests : DisplayDelegate {
-    func didChangeDisplay(value: String) {
-        delegate_didCall_didChangeDisplay = true
-        delegate_param1 = value
-    }
-    
-     
-    func didChangeState(_ state: KeyboardState) {
-      delegate_didCall_didChangeState = true
-    }
-
-    
-    
-}

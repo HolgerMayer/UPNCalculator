@@ -13,13 +13,8 @@ class DigitDotCommandTests: XCTestCase {
 
     var engine : UPNEngine!
     var display : CalculatorDisplay!
+    var mockDelegate : DisplayMockDelegate!
     var testObject : DigitDotCommand!
-    
-    var delegate_didCall_didChangeDisplay  : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
-
     
     
     override func setUp() {
@@ -27,7 +22,8 @@ class DigitDotCommandTests: XCTestCase {
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        mockDelegate = DisplayMockDelegate()
+        display.delegate = mockDelegate
      }
 
     override func tearDown() {
@@ -42,7 +38,7 @@ class DigitDotCommandTests: XCTestCase {
 
          testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "3")
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = display.value else {
             XCTFail()
@@ -64,8 +60,8 @@ class DigitDotCommandTests: XCTestCase {
         let fourCommand = DigitDotCommand(calculatorEngine: engine, display: display,token : "4")
         
 
-        testObject.execute()
-        fourCommand.execute()
+        let _ = testObject.execute()
+        let _ = fourCommand.execute()
         
         guard let result = display.value else {
             XCTFail()
@@ -87,46 +83,32 @@ class DigitDotCommandTests: XCTestCase {
         
          testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
 
-         testObject.execute()
+         let _ = testObject.execute()
          
-        XCTAssertTrue(display.inputMode == .standard)
-
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeState)
+        XCTAssertTrue(mockDelegate.delegate_param_State! == .Default)
          
      }
     
       func testScientificInputModeReturnToStandardMode() {
-              display.clear()
-              display.addBaseDigit(digit: "1")
-              display.addBaseDigit(digit: "2")
-              display.addBaseDigit(digit: "3")
+        
+        display.clear()
+        display.addBaseDigit(digit: "1")
+        display.addBaseDigit(digit: "2")
+        display.addBaseDigit(digit: "3")
 
-              display.inputMode = .scientific
+        display.inputMode = .scientific
              
-              testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
+        testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
 
-              testObject.execute()
-              
-             XCTAssertTrue(display.inputMode == .standard)
+        let _ = testObject.execute()
+                     
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeState)
+        XCTAssertTrue(mockDelegate.delegate_param_State! == .Default)
 
               
-          }
+    }
     
 }
 
 
-
-extension DigitDotCommandTests : DisplayDelegate {
-    
-    func didChangeDisplay(value: String) {
-        delegate_didCall_didChangeDisplay = true
-        delegate_param1 = value
-    }
-    
-    
-    func didChangeState(_ state: KeyboardState) {
-        delegate_didCall_didChangeState = true
-    }
-
-    
-    
-}

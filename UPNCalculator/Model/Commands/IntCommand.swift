@@ -19,10 +19,10 @@ class IntCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         guard var value = display.value else {
-            return
+            return .Default
         }
         
         display.updateLastValue()
@@ -37,6 +37,8 @@ class IntCommand : Command {
             calculatorEngine.enterNumber(value)
             display.value = value
        }
+        
+        return .Default
         
          
     }

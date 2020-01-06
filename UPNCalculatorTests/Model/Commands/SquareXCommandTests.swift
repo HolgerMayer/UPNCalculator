@@ -33,7 +33,7 @@ class SquareCommandTests: XCTestCase {
     // Should result in Error!!!
     func testSquareXEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -47,7 +47,7 @@ class SquareCommandTests: XCTestCase {
     func testSquareX3onStack() {
         engine.enterNumber(3)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

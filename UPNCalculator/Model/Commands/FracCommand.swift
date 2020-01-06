@@ -19,10 +19,10 @@ class FracCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         guard var value = display.value else {
-            return
+            return .Default
         }
         
         let temp = value
@@ -38,6 +38,7 @@ class FracCommand : Command {
             display.value = fraction
        }
         
+        return .Default
          
     }
     

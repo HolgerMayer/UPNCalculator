@@ -19,10 +19,11 @@ class EngCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         display.inputMode = .engineering
-        
+        return  .Engineering
+
          
     }
     

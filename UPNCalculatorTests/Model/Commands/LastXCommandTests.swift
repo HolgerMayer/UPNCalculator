@@ -38,20 +38,20 @@ class LastXCommandTests: XCTestCase {
         let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
         let addCommand = AddCommand(calculatorEngine: engine, display: display)
         
-        digit1Command.execute()
-        digit2Command.execute()
-        digit1Command.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit1Command.execute()
         
-        enterCommand.execute()
+        let _ = enterCommand.execute()
         
-        digit2Command.execute()
-        digit3Command.execute()
-        digit2Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = digit2Command.execute()
         
-        addCommand.execute()
+        let _ = addCommand.execute()
         
  
-        testObject.execute()
+        let _ = testObject.execute()
                
         guard let result = engine.top else {
                 XCTFail()

@@ -34,17 +34,17 @@ class Handbook2Page5LstXTests: XCTestCase {
         let digit7Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "7")
         let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
         
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        dotCommand.execute()
-        digit4Command.execute()
-        digit5Command.execute()
-        digit6Command.execute()
-        digit7Command.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit4Command.execute()
+        let _ = digit5Command.execute()
+        let _ = digit6Command.execute()
+        let _ = digit7Command.execute()
 
         let intCommand = IntCommand(calculatorEngine: engine, display: display)
-        intCommand.execute()
+        let _ = intCommand.execute()
 
         guard let value1 = display.value else {
             XCTFail()
@@ -53,7 +53,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         XCTAssertTrue(abs(value1 - 123.0) <= 0.00001)
 
         let lastXCommand = LastXCommand(calculatorEngine: engine, display: display)
-        lastXCommand.execute()
+        let _ = lastXCommand.execute()
         
         guard let value2 = display.value else {
             XCTFail()
@@ -62,9 +62,9 @@ class Handbook2Page5LstXTests: XCTestCase {
         XCTAssertTrue(abs(value2 - 123.4567) <= 0.00001,"Value should be 123.4567 is \(value2) ")
         
         let chsCommand = ChangeSignCommand(calculatorEngine: engine, display: display)
-        chsCommand.execute()
+        let _ = chsCommand.execute()
         
-        intCommand.execute()
+        let _ = intCommand.execute()
         
         guard let value3 = display.value else {
             XCTFail()
@@ -72,7 +72,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         }
         XCTAssertTrue(abs(value3 + 123.0) <= 0.00001)
           
-        lastXCommand.execute()
+        let _ = lastXCommand.execute()
         
         guard let value4 = display.value else {
             XCTFail()
@@ -81,7 +81,7 @@ class Handbook2Page5LstXTests: XCTestCase {
         XCTAssertTrue(abs(value4 + 123.4567) <= 0.00001,"Value should be -123.4567 is \(value4) ")
 
         let fracCommand = FracCommand(calculatorEngine: engine, display: display)
-        fracCommand.execute()
+        let _ = fracCommand.execute()
   
         guard let value5 = display.value else {
             XCTFail()

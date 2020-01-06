@@ -30,17 +30,17 @@ class BackArrowCommandTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testExchangeNotPushed() {
+    func testBackArrowNotPushed() {
         
         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
         let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
         let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
         
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
 
-        testObject.execute()
+        let _ = testObject.execute()
           
         guard let result1 = display.value else {
                  XCTFail()
@@ -50,7 +50,7 @@ class BackArrowCommandTests: XCTestCase {
                
         XCTAssertTrue(result1 == 12.0, "Should be 12 is \(result1)")
     
-        testObject.execute()
+        let _ = testObject.execute()
                 
         guard let result2 = display.value else {
                 XCTFail()
@@ -62,19 +62,19 @@ class BackArrowCommandTests: XCTestCase {
         
     }
     
-    func testExchangePushed() {
+    func testBackArrowPushed() {
            
         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
         let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
         let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
         let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
            
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        enterCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
         
-        testObject.execute()
+        let _ = testObject.execute()
              
         guard let result1 = display.value else {
                 XCTFail()
@@ -85,4 +85,30 @@ class BackArrowCommandTests: XCTestCase {
         XCTAssertTrue(result1 == 0.0, "Should be 0 is \(result1)")
        
     }
+    
+    func testBackArrowPushedEnteredNextDigit() {
+             
+          let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
+          let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
+          let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
+          let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
+             
+          let _ = digit1Command.execute()
+          let _ = digit2Command.execute()
+          let _ = digit3Command.execute()
+          let _ = enterCommand.execute()
+          
+          let _ = testObject.execute()
+    
+          let _ = digit1Command.execute()
+
+          guard let result1 = display.value else {
+                  XCTFail()
+                  return
+          }
+             
+                    
+          XCTAssertTrue(result1 == 1.0, "Should be 0 is \(result1)")
+         
+      }
 }

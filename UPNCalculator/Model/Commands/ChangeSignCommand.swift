@@ -20,8 +20,10 @@ class ChangeSignCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
           display.changeSign()
+        
+        return .Default
     }
     
     

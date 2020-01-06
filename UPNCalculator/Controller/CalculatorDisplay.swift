@@ -11,11 +11,13 @@ import UIKit
 
 class CalculatorDisplay : Display {
      
-    
+
     private var displayFormatter : DisplayFormatter?
     private var fixFormatter = FixFormatter()
     private var scientificFormatter = ScientificFormatter()
     private var engFormatter = EngFormatter()
+    private var prevEEXFormatter : DisplayFormatter?
+    private var eexFormatter = EEXFormatter()
     
     
     private var displayText : String
@@ -23,6 +25,9 @@ class CalculatorDisplay : Display {
     private var lastValue : Double = 0.0
     
     private var currentValue : Double?
+    private var eexExponent : Int = 0
+    
+    private var inError : Bool = false
     
     weak var delegate : DisplayDelegate?
     
@@ -32,7 +37,7 @@ class CalculatorDisplay : Display {
                 guard let numberValue = currentValue else {
                     return
                 }
-                guard let newDisplayString =    displayFormatter!.convertToString(numberValue) else {
+                guard let newDisplayString = displayFormatter!.convertToString(numberValue) else {
                     displayText = "???"
                     if delegate != nil {
                         delegate?.didChangeDisplay(value: displayText)
@@ -41,7 +46,7 @@ class CalculatorDisplay : Display {
                 }
                     
                 displayText = newDisplayString
-            }
+            } 
                 
             if delegate != nil {
                    delegate?.didChangeDisplay(value: displayText)
@@ -62,6 +67,16 @@ class CalculatorDisplay : Display {
     
     var value : Double? {
         get {
+            if prevEEXFormatter != nil {
+                if currentValue != nil {
+                        currentValue = currentValue! * Darwin.pow(10.0,Double(eexExponent))
+                        displayFormatter = prevEEXFormatter
+                        prevEEXFormatter = nil
+                        eexExponent = 0
+                    
+                        updateDisplay()
+                }
+            }
             return currentValue
         }
         
@@ -72,6 +87,7 @@ class CalculatorDisplay : Display {
     }
     
     var inputMode : InputMode {
+ 
         didSet {
             switch inputMode {
             case .fix :
@@ -83,7 +99,7 @@ class CalculatorDisplay : Display {
             case .engineering :
                 displayFormatter = engFormatter
                 break
-default:
+            default:
                 break
             }
         }
@@ -107,9 +123,10 @@ default:
         state = .Default
         displayText = ""
         currentValue = nil
+        delegate?.didClearError()
         delegate?.didChangeDisplay(value: "")
         inputMode = .standard
-        
+
     }
     
 
@@ -134,6 +151,8 @@ default:
     
     func addBaseDigit(digit: String) {
  
+        
+   
         switch inputMode {
         case .fix, .scientific, .engineering:
              if digit != "." {
@@ -153,10 +172,16 @@ default:
                 appendChar = ","
             }
             
-            let newText = displayText + appendChar
+            var newText = ""
+            if displayText.contains(" ") {
+                newText = displayText.replaceFirstOccurrence(of: " ", with: appendChar)
+            } else {
+                newText = displayText + appendChar
+            }
+            
             displayText = newText
             currentValue = Double(displayText)
-            delegate?.didChangeDisplay(value: newText)
+            delegate?.didChangeDisplay(value: displayText)
         }
     }
     
@@ -170,26 +195,51 @@ default:
     }
     
     func changeSign() {
+        
         guard let valueToChange = value else {
             return
         }
         
       value = -1 * valueToChange
+      isPushed = false
     }
+    
+    
+    func initializeExponentEntry() {
+        eexExponent = 0
+        prevEEXFormatter = displayFormatter
+        displayFormatter = eexFormatter
+        eexFormatter.exponent = eexExponent
+        updateDisplay()
+    }
+
+    func changeExponentSign() {
+         eexExponent = eexExponent * -1
+         eexFormatter.exponent = eexExponent
+         updateDisplay()
+     }
+
+     
+    
     
     func addExponentDigit(digit: String) {
-        // TODO:
+        guard let newDecimalPlaces = Int(digit) else {
+            return
+        }
+
+        eexExponent = (eexExponent * 10  % 100 ) + newDecimalPlaces
+        eexFormatter.exponent = eexExponent
+        updateDisplay()
     }
     
-    func removeExponentDigit(digit: String) {
-        // TODO:
+     func removeExponentDigit() {
+            
+        eexExponent = eexExponent / 10
+        eexFormatter.exponent = eexExponent
+        updateDisplay()
+
     }
-      
-    func setError(_ errorMessage: String) {
-        displayText = errorMessage
-        delegate?.didChangeDisplay(value:errorMessage)
-    }
-    
+
     private func setupNumberFormatter(){
         fixFormatter.precision = noOfDecimalPlacesDisplayed
         scientificFormatter.precision = noOfDecimalPlacesDisplayed
@@ -215,4 +265,18 @@ default:
              delegate?.didChangeDisplay(value: displayText)
          }
     }
+}
+
+
+
+// Error handling
+extension CalculatorDisplay {
+    
+    func setError(_ errorMessage: String) {
+        inError = true
+        displayText = errorMessage
+        delegate?.didChangeDisplayToError(value:errorMessage)
+    }
+    
+
 }

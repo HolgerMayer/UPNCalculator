@@ -19,7 +19,7 @@ class CalculationCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         
         display.inputMode = .standard
 
@@ -33,25 +33,26 @@ class CalculationCommand : Command {
             try  callEngineCalculation()
         } catch CalculationError.divisionByZero {
             display.setError("Error : division by zero")
-            return
+            return .Default
         } catch CalculationError.logTenFromZero {
             display.setError("Error : log10 from zero")
-            return
+            return .Default
         } catch CalculationError.logFromZero {
             display.setError("Error : ln from zero")
-            return
+            return .Default
         } catch {
             display.setError("Error during calculation")
-           return
+            return .Default
 
         }
         
         guard let result = calculatorEngine.top else {
                  display.setError("Error no result")
-                 return
+            return.Default
         }
 
         display.value = result
+        return .Default
     }
     
     func callEngineCalculation() throws {

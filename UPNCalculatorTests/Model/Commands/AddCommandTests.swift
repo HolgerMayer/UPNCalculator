@@ -30,7 +30,7 @@ class AddCommandTests: XCTestCase {
     
     func testAddEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -43,7 +43,7 @@ class AddCommandTests: XCTestCase {
     func testAddOnly1OnStack() {
         engine.enterNumber(1)
 
-           testObject.execute()
+           let _ = testObject.execute()
            
            guard let result = engine.top else {
                XCTFail()
@@ -58,7 +58,7 @@ class AddCommandTests: XCTestCase {
         engine.enterNumber(1)
         engine.enterNumber(2)
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -74,7 +74,7 @@ class AddCommandTests: XCTestCase {
           engine.enterNumber(2)
 
           display.inputMode = .fix
-          testObject.execute()
+          let _ = testObject.execute()
           
            
         XCTAssertTrue(display.inputMode == .standard)
@@ -86,7 +86,7 @@ class AddCommandTests: XCTestCase {
 
            display.inputMode = .scientific
         
-           testObject.execute()
+           let _ = testObject.execute()
            
             
          XCTAssertTrue(display.inputMode == .standard)

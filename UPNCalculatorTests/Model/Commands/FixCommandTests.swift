@@ -17,18 +17,15 @@ class FixCommandTests: XCTestCase {
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : FixCommand!
-    
-    var delegate_didCall_didChangeDisplay : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 = ""
-
+    var mockDelegate : DisplayMockDelegate = DisplayMockDelegate()
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        mockDelegate.resetDelegate()
+        display.delegate = mockDelegate
         
         testObject = FixCommand(calculatorEngine: engine, display: display)
     }
@@ -43,39 +40,38 @@ class FixCommandTests: XCTestCase {
         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
         let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
         let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
-        let digit7Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "7")
-        let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
+         let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
         let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
 
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        dotCommand.execute()
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
+        let numFormat1Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "1")
+        let numFormat7Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "7")
 
-        enterCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+
+        let _ = enterCommand.execute()
             
-        XCTAssertTrue(delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230    is \(delegate_param1)")
-        delegate_didCall_didChangeDisplay = false
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230    is \(mockDelegate.delegate_param1)")
+        mockDelegate.resetDelegate()
         
         
-        testObject.execute()
-        
-        digit1Command.execute()
-        XCTAssertTrue(delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(delegate_param1 == "123.1      ", "delegate_param_digits should be 123.1230 is \(delegate_param1)")
+        let _ = testObject.execute()
+        let _ = numFormat1Command.execute()
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1      ", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
 
-        delegate_didCall_didChangeDisplay = false
+        mockDelegate.resetDelegate()
+        let _ = testObject.execute()
         
-        
-        testObject.execute()
-        
-        digit7Command.execute()
-        XCTAssertTrue(delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(delegate_param1)")
+        let _ = numFormat7Command.execute()
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
 
     }
     
@@ -84,56 +80,44 @@ class FixCommandTests: XCTestCase {
           let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
           let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
           let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
-          let digit7Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "7")
           let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
           let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
           let sciCommand = SciCommand(calculatorEngine: engine, display: display)
-          digit1Command.execute()
-          digit2Command.execute()
-          digit3Command.execute()
-          dotCommand.execute()
-          digit1Command.execute()
-          digit2Command.execute()
-          digit3Command.execute()
+
+         let numFormat1Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "1")
+         let numFormat7Command = NumberFormatDigitCommand(calculatorEngine: engine, display: display, token: "7")
+
+          let _ = digit1Command.execute()
+          let _ = digit2Command.execute()
+          let _ = digit3Command.execute()
+          let _ = dotCommand.execute()
+          let _ = digit1Command.execute()
+          let _ = digit2Command.execute()
+          let _ = digit3Command.execute()
 
         
-          enterCommand.execute()
+          let _ = enterCommand.execute()
               
-          XCTAssertTrue(delegate_didCall_didChangeDisplay)
-          XCTAssertTrue(delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230 is \(delegate_param1)")
-          delegate_didCall_didChangeDisplay = false
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
+        mockDelegate.delegate_didCall_didChangeDisplay = false
 
         
           
-          sciCommand.execute()
+          let _ = sciCommand.execute()
           
-          digit1Command.execute()
+          let _ = numFormat1Command.execute()
 
-          delegate_didCall_didChangeDisplay = false
+        mockDelegate.delegate_didCall_didChangeDisplay = false
           
           
-          testObject.execute()
+          let _ = testObject.execute()
           
-          digit7Command.execute()
-          XCTAssertTrue(delegate_didCall_didChangeDisplay)
-          XCTAssertTrue(delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(delegate_param1)")
+          let _ = numFormat7Command.execute()
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
 
       }
     
 }
 
-
-extension FixCommandTests : DisplayDelegate
-{
-
-    func didChangeDisplay(value: String) {
-        delegate_didCall_didChangeDisplay = true
-        delegate_param1 = value
-    }
-    
-
-   func didChangeState(_ state: KeyboardState) {
-    delegate_didCall_didChangeState = true
-   }
-
-}

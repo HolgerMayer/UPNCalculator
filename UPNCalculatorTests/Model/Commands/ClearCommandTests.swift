@@ -33,7 +33,7 @@ class ClearCommandTests: XCTestCase {
         display.value = 20.0
         display.isPushed = true
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         XCTAssertNil(engine.top)
         XCTAssertNil(display.value)

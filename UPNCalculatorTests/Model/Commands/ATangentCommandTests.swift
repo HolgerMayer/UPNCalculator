@@ -33,7 +33,7 @@ class ATangentCommandTests: XCTestCase {
     
     func testATangentOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -48,7 +48,7 @@ class ATangentCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -64,7 +64,7 @@ class ATangentCommandTests: XCTestCase {
         
         engine.enterNumber(1.0)
           
-          testObject.execute()
+          let _ = testObject.execute()
           
           guard let result = engine.top else {
               XCTFail()

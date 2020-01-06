@@ -15,17 +15,12 @@ class EnterCommandTests: XCTestCase {
     var display : CalculatorDisplay!
     var testObject : EnterCommand!
 
-     var delegate_didCall_didChangeDisplay  : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-     var delegate_param1 : String = ""
-     var delegate_resultValue : String = ""
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
         testObject = EnterCommand(calculatorEngine: engine, display: display)
 
     }
@@ -40,7 +35,7 @@ class EnterCommandTests: XCTestCase {
         XCTAssertFalse(display.isPushed)
         XCTAssertNil(engine.top)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         XCTAssertTrue(display.isPushed)
         
@@ -57,19 +52,3 @@ class EnterCommandTests: XCTestCase {
 
 }
 
-extension EnterCommandTests : DisplayDelegate
-{
-
-    func didChangeDisplay(value: String) {
-        delegate_didCall_didChangeDisplay = true
-        delegate_param1 = value
-    }
-    
-    
-   func didChangeState(_ state: KeyboardState) {
-    delegate_didCall_didChangeState = true
-   }
-
-    
-    
-}

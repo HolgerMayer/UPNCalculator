@@ -32,7 +32,7 @@ class AbsCommandTests: XCTestCase {
     func testZeroValue() {
         engine.enterNumber(0)
                
-        testObject.execute()
+        let _ = testObject.execute()
                
         guard let result = engine.top else {
                 XCTFail()
@@ -49,7 +49,7 @@ class AbsCommandTests: XCTestCase {
 
         engine.enterNumber(3)
             
-        testObject.execute()
+        let _ = testObject.execute()
             
         guard let result = engine.top else {
                 XCTFail()
@@ -64,7 +64,7 @@ class AbsCommandTests: XCTestCase {
 
         engine.enterNumber(-3.0)
                
-           testObject.execute()
+           let _ = testObject.execute()
                
            guard let result = engine.top else {
                    XCTFail()

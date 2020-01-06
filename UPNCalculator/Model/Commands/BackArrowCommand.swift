@@ -19,15 +19,16 @@ class BackArrowCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() ->KeyboardState {
         
         if display.isPushed == false {
             display.removeBaseDigit()
         } else {
             display.value = 0.0
-            display.isPushed = false
+            display.isPushed = true
         }
         
+        return .Default
          
     }
     

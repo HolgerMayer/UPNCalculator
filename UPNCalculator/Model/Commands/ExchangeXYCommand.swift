@@ -19,19 +19,20 @@ class ExchangeXYCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
         guard let valueX = display.value else {
-                    return
+            return .Default
         }
         
         guard let valueY = calculatorEngine.top else {
-            return
+            return .Default
         }
         
         calculatorEngine.removeTop()
         calculatorEngine.enterNumber(valueX)
         display.value = valueY
         
+        return .Default
     }
     
     

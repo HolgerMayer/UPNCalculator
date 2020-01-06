@@ -30,22 +30,22 @@ class FracCommandTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testExchangeNotPushed() {
+    func testFracNotPushed() {
         
         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
         let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
         let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
         let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
         
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        dotCommand.execute()
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
 
-        testObject.execute()
+        let _ = testObject.execute()
           
         guard let result = display.value else {
                  XCTFail()
@@ -57,7 +57,7 @@ class FracCommandTests: XCTestCase {
 
     }
     
-    func testExchangePushed() {
+    func testFracPushed() {
            
         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
         let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
@@ -65,16 +65,16 @@ class FracCommandTests: XCTestCase {
         let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
         let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
            
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        dotCommand.execute()
-        digit1Command.execute()
-        digit2Command.execute()
-        digit3Command.execute()
-        enterCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
         
-        testObject.execute()
+        let _ = testObject.execute()
              
         guard let result1 = display.value else {
                 XCTFail()

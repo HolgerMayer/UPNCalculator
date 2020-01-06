@@ -33,7 +33,7 @@ class XOverTenCommandTests: XCTestCase {
 
     func testXOverTenOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -47,7 +47,7 @@ class XOverTenCommandTests: XCTestCase {
     func testXOverTen3onStack() {
         engine.enterNumber(3)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

@@ -30,7 +30,7 @@ class MultiplyCommandTests: XCTestCase {
     
     func testMultiplyEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -43,7 +43,7 @@ class MultiplyCommandTests: XCTestCase {
     func testMultiplyOnly3OnStack() {
         engine.enterNumber(3)
 
-           testObject.execute()
+           let _ = testObject.execute()
            
            guard let result = engine.top else {
                XCTFail()
@@ -54,11 +54,11 @@ class MultiplyCommandTests: XCTestCase {
        }
     
 
-    func testmultiply2By3Equals6() {
+    func testMultiply2By3Equals6() {
         engine.enterNumber(2)
         engine.enterNumber(3)
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

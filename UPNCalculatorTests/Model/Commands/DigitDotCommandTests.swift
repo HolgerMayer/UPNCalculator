@@ -13,21 +13,17 @@ class DigitDotCommandTests: XCTestCase {
 
     var engine : UPNEngine!
     var display : CalculatorDisplay!
+    var mockDelegate : DisplayMockDelegate!
     var testObject : DigitDotCommand!
     
-    var delegate_didCall_didChangeBase  : Bool = false
-    var delegate_didCall_didChangeExponent : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
-
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        mockDelegate = DisplayMockDelegate()
+        display.delegate = mockDelegate
      }
 
     override func tearDown() {
@@ -36,13 +32,15 @@ class DigitDotCommandTests: XCTestCase {
     
     
     func testEnterDigit() {
-        display.setDisplay(baseValue: "12", exponent: "")
+         display.clear()
+         display.addBaseDigit(digit: "1")
+         display.addBaseDigit(digit: "2")
 
-        testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "3")
+         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "3")
         
-        testObject.execute()
+        let _ = testObject.execute()
         
-        guard let result = display.value() else {
+        guard let result = display.value else {
             XCTFail()
             return
         }
@@ -52,44 +50,65 @@ class DigitDotCommandTests: XCTestCase {
     
     
     func testEnterDot() {
-        display.setDisplay(baseValue: "123", exponent: "")
-        
+        display.clear()
+        display.addBaseDigit(digit: "1")
+        display.addBaseDigit(digit: "2")
+        display.addBaseDigit(digit: "3")
+
         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : ".")
 
         let fourCommand = DigitDotCommand(calculatorEngine: engine, display: display,token : "4")
         
 
-        testObject.execute()
-        fourCommand.execute()
+        let _ = testObject.execute()
+        let _ = fourCommand.execute()
         
-        guard let result = display.value() else {
+        guard let result = display.value else {
             XCTFail()
             return
         }
         
-        XCTAssertTrue(result == 123.4)
+        XCTAssertTrue(result == 123.4,"result should be 123.4 is \(result)")
 
         
     }
-}
-
-
-
-extension DigitDotCommandTests : DisplayDelegate {
-    func didChangeBase(value: String) {
-        delegate_didCall_didChangeBase = true
-        delegate_param1 = value
-    }
     
-    func didChangeExponent(value: String) {
-        delegate_didCall_didChangeExponent = true
-        delegate_param1 = value
-    }
-    
-      func didChangeState(_ state: KeyboardState) {
-      delegate_didCall_didChangeState = true
+    func testFixInputModeReturnToStandardMode() {
+         display.clear()
+         display.addBaseDigit(digit: "1")
+         display.addBaseDigit(digit: "2")
+         display.addBaseDigit(digit: "3")
+
+         display.inputMode = .fix
+        
+         testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
+
+         let _ = testObject.execute()
+         
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeState)
+        XCTAssertTrue(mockDelegate.delegate_param_State! == .Default)
+         
      }
-
     
+      func testScientificInputModeReturnToStandardMode() {
+        
+        display.clear()
+        display.addBaseDigit(digit: "1")
+        display.addBaseDigit(digit: "2")
+        display.addBaseDigit(digit: "3")
+
+        display.inputMode = .scientific
+             
+        testObject = DigitDotCommand(calculatorEngine: engine, display: display,token : "1")
+
+        let _ = testObject.execute()
+                     
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeState)
+        XCTAssertTrue(mockDelegate.delegate_param_State! == .Default)
+
+              
+    }
     
 }
+
+

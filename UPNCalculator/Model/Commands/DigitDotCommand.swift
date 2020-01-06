@@ -22,15 +22,20 @@ class DigitDotCommand : Command {
     }
     
     
-    func execute() {
-        if display.isPushed {
-            display.setDisplay(baseValue: digitString, exponent: "")
-            display.isPushed = false
-        } else {
-            display.addBaseDigit(digit:digitString)
+    func execute() -> KeyboardState {
+        if display.inputMode == .standard {
+            if display.isPushed {
+                display.clear()
+                display.addBaseDigit(digit: digitString)
+                display.isPushed = false
+            } else {
+                display.addBaseDigit(digit:digitString)
+            }
         }
-    }
-    
+        
+        return .Default
+   }
+   
     
 }
 

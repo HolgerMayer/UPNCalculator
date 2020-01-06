@@ -14,20 +14,16 @@ class DivideCommandTests: XCTestCase {
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : DivideCommand!
+    var mockDelegate : DisplayMockDelegate = DisplayMockDelegate()
     
     
-    var delegate_didCall_didChangeBase  : Bool = false
-    var delegate_didCall_didChangeExponent : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
-
+ 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
         display = CalculatorDisplay()
-        display.delegate = self
+        display.delegate = mockDelegate
         testObject = DivideCommand(calculatorEngine: engine, display: display)
     }
 
@@ -38,7 +34,7 @@ class DivideCommandTests: XCTestCase {
     
     func testDivideEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         let result = engine.top
            
@@ -48,7 +44,7 @@ class DivideCommandTests: XCTestCase {
     func testMultiplyOnly3OnStack() {
         engine.enterNumber(3)
 
-           testObject.execute()
+           let _ = testObject.execute()
            
            guard let result = engine.top else {
                XCTFail()
@@ -63,7 +59,7 @@ class DivideCommandTests: XCTestCase {
         engine.enterNumber(6)
         engine.enterNumber(2)
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -78,33 +74,13 @@ class DivideCommandTests: XCTestCase {
          engine.enterNumber(6)
          engine.enterNumber(0)
 
-         testObject.execute()
+         let _ = testObject.execute()
          
          let result = engine.top
          
          XCTAssertNil(result)
-         XCTAssertTrue(delegate_param1 == "Error : division by zero")
+         XCTAssertTrue(mockDelegate.delegate_param1 == "Error : division by zero")
      }
 
 }
 
-
-
-extension DivideCommandTests : DisplayDelegate {
-    func didChangeBase(value: String) {
-        delegate_didCall_didChangeBase = true
-        delegate_param1 = value
-    }
-    
-    func didChangeExponent(value: String) {
-        delegate_didCall_didChangeExponent = true
-        delegate_param1 = value
-    }
-    
-    func didChangeState(_ state: KeyboardState) {
-      delegate_didCall_didChangeState = true
-    }
-
-    
-    
-}

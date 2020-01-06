@@ -13,12 +13,12 @@ class CalculatorDisplayTests: XCTestCase {
 
     var testObject : CalculatorDisplay!
     
-    var delegate_didCall_didChangeBase  : Bool = false
-    var delegate_didCall_didChangeExponent : Bool = false
-    var delegate_didCall_didChangeState : Bool = false
-    var delegate_param1 : String = ""
-    var delegate_resultValue : String = ""
-    
+     var delegate_didCall_didChangeDisplay  : Bool = false
+     var delegate_didCall_didChangeDisplayToError : Bool = false
+     var delegate_didCall_didClearError : Bool = false
+     var delegate_didCall_didChangeState : Bool = false
+     var delegate_param1 : String = ""
+
     override func setUp() {
 
         testObject = CalculatorDisplay()
@@ -31,11 +31,9 @@ class CalculatorDisplayTests: XCTestCase {
     }
     
     func resetDelegateTracker() {
-        delegate_didCall_didChangeBase  = false
-        delegate_didCall_didChangeExponent  = false
+        delegate_didCall_didChangeDisplay  = false
         delegate_didCall_didChangeState = false
         delegate_param1  = ""
-        delegate_resultValue  = ""
     }
 
     func testIsPushed() {
@@ -62,76 +60,84 @@ class CalculatorDisplayTests: XCTestCase {
     
     func testClear() {
          testObject.clear()
-         XCTAssertTrue(delegate_didCall_didChangeBase)
+         XCTAssertTrue(delegate_didCall_didChangeDisplay)
          XCTAssertTrue(delegate_param1 == "")
          XCTAssertTrue(testObject.state == .Default)
         XCTAssertFalse(testObject.isPushed)
     }
     
     func testSetDisplay(){
-        testObject.setDisplay(baseValue: "1.23", exponent: "00")
-        XCTAssertTrue(delegate_didCall_didChangeBase)
-        XCTAssertTrue(delegate_param1 == "1.23")
+        
+        testObject.value = 1.23
+        XCTAssertTrue(delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(delegate_param1 == "1.2300     ", "delegate_param1 should be 1.2300 is \(delegate_param1)")
     }
     
     func testAddBaseDigit(){
         
         
-        testObject.setDisplay(baseValue: "12", exponent: "")
+        testObject.clear()
+        testObject.addBaseDigit(digit: "1")
+        testObject.addBaseDigit(digit: "2")
         testObject.addBaseDigit(digit: "0")
         
-        XCTAssertTrue(delegate_didCall_didChangeBase)
-        XCTAssertTrue(delegate_param1 == "120")
-        guard let result = testObject.value() else {
+        XCTAssertTrue(delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(delegate_param1 == "120", "delegate_param1 should be 120 is \(delegate_param1)")
+        guard let result = testObject.value else {
             XCTFail()
             return
         }
-        XCTAssertTrue(result == 120.0)
+        XCTAssertTrue(result == 120.0, "result should be 120 is \(result)")
     }
 
     func testRemoveBaseDigit(){
        
-        testObject.setDisplay(baseValue: "120", exponent: "")
-        
+        testObject.clear()
+         testObject.addBaseDigit(digit: "1")
+         testObject.addBaseDigit(digit: "2")
+         testObject.addBaseDigit(digit: "0")
+
         testObject.removeBaseDigit()
 
-        XCTAssertTrue(delegate_didCall_didChangeBase)
-        XCTAssertTrue(delegate_param1 == "12")
-        guard let result = testObject.value() else {
+        XCTAssertTrue(delegate_didCall_didChangeDisplay)
+        XCTAssertTrue(delegate_param1 == "12" ,"delegate_param1 should be 12 is \(delegate_param1)")
+        guard let result = testObject.value else {
             XCTFail()
             return
         }
-        XCTAssertTrue(result == 12.0)
+        XCTAssertTrue(result == 12.0, "result should be 120 is \(result)")
 }
     
 
     
     func testChangeSign(){
-        testObject.setDisplay(baseValue: "12", exponent: "")
+        testObject.clear()
+        testObject.addBaseDigit(digit: "1")
+        testObject.addBaseDigit(digit: "2")
         
         testObject.changeSign()
         
-        XCTAssertTrue(delegate_didCall_didChangeBase)
+        XCTAssertTrue(delegate_didCall_didChangeDisplay)
         let expectedValue = -12.0
-         guard let result = testObject.value() else {
+         guard let result = testObject.value else {
              XCTFail()
              return
          }
         
-         XCTAssertTrue(result == expectedValue)
+         XCTAssertTrue(result == expectedValue,"result  be -12 is \(result)")
    }
 
     func testErrorMessage(){
         testObject.setError("Error : Division by zero")
-        XCTAssertTrue(delegate_didCall_didChangeBase)
+        XCTAssertTrue(delegate_didCall_didChangeDisplayToError)
         XCTAssertTrue(delegate_param1 == "Error : Division by zero")
 
     }
     
     func testValue() {
-        testObject.setDisplay(baseValue: "123", exponent: "")
+        testObject.value = 123
         
-        guard let result = testObject.value() else {
+        guard let result = testObject.value else {
             XCTFail()
             return
         }
@@ -139,21 +145,78 @@ class CalculatorDisplayTests: XCTestCase {
         XCTAssertTrue(result == 123.0)
     }
     
+    func testUpdateLastValue(){
+        testObject.value = 123
+        
+        testObject.updateLastValue()
+        
+        testObject.value = 456
+        
+        testObject.restoreLastValue()
+          
+         XCTAssertTrue(testObject.value == 123.0)
+    }
+    
+    
+    // TODO: Test mode switch 
+    func testStandardInputMode(){
+        testObject.value = 123
+         
+        XCTAssertTrue(delegate_param1 == "123.0000   ")
+    }
+    
+    
+    
+    func testFixInputMode(){
+        testObject.value = 123
+        testObject.inputMode = .fix
+                
+        testObject.addBaseDigit(digit: "7")
+                
+        XCTAssertTrue(delegate_param1 == "123.0000000")
+  
+        testObject.inputMode = .fix
+                
+        testObject.addBaseDigit(digit: "2")
+        XCTAssertTrue(delegate_param1 == "123.00     ")
+
+     }
+    
+    func testScientificInputMode(){
+           testObject.value = 125
+           testObject.inputMode = .scientific
+                   
+           testObject.addBaseDigit(digit: "7")
+                   
+           XCTAssertTrue(delegate_param1 == "1.250000 02","delegate_param1 should be 1.250000 02 is \(delegate_param1)")
+     
+           testObject.inputMode = .scientific
+                   
+           testObject.addBaseDigit(digit: "2")
+            XCTAssertTrue(delegate_param1 == "1.25     02","delegate_param1 should be 1.25      02 is \(delegate_param1)")
+        }
     
 }
 
 
 extension CalculatorDisplayTests : DisplayDelegate {
      
-    func didChangeBase(value: String) {
-        delegate_didCall_didChangeBase = true
+       func didChangeDisplayToError(value: String) {
+              delegate_didCall_didChangeDisplayToError = true
+              delegate_param1 = value
+       }
+          
+       
+       func didClearError() {
+              delegate_didCall_didClearError = true
+       }
+          
+
+    func didChangeDisplay(value: String) {
+        delegate_didCall_didChangeDisplay = true
         delegate_param1 = value
     }
     
-    func didChangeExponent(value: String) {
-        delegate_didCall_didChangeExponent = true
-        delegate_param1 = value
-    }
     
     func didChangeState(_ state: KeyboardState) {
       delegate_didCall_didChangeState = true

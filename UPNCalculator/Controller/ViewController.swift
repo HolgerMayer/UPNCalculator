@@ -41,19 +41,19 @@ class ViewController: UIViewController {
     
       var dotButton : UIButton!
       var enterButton : UIButton!
-      var clearButton : UIButton!
+      var eexButton : UIButton!
+      var gsbButton : UIButton!
       var chsButton : UIButton!
 
     
       var noop1Button : UIButton!
       var noop2Button : UIButton!
       var noop3Button : UIButton!
-      var noop4Button : UIButton!
       var noop5Button : UIButton!
-      var noop6Button : UIButton!
-      var noop7Button : UIButton!
-      var noop8Button : UIButton!
-      var noop9Button : UIButton!
+      var xExYButton : UIButton!
+      var backArrowButton : UIButton!
+      var stoButton : UIButton!
+      var rclButton : UIButton!
       var noop10Button : UIButton!
 
       var onButton : UIButton!
@@ -62,7 +62,8 @@ class ViewController: UIViewController {
     
     var calculatorEngine : UPNEngine! = UPNEngine()
     var display : CalculatorDisplay!
-    var commandFactory : UPNCommandFactory!
+
+    var commandController : CommandController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +79,7 @@ class ViewController: UIViewController {
         display.delegate = self
         display.clear()
          
-        commandFactory = UPNCommandFactory(calculatorEngine: calculatorEngine, display: display)
-         
-        
+        commandController = CommandController(calculatorEngine: calculatorEngine, display: display)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,44 +96,39 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender : UIButton){
         
+         
         guard let keyString = sender.accessibilityLabel else {
             display.state = .Default
             return
         }
         
-        guard let commandKey = CommandKey(rawValue:keyString) else {
-            display.state = .Default
-            return
-        }
         
-        guard let command = commandFactory.createCommand(commandKey, display.state) else {
-            display.state = .Default
-            return
-        }
-        
-        command.execute()
-        
-        display.state = .Default
+        commandController.executeCommand(keyString: keyString)
     }
     
-    @IBAction func fButtonTapped(_ sender : UIButton){
-        if display.state != .FState {
-            display.state = .FState
+  
+    
+    @IBAction func onButtonTapped(_ sender : UIButton){
+        if commandController.commandLogginEnabled == false {
+            commandController.beginLogging()
+                        
+            let attributedTitle = NSMutableAttributedString(string:"LOG")
+            attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(0, attributedTitle.length))
+            attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+            sender.setAttributedTitle(attributedTitle, for: .normal)
         } else {
-            display.state = .Default
+            let attributedTitle = NSMutableAttributedString(string:"ON")
+             attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle.length))
+             attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+             sender.setAttributedTitle(attributedTitle, for: .normal)
+            
+            commandController.endLogging()
         }
-    }
-
-    @IBAction func gButtonTapped(_ sender : UIButton){
-        if display.state != .GState {
-            display.state = .GState
-        } else {
-            display.state = .Default
-        }
-    }
+        
+     }
 
     private func createDisplay(){
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         displayPanel.backgroundColor = .lightGray
         displayPanel.layer.cornerRadius = 20.0
@@ -144,7 +138,7 @@ class ViewController: UIViewController {
         
         outputLabel.textAlignment = .right
         outputLabel.backgroundColor = .lightGray
-        outputLabel.font = .systemFont(ofSize: 25.0)
+        outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
         outputLabel.text = ""
         outputLabel.translatesAutoresizingMaskIntoConstraints = false
         outputLabel.accessibilityIdentifier = "display"
@@ -166,7 +160,7 @@ class ViewController: UIViewController {
     private func createViewControllerButtons() {
         // First row
         
-        sqrtButton = createButton(title1:"A",title2: "sqrt", title3:"X2", accessoryLabel: "sqrt")
+        sqrtButton = createButton(title1:"A",title2: "√", title3:"x²", accessoryLabel: "sqrt")
         view.addSubview(sqrtButton)
 
         xovereButton = createButton(title1:"B",title2: "eX", title3:"LN", accessoryLabel: "xovere")
@@ -175,25 +169,25 @@ class ViewController: UIViewController {
         xover10Button  = createButton(title1:"C",title2: "10X",title3:"LOG", accessoryLabel: "xoverten")
         view.addSubview(xover10Button)
 
-        xoveryButton  = createButton(title1:"D",title2: "yX", title3:"", accessoryLabel: "xovery")
+        xoveryButton  = createButton(title1:"D",title2: "yX", title3:"%", accessoryLabel: "xovery")
         view.addSubview(xoveryButton)
 
-        onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"", accessoryLabel: "divide1byx")
+        onedivxButton  = createButton(title1:"E",title2: "1/x",  title3:"∆%", accessoryLabel: "divide1byx")
         view.addSubview(onedivxButton)
 
-        clearButton = createButton(title1:"",title2: "clr",  title3:"", accessoryLabel: "clear")
-        view.addSubview(clearButton)
-
-        digit7Button = createButton(title1:"",title2: "7",  title3:"", accessoryLabel: "digit7")
+        chsButton = createButton(title1:"",title2: "CHS",  title3:"ABS", accessoryLabel: "chs")
+        view.addSubview(chsButton)
+        
+        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"", accessoryLabel: "digit7")
         view.addSubview(digit7Button)
 
-        digit8Button = createButton(title1:"",title2: "8",  title3:"", accessoryLabel: "digit8")
+        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"", accessoryLabel: "digit8")
         view.addSubview(digit8Button)
 
-        digit9Button = createButton(title1:"",title2: "9",  title3:"", accessoryLabel: "digit9")
+        digit9Button = createButton(title1:"ENG",title2: "9",  title3:"", accessoryLabel: "digit9")
         view.addSubview(digit9Button)
 
-        addButton = createButton(title1:"",title2: "+",  title3:"", accessoryLabel: "add")
+        addButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
         view.addSubview(addButton)
 
 
@@ -205,17 +199,18 @@ class ViewController: UIViewController {
         noop2Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop2")
         view.addSubview(noop2Button)
 
-        sinButton  = createButton(title1:"",title2: "sin",  title3:"sin-1", accessoryLabel: "sin")
+        sinButton  = createButton(title1:"",title2: "SIN",  title3:"SIN-1", accessoryLabel: "sin")
         view.addSubview(sinButton)
 
-        cosButton  = createButton(title1:"",title2: "cos",  title3:"cos-1", accessoryLabel: "cos")
+        cosButton  = createButton(title1:"",title2: "COS",  title3:"COS-1", accessoryLabel: "cos")
         view.addSubview(cosButton)
 
-        tanButton  = createButton(title1:"",title2: "tan",  title3:"tan-1", accessoryLabel: "tan")
+        tanButton  = createButton(title1:"",title2: "TAN",  title3:"TAN-1", accessoryLabel: "tan")
         view.addSubview(tanButton)
 
-        chsButton = createButton(title1:"",title2: "chs",  title3:"", accessoryLabel: "chs")
-        view.addSubview(chsButton)
+            
+        eexButton = createButton(title1:"",title2: "EEX",  title3:"π", accessoryLabel: "eex")
+         view.addSubview(eexButton)
 
         digit4Button = createButton(title1:"",title2: "4",  title3:"", accessoryLabel: "digit4")
         view.addSubview(digit4Button)
@@ -226,7 +221,7 @@ class ViewController: UIViewController {
         digit6Button = createButton(title1:"",title2: "6",  title3:"", accessoryLabel: "digit6")
         view.addSubview(digit6Button)
 
-        subtractButton = createButton(title1:"",title2: "-", title3:"",  accessoryLabel: "subtract")
+        subtractButton = createButton(title1:"",title2: "*", title3:"",  accessoryLabel: "multiply")
         view.addSubview(subtractButton)
 
 
@@ -235,19 +230,19 @@ class ViewController: UIViewController {
         noop3Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop3")
         view.addSubview(noop3Button)
 
-        noop4Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop4")
-        view.addSubview(noop4Button)
+        gsbButton = createButton(title1:"Clear ∑",title2: "GSB",  title3:"", accessoryLabel: "gsb")
+        view.addSubview(gsbButton)
 
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
 
-        noop6Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop6")
-        view.addSubview(noop6Button)
+        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"", accessoryLabel: "exchangexy")
+        view.addSubview(xExYButton)
 
-        noop7Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop7")
-        view.addSubview(noop7Button)
+        backArrowButton = createButton(title1:"",title2: "←",  title3:"", accessoryLabel: "backarrow")
+        view.addSubview(backArrowButton)
 
-        enterButton  = createButton(title1:"",title2: "Enter",  title3:"", accessoryLabel: "enter")
+        enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
         view.addSubview(enterButton)
 
         digit1Button = createButton(title1:"",title2: "1",  title3:"", accessoryLabel: "digit1")
@@ -259,14 +254,13 @@ class ViewController: UIViewController {
         digit3Button = createButton(title1:"",title2: "3",  title3:"", accessoryLabel: "digit3")
         view.addSubview(digit3Button)
 
-        multiplyButton = createButton(title1:"",title2: "*",  title3:"", accessoryLabel: "multiply")
+        multiplyButton = createButton(title1:"",title2: "-",  title3:"", accessoryLabel: "subtract")
         view.addSubview(multiplyButton)
 
 
         // Fourth Row
 
-        onButton = createButton(title1:"",title2: "on",  title3:"", accessoryLabel: "noop3")
-        onButton.backgroundColor = UIColor.lightGray
+        onButton = createOnButton()
         view.addSubview(onButton)
 
         fButton = createFButton()
@@ -275,13 +269,12 @@ class ViewController: UIViewController {
         gButton = createGButton()
         view.addSubview(gButton)
 
-        noop8Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop8")
-        view.addSubview(noop8Button)
+        stoButton = createButton(title1:"FRAC",title2: "STO",  title3:"INT", accessoryLabel: "sto")
+        view.addSubview(stoButton)
 
-        noop9Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop9")
-        view.addSubview(noop9Button)
-
-
+        rclButton = createButton(title1:"",title2: "RCL",  title3:"", accessoryLabel: "rcl")
+        view.addSubview(rclButton)
+            
         digit0Button = createButton(title1:"",title2: "0",  title3:"", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
@@ -291,7 +284,7 @@ class ViewController: UIViewController {
         noop10Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop10")
         view.addSubview(noop10Button)
 
-        divideButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
+        divideButton = createButton(title1:"",title2: "+",  title3:"", accessoryLabel: "add")
         view.addSubview(divideButton)
 
 }
@@ -300,17 +293,26 @@ class ViewController: UIViewController {
     private func createButton( title1 : String, title2 : String, title3: String, accessoryLabel : String) -> UIButton  {
         
         
+            
+        
+            let paragraphStyle = NSMutableParagraphStyle()
+
+            // *** set LineSpacing property in points ***
+            paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+            paragraphStyle.alignment = .center
+       
             let attributedTitle1 = NSMutableAttributedString(string:title1 + "\n")
             attributedTitle1.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.orange, range: NSMakeRange(0, attributedTitle1.length))
             attributedTitle1.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle1.length))
+            attributedTitle1.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedTitle1.length))
 
             let attributedTitle2 = NSMutableAttributedString(string:title2 + "\n")
-            attributedTitle2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSMakeRange(0, attributedTitle2.length))
+            attributedTitle2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle2.length))
             attributedTitle2.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle2.length))
         
             let attributedTitle3 = NSMutableAttributedString(string:title3)
-            attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: NSMakeRange(0, attributedTitle3.length))
-            attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.systemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
+            attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.cyan, range: NSMakeRange(0, attributedTitle3.length))
+            attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
 
             let attributedTitle  = NSMutableAttributedString()
             attributedTitle.append(attributedTitle1)
@@ -322,10 +324,11 @@ class ViewController: UIViewController {
             button.titleLabel?.textAlignment = .center
             button.titleLabel?.numberOfLines = 0
             button.layer.borderWidth = 0.5
-            button.layer.borderColor = UIColor.blue.cgColor
-            button.layer.cornerRadius = 15.0
-            button.backgroundColor = .white
-            
+   //         button.layer.borderColor = UIColor.blue.cgColor
+   //         button.layer.cornerRadius = 15.0
+   //          button.backgroundColor = .white
+            button.setBackgroundImage(UIImage(named: "Button1"), for: .normal)
+                
             button.setAttributedTitle(attributedTitle, for: .normal)
             button.setTitleColor(.black, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 25.0)
@@ -345,17 +348,14 @@ class ViewController: UIViewController {
               button.titleLabel?.lineBreakMode = .byWordWrapping
               button.titleLabel?.textAlignment = .center
               button.titleLabel?.numberOfLines = 0
-              button.layer.borderWidth = 0.5
-              button.layer.borderColor = UIColor.blue.cgColor
-              button.layer.cornerRadius = 15.0
-              button.backgroundColor = UIColor.orange
+              button.setBackgroundImage(UIImage(named: "OrangeButton"), for: .normal)
               
               button.setAttributedTitle(attributedTitle, for: .normal)
               button.setTitleColor(.black, for: .normal)
               button.titleLabel?.font = .systemFont(ofSize: 25.0)
               button.translatesAutoresizingMaskIntoConstraints = false
-              button.addTarget(self, action: #selector(fButtonTapped), for: .touchUpInside)
-              button.accessibilityLabel = "Fkey"
+              button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+              button.accessibilityLabel = "fkey"
               return button
         }
     
@@ -369,19 +369,38 @@ class ViewController: UIViewController {
                 button.titleLabel?.lineBreakMode = .byWordWrapping
                 button.titleLabel?.textAlignment = .center
                 button.titleLabel?.numberOfLines = 0
-                button.layer.borderWidth = 0.5
-                button.layer.borderColor = UIColor.black.cgColor
-                button.layer.cornerRadius = 15.0
-                button.backgroundColor = UIColor.blue
+                button.setBackgroundImage(UIImage(named: "BlueButton"), for: .normal)
                 
                 button.setAttributedTitle(attributedTitle, for: .normal)
                 button.setTitleColor(.black, for: .normal)
                 button.titleLabel?.font = .systemFont(ofSize: 25.0)
                 button.translatesAutoresizingMaskIntoConstraints = false
-                button.addTarget(self, action: #selector(gButtonTapped), for: .touchUpInside)
-                button.accessibilityLabel = "Fkey"
+                button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+                button.accessibilityLabel = "gkey"
                 return button
-          }
+    }
+    
+    private func createOnButton() -> UIButton  {
+              
+                  let attributedTitle = NSMutableAttributedString(string:"ON")
+                  attributedTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle.length))
+                  attributedTitle.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle.length))
+ 
+        
+                  let button = UIButton()
+                  button.titleLabel?.lineBreakMode = .byWordWrapping
+                  button.titleLabel?.textAlignment = .center
+                  button.titleLabel?.numberOfLines = 0
+                  button.setBackgroundImage(UIImage(named: "Button1"), for: .normal)
+                  
+                  button.setAttributedTitle(attributedTitle, for: .normal)
+                  button.setTitleColor(.black, for: .normal)
+                  button.titleLabel?.font = .systemFont(ofSize: 25.0)
+                  button.translatesAutoresizingMaskIntoConstraints = false
+                  button.addTarget(self, action: #selector(onButtonTapped), for: .touchUpInside)
+                  button.accessibilityLabel = "on"
+                  return button
+    }
     
     
     private func createAutolayoutConstraints(){
@@ -446,8 +465,8 @@ class ViewController: UIViewController {
         constraintOtherButtonsInRow(sinButton!, previousButton: noop2Button!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(cosButton!, previousButton: sinButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(tanButton!, previousButton: cosButton!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(clearButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(digit4Button!, previousButton: clearButton!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(eexButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(digit4Button!, previousButton: eexButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(digit5Button!, previousButton: digit4Button!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(digit6Button!, previousButton: digit5Button!, firstButtoninRow: noop1Button!)
         constraintLastButtonsInRow(subtractButton!, previousButton: digit6Button!, firstButtoninRow: noop1Button!)
@@ -455,11 +474,11 @@ class ViewController: UIViewController {
         // Third Row
          constraintFirstButtonInRow(noop3Button!, viewOfPreviousRow: noop1Button, firstRow: false)
 
-         constraintOtherButtonsInRow(noop4Button!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop5Button!, previousButton: noop4Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop6Button!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop7Button!, previousButton: noop6Button!, firstButtoninRow: noop3Button!)
-         constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: noop7Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(gsbButton!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(noop5Button!, previousButton: gsbButton!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(xExYButton!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(backArrowButton!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
+         constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: backArrowButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit1Button!, previousButton: enterButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit2Button!, previousButton: digit1Button!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit3Button!, previousButton: digit2Button!, firstButtoninRow: noop3Button!)
@@ -470,8 +489,8 @@ class ViewController: UIViewController {
 
         constraintOtherButtonsInRow(fButton!,  previousButton: onButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(gButton!, previousButton: fButton!, firstButtoninRow: onButton!)
-        constraintOtherButtonsInRow(noop8Button!, previousButton: gButton!, firstButtoninRow: onButton!)
-        constraintOtherButtonsInRow(noop9Button!, previousButton: noop8Button!, firstButtoninRow: onButton!)
+        constraintOtherButtonsInRow(stoButton!, previousButton: gButton!, firstButtoninRow: onButton!)
+        constraintOtherButtonsInRow(rclButton!, previousButton: stoButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(digit0Button!, previousButton: enterButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(dotButton!, previousButton: digit0Button!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(noop10Button!, previousButton: dotButton!, firstButtoninRow: onButton!)
@@ -548,10 +567,10 @@ class ViewController: UIViewController {
          constraint = NSLayoutConstraint(item: gButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
-         constraint = NSLayoutConstraint(item: noop8Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+         constraint = NSLayoutConstraint(item: stoButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
-         constraint = NSLayoutConstraint(item: noop9Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+         constraint = NSLayoutConstraint(item: rclButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
          constraint = NSLayoutConstraint(item: digit0Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
@@ -571,25 +590,37 @@ class ViewController: UIViewController {
 
     
 extension ViewController : DisplayDelegate {
+    
+    func didChangeDisplayToError(value: String) {
+        outputLabel.textAlignment = .right
+        outputLabel.font =  .systemFont(ofSize: 60.0) //.systemFont(ofSize: 25.0)
+        outputLabel.textColor = .red
+        outputLabel.text! = value
+    }
+    
+    func didClearError() {
+        outputLabel.textAlignment = .right
+        outputLabel.backgroundColor = .lightGray
+        outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
+        outputLabel.text! = ""
+    }
+    
  
-    func didChangeBase(value: String) {
-        outputLabel.text! = value;
+    func didChangeDisplay(value: String) {
+        outputLabel.text! = value
      }
      
-     func didChangeExponent(value: String) {
-         // TODO:
-     }
     
     func didChangeState(_ state : KeyboardState) {
         switch state {
-        case .Default:
-            stateLabel.text! = ""
-            break
         case .FState:
             stateLabel.text! = "f"
             break
         case .GState:
             stateLabel.text! = "g"
+            break
+        default:
+            stateLabel.text! = ""
             break
         }
     

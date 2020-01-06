@@ -19,15 +19,17 @@ class EnterCommand : Command {
         self.display = display
     }
     
-    func execute() {
-        guard let value = display.value() else {
+    func execute() -> KeyboardState {
+        guard let value = display.value else {
         
             display.setError( "Error wrong number format")
-            return
+            return .Default
         }
         
         calculatorEngine.enterNumber(value)
         display.isPushed = true
+        
+        return .Default
     }
     
     

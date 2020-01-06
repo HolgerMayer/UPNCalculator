@@ -31,7 +31,7 @@ class DivideOneByXCommandTests: XCTestCase {
     
     func testDivideOneByXCommandOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         if engine.top == nil {
             return
@@ -45,7 +45,7 @@ class DivideOneByXCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         if engine.top == nil {
               return
@@ -58,7 +58,7 @@ class DivideOneByXCommandTests: XCTestCase {
      
         engine.enterNumber(4)
     
-        testObject.execute()
+        let _ = testObject.execute()
     
         guard let result = engine.top else {
            XCTFail()
@@ -74,7 +74,7 @@ class DivideOneByXCommandTests: XCTestCase {
         
         engine.enterNumber(10)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

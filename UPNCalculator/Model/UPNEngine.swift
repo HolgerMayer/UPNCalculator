@@ -71,6 +71,11 @@ class UPNEngine {
         stack.push(b / a)
     }
     
+    func abs(){
+        let a = getNextNumber()
+        
+        stack.push(Swift.abs(a))
+    }
     
     func sin()  {
         let a = getNextNumber()

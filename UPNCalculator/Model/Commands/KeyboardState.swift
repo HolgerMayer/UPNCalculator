@@ -10,7 +10,12 @@ import Foundation
 
 
 public enum KeyboardState : String {
-    case Default =  " "
+    case Default =  "DefaultState"
     case FState = "f"
     case GState = "g"
+    case Fix = "fix"
+    case Scientific = "scientific"
+    case Engineering = "engineering"
+    case EEX1 = "eex1"
+
 }

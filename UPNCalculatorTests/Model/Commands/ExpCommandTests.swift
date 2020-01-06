@@ -34,7 +34,7 @@ class ExpCommandTests: XCTestCase {
     
     func testExpOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -47,7 +47,7 @@ class ExpCommandTests: XCTestCase {
     func testExp1onStack() {
         engine.enterNumber(1.0)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

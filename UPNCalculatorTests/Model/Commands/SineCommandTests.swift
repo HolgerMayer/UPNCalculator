@@ -31,7 +31,7 @@ class SineCommandTests: XCTestCase {
     
     func testSineOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -46,7 +46,7 @@ class SineCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -60,7 +60,7 @@ class SineCommandTests: XCTestCase {
      
         engine.enterNumber(Double.pi / 2)
     
-        testObject.execute()
+        let _ = testObject.execute()
     
         guard let result = engine.top else {
            XCTFail()
@@ -76,7 +76,7 @@ class SineCommandTests: XCTestCase {
         
         engine.enterNumber(Double.pi)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -91,7 +91,7 @@ class SineCommandTests: XCTestCase {
         
           engine.enterNumber(Double.pi / 2 * 3)
           
-          testObject.execute()
+         let _ =  testObject.execute()
           
           guard let result = engine.top else {
               XCTFail()

@@ -31,7 +31,7 @@ class SquareRootCommandTests: XCTestCase {
     
     func testSquareRootOfEmptyStack() {
 
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()
@@ -46,7 +46,7 @@ class SquareRootCommandTests: XCTestCase {
         
          engine.enterNumber(0.0)
         
-         testObject.execute()
+         let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -60,7 +60,7 @@ class SquareRootCommandTests: XCTestCase {
      
         engine.enterNumber(4)
     
-        testObject.execute()
+        let _ = testObject.execute()
     
         guard let result = engine.top else {
            XCTFail()
@@ -76,7 +76,7 @@ class SquareRootCommandTests: XCTestCase {
         
         engine.enterNumber(9)
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
             XCTFail()

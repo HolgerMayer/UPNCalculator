@@ -28,19 +28,36 @@ class ChangeSignCommandTests: XCTestCase {
     }
 
     func testChangeSign(){
-         display.setDisplay(baseValue: "20", exponent: "")
+        display.value = 20
         
-        testObject.execute()
+        let _ = testObject.execute()
         
         XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value() == -20)
+        XCTAssertTrue(display.value == -20)
         XCTAssertFalse(display.isPushed)
  
-        testObject.execute()
+        let _ = testObject.execute()
          
         XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value() == 20)
+        XCTAssertTrue(display.value == 20)
         XCTAssertFalse(display.isPushed)
     }
 
+    func testChangeSignOfNumberLessThanOne(){
+        display.value = 0.1
+               
+        let _ = testObject.execute()
+               
+        XCTAssertNil(engine.top)
+        XCTAssertTrue(display.value == -0.1)
+        XCTAssertFalse(display.isPushed)
+        
+        let _ = testObject.execute()
+                
+        XCTAssertNil(engine.top)
+        XCTAssertTrue(display.value == 0.1)
+        XCTAssertFalse(display.isPushed)
+
+    }
+    
 }

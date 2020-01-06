@@ -19,9 +19,12 @@ class ClearCommand : Command {
         self.display = display
     }
     
-    func execute() {
+    func execute() -> KeyboardState {
          calculatorEngine.clear()
          display.clear()
+        
+        
+        return .Default
     }
     
     

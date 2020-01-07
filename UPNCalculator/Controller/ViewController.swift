@@ -239,7 +239,7 @@ class ViewController: UIViewController {
         xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
-        backArrowButton = createButton(title1:"",title2: "←",  title3:"", accessoryLabel: "backarrow")
+        backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")
         view.addSubview(backArrowButton)
 
         enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")

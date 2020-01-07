@@ -31,14 +31,16 @@ class FracCommand : Command {
         
         if display.isPushed == false {
             display.value = fraction
+            calculatorEngine.enterNumber(fraction)
         } else {
             
             calculatorEngine.removeTop()
             calculatorEngine.enterNumber(fraction)
             display.value = fraction
        }
-        
-        return .Default
+       
+        display.isPushed = true
+       return .Default
          
     }
     

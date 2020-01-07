@@ -46,6 +46,7 @@ class Section2Tests: XCTestCase {
         app.launch()
         let testTool = TestTool(app: app)
         
+        // Line 1
         app.buttons["digit1"].tap()
         app.buttons["digit2"].tap()
         app.buttons["digit3"].tap()
@@ -62,6 +63,7 @@ class Section2Tests: XCTestCase {
         XCTAssertNotNil(result)
         XCTAssertTrue(result! - 123 <= 0.0001)
 
+        // Line 2
         app.buttons["gkey"].tap()
         app.buttons["enter"].tap() // LstX
         app.buttons["chs"].tap()
@@ -72,14 +74,48 @@ class Section2Tests: XCTestCase {
         XCTAssertNotNil(result)
         XCTAssertTrue(result! + 123 <= 0.0001)
 
+        // Line 3
+        
         app.buttons["gkey"].tap()
         app.buttons["enter"].tap() // LstX
         app.buttons["fkey"].tap()
-        app.buttons["sto"].tap() // INT
+        app.buttons["sto"].tap() // FRAC
         
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
         XCTAssertTrue(result! + 0.4567 <= 0.0001," Result should be 0.4567 is \(result!)")
+
+        // Line 4
+        app.buttons["digit1"].tap()
+        app.buttons["dot"].tap()
+        app.buttons["digit2"].tap()
+        app.buttons["digit3"].tap()
+        app.buttons["digit4"].tap()
+        app.buttons["digit5"].tap()
+        app.buttons["digit6"].tap()
+        app.buttons["digit7"].tap()
+        app.buttons["digit8"].tap()
+        app.buttons["digit9"].tap()
+        app.buttons["chs"].tap()
+
+        // Line 5
+        app.buttons["gkey"].tap()
+        app.buttons["exchangexy"].tap() // RND
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! + 1.2346 <= 0.0001," Result should be -1.2346 is \(result!)")
+
+        // Line 6  // TODO: Implement when Clear Prefix is implemented
+        
+        // Line 7
+        // Line 8
+        app.buttons["gkey"].tap()
+        app.buttons["chs"].tap()
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! - 1.2346 <= 0.0001," Result should be 1.2346 is \(result!)")
 
         
     }

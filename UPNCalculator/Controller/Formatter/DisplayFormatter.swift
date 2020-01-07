@@ -50,12 +50,20 @@ extension DisplayFormatter {
             let result = convertedDouble + spaces
 
             return result
-          }
+        }
 
         
         let log10Value = Darwin.log10(abs(value))
-        let exponentValue = Double(Int(log10Value) / exponentModulo) * Double(exponentModulo)
-        let remainderValue = value / Darwin.pow(10,exponentValue)
+        var exponentValue = Double(Int(log10Value) / exponentModulo) * Double(exponentModulo)
+        var remainderValue = value / Darwin.pow(10,exponentValue)
+        
+        if exponentValue < 0 {
+            if remainderValue < 1 {
+                remainderValue = remainderValue * 10
+                exponentValue = exponentValue - 1
+            }
+        }
+        
         var currentPrecision = precision + 1
         if currentPrecision > 7 {
             currentPrecision = 7

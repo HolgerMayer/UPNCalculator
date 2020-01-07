@@ -50,5 +50,9 @@ class TestTool {
         return Double(trimmedText)
       }
       
+    func displayString() -> String {
+         return app.staticTexts.element(matching:.any,identifier: "display").label
+        
+    }
     
 }

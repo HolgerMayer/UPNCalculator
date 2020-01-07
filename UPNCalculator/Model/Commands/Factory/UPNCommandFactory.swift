@@ -118,6 +118,8 @@ class UPNCommandFactory  {
          gStateCommandDictionary[CommandKey.sqrtKey.rawValue] = SquareXCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverEKey.rawValue] = LogCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.xOverTenKey.rawValue] = Log10Command(calculatorEngine: calculatorEngine, display: display)
+         gStateCommandDictionary[CommandKey.xOverYKey.rawValue] = PercentCommand(calculatorEngine: calculatorEngine, display: display)
+         gStateCommandDictionary[CommandKey.divide1ByXKey.rawValue] = PercentDifferenceCommand(calculatorEngine: calculatorEngine, display: display)
 
         gStateCommandDictionary[CommandKey.chsKey.rawValue] = AbsCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.eexKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)

@@ -601,6 +601,7 @@ extension ViewController : DisplayDelegate {
     func didClearError() {
         outputLabel.textAlignment = .right
         outputLabel.backgroundColor = .lightGray
+        outputLabel.textColor = .black
         outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
         outputLabel.text! = ""
     }

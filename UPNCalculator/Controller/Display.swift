@@ -34,7 +34,7 @@ public protocol Display {
     var value : Double? {get set}
     var inputMode : InputMode {get set}
     var state: KeyboardState {get set}
-    
+    var noOfDecimalPlacesDisplayed : Int {get set}
     func restoreLastValue() 
     func updateLastValue()
     

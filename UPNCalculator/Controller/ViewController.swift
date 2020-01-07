@@ -236,7 +236,7 @@ class ViewController: UIViewController {
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
 
-        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"", accessoryLabel: "exchangexy")
+        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"RND", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
         backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")

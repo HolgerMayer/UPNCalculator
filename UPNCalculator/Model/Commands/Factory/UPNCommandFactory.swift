@@ -133,6 +133,7 @@ class UPNCommandFactory  {
 
         
         // Row 3
+        gStateCommandDictionary[CommandKey.exchangeXYKey.rawValue] = RndCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.backArrowKey.rawValue] = CLxCommand(calculatorEngine: calculatorEngine, display: display)
 
         gStateCommandDictionary[CommandKey.enterKey.rawValue] = LastXCommand(calculatorEngine: calculatorEngine, display: display)

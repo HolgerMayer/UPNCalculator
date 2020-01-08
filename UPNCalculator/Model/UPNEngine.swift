@@ -16,6 +16,8 @@ enum CalculationError : Error {
     case divisionByZero
     case logTenFromZero
     case logFromZero
+    case factorialFromNegative
+    case resultToLarge
 }
 
 class UPNEngine {

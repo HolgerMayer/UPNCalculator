@@ -275,7 +275,7 @@ class ViewController: UIViewController {
         rclButton = createButton(title1:"",title2: "RCL",  title3:"", accessoryLabel: "rcl")
         view.addSubview(rclButton)
             
-        digit0Button = createButton(title1:"",title2: "0",  title3:"", accessoryLabel: "digit0")
+        digit0Button = createButton(title1:"x!",title2: "0",  title3:"", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
         dotButton = createButton(title1:"",title2: ".",  title3:"", accessoryLabel: "dot")

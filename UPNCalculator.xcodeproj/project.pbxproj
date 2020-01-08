@@ -116,6 +116,8 @@
 		54E08BE123C53971002C2A97 /* PercentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BE023C53971002C2A97 /* PercentCommand.swift */; };
 		54E08BE323C53A01002C2A97 /* PercentDifferenceCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BE223C53A01002C2A97 /* PercentDifferenceCommandTests.swift */; };
 		54E08BE523C53AA2002C2A97 /* PercentDifferenceCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BE423C53AA2002C2A97 /* PercentDifferenceCommand.swift */; };
+		54E08BE723C5EE4E002C2A97 /* FactorialCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BE623C5EE4E002C2A97 /* FactorialCommandTests.swift */; };
+		54E08BE923C5EF5A002C2A97 /* FactorialCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BE823C5EF5A002C2A97 /* FactorialCommand.swift */; };
 		54E769D523A586C400165EDC /* ASineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769D423A586C400165EDC /* ASineCommand.swift */; };
 		54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769D623A586EC00165EDC /* ACosineCommand.swift */; };
 		54E769D923A5871D00165EDC /* ATangentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E769D823A5871D00165EDC /* ATangentCommand.swift */; };
@@ -276,6 +278,8 @@
 		54E08BE023C53971002C2A97 /* PercentCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentCommand.swift; sourceTree = "<group>"; };
 		54E08BE223C53A01002C2A97 /* PercentDifferenceCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentDifferenceCommandTests.swift; sourceTree = "<group>"; };
 		54E08BE423C53AA2002C2A97 /* PercentDifferenceCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentDifferenceCommand.swift; sourceTree = "<group>"; };
+		54E08BE623C5EE4E002C2A97 /* FactorialCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorialCommandTests.swift; sourceTree = "<group>"; };
+		54E08BE823C5EF5A002C2A97 /* FactorialCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorialCommand.swift; sourceTree = "<group>"; };
 		54E769D423A586C400165EDC /* ASineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASineCommand.swift; sourceTree = "<group>"; };
 		54E769D623A586EC00165EDC /* ACosineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACosineCommand.swift; sourceTree = "<group>"; };
 		54E769D823A5871D00165EDC /* ATangentCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATangentCommand.swift; sourceTree = "<group>"; };
@@ -561,6 +565,7 @@
 				54E08BDA23C4E336002C2A97 /* RndCommand.swift */,
 				54E08BE023C53971002C2A97 /* PercentCommand.swift */,
 				54E08BE423C53AA2002C2A97 /* PercentDifferenceCommand.swift */,
+				54E08BE823C5EF5A002C2A97 /* FactorialCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 				54E08BD823C4E2F3002C2A97 /* RndCommandTests.swift */,
 				54E08BDE23C53826002C2A97 /* PercentCommandTests.swift */,
 				54E08BE223C53A01002C2A97 /* PercentDifferenceCommandTests.swift */,
+				54E08BE623C5EE4E002C2A97 /* FactorialCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -780,6 +786,7 @@
 				54D17F8C239C5F8C008F5020 /* MultiplyCommand.swift in Sources */,
 				54E769E523A5BB5A00165EDC /* ExpCommand.swift in Sources */,
 				54E08BE123C53971002C2A97 /* PercentCommand.swift in Sources */,
+				54E08BE923C5EF5A002C2A97 /* FactorialCommand.swift in Sources */,
 				5489043E23BCF820002D6F02 /* EEXCommand.swift in Sources */,
 				54D17F88239C5DDB008F5020 /* AddCommand.swift in Sources */,
 				54B76C2923A8D1C600600BDC /* LastXCommand.swift in Sources */,
@@ -870,6 +877,7 @@
 				54757B20239A5E660048A732 /* StackTests.swift in Sources */,
 				545C93D923A13A6400CD3156 /* AddCommandTests.swift in Sources */,
 				54E769EF23A5BC9100165EDC /* Log10CommandTests.swift in Sources */,
+				54E08BE723C5EE4E002C2A97 /* FactorialCommandTests.swift in Sources */,
 				54E769E123A5885700165EDC /* ATangentCommandTests.swift in Sources */,
 				545C741E23B027CE006E6FF3 /* EngFormatterTests.swift in Sources */,
 				54465F2523C140800037535D /* DisplayMockDelegate.swift in Sources */,

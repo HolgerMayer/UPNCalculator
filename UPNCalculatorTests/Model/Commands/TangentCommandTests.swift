@@ -21,6 +21,7 @@ class TangentCommandTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
+        engine.trigonometricMode = .rad
         display = CalculatorDisplay()
         testObject = TangentCommand(calculatorEngine: engine, display: display)
     }
@@ -90,5 +91,60 @@ class TangentCommandTests: XCTestCase {
      }
     
   
+    func testDegTangentValues(){
+              
+        let testValues : [Double] = [0,20,35,75,100,145,250,290,310,355]
+        let resultValues : [Double] = [0,0.3640,0.7002,3.7321,-5.6713,-0.7002,2.7475,-2.7475,-1.1918,-0.0875]
+           
+           engine.trigonometricMode = .deg
+           
+           for i in 0..<testValues.count {
+               engine.clear()
+               let test = testValues[i]
+               engine.enterNumber(test)
+               display.isPushed = true
+            
+               let _ =  testObject.execute()
+               
+               guard let result = engine.top else {
+                     XCTFail()
+                     return
+                 }
+                
+               let checkValue = result.roundToDecimal(4)
+
+               XCTAssertTrue(resultValues[i] == checkValue, " deg tan(\(test)) should be \(resultValues[i])  is \(checkValue)")
+           }
+           
+       }
+       
+       // 100 -> NaN
+       func testGradTangentValues(){
+                
+           let testValues : [Double] = [0,20,35,75,145,250,290,310,355]
+        let resultValues : [Double] = [0,0.3249,0.6128,2.4142,-1.1708,1,6.3138,-6.3138,-0.8541]
+             
+             engine.trigonometricMode = .grad
+             
+             for i in 0..<testValues.count {
+                 engine.clear()
+                 let test = testValues[i]
+                 engine.enterNumber(test)
+                 display.isPushed = true
+              
+                 let _ =  testObject.execute()
+                 
+                 guard let result = engine.top else {
+                       XCTFail()
+                       return
+                   }
+                 
+                 let checkValue = result.roundToDecimal(4)
+
+                 XCTAssertTrue(resultValues[i] == checkValue, " grad tan(\(test)) should be \(resultValues[i])  is \(checkValue)")
+             }
+             
+         }
+       
     
 }

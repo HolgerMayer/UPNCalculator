@@ -11,12 +11,15 @@ import Foundation
 
 class DisplayMockDelegate : DisplayDelegate
 {
+    
      var delegate_didCall_didChangeDisplay  : Bool = false
      var delegate_didCall_didChangeDisplayToError : Bool = false
      var delegate_didCall_didClearError : Bool = false
      var delegate_didCall_didChangeState : Bool = false
+     var delegate_didCall_didChangeTrigonometricMode : Bool = false
      var delegate_param1 : String = ""
      var delegate_param_State : KeyboardState?
+     var delegate_param_Mode : TrigonometricMode?
 
     func resetDelegate() {
         
@@ -24,8 +27,10 @@ class DisplayMockDelegate : DisplayDelegate
         delegate_didCall_didChangeDisplayToError = false
         delegate_didCall_didClearError  = false
         delegate_didCall_didChangeState  = false
+        delegate_didCall_didChangeTrigonometricMode = false
         delegate_param1 = ""
         delegate_param_State = nil
+        delegate_param_Mode = nil
     }
     
       func didChangeDisplayToError(value: String) {
@@ -49,5 +54,11 @@ class DisplayMockDelegate : DisplayDelegate
         delegate_didCall_didChangeState = true
         delegate_param_State = state
    }
+    
+    func didChangeTrigonometricMode(_ mode: TrigonometricMode) {
+        delegate_didCall_didChangeTrigonometricMode = true
+        delegate_param_Mode = mode
+    }
+
 
 }

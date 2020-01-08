@@ -14,7 +14,7 @@ public protocol DisplayDelegate : AnyObject {
     func didChangeDisplayToError(value : String)
     func didClearError()
     func didChangeState(_ state : KeyboardState)
-  
+    func didChangeTrigonometricMode(_ mode : TrigonometricMode)
 }
 
 
@@ -34,6 +34,7 @@ public protocol Display {
     var value : Double? {get set}
     var inputMode : InputMode {get set}
     var state: KeyboardState {get set}
+    var trigonometricMode: TrigonometricMode {get set}
     var noOfDecimalPlacesDisplayed : Int {get set}
     func restoreLastValue() 
     func updateLastValue()

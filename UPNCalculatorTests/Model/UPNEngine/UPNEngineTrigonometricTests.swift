@@ -15,7 +15,9 @@ class UPNEngineTrigonometricTests: XCTestCase {
      
      override func setUp() {
          // Put setup code here. This method is called before the invocation of each test method in the class.
-         testObject = UPNEngine()
+        testObject = UPNEngine()
+        testObject.trigonometricMode = .rad
+        
      }
 
      override func tearDown() {

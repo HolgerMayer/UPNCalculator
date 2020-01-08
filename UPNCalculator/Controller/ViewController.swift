@@ -13,7 +13,8 @@ class ViewController: UIViewController {
       var displayPanel = UIView()
       var outputLabel = UILabel()
       var stateLabel = UILabel()
-     
+      var trigonometricLabel = UILabel()
+
       var digit0Button : UIButton!
       var digit1Button : UIButton!
       var digit2Button : UIButton!
@@ -154,7 +155,15 @@ class ViewController: UIViewController {
         
         displayPanel.addSubview(stateLabel)
         
-         
+        trigonometricLabel.textAlignment = .left
+        trigonometricLabel.backgroundColor = .lightGray
+        trigonometricLabel.font = .boldSystemFont(ofSize: 18.0)
+        trigonometricLabel.text = ""
+        trigonometricLabel.translatesAutoresizingMaskIntoConstraints = false
+        trigonometricLabel.accessibilityIdentifier = "trigStateDisplay"
+          
+        displayPanel.addSubview(trigonometricLabel)
+
     }
     
     private func createViewControllerButtons() {
@@ -178,13 +187,13 @@ class ViewController: UIViewController {
         chsButton = createButton(title1:"",title2: "CHS",  title3:"ABS", accessoryLabel: "chs")
         view.addSubview(chsButton)
         
-        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"", accessoryLabel: "digit7")
+        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"DEG", accessoryLabel: "digit7")
         view.addSubview(digit7Button)
 
-        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"", accessoryLabel: "digit8")
+        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"RAD", accessoryLabel: "digit8")
         view.addSubview(digit8Button)
 
-        digit9Button = createButton(title1:"ENG",title2: "9",  title3:"", accessoryLabel: "digit9")
+        digit9Button = createButton(title1:"ENG",title2: "9",  title3:"GRD", accessoryLabel: "digit9")
         view.addSubview(digit9Button)
 
         addButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
@@ -435,13 +444,23 @@ class ViewController: UIViewController {
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .leading, relatedBy: .equal, toItem: displayPanel, attribute: .leading, multiplier: 1.0, constant: 40.0)
         view.addConstraint(constraint)
         
-        constraint = NSLayoutConstraint(item: stateLabel, attribute: .trailing, relatedBy: .equal, toItem: displayPanel, attribute: .trailing, multiplier: 1.0, constant: -40.0)
+        constraint = NSLayoutConstraint(item: stateLabel, attribute: .trailing, relatedBy: .equal, toItem: trigonometricLabel, attribute: .trailing, multiplier: 1.0, constant: 20.0)
         view.addConstraint(constraint)
                 
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .top, relatedBy: .equal, toItem: outputLabel, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(constraint)
                 
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0)
+        view.addConstraint(constraint)
+
+        
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .trailing, relatedBy: .equal, toItem: displayPanel, attribute: .trailing, multiplier: 1.0, constant: -40.0)
+        view.addConstraint(constraint)
+                
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .top, relatedBy: .equal, toItem: outputLabel, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(constraint)
+                
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0)
         view.addConstraint(constraint)
 
         // First Row
@@ -625,7 +644,22 @@ extension ViewController : DisplayDelegate {
             stateLabel.text! = ""
             break
         }
-    
+    }
+     
+    func didChangeTrigonometricMode(_ mode: TrigonometricMode) {
+            switch mode {
+                case .deg:
+                    trigonometricLabel.text! = ""
+                    return
+            case .rad :
+                trigonometricLabel.text! = "RAD"
+                return
+            case .grad:
+                trigonometricLabel.text! = "GRAD"
+                return
+            }
+            
+
     }
      
 }

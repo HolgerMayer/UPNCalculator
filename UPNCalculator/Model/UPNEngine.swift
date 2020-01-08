@@ -12,7 +12,7 @@
 
 import Foundation
 
-enum CalculationError : Error {
+public enum CalculationError : Error {
     case divisionByZero
     case logTenFromZero
     case logFromZero
@@ -20,9 +20,17 @@ enum CalculationError : Error {
     case resultToLarge
 }
 
+public enum TrigonometricMode : String {
+    case deg  = "DEG"
+    case rad = "RAD"
+    case grad = "GRAD"
+}
+
 class UPNEngine {
     
     fileprivate var stack = Stack<Double>()
+    
+    public var trigonometricMode : TrigonometricMode = .deg
     
     var top: Double? {
         return stack.top
@@ -81,38 +89,46 @@ class UPNEngine {
     
     func sin()  {
         let a = getNextNumber()
- 
-        stack.push(Darwin.sin(a))
+        let b = convertToRad(a)
+        let c = Darwin.sin(b)
+        stack.push(c)
+        
     }
   
     func cos()  {
-        let a = getNextNumber()
-    
-        stack.push(Darwin.cos(a))
+         let a = getNextNumber()
+        let b = convertToRad(a)
+        let c = Darwin.cos(b)
+        stack.push(c)
     }
 
     func tan()  {
         let a = getNextNumber()
-    
-        stack.push(Darwin.tan(a))
+        let b = convertToRad(a)
+        let c = Darwin.tan(b)
+        stack.push(c)
+
     }
     
     func asin()  {
         let a = getNextNumber()
-        
-        stack.push(Darwin.asin(a))
+        let b = Darwin.asin(a)
+        let c = convertFromRad(b)
+        stack.push(c)
     }
      
     func acos()  {
         let a = getNextNumber()
-       
-        stack.push(Darwin.acos(a))
+        let b = Darwin.acos(a)
+        let c = convertFromRad(b)
+        stack.push(c)
     }
 
     func atan()  {
         let a = getNextNumber()
-       
-        stack.push(Darwin.atan(a))
+        let b = Darwin.atan(a)
+        let c = convertFromRad(b)
+        stack.push(c)
     }
     
     func pow() {
@@ -172,5 +188,28 @@ class UPNEngine {
         }
 
         return a
+    }
+    
+    private func convertToRad(_ value : Double) -> Double {
+        switch trigonometricMode {
+        case .deg:
+            return TrigonometricConverter.convertDegToRad(value)
+        case .grad:
+            return TrigonometricConverter.convertGradToRad(value)
+        case .rad:
+            return value
+        }
+    }
+    
+    private func convertFromRad(_ value: Double) ->Double {
+        switch trigonometricMode {
+        case .deg:
+            return TrigonometricConverter.convertRadToDeg(value)
+        case .grad:
+             return TrigonometricConverter.convertRadToGrad(value)
+        case .rad:
+             return value
+
+        }
     }
 }

@@ -21,6 +21,7 @@ class ACosineCommandTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
+        engine.trigonometricMode = .rad
         display = CalculatorDisplay()
         testObject = ACosineCommand(calculatorEngine: engine, display: display)
     }

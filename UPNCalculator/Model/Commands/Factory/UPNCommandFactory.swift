@@ -122,16 +122,19 @@ class UPNCommandFactory  {
          gStateCommandDictionary[CommandKey.xOverYKey.rawValue] = PercentCommand(calculatorEngine: calculatorEngine, display: display)
          gStateCommandDictionary[CommandKey.divide1ByXKey.rawValue] = PercentDifferenceCommand(calculatorEngine: calculatorEngine, display: display)
 
-        gStateCommandDictionary[CommandKey.chsKey.rawValue] = AbsCommand(calculatorEngine: calculatorEngine, display: display)
-        gStateCommandDictionary[CommandKey.eexKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
-
+         gStateCommandDictionary[CommandKey.chsKey.rawValue] = AbsCommand(calculatorEngine: calculatorEngine, display: display)
+         gStateCommandDictionary[CommandKey.digit7Key.rawValue] = DegCommand(calculatorEngine: calculatorEngine, display: display)
+         gStateCommandDictionary[CommandKey.digit8Key.rawValue] = RadCommand(calculatorEngine: calculatorEngine, display: display)
+         gStateCommandDictionary[CommandKey.digit9Key.rawValue] = GradCommand(calculatorEngine: calculatorEngine, display: display)
+   
         
         // Row 2
         
         gStateCommandDictionary[CommandKey.sinKey.rawValue] = ASineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.cosKey.rawValue] = ACosineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.tanKey.rawValue] = ATangentCommand(calculatorEngine: calculatorEngine, display: display)
-        
+        gStateCommandDictionary[CommandKey.eexKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
+
   
 
         

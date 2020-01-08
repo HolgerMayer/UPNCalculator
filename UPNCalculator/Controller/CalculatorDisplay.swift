@@ -65,6 +65,14 @@ class CalculatorDisplay : Display {
         }
     }
     
+    var trigonometricMode: TrigonometricMode {
+        didSet {
+            if delegate != nil {
+                delegate?.didChangeTrigonometricMode(trigonometricMode)
+            }
+        }
+    }
+    
     var value : Double? {
         get {
             if prevEEXFormatter != nil {
@@ -109,6 +117,7 @@ class CalculatorDisplay : Display {
     init() {
         isPushed = false
         state = .Default
+        trigonometricMode = .deg
         displayText = ""
         lastDisplayText = ""
         noOfDecimalPlacesDisplayed = 4

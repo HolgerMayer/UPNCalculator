@@ -242,7 +242,8 @@ class ViewController: UIViewController {
         backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")
         view.addSubview(backArrowButton)
 
-        enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
+        enterButton  = createButton(title1:"",title2: "Enter\n\n",  title3:"LST X", accessoryLabel: "enter")
+        enterButton.setBackgroundImage(UIImage(named: "ButtonLarge"), for: .normal)
         view.addSubview(enterButton)
 
         digit1Button = createButton(title1:"",title2: "1",  title3:"", accessoryLabel: "digit1")

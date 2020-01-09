@@ -30,6 +30,10 @@
 		542B1AC523C645FA00EE064D /* GradCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B1AC423C645FA00EE064D /* GradCommand.swift */; };
 		542B1AC723C6577600EE064D /* TrigonometricConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B1AC623C6577600EE064D /* TrigonometricConverter.swift */; };
 		542B1AC923C6583000EE064D /* TrigonometricConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B1AC823C6583000EE064D /* TrigonometricConverterTests.swift */; };
+		542C044323C7CBAB00A82471 /* DegToRadCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C044223C7CBAB00A82471 /* DegToRadCommandTests.swift */; };
+		542C044523C7CBB900A82471 /* RadToDegCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C044423C7CBB900A82471 /* RadToDegCommandTests.swift */; };
+		542C044723C7CE8B00A82471 /* RadToDegCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C044623C7CE8B00A82471 /* RadToDegCommand.swift */; };
+		542C044923C7CE9800A82471 /* DegToRadCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C044823C7CE9800A82471 /* DegToRadCommand.swift */; };
 		54312E4423B81F0700C6B2D2 /* NumberFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54312E4323B81F0700C6B2D2 /* NumberFormatTests.swift */; };
 		5433552923ABDF1000120CA9 /* Section2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552823ABDF1000120CA9 /* Section2Tests.swift */; };
 		5433552B23AC162200120CA9 /* IntCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552A23AC162200120CA9 /* IntCommand.swift */; };
@@ -194,6 +198,10 @@
 		542B1AC423C645FA00EE064D /* GradCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradCommand.swift; sourceTree = "<group>"; };
 		542B1AC623C6577600EE064D /* TrigonometricConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometricConverter.swift; sourceTree = "<group>"; };
 		542B1AC823C6583000EE064D /* TrigonometricConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometricConverterTests.swift; sourceTree = "<group>"; };
+		542C044223C7CBAB00A82471 /* DegToRadCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegToRadCommandTests.swift; sourceTree = "<group>"; };
+		542C044423C7CBB900A82471 /* RadToDegCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadToDegCommandTests.swift; sourceTree = "<group>"; };
+		542C044623C7CE8B00A82471 /* RadToDegCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadToDegCommand.swift; sourceTree = "<group>"; };
+		542C044823C7CE9800A82471 /* DegToRadCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegToRadCommand.swift; sourceTree = "<group>"; };
 		54312E4323B81F0700C6B2D2 /* NumberFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatTests.swift; sourceTree = "<group>"; };
 		5433552823ABDF1000120CA9 /* Section2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2Tests.swift; sourceTree = "<group>"; };
 		5433552A23AC162200120CA9 /* IntCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCommand.swift; sourceTree = "<group>"; };
@@ -376,6 +384,8 @@
 				542B1ABA23C643B200EE064D /* DegCommandTests.swift */,
 				542B1AB823C6439F00EE064D /* RadCommandTests.swift */,
 				542B1ABD23C643D100EE064D /* GradCommandTests.swift */,
+				542C044223C7CBAB00A82471 /* DegToRadCommandTests.swift */,
+				542C044423C7CBB900A82471 /* RadToDegCommandTests.swift */,
 			);
 			path = Trigonimetric;
 			sourceTree = "<group>";
@@ -386,6 +396,8 @@
 				542B1AC023C645E400EE064D /* DegCommand.swift */,
 				542B1AC223C645EF00EE064D /* RadCommand.swift */,
 				542B1AC423C645FA00EE064D /* GradCommand.swift */,
+				542C044623C7CE8B00A82471 /* RadToDegCommand.swift */,
+				542C044823C7CE9800A82471 /* DegToRadCommand.swift */,
 			);
 			path = Trigonometric;
 			sourceTree = "<group>";
@@ -841,6 +853,7 @@
 				54D17F94239C65C7008F5020 /* TangentCommand.swift in Sources */,
 				54D17F80239C52E3008F5020 /* Display.swift in Sources */,
 				54E769F123A5BDF300165EDC /* XOverTenCommand.swift in Sources */,
+				542C044923C7CE9800A82471 /* DegToRadCommand.swift in Sources */,
 				542B1AC323C645EF00EE064D /* RadCommand.swift in Sources */,
 				540D4B3023BF3CB9003194B0 /* EEXChangeSignCommand.swift in Sources */,
 				542B1AC123C645E400EE064D /* DegCommand.swift in Sources */,
@@ -879,6 +892,7 @@
 				542485E023AED8750021992F /* FixCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 				54E08BDB23C4E336002C2A97 /* RndCommand.swift in Sources */,
+				542C044723C7CE8B00A82471 /* RadToDegCommand.swift in Sources */,
 				542B1AC723C6577600EE064D /* TrigonometricConverter.swift in Sources */,
 				540D4B2A23BEB10C003194B0 /* NumberFormatDigitCommand.swift in Sources */,
 			);
@@ -933,6 +947,7 @@
 				54B656E923A4E1E1004E6E7D /* ClearCommandTests.swift in Sources */,
 				54465F2223C140600037535D /* EEXBackArrowCommandTests.swift in Sources */,
 				54465F1C23C140260037535D /* EEXCommandTests.swift in Sources */,
+				542C044323C7CBAB00A82471 /* DegToRadCommandTests.swift in Sources */,
 				54B656E523A4E0AD004E6E7D /* SquareRootCommandTests.swift in Sources */,
 				54E8146723A7EFE1002E583D /* PICommandTests.swift in Sources */,
 				545F3E9723A98F6100D0BC5A /* UPNEngineCoreTests.swift in Sources */,
@@ -944,6 +959,7 @@
 				542485E223AEDA350021992F /* FixCommandTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,
 				545F3EA723A992A300D0BC5A /* UPNEngineOtherFunctionTests.swift in Sources */,
+				542C044523C7CBB900A82471 /* RadToDegCommandTests.swift in Sources */,
 				545F3E9D23A9905400D0BC5A /* UPNEngineMultiplyTests.swift in Sources */,
 				54465F1623C13FF30037535D /* FCommandTests.swift in Sources */,
 				54B656DF23A4DC85004E6E7D /* SineCommandTests.swift in Sources */,

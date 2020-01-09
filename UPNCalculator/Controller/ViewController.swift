@@ -261,7 +261,7 @@ class ViewController: UIViewController {
         digit2Button = createButton(title1:"",title2: "2",  title3:"", accessoryLabel: "digit2")
         view.addSubview(digit2Button)
 
-        digit3Button = createButton(title1:"",title2: "3",  title3:"", accessoryLabel: "digit3")
+        digit3Button = createButton(title1:"➡︎RAD",title2: "3",  title3:"➡︎DEG", accessoryLabel: "digit3")
         view.addSubview(digit3Button)
 
         multiplyButton = createButton(title1:"",title2: "-",  title3:"", accessoryLabel: "subtract")

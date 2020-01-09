@@ -255,7 +255,7 @@ class ViewController: UIViewController {
         enterButton.setBackgroundImage(UIImage(named: "ButtonLarge"), for: .normal)
         view.addSubview(enterButton)
 
-        digit1Button = createButton(title1:"",title2: "1",  title3:"", accessoryLabel: "digit1")
+        digit1Button = createButton(title1:"➡︎R",title2: "1",  title3:"➡︎P", accessoryLabel: "digit1")
         view.addSubview(digit1Button)
 
         digit2Button = createButton(title1:"",title2: "2",  title3:"", accessoryLabel: "digit2")

@@ -173,6 +173,30 @@ class UPNEngine {
           }
         stack.push(Darwin.log10(a))
     }
+    
+    func polarConversion() {
+        let x = getNextNumber()
+        let y = getNextNumber()
+        let xSquare = x * x
+        let ySquare = y * y
+        let squareSums = xSquare + ySquare
+        let r = Darwin.sqrt(squareSums)
+        let aRad = Darwin.atan(y / x)
+        let angle = convertFromRad(aRad)
+        stack.push(angle)
+        stack.push(r)
+
+    }
+    
+    func rectangularConversion() {
+        let r = getNextNumber()
+        let a = getNextNumber()
+        let b = convertToRad(a)
+        let x = Darwin.cos(b) * r
+        let y = Darwin.sin(b) * r
+        stack.push(y)
+        stack.push(x)
+    }
 
     private func getNextNumber() -> Double {
         guard let a = stack.pop() else {

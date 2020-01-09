@@ -105,7 +105,8 @@ class UPNCommandFactory  {
 
         fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
 
-        
+        fStateCommandDictionary[CommandKey.digit1Key.rawValue] = RectangularConversionCommand(calculatorEngine: calculatorEngine, display: display)
+
         
         fStateCommandDictionary[CommandKey.digit3Key.rawValue] = DegToRadCommand(calculatorEngine: calculatorEngine, display: display)
 
@@ -140,6 +141,7 @@ class UPNCommandFactory  {
         gStateCommandDictionary[CommandKey.eexKey.rawValue] = PiCommand(calculatorEngine: calculatorEngine, display: display)
 
   
+        gStateCommandDictionary[CommandKey.digit1Key.rawValue] = PolarConversionCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.digit3Key.rawValue] = RadToDegCommand(calculatorEngine: calculatorEngine, display: display)
 
         

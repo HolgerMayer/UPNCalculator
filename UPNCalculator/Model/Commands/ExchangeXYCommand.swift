@@ -20,17 +20,36 @@ class ExchangeXYCommand : Command {
     }
     
     func execute() -> KeyboardState {
-        guard let valueX = display.value else {
-            return .Default
+        var  a  : Double = 0.0
+
+        // We need to seperate handle two cases:
+        // 1 : display is pushed on stack
+        // 2 : display is not pushed on stack
+        if display.isPushed == true {
+            guard let valueX = calculatorEngine.top else {
+                return .Default
+            }
+            a = valueX
+            calculatorEngine.removeTop()
+        } else {
+            guard let valueX = display.value else {
+                return .Default
+            }
+
+            a = valueX
         }
+        
         
         guard let valueY = calculatorEngine.top else {
             return .Default
         }
         
+        
         calculatorEngine.removeTop()
-        calculatorEngine.enterNumber(valueX)
+        calculatorEngine.enterNumber(a)
+        calculatorEngine.enterNumber(valueY)
         display.value = valueY
+        display.isPushed = true
         
         return .Default
     }

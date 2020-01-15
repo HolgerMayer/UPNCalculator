@@ -44,6 +44,8 @@ class UPNCommandFactory  {
         var scientificCommandDictionary : [String: Command] = [:]
         var engeneeringCommandDictionary : [String: Command] = [:]
         var eex1CommandDictionary : [String: Command] = [:]
+        var hyperbolicCommandDictionary : [String: Command] = [:]
+        var inverseHyperbolicCommandDictionary : [String: Command] = [:]
  
         defaultCommandDictionary[CommandKey.digit0Key.rawValue] = DigitDotCommand(calculatorEngine: calculatorEngine, display: display, token:"0")
         defaultCommandDictionary[CommandKey.digit1Key.rawValue] = DigitDotCommand(calculatorEngine: calculatorEngine, display: display, token:"1")
@@ -103,6 +105,8 @@ class UPNCommandFactory  {
         fStateCommandDictionary[CommandKey.digit8Key.rawValue] = SciCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.digit9Key.rawValue] = EngCommand(calculatorEngine: calculatorEngine, display: display)
 
+        fStateCommandDictionary[CommandKey.gtoKey.rawValue] = HyperbolicCommand(calculatorEngine: calculatorEngine, display: display)
+
         fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
 
         fStateCommandDictionary[CommandKey.digit1Key.rawValue] = RectangularConversionCommand(calculatorEngine: calculatorEngine, display: display)
@@ -135,6 +139,7 @@ class UPNCommandFactory  {
         
         // Row 2
         
+        gStateCommandDictionary[CommandKey.gtoKey.rawValue] = InverseHyperbolicCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.sinKey.rawValue] = ASineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.cosKey.rawValue] = ACosineCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.tanKey.rawValue] = ATangentCommand(calculatorEngine: calculatorEngine, display: display)
@@ -220,6 +225,17 @@ class UPNCommandFactory  {
         
         masterCommandDictionary[KeyboardState.EEX1.rawValue] = eex1CommandDictionary
   
+        hyperbolicCommandDictionary[CommandKey.sinKey.rawValue] = SineHCommand(calculatorEngine: calculatorEngine, display: display)
+        hyperbolicCommandDictionary[CommandKey.cosKey.rawValue] = CosineHCommand(calculatorEngine: calculatorEngine, display: display)
+        hyperbolicCommandDictionary[CommandKey.tanKey.rawValue] = TangentHCommand(calculatorEngine: calculatorEngine, display: display)
+
+        masterCommandDictionary[KeyboardState.HYPERBOLIC.rawValue] = hyperbolicCommandDictionary
+
+        inverseHyperbolicCommandDictionary[CommandKey.sinKey.rawValue] = ASineHCommand(calculatorEngine: calculatorEngine, display: display)
+        inverseHyperbolicCommandDictionary[CommandKey.cosKey.rawValue] = ACosineHCommand(calculatorEngine: calculatorEngine, display: display)
+        inverseHyperbolicCommandDictionary[CommandKey.tanKey.rawValue] = ATangentHCommand(calculatorEngine: calculatorEngine, display: display)
+        masterCommandDictionary[KeyboardState.INVHYPERBOLIC.rawValue] = inverseHyperbolicCommandDictionary
+
 
     }
 }

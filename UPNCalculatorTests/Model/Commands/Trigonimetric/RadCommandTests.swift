@@ -9,28 +9,16 @@
 import XCTest
 @testable import UPNCalculator
 
-class RadCommandTests: XCTestCase {
+import XCTest
+@testable import UPNCalculator
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var mockDelegate : DisplayMockDelegate!
-    var testObject : RadCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        display = CalculatorDisplay()
-        mockDelegate = DisplayMockDelegate()
-        display.delegate = mockDelegate
-        testObject = RadCommand(calculatorEngine: engine, display: display)
+class RadCommandTests: CommandTestCase {
+
+    override func createTestObject() -> Command? {
+        return RadCommand(calculatorEngine: engine, display: display)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testDegCommandPushed() {
+    func testRadCommandPushed() {
         
         
         let result = testObject.execute()

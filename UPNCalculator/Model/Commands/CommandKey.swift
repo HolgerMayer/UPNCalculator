@@ -43,4 +43,5 @@ enum CommandKey : String {
     case rclKey = "rcl"
     case fKey = "fkey"
     case gKey = "gkey"
+    case gtoKey = "gto"
 }

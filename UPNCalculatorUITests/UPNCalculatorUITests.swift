@@ -138,5 +138,13 @@ class UPNCalculatorUITests: XCTestCase {
          XCTAssertNotNil(result)
          XCTAssertTrue(result! == -6.0)
           }
+    
+    func testSnapShots() {
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
+        
+        snapshot("@Launch")
+    }
    
 }

@@ -12,27 +12,16 @@ import Foundation
 import XCTest
 @testable import UPNCalculator
 
-class ASineCommandTests: XCTestCase {
+class ASineCommandTests:  CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var testObject : ASineCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        engine.trigonometricMode = .rad
-        display = CalculatorDisplay()
-        testObject = ASineCommand(calculatorEngine: engine, display: display)
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+   override func createTestObject() -> Command? {
+       return ASineCommand(calculatorEngine: engine, display: display)
+   }
     
     
     func testASineOfEmptyStack() {
+
+        engine.trigonometricMode = .rad
 
         let _ = testObject.execute()
         
@@ -47,9 +36,11 @@ class ASineCommandTests: XCTestCase {
 
     func testSineOfZero() {
         
-         engine.enterNumber(0.0)
+        engine.trigonometricMode = .rad
+
+        engine.enterNumber(0.0)
         
-         let _ = testObject.execute()
+        let _ = testObject.execute()
         
         guard let result = engine.top else {
                XCTFail()
@@ -61,8 +52,9 @@ class ASineCommandTests: XCTestCase {
     
    
 
-    func testSineOfOne(){
+    func testSineOfOne() {
         
+        engine.trigonometricMode = .rad
         engine.enterNumber(1.0)
           
           let _ = testObject.execute()

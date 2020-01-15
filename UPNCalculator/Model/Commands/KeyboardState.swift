@@ -17,5 +17,7 @@ public enum KeyboardState : String {
     case Scientific = "scientific"
     case Engineering = "engineering"
     case EEX1 = "eex1"
+    case HYPERBOLIC = "hyp"
+    case INVHYPERBOLIC = "invhyp"
 
 }

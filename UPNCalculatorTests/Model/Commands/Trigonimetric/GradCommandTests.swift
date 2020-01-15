@@ -9,33 +9,16 @@
 import XCTest
 @testable import UPNCalculator
 
-class GradCommandTests: XCTestCase {
+class GradCommandTests: CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var mockDelegate : DisplayMockDelegate!
-    var testObject : GradCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        display = CalculatorDisplay()
-        mockDelegate = DisplayMockDelegate()
-        display.delegate = mockDelegate
-        testObject = GradCommand(calculatorEngine: engine, display: display)
+    override func createTestObject() -> Command? {
+        return GradCommand(calculatorEngine: engine, display: display)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testDegCommandPushed() {
-        
+    func testGradCommandPushed() {
         
         let result = testObject.execute()
         XCTAssertTrue(result == .Default)
-        
         
         // trigonometric mode Change -> Display connection is handled within CommandController class
       XCTAssertTrue(mockDelegate.delegate_didCall_didChangeTrigonometricMode)

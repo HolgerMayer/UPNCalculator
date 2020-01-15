@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 
     
       var noop1Button : UIButton!
-      var noop2Button : UIButton!
+      var gtoButton : UIButton!
       var noop3Button : UIButton!
       var noop5Button : UIButton!
       var xExYButton : UIButton!
@@ -205,8 +205,8 @@ class ViewController: UIViewController {
         noop1Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop1")
         view.addSubview(noop1Button)
 
-        noop2Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop2")
-        view.addSubview(noop2Button)
+        gtoButton = createButton(title1:"HYP",title2: "GTO", title3:"HYP-1",  accessoryLabel: "gto")
+        view.addSubview(gtoButton)
 
         sinButton  = createButton(title1:"",title2: "SIN",  title3:"SIN-1", accessoryLabel: "sin")
         view.addSubview(sinButton)
@@ -481,8 +481,8 @@ class ViewController: UIViewController {
 
         constraintFirstButtonInRow(noop1Button!, viewOfPreviousRow: sqrtButton, firstRow: false)
 
-        constraintOtherButtonsInRow(noop2Button!,  previousButton: noop1Button!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(sinButton!, previousButton: noop2Button!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(gtoButton!,  previousButton: noop1Button!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(sinButton!, previousButton: gtoButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(cosButton!, previousButton: sinButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(tanButton!, previousButton: cosButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(eexButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)

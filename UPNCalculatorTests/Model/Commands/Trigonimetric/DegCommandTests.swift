@@ -10,27 +10,12 @@
 import XCTest
 @testable import UPNCalculator
 
-class DegCommandTests: XCTestCase {
+class DegCommandTests: CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var mockDelegate : DisplayMockDelegate!
-    var testObject : DegCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        display = CalculatorDisplay()
-        mockDelegate = DisplayMockDelegate()
-        display.delegate = mockDelegate
-        testObject = DegCommand(calculatorEngine: engine, display: display)
+    override func createTestObject() -> Command? {
+        return DegCommand(calculatorEngine: engine, display: display)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testDegCommandPushed() {
         
         

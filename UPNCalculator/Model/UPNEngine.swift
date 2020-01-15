@@ -28,9 +28,9 @@ public enum TrigonometricMode : String {
 
 class UPNEngine {
     
-    fileprivate var stack = Stack<Double>()
+    var stack = Stack<Double>()
     
-    public var trigonometricMode : TrigonometricMode = .deg
+    var trigonometricMode : TrigonometricMode = .deg
     
     var top: Double? {
         return stack.top
@@ -87,50 +87,7 @@ class UPNEngine {
         stack.push(Swift.abs(a))
     }
     
-    func sin()  {
-        let a = getNextNumber()
-        let b = convertToRad(a)
-        let c = Darwin.sin(b)
-        stack.push(c)
-        
-    }
-  
-    func cos()  {
-         let a = getNextNumber()
-        let b = convertToRad(a)
-        let c = Darwin.cos(b)
-        stack.push(c)
-    }
 
-    func tan()  {
-        let a = getNextNumber()
-        let b = convertToRad(a)
-        let c = Darwin.tan(b)
-        stack.push(c)
-
-    }
-    
-    func asin()  {
-        let a = getNextNumber()
-        let b = Darwin.asin(a)
-        let c = convertFromRad(b)
-        stack.push(c)
-    }
-     
-    func acos()  {
-        let a = getNextNumber()
-        let b = Darwin.acos(a)
-        let c = convertFromRad(b)
-        stack.push(c)
-    }
-
-    func atan()  {
-        let a = getNextNumber()
-        let b = Darwin.atan(a)
-        let c = convertFromRad(b)
-        stack.push(c)
-    }
-    
     func pow() {
         let exponent = getNextNumber()
         var base = getNextNumberOrNil()
@@ -174,31 +131,8 @@ class UPNEngine {
         stack.push(Darwin.log10(a))
     }
     
-    func polarConversion() {
-        let x = getNextNumber()
-        let y = getNextNumber()
-        let xSquare = x * x
-        let ySquare = y * y
-        let squareSums = xSquare + ySquare
-        let r = Darwin.sqrt(squareSums)
-        let aRad = Darwin.atan(y / x)
-        let angle = convertFromRad(aRad)
-        stack.push(angle)
-        stack.push(r)
 
-    }
-    
-    func rectangularConversion() {
-        let r = getNextNumber()
-        let a = getNextNumber()
-        let b = convertToRad(a)
-        let x = Darwin.cos(b) * r
-        let y = Darwin.sin(b) * r
-        stack.push(y)
-        stack.push(x)
-    }
-
-    private func getNextNumber() -> Double {
+    public func getNextNumber() -> Double {
         guard let a = stack.pop() else {
             return 0.0
         }
@@ -214,7 +148,7 @@ class UPNEngine {
         return a
     }
     
-    private func convertToRad(_ value : Double) -> Double {
+    func convertToRad(_ value : Double) -> Double {
         switch trigonometricMode {
         case .deg:
             return TrigonometricConverter.convertDegToRad(value)
@@ -225,7 +159,7 @@ class UPNEngine {
         }
     }
     
-    private func convertFromRad(_ value: Double) ->Double {
+    func convertFromRad(_ value: Double) ->Double {
         switch trigonometricMode {
         case .deg:
             return TrigonometricConverter.convertRadToDeg(value)

@@ -12,28 +12,18 @@ import Foundation
 import XCTest
 @testable import UPNCalculator
 
-class ATangentCommandTests: XCTestCase {
+class ATangentCommandTests:  CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var testObject : ATangentCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        engine.trigonometricMode = .rad
-        display = CalculatorDisplay()
-        testObject = ATangentCommand(calculatorEngine: engine, display: display)
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+ override func createTestObject() -> Command? {
+     return ATangentCommand(calculatorEngine: engine, display: display)
+ }
+  
+  
     
     
     func testATangentOfEmptyStack() {
 
+        engine.trigonometricMode = .rad
         let _ = testObject.execute()
         
         guard let result = engine.top else {
@@ -47,7 +37,8 @@ class ATangentCommandTests: XCTestCase {
 
     func testTangentOfZero() {
         
-         engine.enterNumber(0.0)
+        engine.trigonometricMode = .rad
+        engine.enterNumber(0.0)
         
          let _ = testObject.execute()
         
@@ -62,7 +53,9 @@ class ATangentCommandTests: XCTestCase {
    
 
     func testTangentOfOne(){
-        
+
+        engine.trigonometricMode = .rad
+
         engine.enterNumber(1.0)
           
           let _ = testObject.execute()

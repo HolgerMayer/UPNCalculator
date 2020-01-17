@@ -29,9 +29,16 @@ class TestTool {
                 let exponentRange = labelText.index(labelText.startIndex, offsetBy: 8)..<labelText.endIndex
                 let substringExponent = labelText[exponentRange]
             
-                let trimmedBase = substringBase.trimmingCharacters(in: .whitespacesAndNewlines)
+                var trimmedBase = substringBase.trimmingCharacters(in: .whitespacesAndNewlines)
                 let trimmedExponent = substringExponent.trimmingCharacters(in: .whitespacesAndNewlines)
 
+                let locale = NSLocale.autoupdatingCurrent
+                
+                if trimmedBase.contains(locale.decimalSeparator!){
+                    trimmedBase = trimmedBase.replacingOccurrences(of: locale.decimalSeparator!, with: locale.groupingSeparator!)
+                }
+                
+                
                 let base = Double(trimmedBase)
                 let exponent = Double(trimmedExponent)
                 

@@ -116,7 +116,105 @@ class Section2Tests: XCTestCase {
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
         XCTAssertTrue(result! - 1.2346 <= 0.0001," Result should be 1.2346 is \(result!)")
-
+    }
+    
+    func testPage29(){
+         let app = XCUIApplication()
+         app.launch()
+         let testTool = TestTool(app: app)
+         
+         // Line 1
+         app.buttons["digit2"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit1"].tap()
+         app.buttons["dot"].tap()
+         app.buttons["digit4"].tap()
+         app.buttons["xovery"].tap()
         
+         var result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 2.6390 <= 0.0001," Result should be 2.6390 is \(result!)")
+
+         // Line 2
+         app.buttons["digit2"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit1"].tap()
+         app.buttons["dot"].tap()
+         app.buttons["digit4"].tap()
+         app.buttons["chs"].tap()
+         app.buttons["xovery"].tap()
+        
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 0.3789 <= 0.0001," Result should be 0.3789 is \(result!)")
+
+         // Line 3
+         app.buttons["digit2"].tap()
+         app.buttons["chs"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit3"].tap()
+         app.buttons["xovery"].tap()
+        
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! + 8.0000 <= 0.0001," Result should be -8.000 is \(result!)")
+
+         // Line 4
+         app.buttons["digit2"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit3"].tap()
+         app.buttons["divide1byx"].tap()
+         app.buttons["xovery"].tap()
+        
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 1.2599 <= 0.0001," Result should be 1.2599 is \(result!)")
+
+    }
+    
+    func testPage31() {
+         let app = XCUIApplication()
+         app.launch()
+         let testTool = TestTool(app: app)
+         
+
+         app.buttons["gkey"].tap()
+         app.buttons["digit7"].tap() // Deg
+         app.buttons["digit5"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit1"].tap()
+         app.buttons["digit0"].tap()
+         app.buttons["gkey"].tap()
+         app.buttons["digit1"].tap() // ->P
+        
+         var result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 11.1803 <= 0.0001," Result should be 11.1803 is \(result!)")
+
+         app.buttons["exchangexy"].tap() // ->P
+
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 26.5651 <= 0.0001," Result should be 26.5651   \(result!)")
+
+         app.buttons["digit3"].tap()
+         app.buttons["digit0"].tap()
+         app.buttons["enter"].tap()
+         app.buttons["digit1"].tap()
+         app.buttons["digit2"].tap()
+         app.buttons["fkey"].tap()
+         app.buttons["digit1"].tap() // ->R
+         
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 10.3923 <= 0.0001," Result should be 10.3923   \(result!)")
+
+         app.buttons["exchangexy"].tap() // ->P
+
+         result = testTool.getValueFromDisplay()
+         XCTAssertNotNil(result)
+         XCTAssertTrue(result! - 6.0 <= 0.0001," Result should be 6.0   \(result!)")
+
     }
 }
+

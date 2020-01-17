@@ -10,6 +10,30 @@ import Foundation
 
 extension UPNEngine {
     
+    
+    func convertToRad(_ value : Double) -> Double {
+         switch trigonometricMode {
+         case .deg:
+             return TrigonometricConverter.convertDegToRad(value)
+         case .grad:
+             return TrigonometricConverter.convertGradToRad(value)
+         case .rad:
+             return value
+         }
+     }
+     
+     func convertFromRad(_ value: Double) ->Double {
+         switch trigonometricMode {
+         case .deg:
+             return TrigonometricConverter.convertRadToDeg(value)
+         case .grad:
+              return TrigonometricConverter.convertRadToGrad(value)
+         case .rad:
+              return value
+
+         }
+     }
+    
     func polarConversion() {
         let x = getNextNumber()
         let y = getNextNumber()

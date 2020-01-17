@@ -131,6 +131,31 @@ class UPNEngine {
         stack.push(Darwin.log10(a))
     }
     
+    func hmmssToDecDegreeConversion()  {
+      let a = getNextNumber()
+        
+      let hours = Int(a)
+      let minutes =  Int((a - Double(hours)) * 100)
+      let seconds =  ((a - Double(hours)) * 100 - Double(minutes)) * 100
+        
+      let result = Double(hours) + Double(minutes) / 60.0 + seconds / 3600.0
+
+      stack.push(result)
+    }
+      
+    func decDegreeToHMMSSConversion()  {
+        let a = getNextNumber()
+
+        
+        let hours = Int(a)
+        let minutes = Int((a-Double(hours))  * 60.0 )
+        let seconds = (a - Double(hours) - (Double(minutes) / 60.0)) * 3600
+        
+        let result = Double(hours) + Double(minutes) / 100 + seconds / 10000
+        
+        stack.push(result)
+    }
+      
 
     public func getNextNumber() -> Double {
         guard let a = stack.pop() else {
@@ -148,26 +173,8 @@ class UPNEngine {
         return a
     }
     
-    func convertToRad(_ value : Double) -> Double {
-        switch trigonometricMode {
-        case .deg:
-            return TrigonometricConverter.convertDegToRad(value)
-        case .grad:
-            return TrigonometricConverter.convertGradToRad(value)
-        case .rad:
-            return value
-        }
-    }
+ 
     
-    func convertFromRad(_ value: Double) ->Double {
-        switch trigonometricMode {
-        case .deg:
-            return TrigonometricConverter.convertRadToDeg(value)
-        case .grad:
-             return TrigonometricConverter.convertRadToGrad(value)
-        case .rad:
-             return value
-
-        }
-    }
+  
+    
 }

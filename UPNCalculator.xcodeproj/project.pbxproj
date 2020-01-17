@@ -49,6 +49,10 @@
 		5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */; };
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
+		5444D5B123D10C070040AB32 /* DecDegreeToHMMSSCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444D5B023D10C070040AB32 /* DecDegreeToHMMSSCommandTests.swift */; };
+		5444D5B323D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444D5B223D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift */; };
+		5444D5B523D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444D5B423D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift */; };
+		5444D5B723D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444D5B623D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift */; };
 		54465F1423C13E560037535D /* EEXBackArrowCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54465F1323C13E560037535D /* EEXBackArrowCommand.swift */; };
 		54465F1623C13FF30037535D /* FCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54465F1523C13FF30037535D /* FCommandTests.swift */; };
 		54465F1823C13FFF0037535D /* GCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54465F1723C13FFF0037535D /* GCommandTests.swift */; };
@@ -240,6 +244,10 @@
 		5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionTests.swift; sourceTree = "<group>"; };
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
+		5444D5B023D10C070040AB32 /* DecDegreeToHMMSSCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecDegreeToHMMSSCommandTests.swift; sourceTree = "<group>"; };
+		5444D5B223D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMMSSToDecDegreeCommandTests.swift; sourceTree = "<group>"; };
+		5444D5B423D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMMSSToDecDegreeCommand.swift; sourceTree = "<group>"; };
+		5444D5B623D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecDegreeToHMMSSCommand.swift; sourceTree = "<group>"; };
 		54465F1323C13E560037535D /* EEXBackArrowCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEXBackArrowCommand.swift; sourceTree = "<group>"; };
 		54465F1523C13FF30037535D /* FCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCommandTests.swift; sourceTree = "<group>"; };
 		54465F1723C13FFF0037535D /* GCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCommandTests.swift; sourceTree = "<group>"; };
@@ -692,6 +700,8 @@
 				54E08BE823C5EF5A002C2A97 /* FactorialCommand.swift */,
 				542C044E23C7EE6F00A82471 /* PolarConversionCommand.swift */,
 				542C045023C7EE8400A82471 /* RectangularConversionCommand.swift */,
+				5444D5B423D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift */,
+				5444D5B623D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -746,6 +756,8 @@
 				54E08BE623C5EE4E002C2A97 /* FactorialCommandTests.swift */,
 				542C044A23C7EBA600A82471 /* PolarConversionCommandTests.swift */,
 				542C044C23C7EBBB00A82471 /* RectangularConversionCommandTests.swift */,
+				5444D5B023D10C070040AB32 /* DecDegreeToHMMSSCommandTests.swift */,
+				5444D5B223D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -903,6 +915,7 @@
 			files = (
 				542485ED23AF7D640021992F /* ScientificFormatter.swift in Sources */,
 				54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */,
+				5444D5B723D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift in Sources */,
 				54E08BDD23C4E648002C2A97 /* Double+Ext.swift in Sources */,
 				542485E423AEE3710021992F /* SciCommand.swift in Sources */,
 				545C742223B0B0A0006E6FF3 /* EngCommand.swift in Sources */,
@@ -978,6 +991,7 @@
 				54DC171C23C397880024E7FA /* String+Ext.swift in Sources */,
 				542485E023AED8750021992F /* FixCommand.swift in Sources */,
 				549B8CE323CE64C800E36997 /* ATangentHCommand.swift in Sources */,
+				5444D5B523D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 				54E08BDB23C4E336002C2A97 /* RndCommand.swift in Sources */,
 				542C044723C7CE8B00A82471 /* RadToDegCommand.swift in Sources */,
@@ -1016,6 +1030,7 @@
 				542B1ABB23C643B200EE064D /* DegCommandTests.swift in Sources */,
 				549B8CF323CE692300E36997 /* ATangentHCommandTests.swift in Sources */,
 				549B8CED23CE68EC00E36997 /* TangentHCommandTests.swift in Sources */,
+				5444D5B123D10C070040AB32 /* DecDegreeToHMMSSCommandTests.swift in Sources */,
 				54465F1E23C140370037535D /* EEX1CommandTests.swift in Sources */,
 				54699F8923A2497C00373D98 /* MultiplyCommandTests.swift in Sources */,
 				542C044D23C7EBBB00A82471 /* RectangularConversionCommandTests.swift in Sources */,
@@ -1048,6 +1063,7 @@
 				54B656E523A4E0AD004E6E7D /* SquareRootCommandTests.swift in Sources */,
 				54E8146723A7EFE1002E583D /* PICommandTests.swift in Sources */,
 				545F3E9723A98F6100D0BC5A /* UPNEngineCoreTests.swift in Sources */,
+				5444D5B323D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift in Sources */,
 				54465F2023C1404F0037535D /* EEXChangeSignCommandTests.swift in Sources */,
 				542C044B23C7EBA600A82471 /* PolarConversionCommandTests.swift in Sources */,
 				544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */,

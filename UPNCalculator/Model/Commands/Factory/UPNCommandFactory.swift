@@ -111,7 +111,8 @@ class UPNCommandFactory  {
 
         fStateCommandDictionary[CommandKey.digit1Key.rawValue] = RectangularConversionCommand(calculatorEngine: calculatorEngine, display: display)
 
-        
+        fStateCommandDictionary[CommandKey.digit2Key.rawValue] = DecDegreeToHMMSSCommand(calculatorEngine: calculatorEngine, display: display)
+
         fStateCommandDictionary[CommandKey.digit3Key.rawValue] = DegToRadCommand(calculatorEngine: calculatorEngine, display: display)
 
         // Row 4
@@ -147,6 +148,7 @@ class UPNCommandFactory  {
 
   
         gStateCommandDictionary[CommandKey.digit1Key.rawValue] = PolarConversionCommand(calculatorEngine: calculatorEngine, display: display)
+        gStateCommandDictionary[CommandKey.digit2Key.rawValue] = HMMSSToDecDegreeCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.digit3Key.rawValue] = RadToDegCommand(calculatorEngine: calculatorEngine, display: display)
 
         

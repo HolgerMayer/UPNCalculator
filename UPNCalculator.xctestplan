@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "E6323034-8E70-4F84-B0DE-DD2DB5E45384",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:UPNCalculator.xcodeproj",
+      "identifier" : "54757AE2239A58200048A732",
+      "name" : "UPNCalculator"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:UPNCalculator.xcodeproj",
+        "identifier" : "54757AF8239A58220048A732",
+        "name" : "UPNCalculatorTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:UPNCalculator.xcodeproj",
+        "identifier" : "54757B03239A58220048A732",
+        "name" : "UPNCalculatorUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

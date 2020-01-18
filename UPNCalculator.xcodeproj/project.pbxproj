@@ -258,6 +258,7 @@
 		54465F2123C140600037535D /* EEXBackArrowCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEXBackArrowCommandTests.swift; sourceTree = "<group>"; };
 		54465F2423C140800037535D /* DisplayMockDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMockDelegate.swift; sourceTree = "<group>"; };
 		54465F2623C1F42B0037535D /* CommandControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandControllerTests.swift; sourceTree = "<group>"; };
+		544A6F0E23D3004400EF0153 /* UPNCalculator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = UPNCalculator.xctestplan; sourceTree = SOURCE_ROOT; };
 		544F8AF623A3A56100C58A42 /* EnterCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCommandTests.swift; sourceTree = "<group>"; };
 		545C741B23B0278A006E6FF3 /* EngFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngFormatter.swift; sourceTree = "<group>"; };
 		545C741D23B027CE006E6FF3 /* EngFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngFormatterTests.swift; sourceTree = "<group>"; };
@@ -777,6 +778,7 @@
 				5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */,
 				5443E35B23AA5F14005B41E9 /* Section1Tests.swift */,
 				5433552823ABDF1000120CA9 /* Section2Tests.swift */,
+				544A6F0E23D3004400EF0153 /* UPNCalculator.xctestplan */,
 			);
 			path = HandbookTests;
 			sourceTree = "<group>";

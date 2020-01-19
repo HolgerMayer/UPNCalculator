@@ -34,8 +34,8 @@ class TestTool {
 
                 let locale = NSLocale.autoupdatingCurrent
                 
-                if trimmedBase.contains(locale.decimalSeparator!){
-                    trimmedBase = trimmedBase.replacingOccurrences(of: locale.decimalSeparator!, with: locale.groupingSeparator!)
+                if trimmedBase.contains(locale.groupingSeparator!){
+                    trimmedBase = trimmedBase.replacingOccurrences(of: locale.groupingSeparator!, with: locale.decimalSeparator!)
                 }
                 
                 

@@ -25,6 +25,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:UPNCalculator.xcodeproj",
         "identifier" : "54757B03239A58220048A732",

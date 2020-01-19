@@ -14,6 +14,7 @@ import XCTest
 
 class EEXCommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var mockDelegate : DisplayMockDelegate!
@@ -22,6 +23,7 @@ class EEXCommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         mockDelegate = DisplayMockDelegate()
@@ -41,7 +43,7 @@ class EEXCommandTests: XCTestCase {
         
         XCTAssertTrue(result == .EEX1)
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     00", "delegate param should be 1.2.....00 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     00".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
    
     }
 }

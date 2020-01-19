@@ -175,10 +175,9 @@ class CalculatorDisplay : Display {
             return
         default:
             var appendChar = digit
-            let locale = NSLocale()
-            if appendChar == locale.decimalSeparator{
-                
-                appendChar = ","
+            let locale = Locale.current
+            if appendChar == locale.groupingSeparator {
+                appendChar = locale.decimalSeparator!
             }
             
             var newText = ""
@@ -189,7 +188,16 @@ class CalculatorDisplay : Display {
             }
             
             displayText = newText
-            currentValue = Double(displayText)
+            
+            let formatter = NumberFormatter()
+            formatter.locale = Locale.current
+            formatter.numberStyle = .decimal
+            let newValue = formatter.number(from: newText)
+            if newValue == nil {
+                currentValue = 0.0
+            } else {
+                currentValue = newValue!.doubleValue
+            }
             delegate?.didChangeDisplay(value: displayText)
         }
     }

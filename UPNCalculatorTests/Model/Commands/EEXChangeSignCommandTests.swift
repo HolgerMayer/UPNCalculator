@@ -12,6 +12,7 @@ import XCTest
 
 class EEXChangeSignCommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var mockDelegate : DisplayMockDelegate!
@@ -20,6 +21,7 @@ class EEXChangeSignCommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         mockDelegate = DisplayMockDelegate()
@@ -47,7 +49,7 @@ class EEXChangeSignCommandTests: XCTestCase {
          
          XCTAssertTrue(result == .EEX1)
          XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     -23","delegate param should be 1.2....-23 is \(mockDelegate.delegate_param1)")
+         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     -23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          mockDelegate.resetDelegate()
 
@@ -55,7 +57,7 @@ class EEXChangeSignCommandTests: XCTestCase {
          
          XCTAssertTrue(result == .EEX1)
          XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     23","delegate param should be 1.2.....23 is \(mockDelegate.delegate_param1)")
+         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
     }
 }

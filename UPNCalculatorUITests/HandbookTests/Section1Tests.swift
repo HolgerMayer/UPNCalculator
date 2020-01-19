@@ -40,20 +40,37 @@ class Section1Tests: XCTestCase {
  
         var result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 6.6262)
+        XCTAssertEqual(result!,6.6262)
         
         app.buttons["eex"].tap()
-        XCTAssertTrue(testTool.displayString() == "6.6262  00", "display String is \(testTool.displayString())")
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262)
+        
         app.buttons["digit3"].tap()
-        XCTAssertTrue(testTool.displayString() == "6.6262  03", "display String is \(testTool.displayString())")
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6626.2)
+
         app.buttons["digit4"].tap()
-        XCTAssertTrue(testTool.displayString() == "6.6262  34", "display String is \(testTool.displayString())")
+        
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,34))
+
         app.buttons["chs"].tap()
-        XCTAssertTrue(testTool.displayString() == "6.6262  -34", "display String is \(testTool.displayString())")
+ 
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,-34))
+
         app.buttons["enter"].tap()
 
-        // Remark : Display conversion displays 0.66262 -33 instead of 6.6262 -34 after Enter
-        XCTAssertTrue(testTool.displayString() == "6.6262  -34", "display String is \(testTool.displayString())")
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,-34))
 
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)

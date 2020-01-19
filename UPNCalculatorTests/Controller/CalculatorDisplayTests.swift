@@ -58,7 +58,10 @@ class CalculatorDisplayTests: XCTestCase {
         
         testObject.value = 1.23
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "1.2300     ", "delegate_param1 should be 1.2300 is \(mockDelegate.delegate_param1)")
+        
+        let param1Value = mockDelegate.delegateParam1AsDouble()
+        XCTAssertNotNil(param1Value)
+        XCTAssertEqual(param1Value, 1.2300)
     }
     
     func testAddBaseDigit(){
@@ -149,8 +152,10 @@ class CalculatorDisplayTests: XCTestCase {
     // TODO: Test mode switch 
     func testStandardInputMode(){
         testObject.value = 123
-         
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.0000   ")
+        
+        XCTAssertEqual(mockDelegate.delegate_param1.count, 11)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:"0"),4)
+        XCTAssertEqual(mockDelegate.delegateParam1AsDouble(),123)
     }
     
     
@@ -160,28 +165,40 @@ class CalculatorDisplayTests: XCTestCase {
         testObject.inputMode = .fix
                 
         testObject.addBaseDigit(digit: "7")
-                
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.0000000")
+  
+        XCTAssertEqual(mockDelegate.delegate_param1.count, 11)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:"0"),7)
+        XCTAssertEqual(mockDelegate.delegateParam1AsDouble(),123)
   
         testObject.inputMode = .fix
                 
         testObject.addBaseDigit(digit: "2")
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.00     ")
+
+        XCTAssertEqual(mockDelegate.delegate_param1.count, 11)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:"0"),2)
+        XCTAssertEqual(mockDelegate.delegateParam1AsDouble(),123)
 
      }
     
     func testScientificInputMode(){
-           testObject.value = 125
-           testObject.inputMode = .scientific
+        testObject.value = 125
+        testObject.inputMode = .scientific
                    
-           testObject.addBaseDigit(digit: "7")
+        testObject.addBaseDigit(digit: "7")
                    
-           XCTAssertTrue(mockDelegate.delegate_param1 == "1.250000 02","delegate_param1 should be 1.250000 02 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1.count, 11)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:"0"),5)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:" "),1)
+
      
-           testObject.inputMode = .scientific
+        testObject.inputMode = .scientific
                    
-           testObject.addBaseDigit(digit: "2")
-            XCTAssertTrue(mockDelegate.delegate_param1 == "1.25     02","delegate_param1 should be 1.25      02 is \(mockDelegate.delegate_param1)")
+        testObject.addBaseDigit(digit: "2")
+        
+        XCTAssertEqual(mockDelegate.delegate_param1.count, 11)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:"0"),1)
+        XCTAssertEqual(mockDelegate.delegate_param1.count(of:" "),5)
+
         }
     
 }

@@ -11,12 +11,14 @@ import XCTest
 
 class FixFormatterTests: XCTestCase {
 
+    var locale : Locale!
     var testObject : FixFormatter!
     
      
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         testObject = FixFormatter()
     }
 
@@ -42,7 +44,7 @@ class FixFormatterTests: XCTestCase {
          let result = testObject.convertToString(testInput)
          
          XCTAssertNotNil(result)
-         XCTAssertTrue(result! == "-0.1000    ", "result should be -0.1000..... is \(result!)")
+         XCTAssertEqual(result , "-0#1000    ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
     }
     
@@ -54,7 +56,7 @@ class FixFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
        
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "123.4568   ", "result should be 123.4568... is \(result!)")
+        XCTAssertEqual(result , "123#4568   ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
     }
     
     
@@ -77,8 +79,8 @@ class FixFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
  
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "1.2346   11", "result should be 1.2346...11 is \(result!)")
-      }
+        XCTAssertEqual(result , "1#2346   11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+       }
     
     func testConvertToDouble() {
         let base = "1.23"
@@ -93,35 +95,35 @@ class FixFormatterTests: XCTestCase {
         let testInput = 123456789012.0
 
          testObject.precision = 0
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1        11", "result should be 1........11 is \(testObject.convertToString(testInput)!)")
-        
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1        11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+       
          testObject.precision = 1
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.2      11", "result should be 1.2......11 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#2      11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 2
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.23     11", "result should be 1.23.....11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#23     11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 3
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.235    11", "result should be 1.235....11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#235    11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
         
         testObject.precision = 4
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.2346   11", "result should be 1.2346...11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#2346   11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 5
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.23457  11", "result should be 1.23457..11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#23457  11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 6
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.234568 11", "result should be 1.234568.11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#234568 11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
         
         testObject.precision = 7
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.234568 11", "result should be 1.234568.11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#234568 11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 8
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.234568 11", "result should be 1.234568.11 is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#234568 11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 9
-        XCTAssertTrue(testObject.convertToString(testInput)! == "1.234568 11", "result should be 1.234568.11 is \(testObject.convertToString(testInput)!)")
- 
+        XCTAssertEqual(testObject.convertToString(testInput)!, "1#234568 11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+
     }
     
     
@@ -129,34 +131,34 @@ class FixFormatterTests: XCTestCase {
         let testInput = 0.0001
 
         testObject.precision = 0
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0          ", "result should be 0.......... is !\(testObject.convertToString(testInput)!)!")
-            
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0          ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+             
         testObject.precision = 1
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.0        ", "result should be 0.0........ is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#0        ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 2
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.00       ", "result should be 0.00....... is \(testObject.convertToString(testInput)!)")
-
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#00       ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+        
         testObject.precision = 3
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.000      ", "result should be 0.000...... is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#000      ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
             
         testObject.precision = 4
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.0001     ", "result should be 0.0001..... is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#0001     ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 5
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.00010    ", "result should be 0.00010.... is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#00010    ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 6
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.000100   ", "result should be 0.000100... is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#000100   ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
             
         testObject.precision = 7
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.0001000  ", "result should be 0.0001000.. is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#0001000  ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 8
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.00010000 ", "result should be 0.00010000. is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#00010000 ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         testObject.precision = 9
-        XCTAssertTrue(testObject.convertToString(testInput)! == "0.000100000", "result should be 10.000100000s is \(testObject.convertToString(testInput)!)")
+        XCTAssertEqual(testObject.convertToString(testInput)!, "0#000100000".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
      
     }
 
@@ -164,34 +166,34 @@ class FixFormatterTests: XCTestCase {
          let testInput = 0.000000001
 
          testObject.precision = 0
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1       -09", "result should be 1       -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1       -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
              
          testObject.precision = 1
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.0     -09", "result should be 1.0     -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#0     -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 2
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.00    -09", "result should be 1.00    -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#00    -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 3
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.000   -09", "result should be 1.000   -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#000   -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
              
          testObject.precision = 4
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.0000  -09", "result should be 1.0000  -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#0000  -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 5
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.00000 -09", "result should be 1.0000 -09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#00000 -09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 6
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.000000-09", "result should be 1.00000-09  is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#000000-09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
              
          testObject.precision = 7
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.000000-09", "result should be 1.00000-09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#000000-09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 8
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.000000-09", "result should be 1.00000-09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#000000-09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          testObject.precision = 9
-         XCTAssertTrue(testObject.convertToString(testInput)! == "1.000000-09", "result should be 1.00000-09 is \(testObject.convertToString(testInput)!)")
+         XCTAssertEqual(testObject.convertToString(testInput)!, "1#000000-09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
       
      }
     

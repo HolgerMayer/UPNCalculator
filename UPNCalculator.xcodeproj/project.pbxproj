@@ -96,6 +96,7 @@
 		54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B1D239A5CBD0048A732 /* UPNEngine.swift */; };
 		54757B20239A5E660048A732 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B1F239A5E660048A732 /* StackTests.swift */; };
 		54757B22239A5EB10048A732 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54757B21239A5EB10048A732 /* Stack.swift */; };
+		547A97BE23D3F30400DEB603 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DC171B23C397880024E7FA /* String+Ext.swift */; };
 		5489043E23BCF820002D6F02 /* EEXCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5489043D23BCF820002D6F02 /* EEXCommand.swift */; };
 		5489044023BD1FBC002D6F02 /* EEXFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5489043F23BD1FBC002D6F02 /* EEXFormatter.swift */; };
 		5497C94D23A0E9A300FF7696 /* ClearCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C94C23A0E9A300FF7696 /* ClearCommand.swift */; };
@@ -1072,6 +1073,7 @@
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
 				5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */,
 				545F3EA523A9922D00D0BC5A /* UPNEngineExpLogTests.swift in Sources */,
+				547A97BE23D3F30400DEB603 /* String+Ext.swift in Sources */,
 				542485E223AEDA350021992F /* FixCommandTests.swift in Sources */,
 				54699F8723A248F700373D98 /* SubtractCommandTests.swift in Sources */,
 				549B8CF123CE691400E36997 /* ACosineHCommandTests.swift in Sources */,

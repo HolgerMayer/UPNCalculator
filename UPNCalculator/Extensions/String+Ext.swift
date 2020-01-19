@@ -14,4 +14,10 @@ extension String {
         guard let range = self.range(of: string) else { return self }
          return replacingCharacters(in: range, with: replacement)        
     }
+    
+   func count(of needle: Character) -> Int {
+       return reduce(0) {
+                $1 == needle ? $0 + 1 : $0
+       }
+   }
 }

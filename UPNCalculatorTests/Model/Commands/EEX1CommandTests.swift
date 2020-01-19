@@ -11,6 +11,7 @@ import XCTest
 
 class EEX1CommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var mockDelegate : DisplayMockDelegate!
@@ -20,6 +21,7 @@ class EEX1CommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         mockDelegate = DisplayMockDelegate()
@@ -42,22 +44,21 @@ class EEX1CommandTests: XCTestCase {
         
         XCTAssertTrue(result == .EEX1)
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     02","delegate param should be 1.2.....02 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     02".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
         
         mockDelegate.resetDelegate()
         
         result = testObject.execute()
         XCTAssertTrue(result == .EEX1)
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     22","delegate param should be 1.2.....22 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     22".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
         mockDelegate.resetDelegate()
          
-         result = testObject3.execute()
-         XCTAssertTrue(result == .EEX1)
-         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-          XCTAssertTrue(mockDelegate.delegate_param1 == "1.2     23","delegate param should be 1.2.....23 is \(mockDelegate.delegate_param1)")
-
+        result = testObject3.execute()
+        XCTAssertTrue(result == .EEX1)
+        XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
         
     }
 }

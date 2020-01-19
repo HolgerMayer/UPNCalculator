@@ -20,7 +20,7 @@ class TestTool {
         let labelText = app.staticTexts.element(matching:.any,identifier: "display").label
         
         if labelText.count >= 10 {
-            let index = labelText.index(labelText.startIndex, offsetBy: 8)
+            let index = labelText.index(labelText.endIndex, offsetBy: -3)
             let foundString = labelText[index]
             if foundString == " " || foundString == "-" {
             
@@ -29,32 +29,39 @@ class TestTool {
                 let exponentRange = labelText.index(labelText.startIndex, offsetBy: 8)..<labelText.endIndex
                 let substringExponent = labelText[exponentRange]
             
-                var trimmedBase = substringBase.trimmingCharacters(in: .whitespacesAndNewlines)
+                let trimmedBase = substringBase.trimmingCharacters(in: .whitespacesAndNewlines)
                 let trimmedExponent = substringExponent.trimmingCharacters(in: .whitespacesAndNewlines)
 
-                let locale = NSLocale.autoupdatingCurrent
-                
-                if trimmedBase.contains(locale.groupingSeparator!){
-                    trimmedBase = trimmedBase.replacingOccurrences(of: locale.groupingSeparator!, with: locale.decimalSeparator!)
+                let formatter = NumberFormatter()
+                formatter.locale = Locale.current
+                formatter.numberStyle = .decimal
+                let number = formatter.number(from: trimmedBase)
+                var base = 0.0
+                if number != nil {
+                    base = number!.doubleValue
                 }
-                
-                
-                let base = Double(trimmedBase)
+
                 let exponent = Double(trimmedExponent)
-                
                  
-                if base != nil && exponent != nil {
-                    return base! * Darwin.pow(10,exponent!)
-                } else if base != nil {
-                    return base!
-                } else {
-                    return 0.0
+                if  exponent != nil {
+                    return base * Darwin.pow(10,exponent!)
+                }  else {
+                    return base
                 }
             }
 
         }
+        
         let trimmedText = labelText.trimmingCharacters(in: .whitespacesAndNewlines)
-        return Double(trimmedText)
+        
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current // USA: Locale(identifier: "en_US")
+        formatter.numberStyle = .decimal
+        let number = formatter.number(from: trimmedText)
+        if number == nil {
+            return 0.0
+        }
+        return number?.doubleValue
       }
       
     func displayString() -> String {

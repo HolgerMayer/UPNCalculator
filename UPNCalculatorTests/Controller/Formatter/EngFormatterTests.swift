@@ -11,12 +11,14 @@ import XCTest
 
 class EngFormatterTests: XCTestCase {
 
+    var locale : Locale!
     var testObject : EngFormatter!
      
       
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
          
+        locale = Locale.current
         testObject = EngFormatter()
     }
 
@@ -43,7 +45,7 @@ class EngFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
          
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "123.46   00","result should be 123.46   00 is \(result!)")
+        XCTAssertEqual(result! , "123#46   00".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
      }
      
      
@@ -55,7 +57,7 @@ class EngFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
         
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "100      09","result should be 100      09 is \(result!)")
+        XCTAssertEqual(result! , "100      09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
     }
         
     func testFormatToStringLargeValuePrecisionFour() {
@@ -66,7 +68,7 @@ class EngFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
         
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "123.46   09","result should be 123.46   09 is \(result!)")
+        XCTAssertEqual(result! , "123#46   09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
     }
      
      func testConvertToDouble() {
@@ -74,7 +76,6 @@ class EngFormatterTests: XCTestCase {
          let exponent = "2"
          
          let result = testObject.convertToDouble(baseDigits: base, exponent: exponent)
-         
          XCTAssertTrue(result == 123.0, "result should be 123.0 is \(result)")
          
      }

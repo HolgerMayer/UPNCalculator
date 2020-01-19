@@ -2,9 +2,18 @@
   "configurations" : [
     {
       "id" : "E6323034-8E70-4F84-B0DE-DD2DB5E45384",
-      "name" : "Configuration 1",
+      "name" : "EN-US",
       "options" : {
-
+        "language" : "en",
+        "region" : "US"
+      }
+    },
+    {
+      "id" : "D903D3A8-27F8-46A0-A15E-B99ADE608C3F",
+      "name" : "DE-DE",
+      "options" : {
+        "language" : "de",
+        "region" : "DE"
       }
     }
   ],
@@ -25,7 +34,7 @@
       }
     },
     {
-      "enabled" : false,
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:UPNCalculator.xcodeproj",
         "identifier" : "54757B03239A58220048A732",

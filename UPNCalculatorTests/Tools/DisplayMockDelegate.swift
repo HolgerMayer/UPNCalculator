@@ -61,4 +61,11 @@ class DisplayMockDelegate : DisplayDelegate
     }
 
 
+    func delegateParam1AsDouble() -> Double? {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        let newValue = formatter.number(from: delegate_param1)
+        return newValue?.doubleValue
+    }
 }

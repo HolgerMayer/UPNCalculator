@@ -14,6 +14,7 @@ import XCTest
 
 class FixCommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : FixCommand!
@@ -22,6 +23,7 @@ class FixCommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         mockDelegate.resetDelegate()
@@ -57,21 +59,21 @@ class FixCommandTests: XCTestCase {
         let _ = enterCommand.execute()
             
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230    is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1230   ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
         mockDelegate.resetDelegate()
         
         
         let _ = testObject.execute()
         let _ = numFormat1Command.execute()
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1      ", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
-
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1      ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+ 
         mockDelegate.resetDelegate()
         let _ = testObject.execute()
         
         let _ = numFormat7Command.execute()
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1230000".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
     }
     
@@ -99,7 +101,8 @@ class FixCommandTests: XCTestCase {
           let _ = enterCommand.execute()
               
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230   ", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1230   ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+ 
         mockDelegate.delegate_didCall_didChangeDisplay = false
 
         
@@ -115,8 +118,7 @@ class FixCommandTests: XCTestCase {
           
           let _ = numFormat7Command.execute()
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230000", "delegate_param_digits should be 123.1230 is \(mockDelegate.delegate_param1)")
-
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1230000".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
       }
     
 }

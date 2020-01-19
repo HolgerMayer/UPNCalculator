@@ -10,24 +10,12 @@
 import XCTest
 @testable import UPNCalculator
 
-class SineCommandTests: XCTestCase {
+class SineCommandTests: CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var testObject : SineCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        display = CalculatorDisplay()
-        testObject = SineCommand(calculatorEngine: engine, display: display)
+    override func createTestObject() -> Command? {
+        return SineCommand(calculatorEngine: engine, display: display)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
+   
     
     func testSineOfEmptyStack() {
 
@@ -57,6 +45,8 @@ class SineCommandTests: XCTestCase {
      }
     
     func testSineOfHalfPi() {
+        
+        engine.trigonometricMode = .rad
      
         engine.enterNumber(Double.pi / 2)
     
@@ -73,7 +63,9 @@ class SineCommandTests: XCTestCase {
     
   
     func testSineOfPi(){
-        
+     
+        engine.trigonometricMode = .rad
+
         engine.enterNumber(Double.pi)
         
         let _ = testObject.execute()
@@ -89,6 +81,8 @@ class SineCommandTests: XCTestCase {
 
     func testSineOfHalfPiTimes3(){
         
+        engine.trigonometricMode = .rad
+
           engine.enterNumber(Double.pi / 2 * 3)
           
          let _ =  testObject.execute()
@@ -100,5 +94,26 @@ class SineCommandTests: XCTestCase {
              
         XCTAssertTrue(abs(result + 1.0) < 0.0001)
       }
+    
+    func testDegSineValues(){
+           
+        let testInputs : [Double] = [0,20,35,75,100,145,250,290,310,355]
+        let expectedResults : [Double] = [0,0.3420,0.5736,0.9659,0.9848,0.5736,-0.9397,-0.9397,-0.7660,-0.0872]
+        
+        engine.trigonometricMode = .deg
+        
+        validateFor(testInput: testInputs, expectedResult:expectedResults, testTypeMessage: "deg sin ",roundTo:4)
+
+    }
+    
+    func testGradSineValues(){
+             
+        let testInputs : [Double] = [0,20,35,75,100,145,250,290,310,355]
+        let expectedResults : [Double] = [0,0.3090,0.5225,0.9239,1.0,0.7604,-0.7071,-0.9877,-0.9877,-0.6494]
+          
+        engine.trigonometricMode = .grad
+        
+        validateFor(testInput: testInputs, expectedResult:expectedResults, testTypeMessage: "Grad sin ",roundTo:4)
+    }
     
 }

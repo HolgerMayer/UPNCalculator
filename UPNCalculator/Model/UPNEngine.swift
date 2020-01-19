@@ -12,15 +12,25 @@
 
 import Foundation
 
-enum CalculationError : Error {
+public enum CalculationError : Error {
     case divisionByZero
     case logTenFromZero
     case logFromZero
+    case factorialFromNegative
+    case resultToLarge
+}
+
+public enum TrigonometricMode : String {
+    case deg  = "DEG"
+    case rad = "RAD"
+    case grad = "GRAD"
 }
 
 class UPNEngine {
     
-    fileprivate var stack = Stack<Double>()
+    var stack = Stack<Double>()
+    
+    var trigonometricMode : TrigonometricMode = .deg
     
     var top: Double? {
         return stack.top
@@ -77,42 +87,7 @@ class UPNEngine {
         stack.push(Swift.abs(a))
     }
     
-    func sin()  {
-        let a = getNextNumber()
- 
-        stack.push(Darwin.sin(a))
-    }
-  
-    func cos()  {
-        let a = getNextNumber()
-    
-        stack.push(Darwin.cos(a))
-    }
 
-    func tan()  {
-        let a = getNextNumber()
-    
-        stack.push(Darwin.tan(a))
-    }
-    
-    func asin()  {
-        let a = getNextNumber()
-        
-        stack.push(Darwin.asin(a))
-    }
-     
-    func acos()  {
-        let a = getNextNumber()
-       
-        stack.push(Darwin.acos(a))
-    }
-
-    func atan()  {
-        let a = getNextNumber()
-       
-        stack.push(Darwin.atan(a))
-    }
-    
     func pow() {
         let exponent = getNextNumber()
         var base = getNextNumberOrNil()
@@ -155,8 +130,34 @@ class UPNEngine {
           }
         stack.push(Darwin.log10(a))
     }
+    
+    func hmmssToDecDegreeConversion()  {
+      let a = getNextNumber()
+        
+      let hours = Int(a)
+      let minutes =  Int((a - Double(hours)) * 100)
+      let seconds =  ((a - Double(hours)) * 100 - Double(minutes)) * 100
+        
+      let result = Double(hours) + Double(minutes) / 60.0 + seconds / 3600.0
 
-    private func getNextNumber() -> Double {
+      stack.push(result)
+    }
+      
+    func decDegreeToHMMSSConversion()  {
+        let a = getNextNumber()
+
+        
+        let hours = Int(a)
+        let minutes = Int((a-Double(hours))  * 60.0 )
+        let seconds = (a - Double(hours) - (Double(minutes) / 60.0)) * 3600
+        
+        let result = Double(hours) + Double(minutes) / 100 + seconds / 10000
+        
+        stack.push(result)
+    }
+      
+
+    public func getNextNumber() -> Double {
         guard let a = stack.pop() else {
             return 0.0
         }
@@ -171,4 +172,9 @@ class UPNEngine {
 
         return a
     }
+    
+ 
+    
+  
+    
 }

@@ -11,25 +11,12 @@
 import XCTest
 @testable import UPNCalculator
 
-class TangentCommandTests: XCTestCase {
+class TangentCommandTests:  CommandTestCase {
 
-    var engine : UPNEngine!
-    var display : CalculatorDisplay!
-    var testObject : TangentCommand!
-    
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        engine = UPNEngine()
-        display = CalculatorDisplay()
-        testObject = TangentCommand(calculatorEngine: engine, display: display)
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    
+   override func createTestObject() -> Command? {
+       return TangentCommand(calculatorEngine: engine, display: display)
+   }
+   
     func testTangentOfEmptyStack() {
 
         let _ = testObject.execute()
@@ -62,6 +49,7 @@ class TangentCommandTests: XCTestCase {
   
     func testTangentOfPi(){
         
+        engine.trigonometricMode = .rad
         engine.enterNumber(Double.pi)
         
         let _ = testObject.execute()
@@ -77,6 +65,7 @@ class TangentCommandTests: XCTestCase {
 
      func testTangentOfMinusPi(){
          
+         engine.trigonometricMode = .rad
          engine.enterNumber(-Double.pi)
          
          let _ = testObject.execute()
@@ -90,5 +79,29 @@ class TangentCommandTests: XCTestCase {
      }
     
   
+    func testDegTangentValues(){
+              
+        let testInputs : [Double] = [0,20,35,75,100,145,250,290,310,355]
+        let expectedResults : [Double] = [0,0.3640,0.7002,3.7321,-5.6713,-0.7002,2.7475,-2.7475,-1.1918,-0.0875]
+           
+        engine.trigonometricMode = .deg
+           
+        validateFor(testInput: testInputs, expectedResult:expectedResults, testTypeMessage: "deg tangent ",roundTo:4)
+
+           
+    }
+       
+    // 100 -> NaN
+    func testGradTangentValues(){
+                
+        let testInputs : [Double] = [0,20,35,75,145,250,290,310,355]
+        let expectedResults : [Double] = [0,0.3249,0.6128,2.4142,-1.1708,1,6.3138,-6.3138,-0.8541]
+             
+        engine.trigonometricMode = .grad
+             
+        validateFor(testInput: testInputs, expectedResult:expectedResults, testTypeMessage: "grad tangent ",roundTo:4)
+
+    }
+       
     
 }

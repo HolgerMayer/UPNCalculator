@@ -49,10 +49,12 @@ class ExchangeXYCommandTests: XCTestCase {
     
         let _ = testObject.execute()
           
-        guard let result1 = display.value else {
+        guard let result1 = engine.top else {
                  XCTFail()
                  return
         }
+        
+        engine.removeTop()
         
         guard let result2 = engine.top else {
                 XCTFail()

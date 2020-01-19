@@ -11,12 +11,14 @@ import XCTest
 
 class ScientificFormatterTests: XCTestCase {
 
+    var locale : Locale!
     var testObject : ScientificFormatter!
         
           
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
             
+        locale = Locale.current
         testObject = ScientificFormatter()
     }
 
@@ -32,6 +34,8 @@ class ScientificFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
         
         XCTAssertNotNil(result)
+        XCTAssertEqual(result, "1        02")
+
         XCTAssertTrue(result! == "1        02","result should be 1        02 is \(result!)")
     }
     
@@ -43,8 +47,8 @@ class ScientificFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
  
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "1.2346   02","result should be 1.2346   02 is \(result!)")
-    }
+        XCTAssertEqual(result , "1#2346   02".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+     }
         
         
     func testFormatToStringLargeValuePrecisionZero() {
@@ -55,7 +59,7 @@ class ScientificFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
   
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "1        11","result should be 1        11 is \(result!)")
+        XCTAssertEqual(result , "1        11")
      }
     
     func testFormatToStringLargeValuePrecisionFour() {
@@ -66,7 +70,7 @@ class ScientificFormatterTests: XCTestCase {
         let result = testObject.convertToString(testInput)
  
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == "1.2346   11","result should be 1.2346   11 is \(result!)")
+        XCTAssertEqual(result , "1#2346   11".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
       }
         
     

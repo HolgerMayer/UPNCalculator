@@ -37,7 +37,7 @@ class IntroductionTests: XCTestCase {
         app.buttons["subtract"].tap()
         var result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 3)
+        XCTAssertEqual(result!,3)
         
         app.buttons["digit9"].tap()
         app.buttons["enter"].tap()
@@ -46,7 +46,7 @@ class IntroductionTests: XCTestCase {
         
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 54)
+        XCTAssertEqual(result!,54)
         
         app.buttons["digit9"].tap()
         app.buttons["enter"].tap()
@@ -55,7 +55,7 @@ class IntroductionTests: XCTestCase {
         
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 1.5)
+        XCTAssertEqual(result!,1.5)
         
         app.buttons["digit9"].tap()
         app.buttons["enter"].tap()
@@ -64,7 +64,7 @@ class IntroductionTests: XCTestCase {
              
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 531441)
+        XCTAssertEqual(result!,531441)
              
     }
     

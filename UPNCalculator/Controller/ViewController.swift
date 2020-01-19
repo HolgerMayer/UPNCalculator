@@ -13,7 +13,8 @@ class ViewController: UIViewController {
       var displayPanel = UIView()
       var outputLabel = UILabel()
       var stateLabel = UILabel()
-     
+      var trigonometricLabel = UILabel()
+
       var digit0Button : UIButton!
       var digit1Button : UIButton!
       var digit2Button : UIButton!
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
 
     
       var noop1Button : UIButton!
-      var noop2Button : UIButton!
+      var gtoButton : UIButton!
       var noop3Button : UIButton!
       var noop5Button : UIButton!
       var xExYButton : UIButton!
@@ -154,7 +155,15 @@ class ViewController: UIViewController {
         
         displayPanel.addSubview(stateLabel)
         
-         
+        trigonometricLabel.textAlignment = .left
+        trigonometricLabel.backgroundColor = .lightGray
+        trigonometricLabel.font = .boldSystemFont(ofSize: 18.0)
+        trigonometricLabel.text = ""
+        trigonometricLabel.translatesAutoresizingMaskIntoConstraints = false
+        trigonometricLabel.accessibilityIdentifier = "trigStateDisplay"
+          
+        displayPanel.addSubview(trigonometricLabel)
+
     }
     
     private func createViewControllerButtons() {
@@ -178,13 +187,13 @@ class ViewController: UIViewController {
         chsButton = createButton(title1:"",title2: "CHS",  title3:"ABS", accessoryLabel: "chs")
         view.addSubview(chsButton)
         
-        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"", accessoryLabel: "digit7")
+        digit7Button = createButton(title1:"FIX",title2: "7",  title3:"DEG", accessoryLabel: "digit7")
         view.addSubview(digit7Button)
 
-        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"", accessoryLabel: "digit8")
+        digit8Button = createButton(title1:"SCI",title2: "8",  title3:"RAD", accessoryLabel: "digit8")
         view.addSubview(digit8Button)
 
-        digit9Button = createButton(title1:"ENG",title2: "9",  title3:"", accessoryLabel: "digit9")
+        digit9Button = createButton(title1:"ENG",title2: "9",  title3:"GRD", accessoryLabel: "digit9")
         view.addSubview(digit9Button)
 
         addButton = createButton(title1:"",title2: "/",  title3:"", accessoryLabel: "divide")
@@ -196,8 +205,8 @@ class ViewController: UIViewController {
         noop1Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop1")
         view.addSubview(noop1Button)
 
-        noop2Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop2")
-        view.addSubview(noop2Button)
+        gtoButton = createButton(title1:"HYP",title2: "GTO", title3:"HYP-1",  accessoryLabel: "gto")
+        view.addSubview(gtoButton)
 
         sinButton  = createButton(title1:"",title2: "SIN",  title3:"SIN-1", accessoryLabel: "sin")
         view.addSubview(sinButton)
@@ -236,22 +245,23 @@ class ViewController: UIViewController {
         noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
         view.addSubview(noop5Button)
 
-        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"", accessoryLabel: "exchangexy")
+        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"RND", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
-        backArrowButton = createButton(title1:"",title2: "←",  title3:"", accessoryLabel: "backarrow")
+        backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")
         view.addSubview(backArrowButton)
 
-        enterButton  = createButton(title1:"",title2: "Enter",  title3:"LST X", accessoryLabel: "enter")
+        enterButton  = createButton(title1:"",title2: "Enter\n\n",  title3:"LST X", accessoryLabel: "enter")
+        enterButton.setBackgroundImage(UIImage(named: "ButtonLarge"), for: .normal)
         view.addSubview(enterButton)
 
-        digit1Button = createButton(title1:"",title2: "1",  title3:"", accessoryLabel: "digit1")
+        digit1Button = createButton(title1:"➡︎R",title2: "1",  title3:"➡︎P", accessoryLabel: "digit1")
         view.addSubview(digit1Button)
 
-        digit2Button = createButton(title1:"",title2: "2",  title3:"", accessoryLabel: "digit2")
+        digit2Button = createButton(title1:"➡︎H.MS",title2: "2",  title3:"➡︎H", accessoryLabel: "digit2")
         view.addSubview(digit2Button)
 
-        digit3Button = createButton(title1:"",title2: "3",  title3:"", accessoryLabel: "digit3")
+        digit3Button = createButton(title1:"➡︎RAD",title2: "3",  title3:"➡︎DEG", accessoryLabel: "digit3")
         view.addSubview(digit3Button)
 
         multiplyButton = createButton(title1:"",title2: "-",  title3:"", accessoryLabel: "subtract")
@@ -275,7 +285,7 @@ class ViewController: UIViewController {
         rclButton = createButton(title1:"",title2: "RCL",  title3:"", accessoryLabel: "rcl")
         view.addSubview(rclButton)
             
-        digit0Button = createButton(title1:"",title2: "0",  title3:"", accessoryLabel: "digit0")
+        digit0Button = createButton(title1:"x!",title2: "0",  title3:"", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
         dotButton = createButton(title1:"",title2: ".",  title3:"", accessoryLabel: "dot")
@@ -434,13 +444,23 @@ class ViewController: UIViewController {
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .leading, relatedBy: .equal, toItem: displayPanel, attribute: .leading, multiplier: 1.0, constant: 40.0)
         view.addConstraint(constraint)
         
-        constraint = NSLayoutConstraint(item: stateLabel, attribute: .trailing, relatedBy: .equal, toItem: displayPanel, attribute: .trailing, multiplier: 1.0, constant: -40.0)
+        constraint = NSLayoutConstraint(item: stateLabel, attribute: .trailing, relatedBy: .equal, toItem: trigonometricLabel, attribute: .trailing, multiplier: 1.0, constant: 20.0)
         view.addConstraint(constraint)
                 
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .top, relatedBy: .equal, toItem: outputLabel, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(constraint)
                 
         constraint = NSLayoutConstraint(item: stateLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0)
+        view.addConstraint(constraint)
+
+        
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .trailing, relatedBy: .equal, toItem: displayPanel, attribute: .trailing, multiplier: 1.0, constant: -40.0)
+        view.addConstraint(constraint)
+                
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .top, relatedBy: .equal, toItem: outputLabel, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(constraint)
+                
+        constraint = NSLayoutConstraint(item: trigonometricLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20.0)
         view.addConstraint(constraint)
 
         // First Row
@@ -461,8 +481,8 @@ class ViewController: UIViewController {
 
         constraintFirstButtonInRow(noop1Button!, viewOfPreviousRow: sqrtButton, firstRow: false)
 
-        constraintOtherButtonsInRow(noop2Button!,  previousButton: noop1Button!, firstButtoninRow: noop1Button!)
-        constraintOtherButtonsInRow(sinButton!, previousButton: noop2Button!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(gtoButton!,  previousButton: noop1Button!, firstButtoninRow: noop1Button!)
+        constraintOtherButtonsInRow(sinButton!, previousButton: gtoButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(cosButton!, previousButton: sinButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(tanButton!, previousButton: cosButton!, firstButtoninRow: noop1Button!)
         constraintOtherButtonsInRow(eexButton!, previousButton: tanButton!, firstButtoninRow: noop1Button!)
@@ -601,6 +621,7 @@ extension ViewController : DisplayDelegate {
     func didClearError() {
         outputLabel.textAlignment = .right
         outputLabel.backgroundColor = .lightGray
+        outputLabel.textColor = .black
         outputLabel.font =  UIFont(name: "DBLCDTempBlack", size: 60.0) //.systemFont(ofSize: 25.0)
         outputLabel.text! = ""
     }
@@ -623,7 +644,22 @@ extension ViewController : DisplayDelegate {
             stateLabel.text! = ""
             break
         }
-    
+    }
+     
+    func didChangeTrigonometricMode(_ mode: TrigonometricMode) {
+            switch mode {
+                case .deg:
+                    trigonometricLabel.text! = ""
+                    return
+            case .rad :
+                trigonometricLabel.text! = "RAD"
+                return
+            case .grad:
+                trigonometricLabel.text! = "GRAD"
+                return
+            }
+            
+
     }
      
 }

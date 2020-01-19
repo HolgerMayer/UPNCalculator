@@ -13,6 +13,7 @@ import XCTest
 
 class EngCommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : EngCommand!
@@ -21,6 +22,7 @@ class EngCommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         mockDelegate.resetDelegate()
@@ -34,7 +36,7 @@ class EngCommandTests: XCTestCase {
     
     func resetDelegateMonitor(){
         mockDelegate.resetDelegate()
-        }
+    }
   
     func testChangeDecimalDigits() {
         
@@ -77,7 +79,7 @@ class EngCommandTests: XCTestCase {
             let _ = numFormat0Command.execute()
         
             XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-            XCTAssertTrue(mockDelegate.delegate_param1 == "100      09", "delegate_param_digits should be 100 is \(mockDelegate.delegate_param1)")
+            XCTAssertEqual(mockDelegate.delegate_param1 , "100      09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
  
             resetDelegateMonitor()
             
@@ -85,7 +87,7 @@ class EngCommandTests: XCTestCase {
             let _ = numFormat4Command.execute()
         
             XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-            XCTAssertTrue(mockDelegate.delegate_param1 == "123.46   09", "delegate_param_digits should be 123.46   09 is \(mockDelegate.delegate_param1)")
+            XCTAssertEqual(mockDelegate.delegate_param1 , "123#46   09".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
            
  
     }

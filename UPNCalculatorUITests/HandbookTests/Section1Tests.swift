@@ -25,6 +25,66 @@ class Section1Tests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testPage20(){
+        let app = XCUIApplication()
+        app.launch()
+        let testTool = TestTool(app: app)
+
+        app.buttons["digit6"].tap()
+        app.buttons["dot"].tap()
+        app.buttons["digit6"].tap()
+        app.buttons["digit2"].tap()
+        app.buttons["digit6"].tap()
+        app.buttons["digit2"].tap()
+ 
+        var result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262)
+        
+        app.buttons["eex"].tap()
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262)
+        
+        app.buttons["digit3"].tap()
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6626.2)
+
+        app.buttons["digit4"].tap()
+        
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,34))
+
+        app.buttons["chs"].tap()
+ 
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,-34))
+
+        app.buttons["enter"].tap()
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!,6.6262 * Darwin.pow(10.0,-34))
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! == 6.6262*Darwin.pow(10.0,-34))
+              
+        app.buttons["digit5"].tap()
+        app.buttons["digit0"].tap()
+        app.buttons["multiply"].tap()
+
+        result = testTool.getValueFromDisplay()
+        XCTAssertNotNil(result)
+        XCTAssertTrue(result! == 3.3131*Darwin.pow(10.0,-32))
+
+    }
 
     func testPage21() {
         let app = XCUIApplication()

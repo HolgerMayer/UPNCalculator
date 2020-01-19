@@ -40,6 +40,12 @@ class CalculationCommand : Command {
         } catch CalculationError.logFromZero {
             display.setError("Error : ln from zero")
             return .Default
+        } catch CalculationError.factorialFromNegative {
+            display.setError("Error : factorial from negative number")
+            return .Default
+        } catch CalculationError.resultToLarge {
+                display.setError("Error : result to large")
+                return .Default
         } catch {
             display.setError("Error during calculation")
             return .Default

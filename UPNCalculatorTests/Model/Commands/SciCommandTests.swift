@@ -13,6 +13,7 @@ import XCTest
 
 class SciCommandTests: XCTestCase {
 
+    var locale : Locale!
     var engine : UPNEngine!
     var display : CalculatorDisplay!
     var testObject : SciCommand!
@@ -22,6 +23,7 @@ class SciCommandTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
+        locale = Locale.current
         engine = UPNEngine()
         display = CalculatorDisplay()
         display.delegate = mockDelegate
@@ -58,7 +60,8 @@ class SciCommandTests: XCTestCase {
             let _ = enterCommand.execute()
                 
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "123.1230   ", "delegate_param1 should be 123.1230 is \((mockDelegate.delegate_param1 == "123.1230", "delegate_param1 should be 123.1230 is \(mockDelegate.delegate_param1)"))")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "123#1230   ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+
         mockDelegate.resetDelegate()
             
             
@@ -66,7 +69,7 @@ class SciCommandTests: XCTestCase {
             
             let _ = numFormat4Command.execute()
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "1.2312   02", "delegate_param1 should be 1.231 is \(mockDelegate.delegate_param1)")
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#2312   02".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
  
         
         mockDelegate.resetDelegate()
@@ -76,8 +79,8 @@ class SciCommandTests: XCTestCase {
             
             let _ = numFormat7Command.execute()
         XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-        XCTAssertTrue(mockDelegate.delegate_param1 == "1.231230 02", "delegate_param1 should be 1.231230 is \(mockDelegate.delegate_param1)")
-
+        XCTAssertEqual(mockDelegate.delegate_param1 , "1#231230 02".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+ 
          
 
     }

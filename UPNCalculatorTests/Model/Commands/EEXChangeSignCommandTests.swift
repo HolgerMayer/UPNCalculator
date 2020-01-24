@@ -49,7 +49,7 @@ class EEXChangeSignCommandTests: XCTestCase {
          
          XCTAssertTrue(result == .EEX1)
          XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     -23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2000  -23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
          mockDelegate.resetDelegate()
 
@@ -57,7 +57,7 @@ class EEXChangeSignCommandTests: XCTestCase {
          
          XCTAssertTrue(result == .EEX1)
          XCTAssertTrue(mockDelegate.delegate_didCall_didChangeDisplay)
-         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2000   23".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
 
     }
 }

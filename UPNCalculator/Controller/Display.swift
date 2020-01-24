@@ -30,6 +30,7 @@ public protocol Display {
     var delegate : DisplayDelegate?  {get set}
     
     var isPushed : Bool {get set}
+    var needsOverride : Bool {get set}
 
     var value : Double? {get set}
     var inputMode : InputMode {get set}

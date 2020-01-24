@@ -39,7 +39,7 @@ class LogCommandTests: XCTestCase {
         
         let result = engine.top
 
-        XCTAssertNil(result)
+        XCTAssertEqual(result,0.0)
         XCTAssertTrue(mockDelegate.delegate_param1 == "Error : ln from zero")
     }
 

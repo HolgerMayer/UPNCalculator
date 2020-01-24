@@ -25,11 +25,28 @@ class DigitDotCommand : Command {
     func execute() -> KeyboardState {
         if display.inputMode == .standard {
             if display.isPushed {
-                display.clear()
+                 if display.needsOverride {
+                    display.clear()
+                    calculatorEngine.removeTop()
+                }
+                
                 display.addBaseDigit(digit: digitString)
                 display.isPushed = false
+                 guard let value = display.value else {
+                    return .Default
+                }
+                calculatorEngine.enterNumber(value)
             } else {
+                if display.needsOverride {
+                    calculatorEngine.removeTop()
+                }
+
                 display.addBaseDigit(digit:digitString)
+                guard let value = display.value else {
+                     return .Default
+                }
+                
+                calculatorEngine.enterNumber(value)
             }
         }
         

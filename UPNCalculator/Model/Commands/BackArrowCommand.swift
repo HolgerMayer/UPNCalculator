@@ -25,7 +25,9 @@ class BackArrowCommand : Command {
             display.removeBaseDigit()
         } else {
             display.value = 0.0
+            calculatorEngine.removeTop()
             display.isPushed = true
+            display.needsOverride = true
         }
         
         return .Default

@@ -38,7 +38,7 @@ class DivideCommandTests: XCTestCase {
         
         let result = engine.top
            
-        XCTAssertNil(result)
+        XCTAssertEqual(result,0.0)
     }
 
     func testMultiplyOnly3OnStack() {
@@ -71,14 +71,14 @@ class DivideCommandTests: XCTestCase {
 
    
     func testDivideBy0() {
+         engine.enterNumber(7)
          engine.enterNumber(6)
          engine.enterNumber(0)
 
          let _ = testObject.execute()
          
          let result = engine.top
-         
-         XCTAssertNil(result)
+         XCTAssertEqual(result,7)
          XCTAssertTrue(mockDelegate.delegate_param1 == "Error : division by zero")
      }
 

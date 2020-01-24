@@ -20,7 +20,15 @@ class EEXChangeSignCommand : Command {
     }
     
     func execute() -> KeyboardState {
+        
+        calculatorEngine.removeTop()
+        
         display.changeExponentSign()
+        
+        guard let value = display.value else {
+            return .EEX1
+        }
+        calculatorEngine.enterNumber(value)
         
         return .EEX1
     }

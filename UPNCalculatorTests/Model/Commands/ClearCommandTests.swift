@@ -35,7 +35,10 @@ class ClearCommandTests: XCTestCase {
         
         let _ = testObject.execute()
         
-        XCTAssertNil(engine.top)
+        XCTAssertEqual(engine.peek(register: .X),0.0)
+        XCTAssertEqual(engine.peek(register: .Y),0.0)
+        XCTAssertEqual(engine.peek(register: .Z),0.0)
+        XCTAssertEqual(engine.peek(register: .T),0.0)
         XCTAssertNil(display.value)
         XCTAssertFalse(display.isPushed)
     }

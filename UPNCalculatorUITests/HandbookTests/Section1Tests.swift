@@ -82,7 +82,7 @@ class Section1Tests: XCTestCase {
 
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 3.3131*Darwin.pow(10.0,-32))
+        XCTAssertEqual(result!, 3.3131*Darwin.pow(10.0,-32))
 
     }
 
@@ -119,7 +119,7 @@ class Section1Tests: XCTestCase {
 
         result = testTool.getValueFromDisplay()
         XCTAssertNotNil(result)
-        XCTAssertTrue(result! == 0)
+        XCTAssertEqual(result!,0)
         
     }
 

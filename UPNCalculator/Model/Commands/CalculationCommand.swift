@@ -23,14 +23,11 @@ class CalculationCommand : Command {
         
         display.inputMode = .standard
 
-        if !display.isPushed {
-                 enterNumberFromInput()
-        }
-        
         display.updateLastValue()
         
         do {
             try  callEngineCalculation()
+            display.isPushed = true
         } catch CalculationError.divisionByZero {
             display.setError("Error : division by zero")
             return .Default

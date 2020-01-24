@@ -102,6 +102,7 @@
 		5497C94D23A0E9A300FF7696 /* ClearCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C94C23A0E9A300FF7696 /* ClearCommand.swift */; };
 		5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */; };
 		5497C95123A0EDBF00FF7696 /* KeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C95023A0EDBF00FF7696 /* KeyboardState.swift */; };
+		54985B2423DA3FC400110061 /* UPNEngineMemoryStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */; };
 		549B8CD123CE621E00E36997 /* UPNEngine+Trigonometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CD023CE621E00E36997 /* UPNEngine+Trigonometric.swift */; };
 		549B8CD523CE63E000E36997 /* SineHCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CD423CE63E000E36997 /* SineHCommand.swift */; };
 		549B8CDB23CE643C00E36997 /* ASineHCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CDA23CE643C00E36997 /* ASineHCommand.swift */; };
@@ -304,6 +305,7 @@
 		5497C94C23A0E9A300FF7696 /* ClearCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCommand.swift; sourceTree = "<group>"; };
 		5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSignCommand.swift; sourceTree = "<group>"; };
 		5497C95023A0EDBF00FF7696 /* KeyboardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardState.swift; sourceTree = "<group>"; };
+		54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNEngineMemoryStackTests.swift; sourceTree = "<group>"; };
 		549B8CD023CE621E00E36997 /* UPNEngine+Trigonometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+Trigonometric.swift"; sourceTree = "<group>"; };
 		549B8CD423CE63E000E36997 /* SineHCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SineHCommand.swift; sourceTree = "<group>"; };
 		549B8CDA23CE643C00E36997 /* ASineHCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASineHCommand.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				545F3EA023A9914300D0BC5A /* UPNEngineTrigonometricTests.swift */,
 				545F3EA423A9922D00D0BC5A /* UPNEngineExpLogTests.swift */,
 				545F3EA623A992A300D0BC5A /* UPNEngineOtherFunctionTests.swift */,
+				54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */,
 			);
 			path = UPNEngine;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				54465F2723C1F42B0037535D /* CommandControllerTests.swift in Sources */,
 				5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */,
 				54E769F323A5BE4600165EDC /* XOverTenCommandTests.swift in Sources */,
+				54985B2423DA3FC400110061 /* UPNEngineMemoryStackTests.swift in Sources */,
 				54699F8B23A249EA00373D98 /* DivideCommandTests.swift in Sources */,
 				545C93D723A1148000CD3156 /* CalculatorDisplayTests.swift in Sources */,
 				54E08BE323C53A01002C2A97 /* PercentDifferenceCommandTests.swift in Sources */,

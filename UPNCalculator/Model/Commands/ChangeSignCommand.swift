@@ -21,7 +21,15 @@ class ChangeSignCommand : Command {
     }
     
     func execute() -> KeyboardState {
-          display.changeSign()
+        display.changeSign()
+        display.isPushed = true
+        
+        guard let value = display.value else {
+            return .Default
+        }
+
+        calculatorEngine.removeTop()
+        calculatorEngine.enterNumber(value)
         
         return .Default
     }

@@ -46,4 +46,46 @@ class EEXCommandTests: XCTestCase {
         XCTAssertEqual(mockDelegate.delegate_param1 , "1#2     00".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
    
     }
+    
+    func testNegativeExponentValuePushed() {
+        
+        let digit0Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "0")
+        let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
+        let digit5Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "5")
+        let digit6Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "6")
+
+        let eexDigit3Command = EEX1Command(calculatorEngine: engine, display: display, token: "3")
+        let eexDigit4Command = EEX1Command(calculatorEngine: engine, display: display, token: "4")
+        let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
+        let eexCommand = EEXCommand(calculatorEngine: engine, display: display)
+        let chsCommand = EEXChangeSignCommand(calculatorEngine: engine, display: display)
+        let enterCommand = EnterCommand(calculatorEngine: engine, display: display)
+        let multiplyCommand = MultiplyCommand(calculatorEngine: engine, display: display)
+        
+        let _ = digit6Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit6Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit6Command.execute()
+        let _ = digit2Command.execute()
+        let _ = eexCommand.execute()
+        let _ = eexDigit3Command.execute()
+        let _ = eexDigit4Command.execute()
+        let _ = chsCommand.execute()
+        let _ = enterCommand.execute()
+        
+        XCTAssertEqual(display.value, 6.6262*pow(10,-34))
+        XCTAssertEqual(engine.top! , 6.6262*pow(10,-34))
+        
+        let _ = digit5Command.execute()
+        let _ = digit0Command.execute()
+        
+        let _ = multiplyCommand.execute()
+        
+        XCTAssertNotNil(display.value)
+        XCTAssertEqual(display.value!, 3.3131*pow(10,-32), accuracy: 0.0001)
+        XCTAssertEqual(engine.top! , 3.3131*pow(10,-32), accuracy: 0.0001)
+
+        
+    }
 }

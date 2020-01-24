@@ -33,11 +33,7 @@ class DivideOneByXCommandTests: XCTestCase {
 
         let _ = testObject.execute()
         
-        if engine.top == nil {
-            return
-        }
-        
-        XCTFail()
+        XCTAssertEqual(engine.top!,0.0)
     }
 
 
@@ -47,11 +43,8 @@ class DivideOneByXCommandTests: XCTestCase {
         
          let _ = testObject.execute()
         
-        if engine.top == nil {
-              return
-          }
-          
-          XCTFail()
+             XCTAssertEqual(engine.top!,0.0)
+        
      }
     
     func testDivideOneByXCommandOfFour() {

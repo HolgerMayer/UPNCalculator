@@ -28,7 +28,7 @@ class EnterCommand : Command {
         
         calculatorEngine.enterNumber(value)
         display.isPushed = true
-        
+        display.needsOverride = true
         return .Default
     }
     

@@ -23,7 +23,10 @@ class UPNEngineCoreTests: XCTestCase {
     }
 
     func testInitialized() {
-        XCTAssertNil(testObject.top)
+        XCTAssertEqual(testObject.peek(register: .X),0.0)
+        XCTAssertEqual(testObject.peek(register: .Y),0.0)
+        XCTAssertEqual(testObject.peek(register: .Z),0.0)
+        XCTAssertEqual(testObject.peek(register: .T),0.0)
     }
     
     func testEnterNumber(){
@@ -32,15 +35,23 @@ class UPNEngineCoreTests: XCTestCase {
     }
 
     func testRemoveTop(){
-          testObject.enterNumber(1.0)
-          testObject.removeTop()
-          XCTAssertNil(testObject.top)
+        testObject.enterNumber(7.0)
+        testObject.enterNumber(1.0)
+        testObject.removeTop()
+        XCTAssertEqual(testObject.top,7.0)
     }
       
     func testClear() {
+          testObject.enterNumber(4.0)
+          testObject.enterNumber(3.0)
+          testObject.enterNumber(7.0)
           testObject.enterNumber(1.0)
           testObject.clear()
-          XCTAssertNil(testObject.top)
+          XCTAssertEqual(testObject.peek(register: .X),0.0)
+          XCTAssertEqual(testObject.peek(register: .Y),0.0)
+          XCTAssertEqual(testObject.peek(register: .Z),0.0)
+          XCTAssertEqual(testObject.peek(register: .T),0.0)
+
     }
       
 

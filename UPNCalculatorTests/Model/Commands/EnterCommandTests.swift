@@ -30,10 +30,20 @@ class EnterCommandTests: XCTestCase {
     }
 
     func testEnterNumberToStack() {
-         
-        display.value = 123.12
+        let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
+        let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
+        let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
+        let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
+
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+        let _ = digit3Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit2Command.execute()
+
         XCTAssertFalse(display.isPushed)
-        XCTAssertNil(engine.top)
+        XCTAssertEqual(engine.top,123.12)
         
         let _ = testObject.execute()
         

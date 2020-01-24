@@ -15,7 +15,7 @@ class StackTests: XCTestCase {
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-       testObject = Stack<Double>()
+        testObject = Stack<Double>(0.0)
     }
 
     override func tearDown() {
@@ -23,8 +23,12 @@ class StackTests: XCTestCase {
     }
 
     func testInitialize() {
-        XCTAssertNil(testObject.top)
-    }
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
+
+     }
     
     func testPush() {
         testObject.push(1.0)
@@ -39,20 +43,19 @@ class StackTests: XCTestCase {
         XCTAssertTrue(testObject.pop()! == 2.0)
         XCTAssertTrue(testObject.top! == 1.0)
         XCTAssertTrue(testObject.pop()! == 1.0)
-        XCTAssertNil(testObject.top)
 
     }
     
-    func testPopFromEpmtpyStack(){
-        XCTAssertNil(testObject.pop())
-    }
+ 
 
     func testClear(){
         testObject.push(1.0)
         testObject.push(2.0)
         testObject.clear()
-        XCTAssertNil(testObject.top)
-
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
+        XCTAssertTrue(testObject.pop()! == 0.0)
     }
 
 }

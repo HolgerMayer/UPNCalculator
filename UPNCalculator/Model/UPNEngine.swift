@@ -28,12 +28,18 @@ public enum TrigonometricMode : String {
 
 class UPNEngine {
     
-    var stack = Stack<Double>()
+    var stack = Stack<Double>(0.0)
     
     var trigonometricMode : TrigonometricMode = .deg
     
+ 
+
     var top: Double? {
         return stack.top
+    }
+
+    func peek(register : StackRegister) -> Double? {
+        return stack.peek(register: register)
     }
     
     func enterNumber(_ number : Double) {

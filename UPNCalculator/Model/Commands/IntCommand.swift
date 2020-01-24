@@ -29,14 +29,10 @@ class IntCommand : Command {
         
         value.round(.towardZero)
         
-        if display.isPushed == false {
-            display.value = value
-        } else {
-            
-            calculatorEngine.removeTop()
-            calculatorEngine.enterNumber(value)
-            display.value = value
-       }
+ 
+        calculatorEngine.removeTop()
+        calculatorEngine.enterNumber(value)
+        display.value = value
         
         return .Default
         

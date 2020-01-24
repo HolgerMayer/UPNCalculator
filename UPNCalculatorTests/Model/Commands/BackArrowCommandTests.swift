@@ -108,7 +108,7 @@ class BackArrowCommandTests: XCTestCase {
           }
              
                     
-          XCTAssertTrue(result1 == 1.0, "Should be 0 is \(result1)")
+         XCTAssertEqual(result1 ,1.0)
          
       }
 }

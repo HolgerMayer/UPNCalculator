@@ -28,35 +28,47 @@ class ChangeSignCommandTests: XCTestCase {
     }
 
     func testChangeSign(){
-        display.value = 20
+        
+        let digit0Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "0")
+        let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
+        
+        let _ = digit2Command.execute()
+        let _ = digit0Command.execute()
         
         let _ = testObject.execute()
         
-        XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value == -20)
-        XCTAssertFalse(display.isPushed)
+        XCTAssertEqual(display.value,-20)
+        XCTAssertEqual(engine.top!,-20)
+        XCTAssertTrue(display.isPushed)
  
         let _ = testObject.execute()
          
-        XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value == 20)
-        XCTAssertFalse(display.isPushed)
+        XCTAssertEqual(display.value,20)
+        XCTAssertEqual(engine.top!,20)
+        XCTAssertTrue(display.isPushed)
     }
 
     func testChangeSignOfNumberLessThanOne(){
-        display.value = 0.1
+         let digit0Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "0")
+         let digit1Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "1")
+        let dotCommand = DigitDotCommand(calculatorEngine: engine, display: display, token: ".")
+
+          let _ = digit0Command.execute()
+          let _ = dotCommand.execute()
+          let _ = digit1Command.execute()
                
         let _ = testObject.execute()
                
-        XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value == -0.1)
-        XCTAssertFalse(display.isPushed)
+ 
+        XCTAssertEqual(display.value, -0.1)
+        XCTAssertEqual(engine.top!,-0.1)
+        XCTAssertTrue(display.isPushed)
         
         let _ = testObject.execute()
                 
-        XCTAssertNil(engine.top)
-        XCTAssertTrue(display.value == 0.1)
-        XCTAssertFalse(display.isPushed)
+        XCTAssertEqual(display.value, 0.1)
+        XCTAssertEqual(engine.top!,0.1)
+        XCTAssertTrue(display.isPushed)
 
     }
     

@@ -31,6 +31,7 @@ class CalculatorDisplay : Display {
     
     weak var delegate : DisplayDelegate?
     
+    var needsOverride : Bool = true
     var isPushed: Bool {
         didSet{
             if isPushed == true  && oldValue == false {
@@ -180,6 +181,7 @@ class CalculatorDisplay : Display {
                 appendChar = locale.decimalSeparator!
             }
             
+              
             var newText = ""
             if displayText.contains(" ") {
                 newText = displayText.replaceFirstOccurrence(of: " ", with: appendChar)
@@ -218,7 +220,6 @@ class CalculatorDisplay : Display {
         }
         
       value = -1 * valueToChange
-      isPushed = false
     }
     
     
@@ -231,9 +232,21 @@ class CalculatorDisplay : Display {
     }
 
     func changeExponentSign() {
-         eexExponent = eexExponent * -1
-         eexFormatter.exponent = eexExponent
-         updateDisplay()
+        let length = displayText.count
+        let index = displayText.index(displayText.endIndex, offsetBy: -3)
+        if displayText[index] == " " {
+            displayText = displayText.prefix(length-3) + "-" + displayText.dropFirst(length-3 + 1)
+        } else {
+            displayText = displayText.prefix(length-3) + " " + displayText.dropFirst(length-3 + 1)
+        }
+
+        if delegate != nil {
+            delegate?.didChangeDisplay(value: displayText)
+        }
+
+        eexFormatter.exponent = eexFormatter.exponent * -1
+         eexExponent = eexFormatter.exponent
+   //      updateDisplay()
      }
 
      

@@ -40,11 +40,14 @@ class PowCommandTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(abs(1 - result) < 0.0001)
+        XCTAssertEqual(result,1)
     }
 
     func testPow3onStack() {
-        engine.enterNumber(3.0)
+        
+        let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
+        
+        let _ = digit3Command.execute()
         
         let _ = testObject.execute()
         
@@ -53,13 +56,18 @@ class PowCommandTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(abs(27 - result) < 0.0001)
+        XCTAssertEqual(result,0)
     }
 
     func testPow3Exp2() {
+        let digit2Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "2")
+        let digit3Command = DigitDotCommand(calculatorEngine: engine, display: display, token: "3")
+        let enterCommand = EnterCommand(calculatorEngine: engine, display: display  )
+
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit2Command.execute()
         
-         engine.enterNumber(3.0)
-        engine.enterNumber(2.0)
 
          let _ = testObject.execute()
         
@@ -68,7 +76,7 @@ class PowCommandTests: XCTestCase {
                return
            }
            
-         XCTAssertTrue(abs(9 - result) < 0.0001)
+         XCTAssertEqual(result,9)
      }
     
    

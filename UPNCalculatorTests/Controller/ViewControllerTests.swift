@@ -74,7 +74,6 @@ class ViewControllerTests: XCTestCase {
         XCTAssertFalse(testObject.isPushed())
         XCTAssertNotNil(testObject.calculatorEngine)
         XCTAssertNotNil(testObject.display)
-        XCTAssertNil(testObject.calculatorEngine.top)
     }
     
 }

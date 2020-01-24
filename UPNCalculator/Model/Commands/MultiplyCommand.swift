@@ -17,5 +17,6 @@ class MultiplyCommand : CalculationCommand {
     
     override  func callEngineCalculation() throws {
         super.calculatorEngine.multiply()
+        display.needsOverride = false
     }
 }

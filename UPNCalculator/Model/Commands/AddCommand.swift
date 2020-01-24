@@ -17,5 +17,6 @@ class AddCommand : CalculationCommand {
     
     override  func callEngineCalculation() throws {
         super.calculatorEngine.add()
+        display.needsOverride = false
     }
 }

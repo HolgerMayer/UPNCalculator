@@ -17,5 +17,6 @@ class SubtractCommand : CalculationCommand {
     
     override  func callEngineCalculation() throws {
         super.calculatorEngine.subtract()
+        display.needsOverride = false
     }
 }

@@ -28,6 +28,9 @@ class DigitDotCommand : Command {
                  if display.needsOverride {
                     display.clear()
                     calculatorEngine.removeTop()
+                 } else {
+                    display.clear()
+                    display.needsOverride = true
                 }
                 
                 display.addBaseDigit(digit: digitString)

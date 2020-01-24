@@ -19,6 +19,7 @@ class DivideCommand : CalculationCommand {
     override  func callEngineCalculation() throws {
              
         try super.calculatorEngine.divide()
- 
+        display.needsOverride = false
+
     }
 }

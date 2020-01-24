@@ -88,6 +88,7 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.xOverYKey.rawValue] = PowCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.divide1ByXKey.rawValue] = DivideOneByXCommand(calculatorEngine: calculatorEngine, display: display)
  
+        defaultCommandDictionary[CommandKey.rollDownKey.rawValue] = RollDownCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.exchangeXYKey.rawValue] = ExchangeXYCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.backArrowKey.rawValue] = BackArrowCommand(calculatorEngine: calculatorEngine, display: display)
 
@@ -153,6 +154,7 @@ class UPNCommandFactory  {
 
         
         // Row 3
+        gStateCommandDictionary[CommandKey.rollDownKey.rawValue] = RollUpCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.exchangeXYKey.rawValue] = RndCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.backArrowKey.rawValue] = CLxCommand(calculatorEngine: calculatorEngine, display: display)
 

@@ -42,6 +42,24 @@ public struct Stack<T> {
         return value
     }
     
+    public mutating func rollUp() {
+
+        let temp = array[StackRegister.T.rawValue]
+        array[StackRegister.T.rawValue] = array[StackRegister.Z.rawValue]
+        array[StackRegister.Z.rawValue] = array[StackRegister.Y.rawValue]
+        array[StackRegister.Y.rawValue] = array[StackRegister.X.rawValue]
+        array[StackRegister.X.rawValue] = temp
+
+    }
+ 
+    public mutating func rollDown() {
+           let temp = array[StackRegister.X.rawValue]
+           array[StackRegister.X.rawValue] = array[StackRegister.Y.rawValue]
+           array[StackRegister.Y.rawValue] = array[StackRegister.Z.rawValue]
+           array[StackRegister.Z.rawValue] = array[StackRegister.T.rawValue]
+           array[StackRegister.T.rawValue] = temp
+    }
+    
     public mutating func clear() {
         array.removeAll()
         array.insert(initValue, at: 0)

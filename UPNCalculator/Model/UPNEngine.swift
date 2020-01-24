@@ -55,6 +55,14 @@ class UPNEngine {
         let _ = stack.pop()
     }
     
+    func rollUp(){
+        stack.rollUp()
+    }
+    
+    func rollDown(){
+        stack.rollDown()
+    }
+    
     func add() {
         let a = getNextNumber()
         let b = getNextNumber()

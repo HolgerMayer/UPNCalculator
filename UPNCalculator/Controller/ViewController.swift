@@ -50,7 +50,7 @@ class ViewController: UIViewController {
       var noop1Button : UIButton!
       var gtoButton : UIButton!
       var noop3Button : UIButton!
-      var noop5Button : UIButton!
+      var rollDownButton : UIButton!
       var xExYButton : UIButton!
       var backArrowButton : UIButton!
       var stoButton : UIButton!
@@ -242,8 +242,8 @@ class ViewController: UIViewController {
         gsbButton = createButton(title1:"Clear ∑",title2: "GSB",  title3:"", accessoryLabel: "gsb")
         view.addSubview(gsbButton)
 
-        noop5Button = createButton(title1:"",title2: "Noop",  title3:"", accessoryLabel: "noop5")
-        view.addSubview(noop5Button)
+        rollDownButton = createButton(title1:"",title2: "R⬇︎",  title3:"R⬆︎", accessoryLabel: "rdown")
+        view.addSubview(rollDownButton)
 
         xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"RND", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
@@ -495,8 +495,8 @@ class ViewController: UIViewController {
          constraintFirstButtonInRow(noop3Button!, viewOfPreviousRow: noop1Button, firstRow: false)
 
          constraintOtherButtonsInRow(gsbButton!,  previousButton: noop3Button!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(noop5Button!, previousButton: gsbButton!, firstButtoninRow: noop3Button!)
-         constraintOtherButtonsInRow(xExYButton!, previousButton: noop5Button!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(rollDownButton!, previousButton: gsbButton!, firstButtoninRow: noop3Button!)
+         constraintOtherButtonsInRow(xExYButton!, previousButton: rollDownButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(backArrowButton!, previousButton: xExYButton!, firstButtoninRow: noop3Button!)
          constraintDoubleHeightOtherButtonsInRow(enterButton!, previousButton: backArrowButton!, firstButtoninRow: noop3Button!)
          constraintOtherButtonsInRow(digit1Button!, previousButton: enterButton!, firstButtoninRow: noop3Button!)

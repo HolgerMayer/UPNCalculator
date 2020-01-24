@@ -144,5 +144,47 @@ class UPNEngineMemoryStackTests: XCTestCase {
         XCTAssertEqual(engine.peek(register:.T),1)
      }
 
+    func testRollUpRollDownExchange(){
+        let rollUpCommand = RollUpCommand(calculatorEngine: engine, display: display)
+        let rollDownCommand = RollDownCommand(calculatorEngine: engine, display: display)
+        let exchangeCommand = ExchangeXYCommand(calculatorEngine: engine, display: display)
+        
+        engine.enterNumber(1)
+        engine.enterNumber(2)
+        engine.enterNumber(3)
+        engine.enterNumber(4)
+        
+        display.isPushed = true
+        display.needsOverride = false
+
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+
+        let resultDown = rollDownCommand.execute()
+        
+        XCTAssertEqual(resultDown,.Default)
+        XCTAssertEqual(engine.peek(register:.X)!,3)
+        XCTAssertEqual(engine.peek(register:.Y)!,2)
+        XCTAssertEqual(engine.peek(register:.Z)!,1)
+        XCTAssertEqual(engine.peek(register:.T)!,4)
+   
+        let resultUp = rollUpCommand.execute()
+          
+        XCTAssertEqual(resultUp,.Default)
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+
+        let resultExchange = exchangeCommand.execute()
+          
+        XCTAssertEqual(resultExchange,.Default)
+        XCTAssertEqual(engine.peek(register:.X),3)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+   }
 }
 

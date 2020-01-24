@@ -103,6 +103,8 @@
 		5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */; };
 		5497C95123A0EDBF00FF7696 /* KeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5497C95023A0EDBF00FF7696 /* KeyboardState.swift */; };
 		54985B2423DA3FC400110061 /* UPNEngineMemoryStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */; };
+		5498F52E23DB5F4900A09309 /* RollUpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498F52D23DB5F4900A09309 /* RollUpCommand.swift */; };
+		5498F53023DB5F5500A09309 /* RollDownCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498F52F23DB5F5500A09309 /* RollDownCommand.swift */; };
 		549B8CD123CE621E00E36997 /* UPNEngine+Trigonometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CD023CE621E00E36997 /* UPNEngine+Trigonometric.swift */; };
 		549B8CD523CE63E000E36997 /* SineHCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CD423CE63E000E36997 /* SineHCommand.swift */; };
 		549B8CDB23CE643C00E36997 /* ASineHCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B8CDA23CE643C00E36997 /* ASineHCommand.swift */; };
@@ -306,6 +308,8 @@
 		5497C94E23A0E9BB00FF7696 /* ChangeSignCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSignCommand.swift; sourceTree = "<group>"; };
 		5497C95023A0EDBF00FF7696 /* KeyboardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardState.swift; sourceTree = "<group>"; };
 		54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNEngineMemoryStackTests.swift; sourceTree = "<group>"; };
+		5498F52D23DB5F4900A09309 /* RollUpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollUpCommand.swift; sourceTree = "<group>"; };
+		5498F52F23DB5F5500A09309 /* RollDownCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollDownCommand.swift; sourceTree = "<group>"; };
 		549B8CD023CE621E00E36997 /* UPNEngine+Trigonometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+Trigonometric.swift"; sourceTree = "<group>"; };
 		549B8CD423CE63E000E36997 /* SineHCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SineHCommand.swift; sourceTree = "<group>"; };
 		549B8CDA23CE643C00E36997 /* ASineHCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASineHCommand.swift; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 				542C045023C7EE8400A82471 /* RectangularConversionCommand.swift */,
 				5444D5B423D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift */,
 				5444D5B623D10DB60040AB32 /* DecDegreeToHMMSSCommand.swift */,
+				5498F52D23DB5F4900A09309 /* RollUpCommand.swift */,
+				5498F52F23DB5F5500A09309 /* RollDownCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -961,12 +967,14 @@
 				542C045123C7EE8400A82471 /* RectangularConversionCommand.swift in Sources */,
 				545F3E9123A9554800D0BC5A /* BackArrowCommand.swift in Sources */,
 				542485EB23AF7D560021992F /* DisplayFormatter.swift in Sources */,
+				5498F53023DB5F5500A09309 /* RollDownCommand.swift in Sources */,
 				54EEED3523BA731C0072A921 /* FCommand.swift in Sources */,
 				54E769DB23A5875100165EDC /* PowCommand.swift in Sources */,
 				540D4B2223BE793A003194B0 /* CommandController.swift in Sources */,
 				549B8CDF23CE648700E36997 /* TangentHCommand.swift in Sources */,
 				54E769D923A5871D00165EDC /* ATangentCommand.swift in Sources */,
 				54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */,
+				5498F52E23DB5F4900A09309 /* RollUpCommand.swift in Sources */,
 				54D17F84239C59FE008F5020 /* DigitDotCommand.swift in Sources */,
 				5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */,
 				549B8CE123CE64A500E36997 /* ACosineHCommand.swift in Sources */,

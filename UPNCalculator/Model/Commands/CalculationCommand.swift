@@ -28,6 +28,8 @@ class CalculationCommand : Command {
         do {
             try  callEngineCalculation()
             display.isPushed = true
+            display.needsOverride = false
+
         } catch CalculationError.divisionByZero {
             display.setError("Error : division by zero")
             return .Default

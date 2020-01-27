@@ -257,5 +257,218 @@ class UPNEngineMemoryStackTests: XCTestCase {
         
     }
     
+    func testCalculatorFunctions_1() {
+        display.isPushed = true
+        display.needsOverride = false
+
+        let _ = digit1Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit2Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit4Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+
+        let sqrtCommand = SquareRootCommand(calculatorEngine: engine, display: display)
+        let _ = sqrtCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),2)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+
+        let _ = digit5Command.execute()
+
+        XCTAssertEqual(engine.peek(register:.X),5)
+        XCTAssertEqual(engine.peek(register:.Y),2)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+        let addCommand = AddCommand(calculatorEngine: engine, display: display)
+        let _ = addCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),7)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+
+        let clxCommand = CLxCommand(calculatorEngine: engine, display: display)
+        let _ = clxCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),0)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+        let _ = digit6Command.execute()
+
+        XCTAssertEqual(engine.peek(register:.X),6)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+        let xoveryCommand = PowCommand(calculatorEngine: engine, display: display)
+        let _ = xoveryCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),729)
+        XCTAssertEqual(engine.peek(register:.Y),2)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+      }
+      
+    func testOderEntryAndTheENterKey(){
+         display.isPushed = true
+         display.needsOverride = false
+
+         let _ = digit1Command.execute()
+         let _ = enterCommand.execute()
+         let _ = digit2Command.execute()
+         let _ = enterCommand.execute()
+         let _ = digit3Command.execute()
+         let _ = enterCommand.execute()
+         let _ = digit4Command.execute()
+        
+         XCTAssertEqual(engine.peek(register:.X),4)
+         XCTAssertEqual(engine.peek(register:.Y),3)
+         XCTAssertEqual(engine.peek(register:.Z),2)
+         XCTAssertEqual(engine.peek(register:.T),1)
+        
+         display.isPushed = true
+         display.needsOverride = false
+
+        let _ = digit9Command.execute()
+        let _ = digit8Command.execute()
+
+        XCTAssertEqual(engine.peek(register:.X),98)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+        let _ = enterCommand.execute()
+   
+        XCTAssertEqual(engine.peek(register:.X),98)
+        XCTAssertEqual(engine.peek(register:.Y),98)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+        
+        let _ = digit1Command.execute()
+        let _ = digit5Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),15)
+        XCTAssertEqual(engine.peek(register:.Y),98)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let subtractCommand = SubtractCommand(calculatorEngine: engine, display: display)
+        let _ = subtractCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),83)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+    }
+    
+    func testNestedCalculations(){
+        display.isPushed = true
+        display.needsOverride = false
+
+        let _ = digit1Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit2Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit4Command.execute()
+           
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+           
+        display.isPushed = true
+        display.needsOverride = false
+
+        let _ = digit6Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),6)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),2)
+
+        let _ = enterCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),6)
+        XCTAssertEqual(engine.peek(register:.Y),6)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = digit7Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),7)
+        XCTAssertEqual(engine.peek(register:.Y),6)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let addCommand = AddCommand(calculatorEngine: engine, display: display)
+        let _ = addCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),13)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = digit5Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),5)
+        XCTAssertEqual(engine.peek(register:.Y),13)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let multiplyCommand = MultiplyCommand(calculatorEngine: engine, display: display)
+        let _ = multiplyCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),65)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = digit4Command.execute()
+
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),65)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = addCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),69)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = digit3Command.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),3)
+        XCTAssertEqual(engine.peek(register:.Y),69)
+        XCTAssertEqual(engine.peek(register:.Z),4)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+        let _ = multiplyCommand.execute()
+        
+        XCTAssertEqual(engine.peek(register:.X),207)
+        XCTAssertEqual(engine.peek(register:.Y),4)
+        XCTAssertEqual(engine.peek(register:.Z),3)
+        XCTAssertEqual(engine.peek(register:.T),3)
+
+    }
+    
 }
 

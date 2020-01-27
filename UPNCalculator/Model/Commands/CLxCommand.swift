@@ -22,7 +22,10 @@ class CLxCommand : Command {
     func execute() -> KeyboardState {
          
         display.clear()
-        
+        calculatorEngine.removeTop()
+        calculatorEngine.enterNumber(0)
+        display.needsOverride = true
+        display.isPushed = false
         return .Default
     }
     

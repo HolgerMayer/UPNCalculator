@@ -530,6 +530,31 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		545F0D7523E0298D007ED8E8 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		545F0D7623E029AE007ED8E8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5497C95023A0EDBF00FF7696 /* KeyboardState.swift */,
+				54F491C823A0E3B5001D0E45 /* CommandKey.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		545F0D7723E029BD007ED8E8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				54D17F76239C4660008F5020 /* Command.swift */,
+				54D17F85239C5C0E008F5020 /* CalculationCommand.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		545F3E9523A98F2A00D0BC5A /* UPNEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,15 +683,14 @@
 		54D17F74239C4611008F5020 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				5497C95023A0EDBF00FF7696 /* KeyboardState.swift */,
-				54F491C823A0E3B5001D0E45 /* CommandKey.swift */,
+				545F0D7723E029BD007ED8E8 /* Common */,
+				545F0D7623E029AE007ED8E8 /* Config */,
 				544F8AF823A3CC6400C58A42 /* Factory */,
 				542B1ABF23C645D300EE064D /* Trigonometric */,
-				54D17F76239C4660008F5020 /* Command.swift */,
+				545F0D7523E0298D007ED8E8 /* Register */,
 				54D17F78239C46C4008F5020 /* EnterCommand.swift */,
 				54D17F83239C59FE008F5020 /* DigitDotCommand.swift */,
 				540D4B2923BEB10C003194B0 /* NumberFormatDigitCommand.swift */,
-				54D17F85239C5C0E008F5020 /* CalculationCommand.swift */,
 				54D17F8F239C6545008F5020 /* SineCommand.swift */,
 				54D17F91239C658F008F5020 /* CosineCommand.swift */,
 				54D17F93239C65C7008F5020 /* TangentCommand.swift */,

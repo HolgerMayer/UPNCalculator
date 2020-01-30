@@ -148,6 +148,9 @@
 		54D17F94239C65C7008F5020 /* TangentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F93239C65C7008F5020 /* TangentCommand.swift */; };
 		54D17F96239C693B008F5020 /* SquareRootCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F95239C693B008F5020 /* SquareRootCommand.swift */; };
 		54D17F98239C6A74008F5020 /* DivideOneByXCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17F97239C6A74008F5020 /* DivideOneByXCommand.swift */; };
+		54D5FCB223E37812006069FD /* RegisterControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB123E37812006069FD /* RegisterControllerTests.swift */; };
+		54D5FCB423E3787F006069FD /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB323E3787F006069FD /* RegisterController.swift */; };
+		54D5FCB623E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */; };
 		54DC171C23C397880024E7FA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DC171B23C397880024E7FA /* String+Ext.swift */; };
 		54DC172023C3EE800024E7FA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54DC171F23C3EE800024E7FA /* LICENSE.txt */; };
 		54E03795239A7FF200B30EFB /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E03794239A7FF200B30EFB /* ViewControllerTests.swift */; };
@@ -353,6 +356,9 @@
 		54D17F93239C65C7008F5020 /* TangentCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangentCommand.swift; sourceTree = "<group>"; };
 		54D17F95239C693B008F5020 /* SquareRootCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareRootCommand.swift; sourceTree = "<group>"; };
 		54D17F97239C6A74008F5020 /* DivideOneByXCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideOneByXCommand.swift; sourceTree = "<group>"; };
+		54D5FCB123E37812006069FD /* RegisterControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterControllerTests.swift; sourceTree = "<group>"; };
+		54D5FCB323E3787F006069FD /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+RegisterControllerDelegate.swift"; sourceTree = "<group>"; };
 		54DC171B23C397880024E7FA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		54DC171F23C3EE800024E7FA /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		54E03794239A7FF200B30EFB /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
@@ -567,6 +573,7 @@
 				545F3EA423A9922D00D0BC5A /* UPNEngineExpLogTests.swift */,
 				545F3EA623A992A300D0BC5A /* UPNEngineOtherFunctionTests.swift */,
 				54985B2323DA3FC400110061 /* UPNEngineMemoryStackTests.swift */,
+				54D5FCB123E37812006069FD /* RegisterControllerTests.swift */,
 			);
 			path = UPNEngine;
 			sourceTree = "<group>";
@@ -639,9 +646,11 @@
 			children = (
 				54D17F74239C4611008F5020 /* Commands */,
 				54757B1D239A5CBD0048A732 /* UPNEngine.swift */,
+				54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */,
 				549B8CD023CE621E00E36997 /* UPNEngine+Trigonometric.swift */,
 				54757B21239A5EB10048A732 /* Stack.swift */,
 				542B1AC623C6577600EE064D /* TrigonometricConverter.swift */,
+				54D5FCB323E3787F006069FD /* RegisterController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1033,6 +1042,7 @@
 				5433552F23AC195500120CA9 /* FracCommand.swift in Sources */,
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
 				5489044023BD1FBC002D6F02 /* EEXFormatter.swift in Sources */,
+				54D5FCB423E3787F006069FD /* RegisterController.swift in Sources */,
 				54E08BE523C53AA2002C2A97 /* PercentDifferenceCommand.swift in Sources */,
 				54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */,
 				542C044F23C7EE6F00A82471 /* PolarConversionCommand.swift in Sources */,
@@ -1041,6 +1051,7 @@
 				545C741C23B0278A006E6FF3 /* EngFormatter.swift in Sources */,
 				5403EBDE23C4BE7100C2E60A /* CLxCommand.swift in Sources */,
 				54D17F86239C5C0E008F5020 /* CalculationCommand.swift in Sources */,
+				54D5FCB623E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift in Sources */,
 				5433552B23AC162200120CA9 /* IntCommand.swift in Sources */,
 				54DC171C23C397880024E7FA /* String+Ext.swift in Sources */,
 				542485E023AED8750021992F /* FixCommand.swift in Sources */,
@@ -1058,6 +1069,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D5FCB223E37812006069FD /* RegisterControllerTests.swift in Sources */,
 				542B1ABE23C643D100EE064D /* GradCommandTests.swift in Sources */,
 				549B8CE923CE68CA00E36997 /* SineHCommandTests.swift in Sources */,
 				54E03795239A7FF200B30EFB /* ViewControllerTests.swift in Sources */,

@@ -9,7 +9,7 @@
 
 import XCTest
 @testable import UPNCalculator
-
+ 
 class EEXChangeSignCommandTests: XCTestCase {
 
     var locale : Locale!

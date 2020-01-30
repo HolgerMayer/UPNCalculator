@@ -24,7 +24,17 @@ class EEX1Command : Command {
     
     func execute() -> KeyboardState {
 
+        calculatorEngine.removeTop()
+
         display.addExponentDigit(digit:digitString)
+        
+        guard let mantissa = display.currentValue else {
+            return .EEX1
+        }
+        
+        let exponent = Double(display.eexExponent) 
+        
+        calculatorEngine.enterExponentNumber(mantissa:mantissa,exponent:exponent)
  
         return .EEX1
    }

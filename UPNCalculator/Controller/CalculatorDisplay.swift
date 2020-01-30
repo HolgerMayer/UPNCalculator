@@ -24,8 +24,8 @@ class CalculatorDisplay : Display {
     private var lastDisplayText : String
     private var lastValue : Double = 0.0
     
-    private var currentValue : Double?
-    private var eexExponent : Int = 0
+    var currentValue : Double?
+    var eexExponent : Int = 0
     
     private var inError : Bool = false
     
@@ -71,6 +71,12 @@ class CalculatorDisplay : Display {
             if delegate != nil {
                 delegate?.didChangeTrigonometricMode(trigonometricMode)
             }
+        }
+    }
+    
+    var lastX : Double {
+        get {
+            return lastValue
         }
     }
     
@@ -142,8 +148,8 @@ class CalculatorDisplay : Display {
 
     func updateLastValue() {
         lastDisplayText = displayText
-        if currentValue != nil {
-            lastValue = currentValue!
+        if value != nil {
+            lastValue = value!
         } else {
             lastValue = 0.0
         }

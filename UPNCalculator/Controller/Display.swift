@@ -32,6 +32,9 @@ public protocol Display {
     var isPushed : Bool {get set}
     var needsOverride : Bool {get set}
 
+    var lastX : Double { get}
+    var eexExponent : Int {get}
+    var currentValue : Double? {get}
     var value : Double? {get set}
     var inputMode : InputMode {get set}
     var state: KeyboardState {get set}

@@ -688,6 +688,7 @@
 				544F8AF823A3CC6400C58A42 /* Factory */,
 				542B1ABF23C645D300EE064D /* Trigonometric */,
 				545F0D7523E0298D007ED8E8 /* Register */,
+				54DB946923E258FE00584826 /* EEX */,
 				54D17F78239C46C4008F5020 /* EnterCommand.swift */,
 				54D17F83239C59FE008F5020 /* DigitDotCommand.swift */,
 				540D4B2923BEB10C003194B0 /* NumberFormatDigitCommand.swift */,
@@ -723,10 +724,6 @@
 				545C742123B0B0A0006E6FF3 /* EngCommand.swift */,
 				54EEED3423BA731C0072A921 /* FCommand.swift */,
 				54EEED3623BA73C90072A921 /* GCommand.swift */,
-				5489043D23BCF820002D6F02 /* EEXCommand.swift */,
-				540D4B2B23BF3BBC003194B0 /* EEX1Command.swift */,
-				540D4B2F23BF3CB9003194B0 /* EEXChangeSignCommand.swift */,
-				54465F1323C13E560037535D /* EEXBackArrowCommand.swift */,
 				5403EBDD23C4BE7100C2E60A /* CLxCommand.swift */,
 				54E08BDA23C4E336002C2A97 /* RndCommand.swift */,
 				54E08BE023C53971002C2A97 /* PercentCommand.swift */,
@@ -745,6 +742,7 @@
 		54D17F75239C4622008F5020 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				54DB946A23E2596F00584826 /* EEX */,
 				54B656DE23A4DC85004E6E7D /* SineCommandTests.swift */,
 				54B656E023A4DE4F004E6E7D /* CosineCommandTests.swift */,
 				54B656E223A4DFF4004E6E7D /* TangentCommandTests.swift */,
@@ -781,10 +779,6 @@
 				54465F1523C13FF30037535D /* FCommandTests.swift */,
 				54465F1723C13FFF0037535D /* GCommandTests.swift */,
 				54465F1923C140140037535D /* NumberFormatDigitCommandTests.swift */,
-				54465F1B23C140260037535D /* EEXCommandTests.swift */,
-				54465F1D23C140370037535D /* EEX1CommandTests.swift */,
-				54465F1F23C1404F0037535D /* EEXChangeSignCommandTests.swift */,
-				54465F2123C140600037535D /* EEXBackArrowCommandTests.swift */,
 				5403EBDB23C4BE0400C2E60A /* CLxCommandTests.swift */,
 				54E08BD823C4E2F3002C2A97 /* RndCommandTests.swift */,
 				54E08BDE23C53826002C2A97 /* PercentCommandTests.swift */,
@@ -796,6 +790,28 @@
 				5444D5B223D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		54DB946923E258FE00584826 /* EEX */ = {
+			isa = PBXGroup;
+			children = (
+				5489043D23BCF820002D6F02 /* EEXCommand.swift */,
+				540D4B2B23BF3BBC003194B0 /* EEX1Command.swift */,
+				540D4B2F23BF3CB9003194B0 /* EEXChangeSignCommand.swift */,
+				54465F1323C13E560037535D /* EEXBackArrowCommand.swift */,
+			);
+			path = EEX;
+			sourceTree = "<group>";
+		};
+		54DB946A23E2596F00584826 /* EEX */ = {
+			isa = PBXGroup;
+			children = (
+				54465F1B23C140260037535D /* EEXCommandTests.swift */,
+				54465F1D23C140370037535D /* EEX1CommandTests.swift */,
+				54465F1F23C1404F0037535D /* EEXChangeSignCommandTests.swift */,
+				54465F2123C140600037535D /* EEXBackArrowCommandTests.swift */,
+			);
+			path = EEX;
 			sourceTree = "<group>";
 		};
 		54DC171A23C397760024E7FA /* Extensions */ = {

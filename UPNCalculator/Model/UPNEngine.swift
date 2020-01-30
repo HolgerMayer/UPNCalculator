@@ -46,6 +46,11 @@ class UPNEngine {
         stack.push(number)
     }
     
+    func enterExponentNumber(mantissa : Double , exponent : Double) {
+        
+        stack.push(mantissa * Darwin.pow(10.0,exponent))
+    }
+    
     func clear() {
         stack.clear()
     }

@@ -556,5 +556,61 @@ class UPNEngineMemoryStackTests: XCTestCase {
         XCTAssertEqual(engine.peek(register:.T),4)
 
     }
+    
+    func testMultipleConstants(){
+        display.isPushed = true
+        display.needsOverride = false
+
+                
+        let _ = digit1Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit2Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit3Command.execute()
+        let _ = enterCommand.execute()
+        let _ = digit4Command.execute()
+               
+        XCTAssertEqual(engine.peek(register:.X),4)
+        XCTAssertEqual(engine.peek(register:.Y),3)
+        XCTAssertEqual(engine.peek(register:.Z),2)
+        XCTAssertEqual(engine.peek(register:.T),1)
+            
+        display.isPushed = true
+        display.needsOverride = false
+     
+        let _ = digit1Command.execute()
+        let _ = dotCommand.execute()
+        let _ = digit1Command.execute()
+        let _ = digit5Command.execute()
+
+        let _ = enterCommand.execute()
+        let _ = enterCommand.execute()
+        let _ = enterCommand.execute()
+
+        XCTAssertEqual(engine.peek(register:.X),1.15)
+        XCTAssertEqual(engine.peek(register:.Y),1.15)
+        XCTAssertEqual(engine.peek(register:.Z),1.15)
+        XCTAssertEqual(engine.peek(register:.T),1.15)
+
+        let _ = digit1Command.execute()
+        let _ = digit0Command.execute()
+        let _ = digit0Command.execute()
+        let _ = digit0Command.execute()
+
+        let multiplyCommand = MultiplyCommand(calculatorEngine: engine, display: display)
+        
+        let _ = multiplyCommand.execute()
+        XCTAssertEqual(engine.peek(register:.X),1150)
+
+        let _ = multiplyCommand.execute()
+        XCTAssertEqual(engine.peek(register:.X),1322.5)
+
+        let _ = multiplyCommand.execute()
+        XCTAssertEqual(engine.peek(register:.X)!,1520.8750, accuracy : 0.0001)
+
+        let _ = multiplyCommand.execute()
+        XCTAssertEqual(engine.peek(register:.X)!,1749.0063, accuracy : 0.0001)
+
+    }
 }
 

@@ -1,33 +1,32 @@
 //
-//  ClearCommand.swift
+//  ClearRegCommand.swift
 //  UPNCalculator
 //
-//  Created by holgermayer on 11.12.19.
-//  Copyright © 2019 holgermayer. All rights reserved.
+//  Created by holgermayer on 03.02.20.
+//  Copyright © 2020 holgermayer. All rights reserved.
 //
+
 
 import Foundation
 
 
-class ClearCommand : Command {
+class ClearRegCommand : Command {
     
     private var calculatorEngine : UPNEngine
     private var display : Display
     private var registerController : RegisterController
     
-    init( calculatorEngine: UPNEngine, display : Display, registerController:RegisterController){
+    init( calculatorEngine: UPNEngine, display : Display, registerController : RegisterController){
         self.calculatorEngine = calculatorEngine
         self.display = display
         self.registerController = registerController
     }
     
     func execute() -> KeyboardState {
-        calculatorEngine.clear()
-        display.clear()
-        registerController.clearStatisticRegisters()
+        
+        registerController.clear()
         
         return .Default
     }
-    
     
 }

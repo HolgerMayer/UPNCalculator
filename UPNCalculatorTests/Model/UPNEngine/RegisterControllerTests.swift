@@ -35,6 +35,40 @@ class RegisterControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testClear() {
+        for i in 0..<testObject.register.count {
+            testObject.register[i] = Double(i+1)
+        }
+        
+        testObject.clear()
+        
+        for i in 0..<testObject.register.count{
+             XCTAssertEqual(testObject.register[i] ,0)
+         }
+
+    }
+    
+    func testClearStatisticRegister() {
+        for i in 0..<testObject.register.count {
+            testObject.register[i] = Double(i+1)
+        }
+           
+        testObject.clearStatisticRegisters()
+           
+        XCTAssertEqual(testObject.register[0] ,1.0)
+        XCTAssertEqual(testObject.register[1] ,2.0)
+
+        for i in 3..<8 {
+            XCTAssertEqual(testObject.register[i] ,0.0)
+        }
+        
+        for i in 8..<testObject.register.count{
+            XCTAssertEqual(testObject.register[i] ,Double(i+1))
+        }
+
+    }
+    
+    
     func testStoreToRegister0() {
         
         testObject.intializeStoreOperation()
@@ -152,19 +186,19 @@ class RegisterControllerTests: XCTestCase {
         testObject.actionOnRegister(registerIndex: 1)
             
         XCTAssertEqual(testObject.register[11],42)
-        XCTAssertEqual(engine.stack.peek(register: .X),41)
+        XCTAssertEqual(engine.stack.peek(register: .X),-41)
 
     }
 
     func testRecallAndDivideFromRegister1() {
-         engine.enterNumber(2.0)
-         testObject.register[1] = 42
+         engine.enterNumber(42.0)
+         testObject.register[1] = 2
               
          testObject.initializeRecallOperation()
          testObject.setCalculationOperation(.Divide)
          testObject.actionOnRegister(registerIndex: 1)
                
-         XCTAssertEqual(testObject.register[1],42)
+         XCTAssertEqual(testObject.register[1],2)
          XCTAssertEqual(engine.stack.peek(register: .X),21)
 
     }

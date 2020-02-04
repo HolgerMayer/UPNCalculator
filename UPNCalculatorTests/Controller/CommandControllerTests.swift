@@ -13,6 +13,7 @@ class CommandControllerTests: XCTestCase {
 
     var engine : UPNEngine!
     var display : CalculatorDisplay!
+    var registerController : RegisterController!
     var testObject : CommandController!
     var mockDelegate : DisplayMockDelegate!
     
@@ -20,10 +21,12 @@ class CommandControllerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
+        registerController = RegisterController()
+        registerController.delegate = engine
         mockDelegate = DisplayMockDelegate()
         display = CalculatorDisplay()
         display.delegate = mockDelegate
-        testObject = CommandController(calculatorEngine: engine, display: display)
+        testObject = CommandController(calculatorEngine: engine, display: display,registerController: registerController)
     }
 
     override func tearDown() {

@@ -39,6 +39,19 @@ class RegisterController {
     init() {
     }
     
+    func clear() {
+        register = [Double](repeating : 0.0, count : 1000)
+    }
+    
+    func clearStatisticRegisters() {
+        register[2] = 0.0
+        register[3] = 0.0
+        register[4] = 0.0
+        register[5] = 0.0
+        register[6] = 0.0
+        register[7] = 0.0
+    }
+    
     func intializeStoreOperation() {
         registerAccess = .Store
         registerAccessOperation = .None
@@ -78,31 +91,41 @@ class RegisterController {
         
         var result = 0.0
         
-        switch registerAccessOperation {
-        case .Add:
-            result = registerValue + xValue
-            break
-        case .Subtract:
-            result = registerValue - xValue
-            break
-        case .Multiply:
-            result = registerValue * xValue
-            break
-        case .Divide:
-            result = registerValue / xValue
-            break
-        default:
-            switch registerAccess {
-            case .Store:
+        if registerAccess == .Store {
+            switch registerAccessOperation {
+            case .Add:
+                result =   registerValue + xValue
+                break
+            case .Subtract:
+                result = registerValue - xValue
+                break
+            case .Multiply:
+                result = registerValue * xValue
+                break
+            case .Divide:
+                result =  registerValue / xValue
+                break
+            default:
                 result = xValue
-                break
-            case .Recall:
-                result = registerValue
-                break
-            default :
-                break
-                    
             }
+        } else if registerAccess == .Recall {
+            switch registerAccessOperation {
+              case .Add:
+                  result =  xValue + registerValue
+                  break
+              case .Subtract:
+                  result =  xValue - registerValue
+                  break
+              case .Multiply:
+                  result =  xValue * registerValue
+                  break
+              case .Divide:
+                  result =  xValue / registerValue
+                  break
+              default:
+                  result = registerValue
+            }
+  
         }
 
         switch registerAccess {

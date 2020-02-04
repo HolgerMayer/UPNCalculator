@@ -19,5 +19,7 @@ public enum KeyboardState : String {
     case EEX1 = "eex1"
     case HYPERBOLIC = "hyp"
     case INVHYPERBOLIC = "invhyp"
-
+    case StoreRecall = "storcl"
+    case Register1 = "reg1"
+    case Register2 = "reg2"
 }

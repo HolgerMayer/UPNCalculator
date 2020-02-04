@@ -18,10 +18,12 @@ class UPNCommandFactory  {
 
     private var calculatorEngine : UPNEngine
     private var display : Display
+    private var registerController : RegisterController
     
-    init( calculatorEngine: UPNEngine, display : Display){
+    init( calculatorEngine: UPNEngine, display : Display, registerController: RegisterController){
         self.calculatorEngine = calculatorEngine
         self.display = display
+        self.registerController  = registerController
         
         setupCommandDictionary()
     }
@@ -46,7 +48,10 @@ class UPNCommandFactory  {
         var eex1CommandDictionary : [String: Command] = [:]
         var hyperbolicCommandDictionary : [String: Command] = [:]
         var inverseHyperbolicCommandDictionary : [String: Command] = [:]
- 
+        var storeRecallCommandDictionary : [String: Command] = [:]
+        var register1CommandDictionary : [String: Command] = [:]
+        var register2CommandDictionary : [String: Command] = [:]
+        
         defaultCommandDictionary[CommandKey.digit0Key.rawValue] = DigitDotCommand(calculatorEngine: calculatorEngine, display: display, token:"0")
         defaultCommandDictionary[CommandKey.digit1Key.rawValue] = DigitDotCommand(calculatorEngine: calculatorEngine, display: display, token:"1")
         defaultCommandDictionary[CommandKey.digit2Key.rawValue] = DigitDotCommand(calculatorEngine: calculatorEngine, display: display, token:"2")
@@ -95,7 +100,9 @@ class UPNCommandFactory  {
         
         defaultCommandDictionary[CommandKey.fKey.rawValue] = FCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.gKey.rawValue] = GCommand(calculatorEngine: calculatorEngine, display: display)
-        
+        defaultCommandDictionary[CommandKey.stoKey.rawValue] = StoreCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
+         defaultCommandDictionary[CommandKey.rclKey.rawValue] = RecallCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
+
         masterCommandDictionary[KeyboardState.Default.rawValue] = defaultCommandDictionary
         
         //###########################
@@ -108,7 +115,8 @@ class UPNCommandFactory  {
 
         fStateCommandDictionary[CommandKey.gtoKey.rawValue] = HyperbolicCommand(calculatorEngine: calculatorEngine, display: display)
 
-        fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display)
+        fStateCommandDictionary[CommandKey.gsbKey.rawValue] = ClearCommand(calculatorEngine: calculatorEngine, display: display, registerController: registerController)
+        fStateCommandDictionary[CommandKey.exchangeXYKey.rawValue] = ClearRegCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController)
 
         fStateCommandDictionary[CommandKey.digit1Key.rawValue] = RectangularConversionCommand(calculatorEngine: calculatorEngine, display: display)
 
@@ -240,6 +248,55 @@ class UPNCommandFactory  {
         inverseHyperbolicCommandDictionary[CommandKey.tanKey.rawValue] = ATangentHCommand(calculatorEngine: calculatorEngine, display: display)
         masterCommandDictionary[KeyboardState.INVHYPERBOLIC.rawValue] = inverseHyperbolicCommandDictionary
 
+
+        
+        storeRecallCommandDictionary[CommandKey.addKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"+")
+        storeRecallCommandDictionary[CommandKey.subtractKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"-")
+        storeRecallCommandDictionary[CommandKey.divideKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"/")
+        storeRecallCommandDictionary[CommandKey.multiplyKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"*")
+        storeRecallCommandDictionary[CommandKey.dotKey.rawValue] = StoreRecallDotCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController)
+
+        storeRecallCommandDictionary[CommandKey.digit0Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display, registerController: registerController, token:"0")
+        storeRecallCommandDictionary[CommandKey.digit1Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"1")
+        storeRecallCommandDictionary[CommandKey.digit2Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"2")
+        storeRecallCommandDictionary[CommandKey.digit3Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"3")
+        storeRecallCommandDictionary[CommandKey.digit4Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"4")
+        storeRecallCommandDictionary[CommandKey.digit5Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"5")
+        storeRecallCommandDictionary[CommandKey.digit6Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"6")
+        storeRecallCommandDictionary[CommandKey.digit7Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"7")
+        storeRecallCommandDictionary[CommandKey.digit8Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"8")
+        storeRecallCommandDictionary[CommandKey.digit9Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"9")
+
+        masterCommandDictionary[KeyboardState.StoreRecall.rawValue] = storeRecallCommandDictionary
+
+        
+        register1CommandDictionary[CommandKey.dotKey.rawValue] = StoreRecallDotCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController)
+
+        register1CommandDictionary[CommandKey.digit0Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display, registerController: registerController, token:"0")
+        register1CommandDictionary[CommandKey.digit1Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"1")
+        register1CommandDictionary[CommandKey.digit2Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"2")
+        register1CommandDictionary[CommandKey.digit3Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"3")
+        register1CommandDictionary[CommandKey.digit4Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"4")
+        register1CommandDictionary[CommandKey.digit5Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"5")
+        register1CommandDictionary[CommandKey.digit6Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"6")
+        register1CommandDictionary[CommandKey.digit7Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"7")
+        register1CommandDictionary[CommandKey.digit8Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"8")
+        register1CommandDictionary[CommandKey.digit9Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"9")
+
+        masterCommandDictionary[KeyboardState.Register1.rawValue] = register1CommandDictionary
+        
+        register2CommandDictionary[CommandKey.digit0Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display, registerController: registerController, token:"0")
+        register2CommandDictionary[CommandKey.digit1Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"1")
+        register2CommandDictionary[CommandKey.digit2Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"2")
+        register2CommandDictionary[CommandKey.digit3Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"3")
+        register2CommandDictionary[CommandKey.digit4Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"4")
+        register2CommandDictionary[CommandKey.digit5Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"5")
+        register2CommandDictionary[CommandKey.digit6Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"6")
+        register2CommandDictionary[CommandKey.digit7Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"7")
+        register2CommandDictionary[CommandKey.digit8Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"8")
+        register2CommandDictionary[CommandKey.digit9Key.rawValue] = StoreRecallDigitCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController, token:"9")
+
+        masterCommandDictionary[KeyboardState.Register2.rawValue] = register2CommandDictionary
 
     }
 }

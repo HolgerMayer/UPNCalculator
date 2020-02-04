@@ -62,6 +62,7 @@ class ViewController: UIViewController {
       var gButton : UIButton!
     
     var calculatorEngine : UPNEngine! = UPNEngine()
+    var registerController : RegisterController! = RegisterController()
     var display : CalculatorDisplay!
 
     var commandController : CommandController!
@@ -69,6 +70,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        registerController.delegate = calculatorEngine
+        
         createDisplay()
         
         createViewControllerButtons()
@@ -80,7 +84,7 @@ class ViewController: UIViewController {
         display.delegate = self
         display.clear()
          
-        commandController = CommandController(calculatorEngine: calculatorEngine, display: display)
+        commandController = CommandController(calculatorEngine: calculatorEngine, display: display, registerController: registerController)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -245,7 +249,7 @@ class ViewController: UIViewController {
         rollDownButton = createButton(title1:"",title2: "R⬇︎",  title3:"R⬆︎", accessoryLabel: "rdown")
         view.addSubview(rollDownButton)
 
-        xExYButton = createButton(title1:"",title2: "X↔︎Y",  title3:"RND", accessoryLabel: "exchangexy")
+        xExYButton = createButton(title1:"Clear REG",title2: "X↔︎Y",  title3:"RND", accessoryLabel: "exchangexy")
         view.addSubview(xExYButton)
 
         backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")

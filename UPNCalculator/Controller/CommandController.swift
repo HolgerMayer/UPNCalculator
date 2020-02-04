@@ -18,12 +18,14 @@ class CommandController {
     private var commandFactory : UPNCommandFactory
     private var calculatorEngine : UPNEngine
     private var display : Display
+    private var registerController : RegisterController
     
-    init( calculatorEngine: UPNEngine, display : Display){
+    init( calculatorEngine: UPNEngine, display : Display, registerController:RegisterController){
         self.calculatorEngine = calculatorEngine
         self.display = display
+        self.registerController = registerController
         
-        commandFactory = UPNCommandFactory(calculatorEngine: calculatorEngine, display: display)
+        commandFactory = UPNCommandFactory(calculatorEngine: calculatorEngine, display: display, registerController: registerController)
     }
 
     

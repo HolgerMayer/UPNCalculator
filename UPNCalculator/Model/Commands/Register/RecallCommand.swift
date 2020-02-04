@@ -1,15 +1,15 @@
 //
-//  ClearCommand.swift
+//  RecallCommand.swift
 //  UPNCalculator
 //
-//  Created by holgermayer on 11.12.19.
-//  Copyright © 2019 holgermayer. All rights reserved.
+//  Created by holgermayer on 02.02.20.
+//  Copyright © 2020 holgermayer. All rights reserved.
 //
 
 import Foundation
 
 
-class ClearCommand : Command {
+class RecallCommand : Command {
     
     private var calculatorEngine : UPNEngine
     private var display : Display
@@ -22,12 +22,10 @@ class ClearCommand : Command {
     }
     
     func execute() -> KeyboardState {
-        calculatorEngine.clear()
-        display.clear()
-        registerController.clearStatisticRegisters()
         
-        return .Default
+        self.registerController.initializeRecallOperation()
+        
+        return .StoreRecall
     }
-    
     
 }

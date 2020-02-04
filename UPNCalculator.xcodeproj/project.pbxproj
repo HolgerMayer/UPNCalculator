@@ -46,6 +46,19 @@
 		5433552F23AC195500120CA9 /* FracCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433552E23AC195500120CA9 /* FracCommand.swift */; };
 		5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433553023AC19A100120CA9 /* FracCommandTests.swift */; };
 		5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433553323AC270A00120CA9 /* Handbook2Page5LstXTests.swift */; };
+		54374CD623E77EAE00A0B5D7 /* StoreCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CD523E77EAE00A0B5D7 /* StoreCommand.swift */; };
+		54374CD823E77ECD00A0B5D7 /* RecallCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CD723E77ECD00A0B5D7 /* RecallCommand.swift */; };
+		54374CDA23E781D700A0B5D7 /* StoreRecallOperationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CD923E781D700A0B5D7 /* StoreRecallOperationCommand.swift */; };
+		54374CDC23E783BC00A0B5D7 /* StoreRecallDotCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CDB23E783BC00A0B5D7 /* StoreRecallDotCommand.swift */; };
+		54374CDE23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CDD23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift */; };
+		54374CE123E7A29400A0B5D7 /* StoRclTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CE023E7A29400A0B5D7 /* StoRclTests.swift */; };
+		54374CE323E7A63E00A0B5D7 /* ClearRegCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CE223E7A63E00A0B5D7 /* ClearRegCommand.swift */; };
+		54374CE523E7A77C00A0B5D7 /* ClearRegCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54374CE423E7A77C00A0B5D7 /* ClearRegCommandTests.swift */; };
+		543E165523E8841F00CCDFF1 /* StoreCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E165423E8841F00CCDFF1 /* StoreCommandTests.swift */; };
+		543E165723E8842D00CCDFF1 /* RecallCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E165623E8842D00CCDFF1 /* RecallCommandTests.swift */; };
+		543E165923E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E165823E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift */; };
+		543E165B23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E165A23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift */; };
+		543E165D23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E165C23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift */; };
 		5443E35C23AA5F14005B41E9 /* IntroductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */; };
 		5443E35D23AA5F14005B41E9 /* Section1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35B23AA5F14005B41E9 /* Section1Tests.swift */; };
 		5443E36023AA5F69005B41E9 /* TestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5443E35F23AA5F68005B41E9 /* TestTool.swift */; };
@@ -248,6 +261,19 @@
 		5433552E23AC195500120CA9 /* FracCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommand.swift; sourceTree = "<group>"; };
 		5433553023AC19A100120CA9 /* FracCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FracCommandTests.swift; sourceTree = "<group>"; };
 		5433553323AC270A00120CA9 /* Handbook2Page5LstXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handbook2Page5LstXTests.swift; sourceTree = "<group>"; };
+		54374CD523E77EAE00A0B5D7 /* StoreCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCommand.swift; sourceTree = "<group>"; };
+		54374CD723E77ECD00A0B5D7 /* RecallCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallCommand.swift; sourceTree = "<group>"; };
+		54374CD923E781D700A0B5D7 /* StoreRecallOperationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallOperationCommand.swift; sourceTree = "<group>"; };
+		54374CDB23E783BC00A0B5D7 /* StoreRecallDotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallDotCommand.swift; sourceTree = "<group>"; };
+		54374CDD23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallDigitCommand.swift; sourceTree = "<group>"; };
+		54374CE023E7A29400A0B5D7 /* StoRclTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoRclTests.swift; sourceTree = "<group>"; };
+		54374CE223E7A63E00A0B5D7 /* ClearRegCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearRegCommand.swift; sourceTree = "<group>"; };
+		54374CE423E7A77C00A0B5D7 /* ClearRegCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearRegCommandTests.swift; sourceTree = "<group>"; };
+		543E165423E8841F00CCDFF1 /* StoreCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCommandTests.swift; sourceTree = "<group>"; };
+		543E165623E8842D00CCDFF1 /* RecallCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallCommandTests.swift; sourceTree = "<group>"; };
+		543E165823E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallOperationCommandTests.swift; sourceTree = "<group>"; };
+		543E165A23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallDotCommandTests.swift; sourceTree = "<group>"; };
+		543E165C23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecallDigitCommandTests.swift; sourceTree = "<group>"; };
 		5443E35A23AA5F14005B41E9 /* IntroductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionTests.swift; sourceTree = "<group>"; };
 		5443E35B23AA5F14005B41E9 /* Section1Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section1Tests.swift; sourceTree = "<group>"; };
 		5443E35F23AA5F68005B41E9 /* TestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTool.swift; sourceTree = "<group>"; };
@@ -510,6 +536,20 @@
 			path = Problems;
 			sourceTree = "<group>";
 		};
+		54374CDF23E7A27700A0B5D7 /* Registers */ = {
+			isa = PBXGroup;
+			children = (
+				54374CE023E7A29400A0B5D7 /* StoRclTests.swift */,
+				54374CE423E7A77C00A0B5D7 /* ClearRegCommandTests.swift */,
+				543E165423E8841F00CCDFF1 /* StoreCommandTests.swift */,
+				543E165623E8842D00CCDFF1 /* RecallCommandTests.swift */,
+				543E165823E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift */,
+				543E165A23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift */,
+				543E165C23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift */,
+			);
+			path = Registers;
+			sourceTree = "<group>";
+		};
 		5443E35E23AA5F4D005B41E9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +579,12 @@
 		545F0D7523E0298D007ED8E8 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				54374CD523E77EAE00A0B5D7 /* StoreCommand.swift */,
+				54374CD723E77ECD00A0B5D7 /* RecallCommand.swift */,
+				54374CD923E781D700A0B5D7 /* StoreRecallOperationCommand.swift */,
+				54374CDB23E783BC00A0B5D7 /* StoreRecallDotCommand.swift */,
+				54374CDD23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift */,
+				54374CE223E7A63E00A0B5D7 /* ClearRegCommand.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -751,6 +797,7 @@
 		54D17F75239C4622008F5020 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				54374CDF23E7A27700A0B5D7 /* Registers */,
 				54DB946A23E2596F00584826 /* EEX */,
 				54B656DE23A4DC85004E6E7D /* SineCommandTests.swift */,
 				54B656E023A4DE4F004E6E7D /* CosineCommandTests.swift */,
@@ -982,11 +1029,14 @@
 				545C742223B0B0A0006E6FF3 /* EngCommand.swift in Sources */,
 				54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */,
 				549B8CDD23CE646A00E36997 /* CosineHCommand.swift in Sources */,
+				54374CD623E77EAE00A0B5D7 /* StoreCommand.swift in Sources */,
 				54E8146523A7EBCB002E583D /* PICommand.swift in Sources */,
 				54757AEB239A58200048A732 /* ViewController.swift in Sources */,
 				549B8CD123CE621E00E36997 /* UPNEngine+Trigonometric.swift in Sources */,
 				5497C94D23A0E9A300FF7696 /* ClearCommand.swift in Sources */,
 				54D17F79239C46C4008F5020 /* EnterCommand.swift in Sources */,
+				54374CE323E7A63E00A0B5D7 /* ClearRegCommand.swift in Sources */,
+				54374CD823E77ECD00A0B5D7 /* RecallCommand.swift in Sources */,
 				54757B22239A5EB10048A732 /* Stack.swift in Sources */,
 				54D17F8C239C5F8C008F5020 /* MultiplyCommand.swift in Sources */,
 				54E769E523A5BB5A00165EDC /* ExpCommand.swift in Sources */,
@@ -998,6 +1048,7 @@
 				54D17F8A239C5F5B008F5020 /* SubtractCommand.swift in Sources */,
 				542485E923AF7D440021992F /* FixFormatter.swift in Sources */,
 				54757AE7239A58200048A732 /* AppDelegate.swift in Sources */,
+				54374CDA23E781D700A0B5D7 /* StoreRecallOperationCommand.swift in Sources */,
 				545F3E8D23A93B5500D0BC5A /* ExchangeXYCommand.swift in Sources */,
 				54D17F8E239C5FA6008F5020 /* DivideCommand.swift in Sources */,
 				54E769E923A5BC2900165EDC /* LogCommand.swift in Sources */,
@@ -1015,6 +1066,7 @@
 				542B1AC123C645E400EE064D /* DegCommand.swift in Sources */,
 				542C045123C7EE8400A82471 /* RectangularConversionCommand.swift in Sources */,
 				545F3E9123A9554800D0BC5A /* BackArrowCommand.swift in Sources */,
+				54374CDC23E783BC00A0B5D7 /* StoreRecallDotCommand.swift in Sources */,
 				542485EB23AF7D560021992F /* DisplayFormatter.swift in Sources */,
 				5498F53023DB5F5500A09309 /* RollDownCommand.swift in Sources */,
 				54EEED3523BA731C0072A921 /* FCommand.swift in Sources */,
@@ -1026,6 +1078,7 @@
 				5498F52E23DB5F4900A09309 /* RollUpCommand.swift in Sources */,
 				54D17F84239C59FE008F5020 /* DigitDotCommand.swift in Sources */,
 				5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */,
+				54374CDE23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift in Sources */,
 				549B8CE123CE64A500E36997 /* ACosineHCommand.swift in Sources */,
 				54D17F77239C4660008F5020 /* Command.swift in Sources */,
 				54E769EB23A5BC5400165EDC /* Log10Command.swift in Sources */,
@@ -1104,10 +1157,12 @@
 				54FE50BB23CF2E8200BF52FC /* CommandTestCase.swift in Sources */,
 				54B76C2B23A8D25700600BDC /* LastXCommandTests.swift in Sources */,
 				542485F223AF7E8C0021992F /* ScientificFormatterTests.swift in Sources */,
+				543E165923E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift in Sources */,
 				542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */,
 				54B656E323A4DFF4004E6E7D /* TangentCommandTests.swift in Sources */,
 				545F3E9F23A990B400D0BC5A /* UPNEngineDivideTests.swift in Sources */,
 				542B1AB923C6439F00EE064D /* RadCommandTests.swift in Sources */,
+				543E165D23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift in Sources */,
 				54699F8D23A24FEE00373D98 /* DigitDotCommandTests.swift in Sources */,
 				542B1AC923C6583000EE064D /* TrigonometricConverterTests.swift in Sources */,
 				54E769DF23A587FA00165EDC /* ACosineCommandTests.swift in Sources */,
@@ -1117,6 +1172,8 @@
 				54757B20239A5E660048A732 /* StackTests.swift in Sources */,
 				545C93D923A13A6400CD3156 /* AddCommandTests.swift in Sources */,
 				54E769EF23A5BC9100165EDC /* Log10CommandTests.swift in Sources */,
+				543E165723E8842D00CCDFF1 /* RecallCommandTests.swift in Sources */,
+				54374CE123E7A29400A0B5D7 /* StoRclTests.swift in Sources */,
 				549B8CEB23CE68DD00E36997 /* CosineHCommandTests.swift in Sources */,
 				54E08BE723C5EE4E002C2A97 /* FactorialCommandTests.swift in Sources */,
 				54E769E123A5885700165EDC /* ATangentCommandTests.swift in Sources */,
@@ -1134,6 +1191,7 @@
 				54465F2023C1404F0037535D /* EEXChangeSignCommandTests.swift in Sources */,
 				542C044B23C7EBA600A82471 /* PolarConversionCommandTests.swift in Sources */,
 				544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */,
+				543E165B23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift in Sources */,
 				54E769F723A5C03D00165EDC /* SquareXCommandTests.swift in Sources */,
 				5433552D23AC170A00120CA9 /* IntCommandTests.swift in Sources */,
 				545F3EA523A9922D00D0BC5A /* UPNEngineExpLogTests.swift in Sources */,
@@ -1146,12 +1204,14 @@
 				545F3E9D23A9905400D0BC5A /* UPNEngineMultiplyTests.swift in Sources */,
 				54465F1623C13FF30037535D /* FCommandTests.swift in Sources */,
 				54B656DF23A4DC85004E6E7D /* SineCommandTests.swift in Sources */,
+				54374CE523E7A77C00A0B5D7 /* ClearRegCommandTests.swift in Sources */,
 				54E08BD923C4E2F3002C2A97 /* RndCommandTests.swift in Sources */,
 				545F3E8F23A93D9D00D0BC5A /* ExchangeXYCommandTests.swift in Sources */,
 				54B656EB23A4E2DD004E6E7D /* ChangeSignCommandTests.swift in Sources */,
 				54E769E323A588BD00165EDC /* PowCommandTests.swift in Sources */,
 				545F3E9923A98FB700D0BC5A /* UPNEngineAddTests.swift in Sources */,
 				54465F1A23C140140037535D /* NumberFormatDigitCommandTests.swift in Sources */,
+				543E165523E8841F00CCDFF1 /* StoreCommandTests.swift in Sources */,
 				54465F1823C13FFF0037535D /* GCommandTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

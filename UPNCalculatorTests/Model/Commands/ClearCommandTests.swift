@@ -13,14 +13,17 @@ class ClearCommandTests: XCTestCase {
 
     var engine : UPNEngine!
     var display : CalculatorDisplay!
+    var registerController : RegisterController!
     var testObject : ClearCommand!
-    
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         engine = UPNEngine()
+        registerController = RegisterController()
+        registerController.delegate = engine
         display = CalculatorDisplay()
-        testObject = ClearCommand(calculatorEngine: engine, display: display)
+        testObject = ClearCommand(calculatorEngine: engine, display: display, registerController: registerController)
     }
 
     override func tearDown() {
@@ -28,6 +31,10 @@ class ClearCommandTests: XCTestCase {
     }
 
     func testClear(){
+         for i in 0..<registerController.register.count {
+             registerController.register[i] = Double(i+1)
+         }
+ 
         engine.enterNumber(10)
         engine.enterNumber(20)
         display.value = 20.0
@@ -35,6 +42,18 @@ class ClearCommandTests: XCTestCase {
         
         let _ = testObject.execute()
         
+        
+        XCTAssertEqual(registerController.register[0] ,1.0)
+        XCTAssertEqual(registerController.register[1] ,2.0)
+
+        for i in 3..<8 {
+             XCTAssertEqual(registerController.register[i] ,0.0)
+        }
+         
+        for i in 8..<registerController.register.count{
+             XCTAssertEqual(registerController.register[i] ,Double(i+1))
+        }
+
         XCTAssertEqual(engine.peek(register: .X),0.0)
         XCTAssertEqual(engine.peek(register: .Y),0.0)
         XCTAssertEqual(engine.peek(register: .Z),0.0)

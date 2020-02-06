@@ -28,7 +28,18 @@ class StoreRecallDigitCommand : Command {
             return .Default
         }
         
-        registerController.actionOnRegister(registerIndex: index)
+        do {
+            
+            try registerController.actionOnRegister(registerIndex: index)
+            
+        } catch CalculationError.divisionByZero {
+            display.setError("Error : division by zero")
+            return .Default
+        } catch {
+            display.setError("Error during calculation")
+            return .Default
+
+        }
         
         if registerController.registerAccess == .Recall {
             guard let value = calculatorEngine.top else {

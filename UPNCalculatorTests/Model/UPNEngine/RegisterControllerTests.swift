@@ -72,7 +72,11 @@ class RegisterControllerTests: XCTestCase {
     func testStoreToRegister0() {
         
         testObject.intializeStoreOperation()
-        testObject.actionOnRegister(registerIndex: 0)
+        do {
+        try testObject.actionOnRegister(registerIndex: 0)
+        } catch {
+            XCTFail()
+        }
         
         XCTAssertEqual(testObject.register[0],1)
     }
@@ -80,8 +84,12 @@ class RegisterControllerTests: XCTestCase {
     func testStoreToRegister1() {
         
         testObject.intializeStoreOperation()
-        testObject.actionOnRegister(registerIndex: 1)
-         
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[1],1)
 
     }
@@ -89,8 +97,12 @@ class RegisterControllerTests: XCTestCase {
     func testStoreToRegister11() {
          testObject.intializeStoreOperation()
          testObject.setRegisterIndex10()
-         testObject.actionOnRegister(registerIndex: 1)
-          
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[11],1)
 
     }
@@ -100,8 +112,12 @@ class RegisterControllerTests: XCTestCase {
         
          testObject.intializeStoreOperation()
          testObject.setCalculationOperation(.Add)
-         testObject.actionOnRegister(registerIndex: 1)
-          
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[1],24)
 
     }
@@ -112,8 +128,12 @@ class RegisterControllerTests: XCTestCase {
          testObject.intializeStoreOperation()
          testObject.setCalculationOperation(.Subtract)
          testObject.setRegisterIndex10()
-         testObject.actionOnRegister(registerIndex: 1)
-          
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[11],22)
     }
 
@@ -123,8 +143,12 @@ class RegisterControllerTests: XCTestCase {
                
         testObject.intializeStoreOperation()
         testObject.setCalculationOperation(.Divide)
-        testObject.actionOnRegister(registerIndex: 1)
-                
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[1],12)
         
     }
@@ -136,8 +160,12 @@ class RegisterControllerTests: XCTestCase {
          testObject.intializeStoreOperation()
          testObject.setCalculationOperation(.Multiply)
          testObject.setRegisterIndex10()
-         testObject.actionOnRegister(registerIndex: 1)
-                 
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[11],48)
 
     }
@@ -146,8 +174,12 @@ class RegisterControllerTests: XCTestCase {
         testObject.register[1] = 23
         
         testObject.initializeRecallOperation()
-        testObject.actionOnRegister(registerIndex: 1)
-         
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[1],23)
         XCTAssertEqual(engine.stack.peek(register: .X),23)
     }
@@ -157,8 +189,12 @@ class RegisterControllerTests: XCTestCase {
           
         testObject.initializeRecallOperation()
         testObject.setRegisterIndex10()
-        testObject.actionOnRegister(registerIndex: 1)
-           
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[11],42)
         XCTAssertEqual(engine.stack.peek(register: .X),42)
 
@@ -170,8 +206,12 @@ class RegisterControllerTests: XCTestCase {
         testObject.initializeRecallOperation()
         testObject.setCalculationOperation(.Add)
 
-        testObject.actionOnRegister(registerIndex: 1)
-            
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[1],42)
         XCTAssertEqual(engine.stack.peek(register: .X),43)
 
@@ -183,8 +223,12 @@ class RegisterControllerTests: XCTestCase {
         testObject.initializeRecallOperation()
         testObject.setCalculationOperation(.Subtract)
         testObject.setRegisterIndex10()
-        testObject.actionOnRegister(registerIndex: 1)
-            
+        do {
+        try testObject.actionOnRegister(registerIndex: 1)
+        } catch {
+            XCTFail()
+        }
+
         XCTAssertEqual(testObject.register[11],42)
         XCTAssertEqual(engine.stack.peek(register: .X),-41)
 
@@ -196,8 +240,12 @@ class RegisterControllerTests: XCTestCase {
               
          testObject.initializeRecallOperation()
          testObject.setCalculationOperation(.Divide)
-         testObject.actionOnRegister(registerIndex: 1)
-               
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[1],2)
          XCTAssertEqual(engine.stack.peek(register: .X),21)
 
@@ -210,8 +258,12 @@ class RegisterControllerTests: XCTestCase {
          testObject.initializeRecallOperation()
          testObject.setCalculationOperation(.Multiply)
          testObject.setRegisterIndex10()
-         testObject.actionOnRegister(registerIndex: 1)
-               
+         do {
+         try testObject.actionOnRegister(registerIndex: 1)
+         } catch {
+             XCTFail()
+         }
+
          XCTAssertEqual(testObject.register[11],42)
          XCTAssertEqual(engine.stack.peek(register: .X),84)
     }
@@ -222,8 +274,12 @@ class RegisterControllerTests: XCTestCase {
                      
             testObject.initializeRecallOperation()
             testObject.setCalculationOperation(.Multiply)
-            testObject.actionOnRegister(registerIndex: 11)
-                      
+            do {
+            try testObject.actionOnRegister(registerIndex: 11)
+            } catch {
+                XCTFail()
+            }
+
             XCTAssertEqual(testObject.register[11],42)
             XCTAssertEqual(engine.stack.peek(register: .X),2)
         

@@ -72,7 +72,7 @@ class RegisterController {
         registerAccessIndex = 10
     }
     
-    func actionOnRegister(registerIndex : Int) {
+    func actionOnRegister(registerIndex : Int) throws {
         
         if registerIndex > 9 || registerIndex < 0 {
             return
@@ -103,6 +103,10 @@ class RegisterController {
                 result = registerValue * xValue
                 break
             case .Divide:
+                if xValue == 0.0 {
+                    registerAccess = .None
+                    throw CalculationError.divisionByZero
+                }
                 result =  registerValue / xValue
                 break
             default:
@@ -120,6 +124,10 @@ class RegisterController {
                   result =  xValue * registerValue
                   break
               case .Divide:
+                  if registerValue == 0.0 {
+                    registerAccess = .None
+                    throw CalculationError.divisionByZero
+                   }
                   result =  xValue / registerValue
                   break
               default:

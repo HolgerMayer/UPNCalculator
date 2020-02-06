@@ -190,6 +190,27 @@ class StoreRecallDigitCommandTests: XCTestCase {
 
        XCTAssertTrue(result == .Default)
     }
+    
+    
+    func testStoreDigit14CommandDivideByZero(){
+          registerController.register[14] = 48
+          
+         engine.enterNumber(0)
+         
+         registerController.registerAccess = .Store
+         registerController.registerAccessIndex = 10
+         registerController.registerAccessOperation = .Divide
+         
+         let testObject = StoreRecallDigitCommand(calculatorEngine: engine, display: display, registerController: registerController,token:"4")
+          
+         let result = testObject.execute()
+          
+         XCTAssertEqual(registerController.register[14],48)
+         XCTAssertTrue(registerController.registerAccess == .None)
+         XCTAssertTrue(mockDelegate.delegate_param1 == "Error : division by zero")
+
+         XCTAssertTrue(result == .Default)
+      }
 
     
     //
@@ -303,5 +324,28 @@ class StoreRecallDigitCommandTests: XCTestCase {
          
           XCTAssertEqual(value,2)
       }
+    
+    func testRecallDigit14CommandDivideByZero(){
+         registerController.register[14] = 0
+         
+        engine.enterNumber(48)
+        
+        registerController.registerAccess = .Recall
+        registerController.registerAccessIndex = 10
+        registerController.registerAccessOperation = .Divide
+        
+        let testObject = StoreRecallDigitCommand(calculatorEngine: engine, display: display, registerController: registerController,token:"4")
+         
+        let result = testObject.execute()
+                  
+        XCTAssertTrue(result == .Default)
+         
+        XCTAssertEqual(registerController.register[14],0)
+        XCTAssertTrue(registerController.registerAccess == .None)
+        XCTAssertTrue(mockDelegate.delegate_param1 == "Error : division by zero")
+
+     
+        
+    }
 
 }

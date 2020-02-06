@@ -127,7 +127,8 @@ class UPNCommandFactory  {
         // Row 4
         fStateCommandDictionary[CommandKey.stoKey.rawValue] = FracCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.digit0Key.rawValue] = FactorialCommand(calculatorEngine: calculatorEngine, display: display)
-
+        fStateCommandDictionary[CommandKey.addKey.rawValue] = PermutationsCommand(calculatorEngine: calculatorEngine, display: display)
+        
         masterCommandDictionary[KeyboardState.FState.rawValue] = fStateCommandDictionary
 
         //###########################
@@ -171,7 +172,8 @@ class UPNCommandFactory  {
         
         // Row 4
         gStateCommandDictionary[CommandKey.stoKey.rawValue] = IntCommand(calculatorEngine: calculatorEngine, display: display)
-        
+        gStateCommandDictionary[CommandKey.addKey.rawValue] = CombinationsCommand(calculatorEngine: calculatorEngine, display: display)
+
         masterCommandDictionary[KeyboardState.GState.rawValue] = gStateCommandDictionary
 
         

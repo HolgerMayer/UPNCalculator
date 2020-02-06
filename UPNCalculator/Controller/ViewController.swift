@@ -298,7 +298,7 @@ class ViewController: UIViewController {
         noop10Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop10")
         view.addSubview(noop10Button)
 
-        divideButton = createButton(title1:"",title2: "+",  title3:"", accessoryLabel: "add")
+        divideButton = createButton(title1:"Py,x",title2: "+",  title3:"Cy,x", accessoryLabel: "add")
         view.addSubview(divideButton)
 
 }

@@ -83,6 +83,9 @@ class ViewController: UIViewController {
         display = CalculatorDisplay()
         display.delegate = self
         display.clear()
+        // Error : without initialization an enter leads to "" is not a number
+        display.value = 0.0
+        display.isPushed = true
          
         commandController = CommandController(calculatorEngine: calculatorEngine, display: display, registerController: registerController)
     }
@@ -255,7 +258,7 @@ class ViewController: UIViewController {
         backArrowButton = createButton(title1:"",title2: "←",  title3:"CLx", accessoryLabel: "backarrow")
         view.addSubview(backArrowButton)
 
-        enterButton  = createButton(title1:"",title2: "Enter\n\n",  title3:"LST X", accessoryLabel: "enter")
+        enterButton  = createButton(title1:"RAN#",title2: "\n\nEnter\n",  title3:"LST X", accessoryLabel: "enter")
         enterButton.setBackgroundImage(UIImage(named: "ButtonLarge"), for: .normal)
         view.addSubview(enterButton)
 

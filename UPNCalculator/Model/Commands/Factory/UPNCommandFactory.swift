@@ -124,6 +124,9 @@ class UPNCommandFactory  {
 
         fStateCommandDictionary[CommandKey.digit3Key.rawValue] = DegToRadCommand(calculatorEngine: calculatorEngine, display: display)
 
+        
+        fStateCommandDictionary[CommandKey.enterKey.rawValue] = RandomCommand(calculatorEngine: calculatorEngine, display: display)
+
         // Row 4
         fStateCommandDictionary[CommandKey.stoKey.rawValue] = FracCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.digit0Key.rawValue] = FactorialCommand(calculatorEngine: calculatorEngine, display: display)

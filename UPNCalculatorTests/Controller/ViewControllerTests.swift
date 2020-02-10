@@ -70,8 +70,10 @@ class ViewControllerTests: XCTestCase {
 
 
     func testInitialState(){
-        XCTAssertTrue(testObject.outputLabel.text == "")
-        XCTAssertFalse(testObject.isPushed())
+        let locale = Locale.current
+        
+        XCTAssertEqual(testObject.outputLabel.text,  "0#0000     ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
+        XCTAssertTrue(testObject.isPushed())
         XCTAssertNotNil(testObject.calculatorEngine)
         XCTAssertNotNil(testObject.display)
     }

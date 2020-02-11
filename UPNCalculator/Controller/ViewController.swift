@@ -295,7 +295,7 @@ class ViewController: UIViewController {
         digit0Button = createButton(title1:"x!",title2: "0",  title3:"x̅", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
-        dotButton = createButton(title1:"",title2: ".",  title3:"S", accessoryLabel: "dot")
+        dotButton = createButton(title1:"ẏ,r",title2: ".",  title3:"S", accessoryLabel: "dot")
         view.addSubview(dotButton)
 
         sumAddButton = createButton(title1:"L.R.",title2: "∑+", title3:"∑-",  accessoryLabel: "sumadd")
@@ -620,7 +620,7 @@ extension ViewController : DisplayDelegate {
     
     func didChangeDisplayToError(value: String) {
         outputLabel.textAlignment = .right
-        outputLabel.font =  .systemFont(ofSize: 60.0) //.systemFont(ofSize: 25.0)
+        outputLabel.font =  .systemFont(ofSize: 30.0) //.systemFont(ofSize: 25.0)
         outputLabel.textColor = .red
         outputLabel.text! = value
     }

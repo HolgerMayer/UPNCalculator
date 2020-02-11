@@ -166,6 +166,8 @@
 		54D5FCB623E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */; };
 		54D7B29423F34547006DE2B2 /* LinearRegressionCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */; };
 		54D7B29623F34595006DE2B2 /* LinearRegressionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */; };
+		54D7B29823F34A71006DE2B2 /* LinerEstimationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29723F34A71006DE2B2 /* LinerEstimationCommand.swift */; };
+		54D7B29A23F34AAB006DE2B2 /* LinearEstimationCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29923F34AAB006DE2B2 /* LinearEstimationCommandTests.swift */; };
 		54DC171C23C397880024E7FA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DC171B23C397880024E7FA /* String+Ext.swift */; };
 		54DC172023C3EE800024E7FA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54DC171F23C3EE800024E7FA /* LICENSE.txt */; };
 		54E007FE23F2C3BB007BA9F5 /* RecallSumCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */; };
@@ -410,6 +412,8 @@
 		54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+RegisterControllerDelegate.swift"; sourceTree = "<group>"; };
 		54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearRegressionCommandTests.swift; sourceTree = "<group>"; };
 		54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearRegressionCommand.swift; sourceTree = "<group>"; };
+		54D7B29723F34A71006DE2B2 /* LinerEstimationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerEstimationCommand.swift; sourceTree = "<group>"; };
+		54D7B29923F34AAB006DE2B2 /* LinearEstimationCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearEstimationCommandTests.swift; sourceTree = "<group>"; };
 		54DC171B23C397880024E7FA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		54DC171F23C3EE800024E7FA /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallSumCommand.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 				54E0080723F2DC76007BA9F5 /* MeanCommandTests.swift */,
 				54E0080B23F30668007BA9F5 /* StandardDeviationCommandTests.swift */,
 				54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */,
+				54D7B29923F34AAB006DE2B2 /* LinearEstimationCommandTests.swift */,
 			);
 			path = Registers;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				54E0080923F2DCFA007BA9F5 /* MeanCommand.swift */,
 				54E0080D23F306A8007BA9F5 /* StandardDeviationCommand.swift */,
 				54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */,
+				54D7B29723F34A71006DE2B2 /* LinerEstimationCommand.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1186,6 +1192,7 @@
 				54E0080A23F2DCFA007BA9F5 /* MeanCommand.swift in Sources */,
 				54EEED3723BA73C90072A921 /* GCommand.swift in Sources */,
 				54D7B29623F34595006DE2B2 /* LinearRegressionCommand.swift in Sources */,
+				54D7B29823F34A71006DE2B2 /* LinerEstimationCommand.swift in Sources */,
 				54D17F92239C658F008F5020 /* CosineCommand.swift in Sources */,
 				5433552F23AC195500120CA9 /* FracCommand.swift in Sources */,
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
@@ -1246,6 +1253,7 @@
 				549B8CF723CE694700E36997 /* InverseHyperbolicCommandTests.swift in Sources */,
 				549B8CEF23CE68FA00E36997 /* ASineHCommandTests.swift in Sources */,
 				5433553423AC270A00120CA9 /* Handbook2Page5LstXTests.swift in Sources */,
+				54D7B29A23F34AAB006DE2B2 /* LinearEstimationCommandTests.swift in Sources */,
 				549B8CF523CE693800E36997 /* HyperbolicCommandTests.swift in Sources */,
 				542B1ABB23C643B200EE064D /* DegCommandTests.swift in Sources */,
 				549B8CF323CE692300E36997 /* ATangentHCommandTests.swift in Sources */,

@@ -115,4 +115,34 @@ extension RegisterController {
         
         delegate.setStackXValue(b, yValue: a)
     }
+    
+    func calculateLinearEstimation() throws {
+        guard let delegate = delegate else {
+            return
+        }
+        
+        let n = Swift.abs(register[2])
+        
+        if n <= 1.0 {
+            throw CalculationError.improperStatisticsOperation
+        }
+        
+        let currentX = delegate.getStackXValue()
+        
+        let xSum = register[3]
+        let xSquareSum = register[4]
+        let ySum = register[5]
+        let ySquareSum = register[6]
+        let xMultiplySum = register[7]
+        
+        let mValue = n * xSquareSum - xSum * xSum
+        let nValue = n * ySquareSum - ySum * ySum
+        let pValue = n * xMultiplySum - xSum * ySum
+        
+        
+        let a = (mValue * ySum + pValue * (n * currentX - xSum)) / (n * mValue)
+        let b = pValue / (sqrt(mValue * nValue))
+        
+        delegate.setStackXValue(a, yValue: b)
+    }
 }

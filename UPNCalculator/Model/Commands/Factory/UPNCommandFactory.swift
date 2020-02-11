@@ -179,6 +179,7 @@ class UPNCommandFactory  {
         // Row 4
         gStateCommandDictionary[CommandKey.stoKey.rawValue] = IntCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.addKey.rawValue] = CombinationsCommand(calculatorEngine: calculatorEngine, display: display)
+        gStateCommandDictionary[CommandKey.digit0Key.rawValue] = MeanCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
 
         gStateCommandDictionary[CommandKey.sumAddKey.rawValue] = SumSubtractCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
 

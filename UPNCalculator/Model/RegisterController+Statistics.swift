@@ -47,5 +47,19 @@ extension RegisterController {
 
     }
     
+    func calculateMean() throws {
+        guard let delegate = delegate else {
+            return
+        }
+        
+        if register[2] == 0 {
+            throw CalculationError.divisionByZero
+        }
+        
+        let xValue = register[3] / register[2]
+        let yValue = register[5] / register[2]
+
+        delegate.setStackXValue(xValue, yValue: yValue)
+    }
     
 }

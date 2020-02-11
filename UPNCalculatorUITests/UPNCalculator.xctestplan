@@ -18,7 +18,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:UPNCalculator.xcodeproj",
       "identifier" : "54757AE2239A58200048A732",

@@ -9,6 +9,7 @@
 import Foundation
 
 extension UPNEngine : RegisterControllerDelegate {
+     
 
     
     func getStackXValue() -> Double {
@@ -32,5 +33,10 @@ extension UPNEngine : RegisterControllerDelegate {
         return value
     }
     
+    func setStackXValue(_ xValue: Double, yValue: Double) {
+        stack.push(yValue)
+        stack.push(xValue)
+    }
+
 }
 

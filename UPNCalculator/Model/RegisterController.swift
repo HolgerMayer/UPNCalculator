@@ -27,6 +27,7 @@ public protocol RegisterControllerDelegate : AnyObject {
     func getStackXValue() -> Double
     func setStackXValue(_ value : Double)
     func getStackYValue() -> Double
+    func setStackXValue(_ xValue : Double, yValue : Double)
 }
 
 class RegisterController {

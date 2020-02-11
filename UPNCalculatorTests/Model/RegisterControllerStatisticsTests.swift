@@ -138,4 +138,20 @@ class RegisterControllerStatisticsTests: XCTestCase {
         XCTAssertEqual(testObject.register[7],1415)
      }
 
+    func testMean(){
+        let testSetup = StatisticsTestsSetup()
+        let display = CalculatorDisplay()
+        
+        testSetup.setupFarmerStatistic(engine: engine, display: display, registerController: testObject)
+        
+        do {
+            try testObject.calculateMean()
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(engine.peek(register: .X)!,40.0, accuracy:0.01)
+        XCTAssertEqual(engine.peek(register: .Y)!,6.40, accuracy:0.01)
+
+    }
 }

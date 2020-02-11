@@ -295,7 +295,7 @@ class ViewController: UIViewController {
         digit0Button = createButton(title1:"x!",title2: "0",  title3:"x̅", accessoryLabel: "digit0")
         view.addSubview(digit0Button)
 
-        dotButton = createButton(title1:"",title2: ".",  title3:"", accessoryLabel: "dot")
+        dotButton = createButton(title1:"",title2: ".",  title3:"S", accessoryLabel: "dot")
         view.addSubview(dotButton)
 
         sumAddButton = createButton(title1:"",title2: "∑+", title3:"∑-",  accessoryLabel: "sumadd")

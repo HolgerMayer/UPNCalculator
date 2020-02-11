@@ -154,4 +154,23 @@ class RegisterControllerStatisticsTests: XCTestCase {
         XCTAssertEqual(engine.peek(register: .Y)!,6.40, accuracy:0.01)
 
     }
+    
+    func testStandardDeviation(){
+        let testSetup = StatisticsTestsSetup()
+        let display = CalculatorDisplay()
+        
+        testSetup.setupFarmerStatistic(engine: engine, display: display, registerController: testObject)
+        
+        do {
+            try testObject.calculateStandardDeviation()
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(engine.peek(register: .X)!,31.62, accuracy:0.01)
+        XCTAssertEqual(engine.peek(register: .Y)!,1.24, accuracy:0.01)
+        
+    }
+    
+    
 }

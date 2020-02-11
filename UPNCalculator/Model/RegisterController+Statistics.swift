@@ -53,7 +53,7 @@ extension RegisterController {
         }
         
         if register[2] == 0 {
-            throw CalculationError.divisionByZero
+            throw CalculationError.improperStatisticsOperation
         }
         
         let xValue = register[3] / register[2]
@@ -62,4 +62,30 @@ extension RegisterController {
         delegate.setStackXValue(xValue, yValue: yValue)
     }
     
+    func calculateStandardDeviation() throws {
+        guard let delegate = delegate else {
+            return
+        }
+        
+        let n = Swift.abs(register[2])
+
+        if n <= 1.0 {
+            throw CalculationError.divisionByZero
+        }
+        
+        let xSum = register[3]
+        let xSquareSum = register[4]
+        let ySum = register[5]
+        let ySquareSum = register[6]
+   //     let xMultiplySum = register[7]
+        
+        let mValue = n * xSquareSum - xSum * xSum
+        let nValue = n * ySquareSum - ySum * ySum
+   //     let pValue = n * xMultiplySum - xSum * ySum
+        
+        let sx = sqrt(mValue / (n * (n - 1)))
+        let sy = sqrt(nValue / (n * (n - 1)))
+          
+        delegate.setStackXValue(sx, yValue: sy)
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  MeanCommand.swift
+//  StandardDeviationCommand.swift
 //  UPNCalculator
 //
 //  Created by holgermayer on 11.02.20.
@@ -7,7 +7,7 @@
 //
 
 
-class MeanCommand : Command {
+class StandardDeviationCommand : Command {
     
     private var calculatorEngine : UPNEngine
     private var display : Display
@@ -23,7 +23,7 @@ class MeanCommand : Command {
         
         do {
             
-            try registerController.calculateMean()
+            try registerController.calculateStandardDeviation()
             guard let value = calculatorEngine.top else {
                 display.isPushed = true
                 display.needsOverride = true
@@ -39,10 +39,10 @@ class MeanCommand : Command {
             return .Default
             
         }
-
+        
         display.isPushed = true
         display.needsOverride = true
-
+        
         return .Default
     }
     

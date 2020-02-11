@@ -18,6 +18,7 @@ public enum CalculationError : Error {
     case logFromZero
     case factorialFromNegative
     case resultToLarge
+    case improperStatisticsOperation
 }
 
 public enum TrigonometricMode : String {

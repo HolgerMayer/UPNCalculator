@@ -70,7 +70,7 @@ extension RegisterController {
         let n = Swift.abs(register[2])
 
         if n <= 1.0 {
-            throw CalculationError.divisionByZero
+            throw CalculationError.improperStatisticsOperation
         }
         
         let xSum = register[3]
@@ -87,5 +87,32 @@ extension RegisterController {
         let sy = sqrt(nValue / (n * (n - 1)))
           
         delegate.setStackXValue(sx, yValue: sy)
+    }
+    
+    func calculateLinearRegression() throws {
+        guard let delegate = delegate else {
+            return
+        }
+        
+        let n = Swift.abs(register[2])
+        
+        if n <= 1.0 {
+            throw CalculationError.improperStatisticsOperation
+        }
+        
+        let xSum = register[3]
+        let xSquareSum = register[4]
+        let ySum = register[5]
+    //    let ySquareSum = register[6]
+        let xMultiplySum = register[7]
+        
+        let mValue = n * xSquareSum - xSum * xSum
+    //    let nValue = n * ySquareSum - ySum * ySum
+        let pValue = n * xMultiplySum - xSum * ySum
+        
+        let a = pValue / mValue
+        let b = (mValue * ySum - pValue * xSum) / (n * mValue)
+        
+        delegate.setStackXValue(b, yValue: a)
     }
 }

@@ -172,5 +172,21 @@ class RegisterControllerStatisticsTests: XCTestCase {
         
     }
     
+    func testLinearRegression(){
+        let testSetup = StatisticsTestsSetup()
+        let display = CalculatorDisplay()
+        
+        testSetup.setupFarmerStatistic(engine: engine, display: display, registerController: testObject)
+        
+        do {
+            try testObject.calculateLinearRegression()
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(engine.peek(register: .X)!,4.86, accuracy:0.01)
+        XCTAssertEqual(engine.peek(register: .Y)!,0.04, accuracy:0.01)
+        
+    }
     
 }

@@ -298,7 +298,7 @@ class ViewController: UIViewController {
         dotButton = createButton(title1:"",title2: ".",  title3:"S", accessoryLabel: "dot")
         view.addSubview(dotButton)
 
-        sumAddButton = createButton(title1:"",title2: "∑+", title3:"∑-",  accessoryLabel: "sumadd")
+        sumAddButton = createButton(title1:"L.R.",title2: "∑+", title3:"∑-",  accessoryLabel: "sumadd")
         view.addSubview(sumAddButton)
 
         divideButton = createButton(title1:"Py,x",title2: "+",  title3:"Cy,x", accessoryLabel: "add")

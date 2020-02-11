@@ -131,8 +131,9 @@ class UPNCommandFactory  {
         // Row 4
         fStateCommandDictionary[CommandKey.stoKey.rawValue] = FracCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.digit0Key.rawValue] = FactorialCommand(calculatorEngine: calculatorEngine, display: display)
+        fStateCommandDictionary[CommandKey.sumAddKey.rawValue] = LinearRegressionCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController)
         fStateCommandDictionary[CommandKey.addKey.rawValue] = PermutationsCommand(calculatorEngine: calculatorEngine, display: display)
-        
+
   
         
         masterCommandDictionary[KeyboardState.FState.rawValue] = fStateCommandDictionary

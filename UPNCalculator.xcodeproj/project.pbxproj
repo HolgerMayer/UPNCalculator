@@ -164,6 +164,8 @@
 		54D5FCB223E37812006069FD /* RegisterControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB123E37812006069FD /* RegisterControllerTests.swift */; };
 		54D5FCB423E3787F006069FD /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB323E3787F006069FD /* RegisterController.swift */; };
 		54D5FCB623E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */; };
+		54D7B29423F34547006DE2B2 /* LinearRegressionCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */; };
+		54D7B29623F34595006DE2B2 /* LinearRegressionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */; };
 		54DC171C23C397880024E7FA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DC171B23C397880024E7FA /* String+Ext.swift */; };
 		54DC172023C3EE800024E7FA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54DC171F23C3EE800024E7FA /* LICENSE.txt */; };
 		54E007FE23F2C3BB007BA9F5 /* RecallSumCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */; };
@@ -406,6 +408,8 @@
 		54D5FCB123E37812006069FD /* RegisterControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterControllerTests.swift; sourceTree = "<group>"; };
 		54D5FCB323E3787F006069FD /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+RegisterControllerDelegate.swift"; sourceTree = "<group>"; };
+		54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearRegressionCommandTests.swift; sourceTree = "<group>"; };
+		54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearRegressionCommand.swift; sourceTree = "<group>"; };
 		54DC171B23C397880024E7FA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		54DC171F23C3EE800024E7FA /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallSumCommand.swift; sourceTree = "<group>"; };
@@ -593,6 +597,7 @@
 				54E0080123F2C4C4007BA9F5 /* RecallSumCommandTests.swift */,
 				54E0080723F2DC76007BA9F5 /* MeanCommandTests.swift */,
 				54E0080B23F30668007BA9F5 /* StandardDeviationCommandTests.swift */,
+				54D7B29323F34547006DE2B2 /* LinearRegressionCommandTests.swift */,
 			);
 			path = Registers;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 				54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */,
 				54E0080923F2DCFA007BA9F5 /* MeanCommand.swift */,
 				54E0080D23F306A8007BA9F5 /* StandardDeviationCommand.swift */,
+				54D7B29523F34595006DE2B2 /* LinearRegressionCommand.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1179,6 +1185,7 @@
 				549B8CDB23CE643C00E36997 /* ASineHCommand.swift in Sources */,
 				54E0080A23F2DCFA007BA9F5 /* MeanCommand.swift in Sources */,
 				54EEED3723BA73C90072A921 /* GCommand.swift in Sources */,
+				54D7B29623F34595006DE2B2 /* LinearRegressionCommand.swift in Sources */,
 				54D17F92239C658F008F5020 /* CosineCommand.swift in Sources */,
 				5433552F23AC195500120CA9 /* FracCommand.swift in Sources */,
 				54E769D723A586EC00165EDC /* ACosineCommand.swift in Sources */,
@@ -1257,6 +1264,7 @@
 				545F3E9F23A990B400D0BC5A /* UPNEngineDivideTests.swift in Sources */,
 				542B1AB923C6439F00EE064D /* RadCommandTests.swift in Sources */,
 				543E165D23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift in Sources */,
+				54D7B29423F34547006DE2B2 /* LinearRegressionCommandTests.swift in Sources */,
 				54699F8D23A24FEE00373D98 /* DigitDotCommandTests.swift in Sources */,
 				542B1AC923C6583000EE064D /* TrigonometricConverterTests.swift in Sources */,
 				54E769DF23A587FA00165EDC /* ACosineCommandTests.swift in Sources */,

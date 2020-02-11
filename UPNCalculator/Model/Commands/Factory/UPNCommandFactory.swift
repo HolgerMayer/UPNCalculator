@@ -101,7 +101,8 @@ class UPNCommandFactory  {
         defaultCommandDictionary[CommandKey.fKey.rawValue] = FCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.gKey.rawValue] = GCommand(calculatorEngine: calculatorEngine, display: display)
         defaultCommandDictionary[CommandKey.stoKey.rawValue] = StoreCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
-         defaultCommandDictionary[CommandKey.rclKey.rawValue] = RecallCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
+        defaultCommandDictionary[CommandKey.rclKey.rawValue] = RecallCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
+        defaultCommandDictionary[CommandKey.sumAddKey.rawValue] = SumAddCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
 
         masterCommandDictionary[KeyboardState.Default.rawValue] = defaultCommandDictionary
         
@@ -131,6 +132,8 @@ class UPNCommandFactory  {
         fStateCommandDictionary[CommandKey.stoKey.rawValue] = FracCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.digit0Key.rawValue] = FactorialCommand(calculatorEngine: calculatorEngine, display: display)
         fStateCommandDictionary[CommandKey.addKey.rawValue] = PermutationsCommand(calculatorEngine: calculatorEngine, display: display)
+        
+  
         
         masterCommandDictionary[KeyboardState.FState.rawValue] = fStateCommandDictionary
 
@@ -176,6 +179,8 @@ class UPNCommandFactory  {
         // Row 4
         gStateCommandDictionary[CommandKey.stoKey.rawValue] = IntCommand(calculatorEngine: calculatorEngine, display: display)
         gStateCommandDictionary[CommandKey.addKey.rawValue] = CombinationsCommand(calculatorEngine: calculatorEngine, display: display)
+
+        gStateCommandDictionary[CommandKey.sumAddKey.rawValue] = SumSubtractCommand(calculatorEngine: calculatorEngine, display: display,registerController:registerController)
 
         masterCommandDictionary[KeyboardState.GState.rawValue] = gStateCommandDictionary
 
@@ -255,6 +260,7 @@ class UPNCommandFactory  {
 
 
         
+        storeRecallCommandDictionary[CommandKey.sumAddKey.rawValue] = RecallSumCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController)
         storeRecallCommandDictionary[CommandKey.addKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"+")
         storeRecallCommandDictionary[CommandKey.subtractKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"-")
         storeRecallCommandDictionary[CommandKey.divideKey.rawValue] = StoreRecallOperationCommand(calculatorEngine: calculatorEngine, display: display,registerController: registerController,operationString:"/")

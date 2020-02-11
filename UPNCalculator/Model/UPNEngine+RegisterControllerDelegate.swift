@@ -9,6 +9,7 @@
 import Foundation
 
 extension UPNEngine : RegisterControllerDelegate {
+
     
     func getStackXValue() -> Double {
         guard let value = stack.top else {
@@ -23,6 +24,13 @@ extension UPNEngine : RegisterControllerDelegate {
         stack.push(value)
     }
     
-
+    func getStackYValue() -> Double {
+        guard let value = stack.peek(register: .Y) else {
+            return 0.0
+        }
+        
+        return value
+    }
+    
 }
 

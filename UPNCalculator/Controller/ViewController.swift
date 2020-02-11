@@ -55,7 +55,7 @@ class ViewController: UIViewController {
       var backArrowButton : UIButton!
       var stoButton : UIButton!
       var rclButton : UIButton!
-      var noop10Button : UIButton!
+      var sumAddButton : UIButton!
 
       var onButton : UIButton!
       var fButton : UIButton!
@@ -298,8 +298,8 @@ class ViewController: UIViewController {
         dotButton = createButton(title1:"",title2: ".",  title3:"", accessoryLabel: "dot")
         view.addSubview(dotButton)
 
-        noop10Button = createButton(title1:"",title2: "Noop", title3:"",  accessoryLabel: "noop10")
-        view.addSubview(noop10Button)
+        sumAddButton = createButton(title1:"",title2: "∑+", title3:"∑-",  accessoryLabel: "sumadd")
+        view.addSubview(sumAddButton)
 
         divideButton = createButton(title1:"Py,x",title2: "+",  title3:"Cy,x", accessoryLabel: "add")
         view.addSubview(divideButton)
@@ -520,8 +520,8 @@ class ViewController: UIViewController {
         constraintOtherButtonsInRow(rclButton!, previousButton: stoButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(digit0Button!, previousButton: enterButton!, firstButtoninRow: onButton!)
         constraintOtherButtonsInRow(dotButton!, previousButton: digit0Button!, firstButtoninRow: onButton!)
-        constraintOtherButtonsInRow(noop10Button!, previousButton: dotButton!, firstButtoninRow: onButton!)
-        constraintLastButtonsInRow(divideButton!, previousButton: noop10Button!, firstButtoninRow: onButton!)
+        constraintOtherButtonsInRow(sumAddButton!, previousButton: dotButton!, firstButtoninRow: onButton!)
+        constraintLastButtonsInRow(divideButton!, previousButton: sumAddButton!, firstButtoninRow: onButton!)
         
         constrainLastRowToBottom()
  
@@ -606,7 +606,7 @@ class ViewController: UIViewController {
          constraint = NSLayoutConstraint(item: dotButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
-         constraint = NSLayoutConstraint(item: noop10Button!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+         constraint = NSLayoutConstraint(item: sumAddButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
          view.addConstraint(constraint)
 
          constraint = NSLayoutConstraint(item: divideButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)

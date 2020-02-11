@@ -166,6 +166,9 @@
 		54D5FCB623E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */; };
 		54DC171C23C397880024E7FA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DC171B23C397880024E7FA /* String+Ext.swift */; };
 		54DC172023C3EE800024E7FA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 54DC171F23C3EE800024E7FA /* LICENSE.txt */; };
+		54E007FE23F2C3BB007BA9F5 /* RecallSumCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */; };
+		54E0080223F2C4C4007BA9F5 /* RecallSumCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E0080123F2C4C4007BA9F5 /* RecallSumCommandTests.swift */; };
+		54E0080423F2C76A007BA9F5 /* StatisticsTestsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E0080323F2C76A007BA9F5 /* StatisticsTestsSetup.swift */; };
 		54E03795239A7FF200B30EFB /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E03794239A7FF200B30EFB /* ViewControllerTests.swift */; };
 		54E08BD923C4E2F3002C2A97 /* RndCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BD823C4E2F3002C2A97 /* RndCommandTests.swift */; };
 		54E08BDB23C4E336002C2A97 /* RndCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E08BDA23C4E336002C2A97 /* RndCommand.swift */; };
@@ -209,6 +212,10 @@
 		54E909E5239DC60700885AE2 /* UPNCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E909E4239DC60700885AE2 /* UPNCommandFactory.swift */; };
 		54EEED3523BA731C0072A921 /* FCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEED3423BA731C0072A921 /* FCommand.swift */; };
 		54EEED3723BA73C90072A921 /* GCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEED3623BA73C90072A921 /* GCommand.swift */; };
+		54EF878323F1F39000D0E225 /* SumAddCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EF878223F1F39000D0E225 /* SumAddCommandTests.swift */; };
+		54EF878723F1F3B400D0E225 /* SumSubtractCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EF878623F1F3B400D0E225 /* SumSubtractCommandTests.swift */; };
+		54EF878B23F1F44E00D0E225 /* SumAddCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EF878A23F1F44E00D0E225 /* SumAddCommand.swift */; };
+		54EF878D23F1F45B00D0E225 /* SumSubtractCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EF878C23F1F45B00D0E225 /* SumSubtractCommand.swift */; };
 		54F491C723A0E39E001D0E45 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F491C623A0E39E001D0E45 /* CommandFactory.swift */; };
 		54F491C923A0E3B5001D0E45 /* CommandKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F491C823A0E3B5001D0E45 /* CommandKey.swift */; };
 		54FE50BB23CF2E8200BF52FC /* CommandTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE50BA23CF2E8200BF52FC /* CommandTestCase.swift */; };
@@ -397,6 +404,9 @@
 		54D5FCB523E37DAA006069FD /* UPNEngine+RegisterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UPNEngine+RegisterControllerDelegate.swift"; sourceTree = "<group>"; };
 		54DC171B23C397880024E7FA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		54DC171F23C3EE800024E7FA /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallSumCommand.swift; sourceTree = "<group>"; };
+		54E0080123F2C4C4007BA9F5 /* RecallSumCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallSumCommandTests.swift; sourceTree = "<group>"; };
+		54E0080323F2C76A007BA9F5 /* StatisticsTestsSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTestsSetup.swift; sourceTree = "<group>"; };
 		54E03794239A7FF200B30EFB /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		54E08BD823C4E2F3002C2A97 /* RndCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RndCommandTests.swift; sourceTree = "<group>"; };
 		54E08BDA23C4E336002C2A97 /* RndCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RndCommand.swift; sourceTree = "<group>"; };
@@ -440,6 +450,10 @@
 		54E909E4239DC60700885AE2 /* UPNCommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPNCommandFactory.swift; sourceTree = "<group>"; };
 		54EEED3423BA731C0072A921 /* FCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCommand.swift; sourceTree = "<group>"; };
 		54EEED3623BA73C90072A921 /* GCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCommand.swift; sourceTree = "<group>"; };
+		54EF878223F1F39000D0E225 /* SumAddCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumAddCommandTests.swift; sourceTree = "<group>"; };
+		54EF878623F1F3B400D0E225 /* SumSubtractCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumSubtractCommandTests.swift; sourceTree = "<group>"; };
+		54EF878A23F1F44E00D0E225 /* SumAddCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumAddCommand.swift; sourceTree = "<group>"; };
+		54EF878C23F1F45B00D0E225 /* SumSubtractCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumSubtractCommand.swift; sourceTree = "<group>"; };
 		54F491C623A0E39E001D0E45 /* CommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
 		54F491C823A0E3B5001D0E45 /* CommandKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandKey.swift; sourceTree = "<group>"; };
 		54FE50BA23CF2E8200BF52FC /* CommandTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTestCase.swift; sourceTree = "<group>"; };
@@ -566,6 +580,9 @@
 				543E165823E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift */,
 				543E165A23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift */,
 				543E165C23E8847F00CCDFF1 /* StoreRecallDigitCommandTests.swift */,
+				54EF878223F1F39000D0E225 /* SumAddCommandTests.swift */,
+				54EF878623F1F3B400D0E225 /* SumSubtractCommandTests.swift */,
+				54E0080123F2C4C4007BA9F5 /* RecallSumCommandTests.swift */,
 			);
 			path = Registers;
 			sourceTree = "<group>";
@@ -583,6 +600,7 @@
 			children = (
 				54465F2423C140800037535D /* DisplayMockDelegate.swift */,
 				54FE50BA23CF2E8200BF52FC /* CommandTestCase.swift */,
+				54E0080323F2C76A007BA9F5 /* StatisticsTestsSetup.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -605,6 +623,9 @@
 				54374CDB23E783BC00A0B5D7 /* StoreRecallDotCommand.swift */,
 				54374CDD23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift */,
 				54374CE223E7A63E00A0B5D7 /* ClearRegCommand.swift */,
+				54EF878A23F1F44E00D0E225 /* SumAddCommand.swift */,
+				54EF878C23F1F45B00D0E225 /* SumSubtractCommand.swift */,
+				54E007FD23F2C3BB007BA9F5 /* RecallSumCommand.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1090,6 +1111,7 @@
 				54E769E523A5BB5A00165EDC /* ExpCommand.swift in Sources */,
 				54E08BE123C53971002C2A97 /* PercentCommand.swift in Sources */,
 				54E08BE923C5EF5A002C2A97 /* FactorialCommand.swift in Sources */,
+				54E007FE23F2C3BB007BA9F5 /* RecallSumCommand.swift in Sources */,
 				5489043E23BCF820002D6F02 /* EEXCommand.swift in Sources */,
 				54D17F88239C5DDB008F5020 /* AddCommand.swift in Sources */,
 				54B76C2923A8D1C600600BDC /* LastXCommand.swift in Sources */,
@@ -1130,6 +1152,7 @@
 				5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */,
 				54374CDE23E7842A00A0B5D7 /* StoreRecallDigitCommand.swift in Sources */,
 				54E4696323ECC6CE0069E677 /* MathTool.swift in Sources */,
+				54EF878D23F1F45B00D0E225 /* SumSubtractCommand.swift in Sources */,
 				549B8CE123CE64A500E36997 /* ACosineHCommand.swift in Sources */,
 				54D17F77239C4660008F5020 /* Command.swift in Sources */,
 				54E769EB23A5BC5400165EDC /* Log10Command.swift in Sources */,
@@ -1164,6 +1187,7 @@
 				5444D5B523D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 				54E08BDB23C4E336002C2A97 /* RndCommand.swift in Sources */,
+				54EF878B23F1F44E00D0E225 /* SumAddCommand.swift in Sources */,
 				542C044723C7CE8B00A82471 /* RadToDegCommand.swift in Sources */,
 				542B1AC723C6577600EE064D /* TrigonometricConverter.swift in Sources */,
 				540D4B2A23BEB10C003194B0 /* NumberFormatDigitCommand.swift in Sources */,
@@ -1182,9 +1206,11 @@
 				54E769E723A5BB8E00165EDC /* ExpCommandTests.swift in Sources */,
 				5403EBDC23C4BE0400C2E60A /* CLxCommandTests.swift in Sources */,
 				545F3EA123A9914300D0BC5A /* UPNEngineTrigonometricTests.swift in Sources */,
+				54EF878723F1F3B400D0E225 /* SumSubtractCommandTests.swift in Sources */,
 				54E769ED23A5BC8400165EDC /* LogCommandTests.swift in Sources */,
 				54B76C2D23A8D26300600BDC /* AbsCommandTests.swift in Sources */,
 				54E769DD23A5877400165EDC /* ASineCommandTests.swift in Sources */,
+				54E0080223F2C4C4007BA9F5 /* RecallSumCommandTests.swift in Sources */,
 				54312E4423B81F0700C6B2D2 /* NumberFormatTests.swift in Sources */,
 				54465F2723C1F42B0037535D /* CommandControllerTests.swift in Sources */,
 				5433553123AC19A100120CA9 /* FracCommandTests.swift in Sources */,
@@ -1209,6 +1235,7 @@
 				542C044D23C7EBBB00A82471 /* RectangularConversionCommandTests.swift in Sources */,
 				54FE50BB23CF2E8200BF52FC /* CommandTestCase.swift in Sources */,
 				54B76C2B23A8D25700600BDC /* LastXCommandTests.swift in Sources */,
+				54EF878323F1F39000D0E225 /* SumAddCommandTests.swift in Sources */,
 				542485F223AF7E8C0021992F /* ScientificFormatterTests.swift in Sources */,
 				543E165923E8844800CCDFF1 /* StoreRecallOperationCommandTests.swift in Sources */,
 				542485E623AEE52F0021992F /* SciCommandTests.swift in Sources */,
@@ -1244,6 +1271,7 @@
 				545F3E9723A98F6100D0BC5A /* UPNEngineCoreTests.swift in Sources */,
 				5444D5B323D10D3C0040AB32 /* HMMSSToDecDegreeCommandTests.swift in Sources */,
 				54465F2023C1404F0037535D /* EEXChangeSignCommandTests.swift in Sources */,
+				54E0080423F2C76A007BA9F5 /* StatisticsTestsSetup.swift in Sources */,
 				542C044B23C7EBA600A82471 /* PolarConversionCommandTests.swift in Sources */,
 				544F8AF723A3A56100C58A42 /* EnterCommandTests.swift in Sources */,
 				543E165B23E8845E00CCDFF1 /* StoreRecallDotCommandTests.swift in Sources */,

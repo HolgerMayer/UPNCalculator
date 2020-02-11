@@ -26,6 +26,7 @@ public enum RegisterOperation : Int {
 public protocol RegisterControllerDelegate : AnyObject {
     func getStackXValue() -> Double
     func setStackXValue(_ value : Double)
+    func getStackYValue() -> Double
 }
 
 class RegisterController {

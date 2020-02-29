@@ -13,6 +13,11 @@
 		540D4B2A23BEB10C003194B0 /* NumberFormatDigitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540D4B2923BEB10C003194B0 /* NumberFormatDigitCommand.swift */; };
 		540D4B2C23BF3BBC003194B0 /* EEX1Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540D4B2B23BF3BBC003194B0 /* EEX1Command.swift */; };
 		540D4B3023BF3CB9003194B0 /* EEXChangeSignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540D4B2F23BF3CB9003194B0 /* EEXChangeSignCommand.swift */; };
+		541E8DA0240AFA0A00CF8944 /* CoreDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E8D9B240AFA0A00CF8944 /* CoreDisplayViewController.swift */; };
+		541E8DA1240AFA0A00CF8944 /* ViewEmbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E8D9C240AFA0A00CF8944 /* ViewEmbedder.swift */; };
+		541E8DA2240AFA0A00CF8944 /* ButtonArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E8D9D240AFA0A00CF8944 /* ButtonArrayViewController.swift */; };
+		541E8DA3240AFA0A00CF8944 /* CenterLeftButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E8D9E240AFA0A00CF8944 /* CenterLeftButtonViewController.swift */; };
+		541E8DA4240AFA0A00CF8944 /* BottomRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E8D9F240AFA0A00CF8944 /* BottomRightViewController.swift */; };
 		542485E023AED8750021992F /* FixCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485DF23AED8750021992F /* FixCommand.swift */; };
 		542485E223AEDA350021992F /* FixCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E123AEDA350021992F /* FixCommandTests.swift */; };
 		542485E423AEE3710021992F /* SciCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542485E323AEE3710021992F /* SciCommand.swift */; };
@@ -253,6 +258,11 @@
 		540D4B2923BEB10C003194B0 /* NumberFormatDigitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatDigitCommand.swift; sourceTree = "<group>"; };
 		540D4B2B23BF3BBC003194B0 /* EEX1Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEX1Command.swift; sourceTree = "<group>"; };
 		540D4B2F23BF3CB9003194B0 /* EEXChangeSignCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEXChangeSignCommand.swift; sourceTree = "<group>"; };
+		541E8D9B240AFA0A00CF8944 /* CoreDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDisplayViewController.swift; sourceTree = "<group>"; };
+		541E8D9C240AFA0A00CF8944 /* ViewEmbedder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEmbedder.swift; sourceTree = "<group>"; };
+		541E8D9D240AFA0A00CF8944 /* ButtonArrayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonArrayViewController.swift; sourceTree = "<group>"; };
+		541E8D9E240AFA0A00CF8944 /* CenterLeftButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterLeftButtonViewController.swift; sourceTree = "<group>"; };
+		541E8D9F240AFA0A00CF8944 /* BottomRightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRightViewController.swift; sourceTree = "<group>"; };
 		542485DF23AED8750021992F /* FixCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixCommand.swift; sourceTree = "<group>"; };
 		542485E123AEDA350021992F /* FixCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixCommandTests.swift; sourceTree = "<group>"; };
 		542485E323AEE3710021992F /* SciCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciCommand.swift; sourceTree = "<group>"; };
@@ -500,6 +510,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541E8D99240AF9D100CF8944 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				54D17F7F239C52E2008F5020 /* Display.swift */,
+				54D17F81239C5752008F5020 /* CalculatorDisplay.swift */,
+				540D4B2123BE793A003194B0 /* CommandController.swift */,
+			);
+			path = ModelController;
+			sourceTree = "<group>";
+		};
+		541E8D9A240AF9E200CF8944 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				54757AEA239A58200048A732 /* ViewController.swift */,
+				541E8D9F240AFA0A00CF8944 /* BottomRightViewController.swift */,
+				541E8D9D240AFA0A00CF8944 /* ButtonArrayViewController.swift */,
+				541E8D9E240AFA0A00CF8944 /* CenterLeftButtonViewController.swift */,
+				541E8D9B240AFA0A00CF8944 /* CoreDisplayViewController.swift */,
+				541E8D9C240AFA0A00CF8944 /* ViewEmbedder.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		542485E723AF7D2F0021992F /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,11 +805,9 @@
 		54757B18239A59030048A732 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				541E8D9A240AF9E200CF8944 /* ViewController */,
+				541E8D99240AF9D100CF8944 /* ModelController */,
 				542485E723AF7D2F0021992F /* Formatter */,
-				54757AEA239A58200048A732 /* ViewController.swift */,
-				54D17F7F239C52E2008F5020 /* Display.swift */,
-				54D17F81239C5752008F5020 /* CalculatorDisplay.swift */,
-				540D4B2123BE793A003194B0 /* CommandController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1154,6 +1185,7 @@
 				54E769F123A5BDF300165EDC /* XOverTenCommand.swift in Sources */,
 				542C044923C7CE9800A82471 /* DegToRadCommand.swift in Sources */,
 				542B1AC323C645EF00EE064D /* RadCommand.swift in Sources */,
+				541E8DA2240AFA0A00CF8944 /* ButtonArrayViewController.swift in Sources */,
 				540D4B3023BF3CB9003194B0 /* EEXChangeSignCommand.swift in Sources */,
 				549B8CE723CE650800E36997 /* InverseHyperbolicCommand.swift in Sources */,
 				549B8CE523CE64F800E36997 /* HyperbolicCommand.swift in Sources */,
@@ -1171,6 +1203,7 @@
 				54E769D923A5871D00165EDC /* ATangentCommand.swift in Sources */,
 				54757B1E239A5CBD0048A732 /* UPNEngine.swift in Sources */,
 				5498F52E23DB5F4900A09309 /* RollUpCommand.swift in Sources */,
+				541E8DA3240AFA0A00CF8944 /* CenterLeftButtonViewController.swift in Sources */,
 				54D17F84239C59FE008F5020 /* DigitDotCommand.swift in Sources */,
 				54E4695A23ECC4640069E677 /* UPNEngine+Statistics.swift in Sources */,
 				5497C94F23A0E9BB00FF7696 /* ChangeSignCommand.swift in Sources */,
@@ -1184,7 +1217,9 @@
 				54D17F82239C5752008F5020 /* CalculatorDisplay.swift in Sources */,
 				54D17F90239C6545008F5020 /* SineCommand.swift in Sources */,
 				5497C95123A0EDBF00FF7696 /* KeyboardState.swift in Sources */,
+				541E8DA0240AFA0A00CF8944 /* CoreDisplayViewController.swift in Sources */,
 				54465F1423C13E560037535D /* EEXBackArrowCommand.swift in Sources */,
+				541E8DA4240AFA0A00CF8944 /* BottomRightViewController.swift in Sources */,
 				54D17F96239C693B008F5020 /* SquareRootCommand.swift in Sources */,
 				54D17F98239C6A74008F5020 /* DivideOneByXCommand.swift in Sources */,
 				54B76C2523A8CEFA00600BDC /* AbsCommand.swift in Sources */,
@@ -1215,6 +1250,7 @@
 				5444D5B523D10DA30040AB32 /* HMMSSToDecDegreeCommand.swift in Sources */,
 				54E769D523A586C400165EDC /* ASineCommand.swift in Sources */,
 				54E08BDB23C4E336002C2A97 /* RndCommand.swift in Sources */,
+				541E8DA1240AFA0A00CF8944 /* ViewEmbedder.swift in Sources */,
 				54EF878B23F1F44E00D0E225 /* SumAddCommand.swift in Sources */,
 				542C044723C7CE8B00A82471 /* RadToDegCommand.swift in Sources */,
 				542B1AC723C6577600EE064D /* TrigonometricConverter.swift in Sources */,

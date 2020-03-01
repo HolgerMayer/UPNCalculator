@@ -21,24 +21,24 @@ class CommandController {
     private var registerController : RegisterController
     
     var primaryFunctionLabels = [0: "√", 1: "eX", 2: "10X" , 3: "yX", 4: "1/x",
-                                 6:"GTO", 7: "SIN" , 8: "COS", 9: "TAN",
-                                 11: "GSB", 12: "R⬇︎" , 13: "X↔︎Y", 14: "←",
+                                 5: "", 6:"GTO", 7: "SIN" , 8: "COS", 9: "TAN",
+                                 10:"", 11: "GSB", 12: "R⬇︎" , 13: "X↔︎Y", 14: "←",
                                  15: "CP", 16: "f" , 17: "g", 18: "STO", 19:"RCL",
                                  20: "CHS", 21:"7" , 22:"8", 23:"9", 24:"/",
                                  25: "EEX", 26:"4" , 27:"5", 28:"6", 29:"*",
                                  30: "Enter", 31:"1" , 32:"2", 33:"3", 34:"-",
                                  35:"0" , 36:".", 37:"∑+", 38:"+"]
     var secondaryFunctionLabels = [0: "A", 1: "B", 2: "C" , 3: "D", 4: "E",
-                                   6: "HYP", 7: "" , 8: "", 9: "",
-                                   11:"Clear ∑", 12: "" , 13: "Clear REG", 14: "",
+                                   5: "", 6: "HYP", 7: "" , 8: "", 9: "",
+                                   10: "", 11:"Clear ∑", 12: "" , 13: "Clear REG", 14: "",
                                    15: "", 16: "" , 17: "", 18: "FRAC", 19:"",
                                  20: "", 21:"FIX" , 22:"SCI", 23:"ENG", 24:"",
                                  25: "", 26:"" , 27:"", 28:"", 29:"",
                                  30: "RAN#", 31:"➡︎R" , 32:"➡︎H.MS", 33:"➡︎RAD", 34:"",
                                  35:"x!" , 36:"ẏ,r", 37:"L.R.", 38:"Py,x"]
     var ternaryFunctionLabels = [0: "x²", 1: "LN", 2: "LOG" , 3: "%", 4: "∆%",
-                                  6: "HYP-1", 7: "SIN-1" , 8: "COS-1", 9: "TAN-1",
-                                 11: "", 12: "R⬆︎" , 13: "RND", 14: "CLx",
+                                 5:"", 6: "HYP-1", 7: "SIN-1" , 8: "COS-1", 9: "TAN-1",
+                                 10:"", 11: "", 12: "R⬆︎" , 13: "RND", 14: "CLx",
                                  15: "", 16: "" , 17: "", 18: "INT", 19:"",
                                  20: "ABS", 21:"DEG" , 22:"RAD", 23:"GRD", 24:"",
                                  25: "EEX", 26:"4" , 27:"5", 28:"6", 29:"*",
@@ -143,7 +143,7 @@ extension CommandController {
     }
     
     func accessoryLabelFor(tag : Int) -> String {
-        return primaryLabelFor(tag:tag)
+        return resolveButton(tag:tag)
         
     }
     

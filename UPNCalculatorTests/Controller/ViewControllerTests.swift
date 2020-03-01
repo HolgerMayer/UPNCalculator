@@ -27,53 +27,13 @@ class ViewControllerTests: XCTestCase {
     }
 
     func testButtonsAreAvailable() {
-        XCTAssertNotNil(testObject.outputLabel)
-
-        // Numbers
-        XCTAssertNotNil(testObject.digit0Button)
-        XCTAssertNotNil(testObject.digit1Button)
-        XCTAssertNotNil(testObject.digit2Button)
-        XCTAssertNotNil(testObject.digit3Button)
-        XCTAssertNotNil(testObject.digit4Button)
-        XCTAssertNotNil(testObject.digit5Button)
-        XCTAssertNotNil(testObject.digit6Button)
-        XCTAssertNotNil(testObject.digit7Button)
-        XCTAssertNotNil(testObject.digit8Button)
-        XCTAssertNotNil(testObject.digit9Button)
-        
-        // Operations
-        XCTAssertNotNil(testObject.addButton)
-        XCTAssertNotNil(testObject.subtractButton)
-        XCTAssertNotNil(testObject.multiplyButton)
-        XCTAssertNotNil(testObject.divideButton)
-
-        XCTAssertNotNil(testObject.sqrtButton)
-        XCTAssertNotNil(testObject.xovereButton)
-        XCTAssertNotNil(testObject.xover10Button)
-        XCTAssertNotNil(testObject.xoveryButton)
-        XCTAssertNotNil(testObject.onedivxButton)
-
-        XCTAssertNotNil(testObject.sinButton)
-        XCTAssertNotNil(testObject.cosButton)
-        XCTAssertNotNil(testObject.tanButton)
-
-        
-        // Else
-        XCTAssertNotNil(testObject.dotButton)
-        XCTAssertNotNil(testObject.enterButton)
-        XCTAssertNotNil(testObject.eexButton)
-        XCTAssertNotNil(testObject.gsbButton)
-        XCTAssertNotNil(testObject.chsButton)
-
-
+        XCTAssertNotNil(testObject.displayViewController.outputLabel)
     }
 
 
     func testInitialState(){
-        let locale = Locale.current
         
-        XCTAssertEqual(testObject.outputLabel.text,  "0#0000     ".replaceFirstOccurrence(of: "#", with: locale.decimalSeparator!))
-        XCTAssertTrue(testObject.isPushed())
+        XCTAssertEqual(testObject.displayViewController.outputLabel.text,  "")
         XCTAssertNotNil(testObject.calculatorEngine)
         XCTAssertNotNil(testObject.display)
     }

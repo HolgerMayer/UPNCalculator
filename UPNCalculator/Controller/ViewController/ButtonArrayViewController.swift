@@ -70,17 +70,25 @@ class ButtonArrayViewController: UIViewController {
         let title3: String = delegate.buttonTernaryTitleFor(tag: tag)
         let accessoryLabel : String = delegate.buttonAccessoryTitleFor(tag: tag)
         
+        var newLine1 = "\n"
+        var newLine2 = "\n"
+        var newLine3 = "\n"
+        if tag == 30 {
+            newLine1 = "\n\n"
+            newLine2 = "\n\n\n"
+            newLine3 = "\n"
+       }
         
-        let attributedTitle1 = NSMutableAttributedString(string:title1 + "\n" )
+        let attributedTitle1 = NSMutableAttributedString(string:title1 + newLine1)
         attributedTitle1.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.orange, range: NSMakeRange(0, attributedTitle1.length))
         attributedTitle1.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle1.length))
         attributedTitle1.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedTitle1.length))
         
-        let attributedTitle2 = NSMutableAttributedString(string: title2 + "\n")
+        let attributedTitle2 = NSMutableAttributedString(string: title2 + newLine2)
         attributedTitle2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, attributedTitle2.length))
         attributedTitle2.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSMakeRange(0, attributedTitle2.length))
         
-        let attributedTitle3 = NSMutableAttributedString(string:  title3 + "\n" )
+        let attributedTitle3 = NSMutableAttributedString(string:  title3 + newLine3 )
         attributedTitle3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.cyan, range: NSMakeRange(0, attributedTitle3.length))
         attributedTitle3.addAttribute(NSAttributedString.Key.font, value:UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(0, attributedTitle3.length))
         

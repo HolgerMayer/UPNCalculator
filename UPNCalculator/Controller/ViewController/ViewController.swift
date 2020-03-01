@@ -226,7 +226,7 @@ extension ViewController : ButtonViewControllerDelegate {
         }
 
         if tag == 30 {
-            return "ButtonLarge"
+            return "ButtonLarge1"
         }
 
         
